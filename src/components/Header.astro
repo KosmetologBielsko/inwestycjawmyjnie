@@ -1,0 +1,21 @@
+---
+import { siteConfig } from '../config/site';
+---
+
+<header class="site-header">
+	<div class="container header-inner">
+		<a class="brand" href="/" aria-label="Inwestycja w Myjnię — strona główna">
+			<span class="brand-mark" aria-hidden="true"></span>
+			<span class="brand-text">{siteConfig.name}</span>
+		</a>
+
+		<nav class="desktop-nav" aria-label="Główna nawigacja">
+			{siteConfig.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+		</nav>
+
+		<a class="header-cta" href="#kontakt">
+			Analiza lokalizacji
+			<span aria-hidden="true">→</span>
+		</a>
+	</div>
+</header>

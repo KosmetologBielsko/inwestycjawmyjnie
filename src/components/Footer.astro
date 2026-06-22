@@ -1,0 +1,21 @@
+---
+import { siteConfig } from '../config/site';
+---
+
+<footer class="site-footer">
+	<div class="container footer-inner">
+		<div>
+			<a class="footer-brand" href="/">{siteConfig.name}</a>
+			<p>Poradnik inwestora myjni bezdotykowej.</p>
+		</div>
+
+		<div class="footer-contact">
+			<a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+			<div class="footer-links" aria-label="Linki prawne">
+				<a href="/polityka-prywatnosci/">Polityka prywatności</a>
+				<a href="/regulamin-serwisu/">Regulamin serwisu</a>
+				<a href="/nota-prawna/">Nota prawna</a>
+			</div>
+		</div>
+	</div>
+</footer>

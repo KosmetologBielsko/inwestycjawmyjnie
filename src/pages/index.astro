@@ -1,11 +1,355 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config/site';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const mainCards = [
+	{
+		id: 'koszty',
+		kicker: 'Koszty',
+		title: 'Koszt budowy',
+		text: 'Sprawdź, z czego składa się budżet inwestycji i czego inwestor często nie dolicza na początku.',
+		href: '/ile-kosztuje-myjnia-bezdotykowa/',
+		visual: 'cost'
+	},
+	{
+		id: 'oplacalnosc',
+		kicker: 'Opłacalność',
+		title: 'Ile zarabia myjnia?',
+		text: 'Zobacz, co wpływa na przychody, koszty, sezonowość i realny czas zwrotu z inwestycji.',
+		href: '/ile-zarabia-myjnia-bezdotykowa/',
+		visual: 'profit'
+	},
+	{
+		id: 'dostawca',
+		kicker: 'Dostawcy',
+		title: 'Jak wybrać dostawcę?',
+		text: 'Porównuj oferty nie tylko po cenie. Sprawdź technologię, zakres, serwis i koszty eksploatacji.',
+		href: '/jak-wybrac-producenta-myjni-bezdotykowej/',
+		visual: 'supplier'
+	}
+];
+
+const quickCards = [
+	{
+		id: 'dzialka',
+		title: 'Działka pod myjnię',
+		text: 'Lokalizacja, wjazd, media, widoczność i potencjał ruchu.',
+		href: '/dzialka-pod-myjnie-bezdotykowa/'
+	},
+	{
+		id: 'formalnosci',
+		title: 'Formalności',
+		text: 'Pozwolenia, WZ, MPZP, dokumentacja i podstawowe ryzyka.',
+		href: '/pozwolenie-na-budowe-myjni-bezdotykowej/'
+	},
+	{
+		id: 'technologia',
+		title: 'Technologia',
+		text: 'Programy, ciśnienie, kontener, posadzka i koszty eksploatacji.',
+		href: '/technologia-myjni-bezdotykowej/'
+	},
+	{
+		id: 'bledy',
+		title: 'Błędy inwestora',
+		text: 'Najczęstsze pułapki przed budową myjni i sposoby ich uniknięcia.',
+		href: '/najczestsze-bledy-przy-budowie-myjni/'
+	}
+];
+
+const processSteps = [
+	{
+		number: '01',
+		title: 'Analiza lokalizacji',
+		text: 'Sprawdzenie działki, ruchu, widoczności, mediów i otoczenia.'
+	},
+	{
+		number: '02',
+		title: 'Plan inwestycji',
+		text: 'Dobór liczby stanowisk, wariantu technologii i budżetu.'
+	},
+	{
+		number: '03',
+		title: 'Porównanie rozwiązań',
+		text: 'Ocena zakresu ofert, konstrukcji, serwisu i kosztów eksploatacji.'
+	},
+	{
+		number: '04',
+		title: 'Decyzja i realizacja',
+		text: 'Przygotowanie do budowy, uruchomienia i późniejszej pracy obiektu.'
+	}
+];
+
+const knowledgeCards = [
+	{
+		label: 'Koszty',
+		title: 'Ile kosztuje myjnia bezdotykowa?',
+		text: 'Najważniejsze składniki budżetu inwestycji.',
+		href: '/ile-kosztuje-myjnia-bezdotykowa/'
+	},
+	{
+		label: 'Lokalizacja',
+		title: 'Jaka działka nadaje się pod myjnię?',
+		text: 'Wjazd, widoczność, media i potencjał rynku.',
+		href: '/dzialka-pod-myjnie-bezdotykowa/'
+	},
+	{
+		label: 'Dostawcy',
+		title: 'Jak porównać oferty na myjnię?',
+		text: 'Lista elementów, które warto sprawdzić przed podpisaniem umowy.',
+		href: '/jak-porownac-oferty-myjni-bezdotykowej/'
+	}
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="Ile kosztuje myjnia bezdotykowa? Inwestycja, opłacalność i analiza lokalizacji"
+	description="Praktyczny poradnik inwestora myjni bezdotykowej: koszt budowy, opłacalność, działka, formalności, technologia, dostawcy i analiza lokalizacji."
+	canonicalPath="/"
+>
+	<Header />
+
+	<main>
+		<section class="hero section">
+			<div class="container hero-grid">
+				<div class="hero-copy">
+					<p class="eyebrow">
+						<span></span>
+						Praktyczny poradnik dla inwestora
+					</p>
+
+					<h1>
+						Ile kosztuje myjnia bezdotykowa i jak mądrze
+						<strong>zaplanować inwestycję?</strong>
+					</h1>
+
+					<p class="hero-lead">
+						Koszty budowy, opłacalność, działka, formalności, technologia i wybór
+						sprawdzonego rozwiązania — w jednym miejscu, prostym językiem.
+					</p>
+
+					<div class="hero-actions">
+						<a class="button primary" href="#kontakt">
+							Analiza lokalizacji
+							<span aria-hidden="true">→</span>
+						</a>
+						<a class="button secondary" href="#poradnik">
+							Zobacz przewodnik
+							<span aria-hidden="true">→</span>
+						</a>
+					</div>
+
+					<div class="trust-row" aria-label="Najważniejsze założenia serwisu">
+						<span><i></i>Neutralny poradnik</span>
+						<span><i></i>Bez nachalnej sprzedaży</span>
+						<span><i></i>Decyzje oparte na danych</span>
+					</div>
+				</div>
+
+				<div class="hero-visual" aria-label="Wizualizacja nowoczesnej myjni bezdotykowej">
+					<div class="wash-render">
+						<div class="render-sky"></div>
+						<div class="wash-canopy">
+							<span>MYJNIA BEZDOTYKOWA</span>
+						</div>
+						<div class="wash-bays">
+							<div class="wash-bay">
+								<strong>1</strong>
+								<div class="bay-light"></div>
+							</div>
+							<div class="wash-bay active">
+								<strong>2</strong>
+								<div class="bay-light"></div>
+								<div class="car-shape"></div>
+								<div class="mist"></div>
+							</div>
+							<div class="wash-bay">
+								<strong>3</strong>
+								<div class="bay-light"></div>
+							</div>
+						</div>
+						<div class="render-ground"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section main-topics" aria-labelledby="main-topics-title">
+			<div class="container">
+				<div class="section-heading">
+					<p class="eyebrow">
+						<span></span>
+						Od czego zacząć?
+					</p>
+					<h2 id="main-topics-title">Najważniejsze decyzje przed budową myjni</h2>
+				</div>
+
+				<div class="feature-grid">
+					{
+						mainCards.map((card) => (
+							<a class={`feature-card visual-${card.visual}`} href={card.href} id={card.id}>
+								<div class="feature-content">
+									<p>{card.kicker}</p>
+									<h3>{card.title}</h3>
+									<span>{card.text}</span>
+								</div>
+								<div class="feature-art" aria-hidden="true">
+									<div></div>
+								</div>
+								<b aria-hidden="true">→</b>
+							</a>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="section quick-section" aria-labelledby="quick-title">
+			<div class="container">
+				<div class="split-heading">
+					<div>
+						<p class="eyebrow">
+							<span></span>
+							W pigułce
+						</p>
+						<h2 id="quick-title">Tematy, które inwestor powinien sprawdzić wcześniej</h2>
+					</div>
+					<p>
+						Strona główna pokazuje tylko najważniejsze obszary. Szczegółowe analizy,
+						porównania i checklisty będą rozwijane na podstronach poradnika.
+					</p>
+				</div>
+
+				<div class="quick-grid">
+					{
+						quickCards.map((card) => (
+							<a class="quick-card" href={card.href}>
+								<span aria-hidden="true"></span>
+								<h3>{card.title}</h3>
+								<p>{card.text}</p>
+								<b aria-hidden="true">→</b>
+							</a>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="section process-section" aria-labelledby="process-title">
+			<div class="container process-panel">
+				<div class="section-heading compact">
+					<p class="eyebrow">
+						<span></span>
+						Proces inwestycji
+					</p>
+					<h2 id="process-title">Od działki do decyzji inwestycyjnej</h2>
+				</div>
+
+				<div class="process-grid">
+					{
+						processSteps.map((step) => (
+							<div class="process-card">
+								<strong>{step.number}</strong>
+								<h3>{step.title}</h3>
+								<p>{step.text}</p>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="section knowledge-section" id="poradnik" aria-labelledby="knowledge-title">
+			<div class="container">
+				<div class="split-heading">
+					<div>
+						<p class="eyebrow">
+							<span></span>
+							Baza wiedzy
+						</p>
+						<h2 id="knowledge-title">Poradnik inwestora myjni bezdotykowej</h2>
+					</div>
+					<a class="text-link" href="/poradnik/">
+						Zobacz wszystkie tematy
+						<span aria-hidden="true">→</span>
+					</a>
+				</div>
+
+				<div class="knowledge-grid">
+					{
+						knowledgeCards.map((card) => (
+							<a class="knowledge-card" href={card.href}>
+								<div class="knowledge-thumb" aria-hidden="true"></div>
+								<div>
+									<p>{card.label}</p>
+									<h3>{card.title}</h3>
+									<span>{card.text}</span>
+								</div>
+								<b aria-hidden="true">→</b>
+							</a>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="section contact-section" id="kontakt" aria-labelledby="contact-title">
+			<div class="container">
+				<div class="contact-panel">
+					<div>
+						<p class="eyebrow light">
+							<span></span>
+							Analiza lokalizacji
+						</p>
+						<h2 id="contact-title">Prześlij lokalizację do analizy</h2>
+						<p>
+							Masz działkę, teren przy drodze, stację paliw, market albo lokalizację
+							usługową? Wyślij podstawowe informacje i sprawdź, czy myjnia może mieć
+							tam sens.
+						</p>
+
+						<div class="contact-benefits">
+							<span><i></i>Odpowiedź bez zobowiązań</span>
+							<span><i></i>Ocena potencjału lokalizacji</span>
+							<span><i></i>Kontakt przez {siteConfig.email}</span>
+						</div>
+					</div>
+
+					<form class="lead-form">
+						<label>
+							Imię
+							<input type="text" name="name" placeholder="Twoje imię" />
+						</label>
+						<label>
+							E-mail
+							<input type="email" name="email" placeholder={siteConfig.email} />
+						</label>
+						<label>
+							Telefon
+							<input type="tel" name="phone" placeholder="Numer telefonu" />
+						</label>
+						<label>
+							Lokalizacja
+							<input type="text" name="location" placeholder="Miejscowość lub link do mapy" />
+						</label>
+						<label class="full">
+							Wiadomość
+							<textarea name="message" rows="4" placeholder="Napisz, na jakim etapie jest inwestycja..."></textarea>
+						</label>
+						<button type="button">
+							Wyślij do analizy
+							<span aria-hidden="true">→</span>
+						</button>
+						<small>
+							Formularz jest elementem projektu graficznego. Funkcję wysyłki podłączymy w
+							kolejnym etapie.
+						</small>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
 </Layout>
