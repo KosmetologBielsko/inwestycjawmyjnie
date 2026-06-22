@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { siteConfig } from '../config/site';
+import InvestorTopicsSection from '../components/home/investor-topics-section.astro';
 
 const heroSlides = [
 	{
@@ -478,37 +479,6 @@ const faqSchema = {
 		</div>
 	</div>
 </section>
-
-		<section class="section primary-section" aria-labelledby="primary-title">
-			<div class="container">
-				<div class="section-head">
-					<p class="eyebrow">
-						<span></span>
-						4 decyzje inwestora
-					</p>
-					<h2 id="primary-title">
-						Najważniejsze tematy <strong>przed budową</strong> myjni
-					</h2>
-				</div>
-
-				<div class="primary-grid">
-					{
-						primaryCards.map((card) => (
-							<a class="primary-card" id={card.id} href={card.href}>
-								<div class="card-number">{card.number}</div>
-								<div>
-									<p>{card.kicker}</p>
-									<h3>{card.title}</h3>
-									<span>{card.text}</span>
-								</div>
-								<b aria-hidden="true">→</b>
-							</a>
-						))
-					}
-				</div>
-			</div>
-		</section>
-
 		<section class="section metrics-section" aria-labelledby="metrics-title">
 			<div class="container">
 				<div class="metrics-panel">
@@ -535,7 +505,7 @@ const faqSchema = {
 				</div>
 			</div>
 		</section>
-
+<InvestorTopicsSection />
 		<section class="section checklist-section" aria-labelledby="checklist-title">
 	<div class="container location-audit-grid">
 		<div class="location-audit-copy">
