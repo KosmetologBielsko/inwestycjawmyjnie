@@ -4,56 +4,85 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { siteConfig } from '../config/site';
 
-const mainCards = [
+const heroSlides = [
+	{
+		label: 'Analiza 360',
+		desktop: '/images/hero-01-analiza-360-desktop.webp',
+		mobile: '/images/hero-01-analiza-360-mobile.webp',
+		alt: 'Analiza 360 stopni lokalizacji pod inwestycję w myjnię bezdotykową.'
+	},
+	{
+		label: 'Opłacalność',
+		desktop: '/images/hero-02-oplacalnosc-desktop.webp',
+		mobile: '/images/hero-02-oplacalnosc-mobile.webp',
+		alt: 'Opłacalność inwestycji w myjnię: przychód, koszty i zwrot.'
+	},
+	{
+		label: 'Inwestycja w myjnię',
+		desktop: '/images/hero-03-inwestycja-w-myjnie-desktop.webp',
+		mobile: '/images/hero-03-inwestycja-w-myjnie-mobile.webp',
+		alt: 'Inwestycja w myjnię od pomysłu do uruchomienia.'
+	},
+	{
+		label: 'Proces inwestycji',
+		desktop: '/images/hero-04-proces-inwestycji-desktop.webp',
+		mobile: '/images/hero-04-proces-inwestycji-mobile.webp',
+		alt: 'Proces inwestycji w myjnię krok po kroku.'
+	}
+];
+
+const primaryCards = [
 	{
 		id: 'koszty',
-		kicker: 'Koszty',
-		title: 'Koszt budowy',
-		text: 'Sprawdź, z czego składa się budżet inwestycji i czego inwestor często nie dolicza na początku.',
+		kicker: 'Koszt inwestycji',
+		title: 'Ile kosztuje myjnia bezdotykowa?',
+		text: 'Budżet, zakres budowy, technologia, przyłącza, posadzka, kontener i elementy, których inwestor często nie dolicza na początku.',
 		href: '/ile-kosztuje-myjnia-bezdotykowa/',
-		visual: 'cost'
+		number: '01'
 	},
 	{
 		id: 'oplacalnosc',
 		kicker: 'Opłacalność',
-		title: 'Ile zarabia myjnia?',
-		text: 'Zobacz, co wpływa na przychody, koszty, sezonowość i realny czas zwrotu z inwestycji.',
+		title: 'Ile może zarabiać myjnia?',
+		text: 'Przychody, sezonowość, liczba myć, koszty stałe, koszty zmienne i realne czynniki wpływające na zwrot z inwestycji.',
 		href: '/ile-zarabia-myjnia-bezdotykowa/',
-		visual: 'profit'
+		number: '02'
 	},
 	{
-		id: 'dostawca',
+		id: 'dzialka',
+		kicker: 'Lokalizacja',
+		title: 'Czy działka nadaje się pod myjnię?',
+		text: 'Wjazd, wyjazd, widoczność, media, MPZP/WZ, sąsiedztwo, ruch samochodowy i potencjał lokalizacji.',
+		href: '/dzialka-pod-myjnie-bezdotykowa/',
+		number: '03'
+	},
+	{
+		id: 'dostawcy',
 		kicker: 'Dostawcy',
-		title: 'Jak wybrać dostawcę?',
-		text: 'Porównuj oferty nie tylko po cenie. Sprawdź technologię, zakres, serwis i koszty eksploatacji.',
-		href: '/jak-wybrac-producenta-myjni-bezdotykowej/',
-		visual: 'supplier'
+		title: 'Jak porównać oferty producentów?',
+		text: 'Nie tylko cena. Zakres, technologia, konstrukcja, serwis, gwarancja, koszty eksploatacji i kompletność oferty.',
+		href: '/jak-porownac-oferty-myjni-bezdotykowej/',
+		number: '04'
 	}
 ];
 
-const quickCards = [
+const knowledgeCards = [
 	{
-		id: 'dzialka',
-		title: 'Działka pod myjnię',
-		text: 'Lokalizacja, wjazd, media, widoczność i potencjał ruchu.',
-		href: '/dzialka-pod-myjnie-bezdotykowa/'
+		label: 'Koszt budowy',
+		title: 'Budżet inwestora',
+		text: 'Co realnie składa się na koszt budowy myjni bezdotykowej?',
+		href: '/koszt-budowy-myjni-bezdotykowej/'
 	},
 	{
-		id: 'formalnosci',
-		title: 'Formalności',
-		text: 'Pozwolenia, WZ, MPZP, dokumentacja i podstawowe ryzyka.',
-		href: '/pozwolenie-na-budowe-myjni-bezdotykowej/'
+		label: 'Proces',
+		title: 'Od działki do uruchomienia',
+		text: 'Jak wygląda droga od pierwszej analizy do gotowego obiektu?',
+		href: '/budowa-myjni-bezdotykowej-krok-po-kroku/'
 	},
 	{
-		id: 'technologia',
-		title: 'Technologia',
-		text: 'Programy, ciśnienie, kontener, posadzka i koszty eksploatacji.',
-		href: '/technologia-myjni-bezdotykowej/'
-	},
-	{
-		id: 'bledy',
+		label: 'Ryzyko',
 		title: 'Błędy inwestora',
-		text: 'Najczęstsze pułapki przed budową myjni i sposoby ich uniknięcia.',
+		text: 'Najczęstsze decyzje, które mogą podnieść koszt albo obniżyć rentowność.',
 		href: '/najczestsze-bledy-przy-budowie-myjni/'
 	}
 ];
@@ -61,142 +90,188 @@ const quickCards = [
 const processSteps = [
 	{
 		number: '01',
-		title: 'Analiza lokalizacji',
-		text: 'Sprawdzenie działki, ruchu, widoczności, mediów i otoczenia.'
+		title: 'Sprawdź lokalizację',
+		text: 'Działka, dojazd, widoczność, sąsiedztwo, media i potencjał ruchu.'
 	},
 	{
 		number: '02',
-		title: 'Plan inwestycji',
-		text: 'Dobór liczby stanowisk, wariantu technologii i budżetu.'
+		title: 'Policz budżet',
+		text: 'Koszt budowy, technologia, przyłącza, formalności i rezerwa inwestycyjna.'
 	},
 	{
 		number: '03',
-		title: 'Porównanie rozwiązań',
-		text: 'Ocena zakresu ofert, konstrukcji, serwisu i kosztów eksploatacji.'
+		title: 'Porównaj oferty',
+		text: 'Zakres, konstrukcja, serwis, gwarancja, koszty eksploatacji i kompletność.'
 	},
 	{
 		number: '04',
-		title: 'Decyzja i realizacja',
-		text: 'Przygotowanie do budowy, uruchomienia i późniejszej pracy obiektu.'
+		title: 'Podejmij decyzję',
+		text: 'Dopasuj wariant myjni do działki, budżetu i realnego potencjału miejsca.'
 	}
 ];
 
-const knowledgeCards = [
+const responsiveCards = [
 	{
-		label: 'Koszty',
-		title: 'Ile kosztuje myjnia bezdotykowa?',
-		text: 'Najważniejsze składniki budżetu inwestycji.',
-		href: '/ile-kosztuje-myjnia-bezdotykowa/'
+		device: 'Desktop',
+		title: 'Duże decyzje, duże kafelki',
+		text: 'Na szerokim ekranie pokazujemy inwestorowi pełną strukturę: koszt, opłacalność, działka, dostawcy i proces.'
 	},
 	{
-		label: 'Lokalizacja',
-		title: 'Jaka działka nadaje się pod myjnię?',
-		text: 'Wjazd, widoczność, media i potencjał rynku.',
-		href: '/dzialka-pod-myjnie-bezdotykowa/'
+		device: 'Tablet',
+		title: 'Czytelny układ 2-kolumnowy',
+		text: 'Tablet ma prowadzić jak prezentacja: mniej tekstu, mocne nagłówki, duże pola klikalne i szybkie wejścia w poradniki.'
 	},
 	{
-		label: 'Dostawcy',
-		title: 'Jak porównać oferty na myjnię?',
-		text: 'Lista elementów, które warto sprawdzić przed podpisaniem umowy.',
-		href: '/jak-porownac-oferty-myjni-bezdotykowej/'
+		device: 'Mobile',
+		title: 'Szybka decyzja i kontakt',
+		text: 'Na telefonie najważniejsze są krótkie komunikaty, widoczne CTA, prosty formularz i brak przeładowania treścią.'
 	}
 ];
 ---
 
 <Layout
-	title="Ile kosztuje myjnia bezdotykowa? Inwestycja, opłacalność i analiza lokalizacji"
+	title="Ile kosztuje myjnia bezdotykowa? Koszt, opłacalność i analiza lokalizacji"
 	description="Praktyczny poradnik inwestora myjni bezdotykowej: koszt budowy, opłacalność, działka, formalności, technologia, dostawcy i analiza lokalizacji."
 	canonicalPath="/"
 >
 	<Header />
 
 	<main>
-		<section class="hero section">
+		<section class="hero-shell" aria-labelledby="hero-title">
 			<div class="container hero-grid">
 				<div class="hero-copy">
 					<p class="eyebrow">
 						<span></span>
-						Praktyczny poradnik dla inwestora
+						Poradnik inwestora myjni
 					</p>
 
-					<h1>
+					<h1 id="hero-title">
 						Ile kosztuje myjnia bezdotykowa i jak mądrze
 						<strong>zaplanować inwestycję?</strong>
 					</h1>
 
 					<p class="hero-lead">
-						Koszty budowy, opłacalność, działka, formalności, technologia i wybór
-						sprawdzonego rozwiązania — w jednym miejscu, prostym językiem.
+						Koszt budowy, opłacalność, działka, formalności, technologia i wybór
+						dostawcy — podane prosto, neutralnie i z perspektywy inwestora.
 					</p>
 
 					<div class="hero-actions">
-						<a class="button primary" href="#kontakt">
-							Analiza lokalizacji
+						<a class="button button-primary" href="#kontakt">
+							Prześlij lokalizację
 							<span aria-hidden="true">→</span>
 						</a>
-						<a class="button secondary" href="#poradnik">
-							Zobacz przewodnik
-							<span aria-hidden="true">→</span>
+						<a class="button button-ghost" href="#start">
+							Zobacz od czego zacząć
+							<span aria-hidden="true">↓</span>
 						</a>
 					</div>
 
-					<div class="trust-row" aria-label="Najważniejsze założenia serwisu">
-						<span><i></i>Neutralny poradnik</span>
-						<span><i></i>Bez nachalnej sprzedaży</span>
-						<span><i></i>Decyzje oparte na danych</span>
+					<div class="hero-proof" aria-label="Najważniejsze obszary poradnika">
+						<span>Koszty</span>
+						<span>Opłacalność</span>
+						<span>Działka</span>
+						<span>Dostawcy</span>
 					</div>
 				</div>
 
-				<div class="hero-visual" aria-label="Wizualizacja nowoczesnej myjni bezdotykowej">
-					<div class="wash-render">
-						<div class="render-sky"></div>
-						<div class="wash-canopy">
-							<span>MYJNIA BEZDOTYKOWA</span>
+				<div class="hero-visual-wrap" data-hero-slider>
+					<figure class="hero-visual-card">
+						{
+							heroSlides.map((slide, index) => (
+								<picture
+									class={`hero-slide ${index === 0 ? 'is-active' : ''}`}
+									data-hero-slide
+									aria-hidden={index === 0 ? 'false' : 'true'}
+								>
+									<source media="(max-width: 1120px)" srcset={slide.mobile} />
+									<img
+										class="hero-visual-image"
+										src={slide.desktop}
+										alt={slide.alt}
+										loading={index === 0 ? 'eager' : 'lazy'}
+										decoding="async"
+									/>
+								</picture>
+							))
+						}
+					</figure>
+
+					<div class="hero-slider-controls" aria-label="Sterowanie grafiką hero">
+						<button class="hero-arrow" type="button" data-hero-prev aria-label="Poprzednia grafika">
+							←
+						</button>
+
+						<div class="hero-dots" aria-label="Wybierz grafikę">
+							{
+								heroSlides.map((slide, index) => (
+									<button
+										class={`hero-dot ${index === 0 ? 'is-active' : ''}`}
+										type="button"
+										data-hero-dot={index}
+										aria-label={`Pokaż grafikę: ${slide.label}`}
+										aria-pressed={index === 0 ? 'true' : 'false'}
+									>
+										<span>{index + 1}</span>
+									</button>
+								))
+							}
 						</div>
-						<div class="wash-bays">
-							<div class="wash-bay">
-								<strong>1</strong>
-								<div class="bay-light"></div>
-							</div>
-							<div class="wash-bay active">
-								<strong>2</strong>
-								<div class="bay-light"></div>
-								<div class="car-shape"></div>
-								<div class="mist"></div>
-							</div>
-							<div class="wash-bay">
-								<strong>3</strong>
-								<div class="bay-light"></div>
-							</div>
-						</div>
-						<div class="render-ground"></div>
+
+						<button class="hero-arrow" type="button" data-hero-next aria-label="Następna grafika">
+							→
+						</button>
+
+						<button class="hero-pause" type="button" data-hero-toggle aria-pressed="false">
+							Pauza
+						</button>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="section main-topics" aria-labelledby="main-topics-title">
+		<section class="section intro-band" id="start" aria-labelledby="intro-title">
 			<div class="container">
-				<div class="section-heading">
+				<div class="intro-panel">
+					<div>
+						<p class="eyebrow">
+							<span></span>
+							Zasada strony
+						</p>
+						<h2 id="intro-title">
+							Mało tekstu na start. <strong>Dużo konkretu</strong> na podstronach.
+						</h2>
+					</div>
+					<p>
+						Strona główna ma prowadzić inwestora po decyzjach. Szczegółowe wyjaśnienia,
+						checklisty, koszty, przykłady i porównania rozwijamy na podstronach SEO.
+						Dzięki temu home zostaje szybki, premium i czytelny.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section primary-section" aria-labelledby="primary-title">
+			<div class="container">
+				<div class="section-head">
 					<p class="eyebrow">
 						<span></span>
-						Od czego zacząć?
+						4 decyzje inwestora
 					</p>
-					<h2 id="main-topics-title">Najważniejsze decyzje przed budową myjni</h2>
+					<h2 id="primary-title">
+						Najważniejsze tematy <strong>przed budową</strong> myjni
+					</h2>
 				</div>
 
-				<div class="feature-grid">
+				<div class="primary-grid">
 					{
-						mainCards.map((card) => (
-							<a class={`feature-card visual-${card.visual}`} href={card.href} id={card.id}>
-								<div class="feature-content">
+						primaryCards.map((card) => (
+							<a class="primary-card" id={card.id} href={card.href}>
+								<div class="card-number">{card.number}</div>
+								<div>
 									<p>{card.kicker}</p>
 									<h3>{card.title}</h3>
 									<span>{card.text}</span>
 								</div>
-								<div class="feature-art" aria-hidden="true">
-									<div></div>
-								</div>
 								<b aria-hidden="true">→</b>
 							</a>
 						))
@@ -205,45 +280,52 @@ const knowledgeCards = [
 			</div>
 		</section>
 
-		<section class="section quick-section" aria-labelledby="quick-title">
+		<section class="section dark-section" aria-labelledby="dark-title">
 			<div class="container">
-				<div class="split-heading">
+				<div class="dark-grid">
 					<div>
 						<p class="eyebrow">
 							<span></span>
-							W pigułce
+							Kierunek komunikacji
 						</p>
-						<h2 id="quick-title">Tematy, które inwestor powinien sprawdzić wcześniej</h2>
+						<h2 id="dark-title">
+							Nie sprzedajemy myjni. <strong>Sprawdzamy sens inwestycji.</strong>
+						</h2>
 					</div>
-					<p>
-						Strona główna pokazuje tylko najważniejsze obszary. Szczegółowe analizy,
-						porównania i checklisty będą rozwijane na podstronach poradnika.
-					</p>
-				</div>
 
-				<div class="quick-grid">
-					{
-						quickCards.map((card) => (
-							<a class="quick-card" href={card.href}>
-								<span aria-hidden="true"></span>
-								<h3>{card.title}</h3>
-								<p>{card.text}</p>
-								<b aria-hidden="true">→</b>
-							</a>
-						))
-					}
+					<div class="dark-copy">
+						<p>
+							To ma być ekspercki poradnik, a nie katalog producenta. Inwestor ma poczuć,
+							że dostaje spokojną analizę: kosztów, działki, opłacalności, ryzyk i ofert.
+						</p>
+
+						<div class="dark-tags" aria-label="Sposób komunikacji">
+							<span>neutralnie</span>
+							<span>konkretnie</span>
+							<span>bez nachalnej sprzedaży</span>
+							<span>z CTA do analizy</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
 
 		<section class="section process-section" aria-labelledby="process-title">
-			<div class="container process-panel">
-				<div class="section-heading compact">
-					<p class="eyebrow">
-						<span></span>
-						Proces inwestycji
+			<div class="container">
+				<div class="split-head">
+					<div>
+						<p class="eyebrow">
+							<span></span>
+							Proces
+						</p>
+						<h2 id="process-title">
+							Prosty schemat <strong>dla każdej podstrony</strong>
+						</h2>
+					</div>
+					<p>
+						Ten układ będziemy potem powtarzać: mocny nagłówek, szybkie wyjaśnienie,
+						kafelki, checklisty, FAQ i CTA do analizy.
 					</p>
-					<h2 id="process-title">Od działki do decyzji inwestycyjnej</h2>
 				</div>
 
 				<div class="process-grid">
@@ -260,18 +342,51 @@ const knowledgeCards = [
 			</div>
 		</section>
 
+		<section class="section responsive-section" aria-labelledby="responsive-title">
+			<div class="container">
+				<div class="section-head centered">
+					<p class="eyebrow">
+						<span></span>
+						Desktop / tablet / mobile
+					</p>
+					<h2 id="responsive-title">
+						Strona ma działać jak prezentacja <strong>na każdym ekranie</strong>
+					</h2>
+				</div>
+
+				<div class="device-grid">
+					{
+						responsiveCards.map((card) => (
+							<div class="device-card">
+								<div class={`device-frame ${card.device.toLowerCase()}`}>
+									<div></div>
+									<div></div>
+									<div></div>
+								</div>
+								<p>{card.device}</p>
+								<h3>{card.title}</h3>
+								<span>{card.text}</span>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
 		<section class="section knowledge-section" id="poradnik" aria-labelledby="knowledge-title">
 			<div class="container">
-				<div class="split-heading">
+				<div class="split-head">
 					<div>
 						<p class="eyebrow">
 							<span></span>
 							Baza wiedzy
 						</p>
-						<h2 id="knowledge-title">Poradnik inwestora myjni bezdotykowej</h2>
+						<h2 id="knowledge-title">
+							Pierwsze wejścia <strong>do poradnika</strong>
+						</h2>
 					</div>
 					<a class="text-link" href="/poradnik/">
-						Zobacz wszystkie tematy
+						Zobacz przyszły poradnik
 						<span aria-hidden="true">→</span>
 					</a>
 				</div>
@@ -280,8 +395,8 @@ const knowledgeCards = [
 					{
 						knowledgeCards.map((card) => (
 							<a class="knowledge-card" href={card.href}>
-								<div class="knowledge-thumb" aria-hidden="true"></div>
-								<div>
+								<div class="knowledge-image" aria-hidden="true"></div>
+								<div class="knowledge-body">
 									<p>{card.label}</p>
 									<h3>{card.title}</h3>
 									<span>{card.text}</span>
@@ -297,22 +412,25 @@ const knowledgeCards = [
 		<section class="section contact-section" id="kontakt" aria-labelledby="contact-title">
 			<div class="container">
 				<div class="contact-panel">
-					<div>
+					<div class="contact-copy">
 						<p class="eyebrow light">
 							<span></span>
 							Analiza lokalizacji
 						</p>
-						<h2 id="contact-title">Prześlij lokalizację do analizy</h2>
+						<h2 id="contact-title">
+							Masz działkę albo lokalizację?
+							<strong>Zacznij od sprawdzenia potencjału.</strong>
+						</h2>
 						<p>
-							Masz działkę, teren przy drodze, stację paliw, market albo lokalizację
-							usługową? Wyślij podstawowe informacje i sprawdź, czy myjnia może mieć
-							tam sens.
+							Prześlij miejscowość, link do mapy, numer działki albo krótki opis miejsca.
+							Na tym etapie nie chodzi o sprzedaż, tylko o ocenę, czy temat warto rozwijać.
 						</p>
 
-						<div class="contact-benefits">
-							<span><i></i>Odpowiedź bez zobowiązań</span>
-							<span><i></i>Ocena potencjału lokalizacji</span>
-							<span><i></i>Kontakt przez {siteConfig.email}</span>
+						<div class="contact-points">
+							<span><i></i>działka przy drodze</span>
+							<span><i></i>teren przy markecie</span>
+							<span><i></i>stacja paliw</span>
+							<span><i></i>lokalizacja usługowa</span>
 						</div>
 					</div>
 
@@ -321,29 +439,39 @@ const knowledgeCards = [
 							Imię
 							<input type="text" name="name" placeholder="Twoje imię" />
 						</label>
+
 						<label>
 							E-mail
 							<input type="email" name="email" placeholder={siteConfig.email} />
 						</label>
+
 						<label>
 							Telefon
 							<input type="tel" name="phone" placeholder="Numer telefonu" />
 						</label>
+
 						<label>
 							Lokalizacja
-							<input type="text" name="location" placeholder="Miejscowość lub link do mapy" />
+							<input type="text" name="location" placeholder="Miejscowość / link do mapy" />
 						</label>
+
 						<label class="full">
 							Wiadomość
-							<textarea name="message" rows="4" placeholder="Napisz, na jakim etapie jest inwestycja..."></textarea>
+							<textarea
+								name="message"
+								rows="4"
+								placeholder="Napisz krótko, jaką lokalizację chcesz sprawdzić..."
+							></textarea>
 						</label>
+
 						<button type="button">
 							Wyślij do analizy
 							<span aria-hidden="true">→</span>
 						</button>
+
 						<small>
-							Formularz jest elementem projektu graficznego. Funkcję wysyłki podłączymy w
-							kolejnym etapie.
+							Formularz jest przygotowany wizualnie. Wysyłkę podłączymy później pod
+							{` ${siteConfig.email}`}.
 						</small>
 					</form>
 				</div>
@@ -352,4 +480,70 @@ const knowledgeCards = [
 	</main>
 
 	<Footer />
+
+	<script is:inline>
+		const heroSliders = document.querySelectorAll('[data-hero-slider]');
+
+		heroSliders.forEach((slider) => {
+			const slides = Array.from(slider.querySelectorAll('[data-hero-slide]'));
+			const dots = Array.from(slider.querySelectorAll('[data-hero-dot]'));
+			const prev = slider.querySelector('[data-hero-prev]');
+			const next = slider.querySelector('[data-hero-next]');
+			const toggle = slider.querySelector('[data-hero-toggle]');
+
+			if (!slides.length) return;
+
+			let current = 0;
+			let paused = false;
+			let timer = null;
+
+			const setActive = (index) => {
+				current = (index + slides.length) % slides.length;
+
+				slides.forEach((slide, slideIndex) => {
+					const isActive = slideIndex === current;
+					slide.classList.toggle('is-active', isActive);
+					slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+				});
+
+				dots.forEach((dot, dotIndex) => {
+					const isActive = dotIndex === current;
+					dot.classList.toggle('is-active', isActive);
+					dot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+				});
+			};
+
+			const restart = () => {
+				window.clearInterval(timer);
+				timer = window.setInterval(() => {
+					if (!paused) setActive(current + 1);
+				}, 5000);
+			};
+
+			prev?.addEventListener('click', () => {
+				setActive(current - 1);
+				restart();
+			});
+
+			next?.addEventListener('click', () => {
+				setActive(current + 1);
+				restart();
+			});
+
+			dots.forEach((dot, index) => {
+				dot.addEventListener('click', () => {
+					setActive(index);
+					restart();
+				});
+			});
+
+			toggle?.addEventListener('click', () => {
+				paused = !paused;
+				toggle.textContent = paused ? 'Start' : 'Pauza';
+				toggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
+			});
+
+			restart();
+		});
+	</script>
 </Layout>
