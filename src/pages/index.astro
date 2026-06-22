@@ -66,6 +66,124 @@ const primaryCards = [
 	}
 ];
 
+const audienceCards = [
+	{
+		title: 'Masz działkę i chcesz sprawdzić jej potencjał',
+		text: 'Poradnik pomaga ocenić lokalizację, dojazd, widoczność, media, formalności, konkurencję i realny potencjał miejsca przed wejściem w projekt.',
+		image: '/images/audience-01-dzialka-potencjal.webp',
+		alt: 'Masz działkę i chcesz sprawdzić jej potencjał — poradnik inwestora myjni.'
+	},
+	{
+		title: 'Rozważasz inwestycję w myjnię, ale nie znasz kosztów',
+		text: 'Pokazujemy, z czego składa się budżet inwestycji: technologia, budowa, przyłącza, projekt, posadzka, kontener, automatyka i wyposażenie dodatkowe.',
+		image: '/images/audience-02-koszty-inwestycji.webp',
+		alt: 'Rozważasz inwestycję w myjnię, ale nie znasz kosztów — budżet inwestycji.'
+	},
+	{
+		title: 'Porównujesz oferty i chcesz uniknąć kosztownych błędów',
+		text: 'Wyjaśniamy, dlaczego nie warto patrzeć wyłącznie na najniższą cenę i jak oceniać jakość komponentów, zakres oferty, serwis oraz długofalową opłacalność.',
+		image: '/images/audience-03-porownanie-ofert.webp',
+		alt: 'Porównujesz oferty i chcesz uniknąć kosztownych błędów — jakość komponentów i zakres oferty.'
+	}
+];
+
+const startSteps = [
+	{
+		number: '01',
+		title: 'Lokalizacja',
+		text: 'Najpierw sprawdź działkę, ruch, wjazd, widoczność, konkurencję i potencjał miejsca.',
+		accent: 'blue'
+	},
+	{
+		number: '02',
+		title: 'Budżet',
+		text: 'Policz nie tylko technologię, ale też roboty budowlane, media, projekt, formalności i rezerwę.',
+		accent: 'green'
+	},
+	{
+		number: '03',
+		title: 'Model przychodu',
+		text: 'Oceń liczbę myć, sezonowość, średni koszyk, usługi dodatkowe i realne koszty miesięczne.',
+		accent: 'blue'
+	},
+	{
+		number: '04',
+		title: 'Dostawca',
+		text: 'Porównaj zakres, konstrukcję, serwis, gwarancję, zużycia, automatykę i kompletność oferty.',
+		accent: 'green'
+	}
+];
+
+const metricCards = [
+	{
+		title: 'Koszt startowy',
+		text: 'Ile realnie trzeba przygotować na budowę, technologię, przyłącza, projekt, formalności i uruchomienie?'
+	},
+	{
+		title: 'Przychód miesięczny',
+		text: 'Ile myć może wygenerować lokalizacja, jaki będzie średni koszyk i jak sezonowość wpływa na wynik?'
+	},
+	{
+		title: 'Koszt utrzymania',
+		text: 'Jakie będą koszty wody, ścieków, energii, chemii, serwisu, dzierżawy, pracownika i obsługi obiektu?'
+	}
+];
+
+const checklistGroups = [
+	{
+		title: 'Dojazd i widoczność',
+		text: 'Czy kierowca widzi myjnię z drogi i może wygodnie wjechać oraz wyjechać?',
+		points: ['widoczność z głównej trasy', 'łatwy wjazd i wyjazd', 'brak konieczności zawracania']
+	},
+	{
+		title: 'Potencjał sprzedażowy',
+		text: 'Czy okolica może generować regularny ruch klientów przez cały rok?',
+		points: ['ruch samochodowy', 'osiedla, sklepy, usługi', 'konkurencja w okolicy']
+	},
+	{
+		title: 'Media i formalności',
+		text: 'Czy działka pozwala technicznie i formalnie przygotować inwestycję?',
+		points: ['prąd, woda, kanalizacja', 'MPZP albo warunki zabudowy', 'możliwe ograniczenia sąsiedztwa']
+	},
+	{
+		title: 'Układ techniczny obiektu',
+		text: 'Czy na działce da się dobrze rozplanować stanowiska, kontener i ruch aut?',
+		points: ['liczba stanowisk', 'miejsce na kolejkę', 'odkurzacze i urządzenia dodatkowe']
+	},
+	{
+		title: 'Ryzyko lokalizacji',
+		text: 'Czy potencjał miejsca uzasadnia koszt inwestycji i wybrany standard myjni?',
+		points: ['potencjał obrotu', 'koszt działki lub dzierżawy', 'możliwość rozwoju w przyszłości']
+	}
+];
+
+const mistakeCards = [
+	{
+		title: 'Wybór najtańszego rozwiązania',
+		text: 'Myjnia to długofalowy biznes. Oszczędność na początku może szybko wrócić w postaci awarii, większych kosztów serwisu, słabszej jakości mycia albo problemów z eksploatacją.'
+	},
+	{
+		title: 'Porównywanie ofert tylko po cenie',
+		text: 'Oferta droższa nawet o kilkadziesiąt lub ponad sto tysięcy złotych może obejmować lepszą konstrukcję, automatykę, pompy, filtry, zabezpieczenia i serwis. Czasem różnica w cenie jest różnicą w spokoju prowadzenia obiektu.'
+	},
+	{
+		title: 'Zbieranie ofert przed analizą działki',
+		text: 'Rozsyłanie zapytań do wielu producentów bez analizy lokalizacji, mediów i układu działki często prowadzi do chaosu. Najpierw trzeba ustalić, co realnie można i warto zbudować.'
+	},
+	{
+		title: 'Słaby projekt lub brak kontroli technicznej',
+		text: 'Oszczędzanie na projektancie, analizie technicznej albo prowadzeniu inwestycji może wygenerować kosztowne poprawki. Dobra dokumentacja i nadzór pomagają uniknąć błędów na etapie budowy.'
+	},
+	{
+		title: 'Niedopasowanie myjni do lokalizacji',
+		text: 'Koszt budowy może być podobny w mocnej i słabszej lokalizacji, ale potencjał obrotu już nie. Myjni nie powinno się dobierać hurtowo — układ i standard trzeba dopasować do konkretnej działki.'
+	},
+	{
+		title: 'Brak konsultacji finansowo-podatkowej',
+		text: 'Przed inwestycją warto porozmawiać z księgową lub doradcą podatkowym. Sposób finansowania, amortyzacji i rozliczania inwestycji może mieć znaczenie dla realnej opłacalności całego projektu.'
+	}
+];
+
 const knowledgeCards = [
 	{
 		label: 'Koszt budowy',
@@ -90,26 +208,30 @@ const knowledgeCards = [
 const processSteps = [
 	{
 		number: '01',
-		title: 'Sprawdź lokalizację',
-		text: 'Działka, dojazd, widoczność, sąsiedztwo, media i potencjał ruchu.'
+		title: 'Sprawdź działkę',
+		text: 'Oceń lokalizację regionalnie, technicznie i ekonomicznie: ruch, widoczność, konkurencję, media, dojazd i potencjał obrotu.'
 	},
 	{
 		number: '02',
-		title: 'Policz budżet',
-		text: 'Koszt budowy, technologia, przyłącza, formalności i rezerwa inwestycyjna.'
+		title: 'Określ budżet',
+		text: 'Dopasuj zakres inwestycji do swoich możliwości finansowych, planu podatkowego, rezerwy i oczekiwanego modelu zwrotu.'
 	},
 	{
 		number: '03',
-		title: 'Porównaj oferty',
-		text: 'Zakres, konstrukcja, serwis, gwarancja, koszty eksploatacji i kompletność.'
+		title: 'Skontaktuj się z projektantem',
+		text: 'Dobry projekt i techniczna analiza działki pomagają uniknąć nerwowych zmian, opóźnień i kosztów, które pojawiają się dopiero na budowie.'
 	},
 	{
 		number: '04',
+		title: 'Porównaj oferty',
+		text: 'Porównuj nie tylko cenę, ale też jakość komponentów, konstrukcję, technologię, automatykę, filtry, pompy, serwis i kompletność zakresu.'
+	},
+	{
+		number: '05',
 		title: 'Podejmij decyzję',
-		text: 'Dopasuj wariant myjni do działki, budżetu i realnego potencjału miejsca.'
+		text: 'Wybierz rozwiązanie dopasowane do działki, budżetu, potencjału lokalizacji i długofalowego prowadzenia myjni.'
 	}
 ];
-
 const responsiveCards = [
 	{
 		device: 'Desktop',
@@ -127,6 +249,47 @@ const responsiveCards = [
 		text: 'Na telefonie najważniejsze są krótkie komunikaty, widoczne CTA, prosty formularz i brak przeładowania treścią.'
 	}
 ];
+
+const faqItems = [
+	{
+		question: 'Od czego zacząć inwestycję w myjnię bezdotykową?',
+		answer:
+			'Najlepiej zacząć od analizy lokalizacji: działki, wjazdu, widoczności, mediów, konkurencji i potencjału ruchu. Dopiero później warto porównywać technologię, liczyć budżet i rozmawiać z dostawcami.'
+	},
+	{
+		question: 'Czy myjnia bezdotykowa nadal może być opłacalną inwestycją?',
+		answer:
+			'Może być opłacalna, ale wynik zależy od lokalizacji, kosztu budowy, liczby stanowisk, jakości technologii, kosztów mediów, sezonowości, konkurencji i sposobu prowadzenia obiektu.'
+	},
+	{
+		question: 'Jak sprawdzić, czy działka nadaje się pod myjnię?',
+		answer:
+			'Trzeba sprawdzić dojazd, widoczność, układ ruchu, dostęp do mediów, zapisy MPZP albo możliwość uzyskania warunków zabudowy, sąsiedztwo oraz miejsce na stanowiska i urządzenia dodatkowe.'
+	},
+	{
+		question: 'Czy warto porównywać oferty tylko po cenie?',
+		answer:
+			'Nie. Cena jest ważna, ale trzeba porównywać pełny zakres: konstrukcję, technologię, automatykę, serwis, gwarancję, wyposażenie, zużycia eksploatacyjne i elementy, które nie są ujęte w podstawowej ofercie.'
+	},
+	{
+		question: 'Czy przed zakupem warto przeanalizować lokalizację?',
+		answer:
+			'Tak. Analiza lokalizacji pozwala ograniczyć ryzyko błędnej decyzji, oszacować potencjał miejsca i sprawdzić, czy inwestycja ma sens przed wejściem w projekt, pozwolenia i większe koszty.'
+	}
+];
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer
+		}
+	}))
+};
 ---
 
 <Layout
@@ -249,6 +412,71 @@ const responsiveCards = [
 				</div>
 			</div>
 		</section>
+		<section class="section audience-section" aria-labelledby="audience-title">
+			<div class="container">
+				<div class="section-head">
+					<p class="eyebrow">
+						<span></span>
+						Dla kogo
+					</p>
+					<h2 id="audience-title">
+						Poradnik dla osób, które chcą <strong>zainwestować w myjnię</strong> i potrzebują jasnego planu działania
+					</h2>
+				</div>
+
+				<div class="audience-grid audience-image-grid">
+					{
+						audienceCards.map((card) => (
+							<article class="audience-image-card">
+								<img src={card.image} alt={card.alt} loading="lazy" decoding="async" />
+
+								<div class="sr-only">
+									<h3>{card.title}</h3>
+									<p>{card.text}</p>
+								</div>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+		<section class="section roadmap-section" aria-labelledby="start-title">
+	<div class="container">
+		<div class="split-head roadmap-head">
+			<div>
+				<p class="eyebrow">
+					<span></span>
+					Od czego zacząć
+				</p>
+				<h2 id="start-title">
+					Dobra inwestycja w myjnię zaczyna się <strong>przed pierwszą ofertą</strong>
+				</h2>
+			</div>
+			<p>
+				Zanim zapytasz o cenę myjni, warto sprawdzić potencjał lokalizacji, realny budżet,
+				model przychodu i jakość ofert. Dzięki temu porównywanie dostawców ma sens,
+				a decyzja nie opiera się wyłącznie na najniższej cenie.
+			</p>
+		</div>
+
+		<div class="roadmap-panel" aria-label="Plan pierwszych decyzji inwestora">
+			<div class="roadmap-line" aria-hidden="true"></div>
+
+			<div class="roadmap-grid">
+				{
+					startSteps.map((step) => (
+						<article class={`roadmap-card ${step.accent === 'green' ? 'is-green' : 'is-blue'}`}>
+							<div class="roadmap-number">{step.number}</div>
+							<div class="roadmap-dot" aria-hidden="true"></div>
+							<h3>{step.title}</h3>
+							<p>{step.text}</p>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
 
 		<section class="section primary-section" aria-labelledby="primary-title">
 			<div class="container">
@@ -280,6 +508,95 @@ const responsiveCards = [
 			</div>
 		</section>
 
+		<section class="section metrics-section" aria-labelledby="metrics-title">
+			<div class="container">
+				<div class="metrics-panel">
+					<div class="section-head">
+						<p class="eyebrow">
+							<span></span>
+							3 liczby
+						</p>
+						<h2 id="metrics-title">
+							Zanim powiesz „buduję”, policz <strong>trzy rzeczy</strong>
+						</h2>
+					</div>
+
+					<div class="metrics-grid">
+						{
+							metricCards.map((card) => (
+								<article class="metric-card">
+									<h3>{card.title}</h3>
+									<p>{card.text}</p>
+								</article>
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section checklist-section" aria-labelledby="checklist-title">
+	<div class="container location-audit-grid">
+		<div class="location-audit-copy">
+			<p class="eyebrow">
+				<span></span>
+				Audyt lokalizacji
+			</p>
+			<h2 id="checklist-title">
+				Dobra działka pod myjnię to nie tylko <strong>duży plac</strong>
+			</h2>
+			<p class="section-lead">
+				Lokalizacja powinna zostać oceniona technicznie, ekonomicznie i praktycznie.
+				Inaczej można zbudować poprawny obiekt w miejscu, które nie wykorzysta jego potencjału.
+			</p>
+		</div>
+
+		<div class="location-audit-cards">
+			{
+				checklistGroups.map((group, index) => (
+					<article class="location-audit-card">
+						<div class="audit-number">{String(index + 1).padStart(2, '0')}</div>
+						<div>
+							<h3>{group.title}</h3>
+							<p>{group.text}</p>
+							<ul>
+								{group.points.map((point) => (
+									<li>{point}</li>
+								))}
+							</ul>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+		<section class="section mistakes-section" aria-labelledby="mistakes-title">
+			<div class="container">
+				<div class="section-head centered">
+					<p class="eyebrow">
+						<span></span>
+						Błędy inwestora
+					</p>
+					<h2 id="mistakes-title">
+						Najdroższe błędy zaczynają się <strong>na początku</strong>
+					</h2>
+				</div>
+
+				<div class="mistake-grid">
+					{
+						mistakeCards.map((card) => (
+							<article class="mistake-card">
+								<h3>{card.title}</h3>
+								<p>{card.text}</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
 		<section class="section dark-section" aria-labelledby="dark-title">
 			<div class="container">
 				<div class="dark-grid">
@@ -295,15 +612,16 @@ const responsiveCards = [
 
 					<div class="dark-copy">
 						<p>
-							To ma być ekspercki poradnik, a nie katalog producenta. Inwestor ma poczuć,
-							że dostaje spokojną analizę: kosztów, działki, opłacalności, ryzyk i ofert.
+							Ten poradnik pomaga uporządkować decyzję inwestycyjną: sprawdzić lokalizację,
+określić budżet, zrozumieć koszty i przygotować się do rozmowy z projektantem,
+księgową lub doradcą podatkowym oraz dostawcami technologii.
 						</p>
 
 						<div class="dark-tags" aria-label="Sposób komunikacji">
-							<span>neutralnie</span>
-							<span>konkretnie</span>
-							<span>bez nachalnej sprzedaży</span>
-							<span>z CTA do analizy</span>
+							<span>analiza lokalizacji</span>
+							<span>budżet inwestycji</span>
+							<span>dobór rozwiązania</span>
+							<span>decyzja bez chaosu</span>
 						</div>
 					</div>
 				</div>
@@ -409,6 +727,37 @@ const responsiveCards = [
 			</div>
 		</section>
 
+		<section class="section faq-section" aria-labelledby="faq-title">
+			<div class="container">
+				<div class="split-head">
+					<div>
+						<p class="eyebrow">
+							<span></span>
+							FAQ inwestora
+						</p>
+						<h2 id="faq-title">
+							Najczęstsze pytania przed inwestycją <strong>w myjnię</strong>
+						</h2>
+					</div>
+					<p>
+						Krótko i konkretnie. To są pytania, które warto zadać przed wyborem działki,
+						technologii, projektu i dostawcy.
+					</p>
+				</div>
+
+				<div class="faq-list">
+					{
+						faqItems.map((item, index) => (
+							<details class="faq-item" open={index === 0}>
+								<summary>{item.question}</summary>
+								<p>{item.answer}</p>
+							</details>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
 		<section class="section contact-section" id="kontakt" aria-labelledby="contact-title">
 			<div class="container">
 				<div class="contact-panel">
@@ -480,6 +829,8 @@ const responsiveCards = [
 	</main>
 
 	<Footer />
+
+	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 	<script is:inline>
 		const heroSliders = document.querySelectorAll('[data-hero-slider]');
