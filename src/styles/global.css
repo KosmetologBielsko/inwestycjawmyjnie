@@ -5383,3 +5383,64 @@ img {
 		border-radius: 24px !important;
 	}
 }
+/* MOBILE AUDIENCE CARDS — NO OVERLAP */
+
+@media (max-width: 760px) {
+	.audience-image-grid {
+		width: 100vw !important;
+		margin-left: calc(50% - 50vw) !important;
+		margin-right: calc(50% - 50vw) !important;
+		display: flex !important;
+		flex-wrap: nowrap !important;
+		gap: 18px !important;
+		padding-left: 22px !important;
+		padding-right: 22px !important;
+		padding-bottom: 22px !important;
+		overflow-x: auto !important;
+		overflow-y: hidden !important;
+		scroll-snap-type: x mandatory !important;
+		scroll-behavior: smooth !important;
+		overscroll-behavior-x: contain !important;
+	}
+
+	.audience-image-card {
+		flex: 0 0 calc(100vw - 58px) !important;
+		width: calc(100vw - 58px) !important;
+		min-width: calc(100vw - 58px) !important;
+		max-width: calc(100vw - 58px) !important;
+		scroll-snap-align: center !important;
+		position: relative !important;
+		z-index: 1 !important;
+		transform: none !important;
+		margin: 0 !important;
+		border-radius: 30px !important;
+		overflow: hidden !important;
+	}
+
+	.audience-image-card + .audience-image-card {
+		margin-left: 0 !important;
+	}
+
+	.audience-image-card img {
+		display: block !important;
+		width: 100% !important;
+		height: auto !important;
+		border-radius: 0 !important;
+	}
+}
+
+@media (max-width: 430px) {
+	.audience-image-grid {
+		gap: 16px !important;
+		padding-left: 18px !important;
+		padding-right: 18px !important;
+	}
+
+	.audience-image-card {
+		flex-basis: calc(100vw - 48px) !important;
+		width: calc(100vw - 48px) !important;
+		min-width: calc(100vw - 48px) !important;
+		max-width: calc(100vw - 48px) !important;
+		border-radius: 28px !important;
+	}
+}
