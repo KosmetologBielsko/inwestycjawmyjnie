@@ -1,21 +1,111 @@
 ---
-import { siteConfig } from '../config/site';
+const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+	{
+		title: 'Poradnik inwestora',
+		links: [
+			{
+				label: 'Koszt budowy myjni',
+				href: '/ile-kosztuje-myjnia-bezdotykowa/'
+			},
+			{
+				label: 'Opłacalność myjni',
+				href: '/ile-zarabia-myjnia-bezdotykowa/'
+			},
+			{
+				label: 'Działka pod myjnię',
+				href: '/dzialka-pod-myjnie-bezdotykowa/'
+			},
+			{
+				label: 'Porównanie ofert',
+				href: '/jak-porownac-oferty-myjni-bezdotykowej/'
+			}
+		]
+	},
+	{
+		title: 'Decyzja inwestora',
+		links: [
+			{
+				label: 'Analiza lokalizacji',
+				href: '/#kontakt'
+			},
+			{
+				label: 'Błędy inwestora',
+				href: '/najczestsze-bledy-przy-budowie-myjni/'
+			},
+			{
+				label: 'Budowa krok po kroku',
+				href: '/budowa-myjni-bezdotykowej-krok-po-kroku/'
+			},
+			{
+				label: 'FAQ',
+				href: '/#faq'
+			}
+		]
+	}
+];
 ---
 
-<footer class="site-footer">
-	<div class="container footer-inner">
-		<div>
-			<a class="footer-brand" href="/">{siteConfig.name}</a>
-			<p>Poradnik inwestora myjni bezdotykowej.</p>
+<footer class="iwm-footer">
+	<div class="container">
+		<div class="iwm-footer-panel">
+			<div class="iwm-footer-brand">
+				<a href="/" aria-label="inwestycjawmyjnie.pl">
+					<img
+						src="/images/logo-inwestycjawmyjnie-poziome.webp"
+						alt="inwestycjawmyjnie.pl"
+						width="1899"
+						height="422"
+						loading="lazy"
+						decoding="async"
+					/>
+				</a>
+
+				<p>
+					Neutralny poradnik dla osób, które chcą sprawdzić koszt, opłacalność,
+					lokalizację i sens inwestycji w myjnię bezdotykową.
+				</p>
+
+				<a class="iwm-footer-cta" href="/#kontakt">
+					Prześlij lokalizację do analizy
+					<span aria-hidden="true">→</span>
+				</a>
+			</div>
+
+			<div class="iwm-footer-links">
+				{
+					footerLinks.map((group) => (
+						<nav aria-label={group.title}>
+							<h2>{group.title}</h2>
+							<ul>
+								{group.links.map((link) => (
+									<li>
+										<a href={link.href}>{link.label}</a>
+									</li>
+								))}
+							</ul>
+						</nav>
+					))
+				}
+			</div>
+
+			<div class="iwm-footer-contact">
+				<h2>Kontakt</h2>
+				<p>
+					Masz działkę, lokalizację albo pomysł na inwestycję? Zacznij od krótkiej
+					analizy potencjału.
+				</p>
+
+				<a href="mailto:analiza@inwestycjawmyjnie.pl">
+					analiza@inwestycjawmyjnie.pl
+				</a>
+			</div>
 		</div>
 
-		<div class="footer-contact">
-			<a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-			<div class="footer-links" aria-label="Linki prawne">
-				<a href="/polityka-prywatnosci/">Polityka prywatności</a>
-				<a href="/regulamin-serwisu/">Regulamin serwisu</a>
-				<a href="/nota-prawna/">Nota prawna</a>
-			</div>
+		<div class="iwm-footer-bottom">
+			<p>© {currentYear} inwestycjawmyjnie.pl</p>
+			<p>Poradnik inwestora myjni bezdotykowej</p>
 		</div>
 	</div>
 </footer>

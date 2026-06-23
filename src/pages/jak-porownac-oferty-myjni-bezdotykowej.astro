@@ -1,0 +1,920 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const page = {
+	"filename": "jak-porownac-oferty-myjni-bezdotykowej.astro",
+	"canonicalPath": "/jak-porownac-oferty-myjni-bezdotykowej/",
+	"title": "Jak porównać oferty myjni bezdotykowej? Cena, zakres, serwis i technologia",
+	"description": "Jak porównywać oferty producentów myjni bezdotykowych: zakres, konstrukcja, technologia, serwis, gwarancja, automatyka i koszty eksploatacji.",
+	"eyebrow": "Porównanie ofert",
+	"hero": {
+		"before": "Oferty myjni porównuje się po zakresie,",
+		"strong": "nie tylko po cenie.",
+		"lead": "Dwie oferty mogą wyglądać podobnie, ale różnić się komponentami, konstrukcją, automatyką, zabezpieczeniami, serwisem, gwarancją i tym, co nie jest ujęte w cenie.",
+		"statA": "zakres",
+		"statB": "serwis",
+		"statC": "technologia"
+	},
+	"quick": [
+		"zakres",
+		"komponenty",
+		"gwarancja",
+		"serwis",
+		"automatyka",
+		"eksploatacja"
+	],
+	"cardsTitle": "Co porównać przed decyzją?",
+	"cardsLead": "Celem nie jest znalezienie najniższej kwoty, tylko zrozumienie, co inwestor realnie kupuje i jakie koszty zostają poza ofertą.",
+	"cards": [
+		[
+			"01",
+			"Zakres oferty",
+			"Czy oferta obejmuje technologię, konstrukcję, kontener, montaż, automatykę, system płatności i uruchomienie?"
+		],
+		[
+			"02",
+			"Jakość komponentów",
+			"Pompy, zawory, sterowanie, filtry, zabezpieczenia, ogrzewanie i elementy pracujące codziennie pod obciążeniem."
+		],
+		[
+			"03",
+			"Konstrukcja",
+			"Dach, słupy, wykończenie, odporność, estetyka, oświetlenie i dopasowanie do lokalizacji."
+		],
+		[
+			"04",
+			"Serwis",
+			"Czas reakcji, dostępność części, doświadczenie zespołu i wsparcie po uruchomieniu obiektu."
+		],
+		[
+			"05",
+			"Gwarancja",
+			"Nie tylko długość gwarancji, ale też warunki, wyłączenia, odpowiedzialność i zakres obsługi."
+		],
+		[
+			"06",
+			"Eksploatacja",
+			"Zużycie mediów, chemii, awaryjność, łatwość obsługi i koszty prowadzenia w perspektywie lat."
+		]
+	],
+	"galleryTitle": "Porównuj pełny obraz, nie samą kwotę",
+	"gallery": [
+		[
+			"Cena netto",
+			"Kwota startowa może wyglądać atrakcyjnie, ale bez zakresu niewiele mówi o całości inwestycji."
+		],
+		[
+			"Zakres",
+			"Najważniejsze pytanie: co dokładnie jest w cenie, a co inwestor musi zorganizować osobno?"
+		],
+		[
+			"Ryzyko",
+			"Tania oferta może przenieść część kosztów na budowę, serwis albo późniejszą eksploatację."
+		],
+		[
+			"Decyzja",
+			"Najlepsza oferta to ta, która pasuje do działki, budżetu i modelu prowadzenia obiektu."
+		]
+	],
+	"analysisTitle": "Masz kilka ofert i chcesz je uporządkować?",
+	"analysisText": "Można przygotować prostą listę porównawczą: zakres, technologia, konstrukcja, serwis, gwarancja i elementy poza ofertą.",
+	"faq": [
+		[
+			"Czy najtańsza oferta może być dobra?",
+			"Może, ale tylko jeśli zakres, komponenty, serwis i koszty eksploatacji są porównywalne z innymi rozwiązaniami."
+		],
+		[
+			"O co zapytać producenta?",
+			"O dokładny zakres, komponenty, zużycia, serwis, gwarancję, automatykę, system płatności i elementy nieujęte w cenie."
+		],
+		[
+			"Czy droższa oferta zawsze jest lepsza?",
+			"Nie zawsze. Wyższa cena ma sens tylko wtedy, gdy wynika z lepszego zakresu, jakości, serwisu lub niższego ryzyka."
+		],
+		[
+			"Kiedy porównanie ofert ma sens?",
+			"Po analizie działki i ustaleniu realnej konfiguracji myjni dla konkretnej lokalizacji."
+		]
+	]
+};
+
+const relatedLinks = [
+	[
+		"Koszt budowy myjni",
+		"/ile-kosztuje-myjnia-bezdotykowa/"
+	],
+	[
+		"Opłacalność myjni",
+		"/ile-zarabia-myjnia-bezdotykowa/"
+	],
+	[
+		"Działka pod myjnię",
+		"/dzialka-pod-myjnie-bezdotykowa/"
+	],
+	[
+		"Porównanie ofert",
+		"/jak-porownac-oferty-myjni-bezdotykowej/"
+	],
+	[
+		"Budowa krok po kroku",
+		"/budowa-myjni-bezdotykowej-krok-po-kroku/"
+	],
+	[
+		"Błędy inwestora",
+		"/najczestsze-bledy-przy-budowie-myjni/"
+	]
+];
+
+const faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": [
+		{
+			"@type": "Question",
+			"name": "Czy najtańsza oferta może być dobra?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Może, ale tylko jeśli zakres, komponenty, serwis i koszty eksploatacji są porównywalne z innymi rozwiązaniami."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "O co zapytać producenta?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "O dokładny zakres, komponenty, zużycia, serwis, gwarancję, automatykę, system płatności i elementy nieujęte w cenie."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "Czy droższa oferta zawsze jest lepsza?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Nie zawsze. Wyższa cena ma sens tylko wtedy, gdy wynika z lepszego zakresu, jakości, serwisu lub niższego ryzyka."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "Kiedy porównanie ofert ma sens?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Po analizie działki i ustaleniu realnej konfiguracji myjni dla konkretnej lokalizacji."
+			}
+		}
+	]
+};
+---
+
+<Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
+	<Header />
+
+	<main class="guide-page">
+		<section class="guide-hero" aria-labelledby="page-title">
+			<div class="container guide-hero-grid">
+				<div>
+					<p class="eyebrow">
+						<span></span>
+						{page.eyebrow}
+					</p>
+
+					<h1 id="page-title">
+						{page.hero.before}
+						<strong>{page.hero.strong}</strong>
+					</h1>
+
+					<p class="guide-lead">{page.hero.lead}</p>
+
+					<div class="guide-actions">
+						<a class="guide-button-green" href="/#kontakt">
+							Prześlij lokalizację
+							<span aria-hidden="true">→</span>
+						</a>
+						<a class="guide-button-light" href="/poradnik/">
+							Wróć do poradnika
+							<span aria-hidden="true">→</span>
+						</a>
+					</div>
+
+					<div class="guide-chips" aria-label="Najważniejsze tematy strony">
+						{page.quick.map((item) => <span>{item}</span>)}
+					</div>
+				</div>
+
+				<aside class="guide-visual" aria-label="Grafika do uzupełnienia">
+					<div class="guide-visual-card">
+						<div class="guide-stat"><strong>{page.hero.statA}</strong><span>01</span></div>
+						<div class="guide-stat"><strong>{page.hero.statB}</strong><span>02</span></div>
+						<div class="guide-stat"><strong>{page.hero.statC}</strong><span>03</span></div>
+					</div>
+					<div class="guide-placeholder">
+						Miejsce na mocną grafikę podstrony — docelowo wstawimy WebP dopasowany do tematu.
+					</div>
+				</aside>
+			</div>
+		</section>
+
+		<section class="guide-section" aria-labelledby="cards-title">
+			<div class="container">
+				<div class="guide-split">
+					<div>
+						<p class="eyebrow">
+							<span></span>
+							Analiza inwestora
+						</p>
+						<h2 id="cards-title">Co porównać <strong>przed decyzją?</strong></h2>
+					</div>
+					<p>{page.cardsLead}</p>
+				</div>
+
+				<div class="guide-grid">
+					{page.cards.map((card) => (
+						<article class="guide-card">
+							<span class="guide-number">{card[0]}</span>
+							<h3>{card[1]}</h3>
+							<p>{card[2]}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="guide-section" aria-labelledby="gallery-title">
+			<div class="container">
+				<div class="guide-carousel-shell" data-subpage-carousel>
+					<div class="guide-carousel-head">
+						<h2 id="gallery-title">{page.galleryTitle}</h2>
+						<div class="guide-carousel-nav" aria-label="Nawigacja sekcji">
+							<button class="guide-carousel-arrow" type="button" data-subpage-prev aria-label="Poprzedni element">←</button>
+							<button class="guide-carousel-arrow" type="button" data-subpage-next aria-label="Następny element">→</button>
+						</div>
+					</div>
+
+					<div class="guide-carousel-track" data-subpage-track>
+						{page.gallery.map((slide) => (
+							<article class="guide-slide">
+								<strong>{slide[0]}</strong>
+								<h3>{slide[0]}</h3>
+								<p>{slide[1]}</p>
+							</article>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="guide-section" aria-labelledby="analysis-title">
+			<div class="container">
+				<div class="guide-analysis">
+					<div class="guide-analysis-grid">
+						<div>
+							<p class="eyebrow light"><span></span>Analiza lokalizacji</p>
+							<h2 id="analysis-title">Masz kilka ofert i chcesz <strong>je uporządkować?</strong></h2>
+							<p>{page.analysisText}</p>
+						</div>
+						<a class="guide-button-green" href="/#kontakt">
+							Prześlij lokalizację
+							<span aria-hidden="true">→</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="guide-section guide-faq" aria-labelledby="faq-title">
+			<div class="container">
+				<div class="guide-split">
+					<div>
+						<p class="eyebrow"><span></span>FAQ</p>
+						<h2 id="faq-title">Najczęstsze pytania <strong>inwestora</strong></h2>
+					</div>
+					<p>Krótko i konkretnie — pytania, które pomagają lepiej przygotować decyzję przed rozmową z projektantem, doradcą albo dostawcą.</p>
+				</div>
+
+				<div class="guide-faq-list">
+					{page.faq.map((item, index) => (
+						<details class="guide-faq-item" open={index === 0}>
+							<summary>{item[0]}</summary>
+							<p>{item[1]}</p>
+						</details>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="guide-section guide-related" aria-labelledby="related-title">
+			<div class="container">
+				<p class="eyebrow"><span></span>Dalej w poradniku</p>
+				<h2 id="related-title">Powiązane tematy <strong>dla inwestora</strong></h2>
+				<div class="guide-related-grid">
+					{relatedLinks.map((link) => (
+						<a class="guide-related-card" href={link[1]}>{link[0]} →</a>
+					))}
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
+
+<style>
+	.guide-page {
+		background: #fff;
+	}
+
+	.guide-hero {
+		position: relative;
+		overflow: hidden;
+		padding: clamp(84px, 8vw, 132px) 0 clamp(64px, 7vw, 104px);
+		background:
+			radial-gradient(circle at 78% 14%, rgba(18, 104, 255, 0.08), transparent 32%),
+			radial-gradient(circle at 16% 26%, rgba(114, 240, 105, 0.1), transparent 28%),
+			linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
+	}
+
+	.guide-hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
+		gap: clamp(34px, 5vw, 70px);
+		align-items: center;
+	}
+
+	.guide-hero h1,
+	.guide-split h2,
+	.guide-analysis h2,
+	.guide-faq h2,
+	.guide-related h2 {
+		margin: 0;
+		color: var(--ink);
+		font-weight: 950;
+		letter-spacing: -0.078em;
+		line-height: 0.94;
+	}
+
+	.guide-hero h1 {
+		max-width: 940px;
+		font-size: clamp(3.35rem, 6.8vw, 7.05rem);
+	}
+
+	.guide-hero h1 strong,
+	.guide-split h2 strong,
+	.guide-analysis h2 strong,
+	.guide-faq h2 strong,
+	.guide-related h2 strong {
+		background: linear-gradient(90deg, #0756d8 0%, #1268ff 38%, #4fa3ff 72%, #9ed7ff 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		font-weight: inherit;
+	}
+
+	.guide-lead {
+		max-width: 760px;
+		margin: 28px 0 0;
+		color: #667085;
+		font-size: clamp(1.04rem, 1.35vw, 1.28rem);
+		font-weight: 560;
+		line-height: 1.68;
+		letter-spacing: -0.012em;
+	}
+
+	.guide-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 14px;
+		margin-top: 34px;
+	}
+
+	.guide-button-green,
+	.guide-button-light {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		min-height: 58px;
+		padding: 0 24px;
+		border-radius: 999px;
+		font-weight: 950;
+		letter-spacing: -0.03em;
+		text-decoration: none;
+		transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+	}
+
+	.guide-button-green {
+		color: #06110a;
+		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
+		border: 1px solid rgba(114, 240, 105, 0.34);
+		box-shadow: 0 18px 44px rgba(76, 244, 89, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.56);
+	}
+
+	.guide-button-light {
+		color: var(--ink);
+		background: rgba(255, 255, 255, 0.88);
+		border: 1px solid rgba(8, 16, 32, 0.1);
+		box-shadow: 0 12px 34px rgba(8, 16, 32, 0.06);
+	}
+
+	.guide-button-green:hover,
+	.guide-button-light:hover {
+		transform: translateY(-2px);
+	}
+
+	.guide-visual {
+		position: relative;
+		min-height: 520px;
+		padding: 28px;
+		border-radius: 46px;
+		background:
+			radial-gradient(circle at 68% 24%, rgba(18, 104, 255, 0.24), transparent 30%),
+			radial-gradient(circle at 28% 78%, rgba(114, 240, 105, 0.22), transparent 30%),
+			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
+		overflow: hidden;
+	}
+
+	.guide-visual::before {
+		content: '';
+		position: absolute;
+		inset: 42px;
+		border-radius: 34px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background:
+			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+		background-size: 48px 48px;
+		mask-image: linear-gradient(180deg, black, transparent 88%);
+	}
+
+	.guide-visual-card {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		gap: 16px;
+	}
+
+	.guide-stat {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 18px;
+		min-height: 92px;
+		padding: 18px;
+		border-radius: 26px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		backdrop-filter: blur(16px);
+		color: rgba(255, 255, 255, 0.86);
+	}
+
+	.guide-stat strong {
+		font-size: 0.8rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.guide-stat span {
+		color: #72f069;
+		font-size: 1.45rem;
+		font-weight: 950;
+		letter-spacing: -0.06em;
+	}
+
+	.guide-placeholder {
+		position: absolute;
+		left: 28px;
+		right: 28px;
+		bottom: 28px;
+		z-index: 1;
+		padding: 20px;
+		border-radius: 28px;
+		background: rgba(255, 255, 255, 0.09);
+		border: 1px dashed rgba(255, 255, 255, 0.22);
+		color: rgba(255, 255, 255, 0.76);
+		font-weight: 650;
+		line-height: 1.5;
+	}
+
+	.guide-chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 26px;
+	}
+
+	.guide-chips span {
+		display: inline-flex;
+		align-items: center;
+		min-height: 38px;
+		padding: 8px 14px;
+		border: 1px solid rgba(8, 16, 32, 0.09);
+		border-radius: 999px;
+		background: #fff;
+		color: #344054;
+		font-size: 0.9rem;
+		font-weight: 820;
+		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045);
+	}
+
+	.guide-section {
+		padding: clamp(72px, 7vw, 110px) 0;
+	}
+
+	.guide-split {
+		display: grid;
+		grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.48fr);
+		gap: clamp(28px, 4vw, 52px);
+		align-items: end;
+		margin-bottom: 40px;
+	}
+
+	.guide-split h2,
+	.guide-analysis h2,
+	.guide-faq h2,
+	.guide-related h2 {
+		font-size: clamp(2.55rem, 4.6vw, 5.1rem);
+	}
+
+	.guide-split p {
+		margin: 0;
+		color: #667085;
+		font-size: clamp(1rem, 1.2vw, 1.14rem);
+		font-weight: 560;
+		line-height: 1.66;
+	}
+
+	.guide-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 20px;
+	}
+
+	.guide-card {
+		position: relative;
+		min-height: 300px;
+		padding: 28px;
+		border-radius: 34px;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+		overflow: hidden;
+	}
+
+	.guide-card::before {
+		content: '';
+		position: absolute;
+		right: -80px;
+		top: -90px;
+		width: 210px;
+		height: 230px;
+		border-radius: 54% 46% 42% 58% / 44% 58% 42% 56%;
+		background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(226, 236, 249, 0.58));
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -18px 34px rgba(8, 16, 32, 0.035), 0 22px 54px rgba(8, 16, 32, 0.055);
+	}
+
+	.guide-number {
+		position: relative;
+		z-index: 1;
+		display: block;
+		color: rgba(8, 16, 32, 0.12);
+		font-size: clamp(4.2rem, 5.2vw, 6.6rem);
+		font-weight: 950;
+		letter-spacing: -0.09em;
+		line-height: 0.82;
+	}
+
+	.guide-card h3 {
+		position: relative;
+		z-index: 1;
+		margin: 44px 0 0;
+		color: var(--ink);
+		font-size: clamp(1.45rem, 2vw, 2rem);
+		font-weight: 950;
+		letter-spacing: -0.06em;
+		line-height: 1.02;
+	}
+
+	.guide-card p {
+		position: relative;
+		z-index: 1;
+		margin: 14px 0 0;
+		color: #667085;
+		font-weight: 560;
+		line-height: 1.6;
+	}
+
+	.guide-carousel-shell {
+		position: relative;
+		overflow: hidden;
+		padding: clamp(28px, 4vw, 44px);
+		border-radius: 42px;
+		background: linear-gradient(145deg, #05070d, #121a29 62%, #05070d);
+		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.2);
+	}
+
+	.guide-carousel-head {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 24px;
+		margin-bottom: 24px;
+		color: #fff;
+	}
+
+	.guide-carousel-head h2 {
+		max-width: 720px;
+		margin: 0;
+		font-size: clamp(2.1rem, 3.8vw, 4.3rem);
+		font-weight: 950;
+		letter-spacing: -0.075em;
+		line-height: 0.96;
+	}
+
+	.guide-carousel-nav {
+		display: flex;
+		gap: 12px;
+	}
+
+	.guide-carousel-arrow {
+		width: 52px;
+		height: 52px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(255, 255, 255, 0.1);
+		color: #fff;
+		font-weight: 950;
+		font-size: 1.1rem;
+		cursor: pointer;
+	}
+
+	.guide-carousel-track {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(420px, 520px);
+		gap: 18px;
+		overflow-x: auto;
+		overflow-y: hidden;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		padding-bottom: 8px;
+		scrollbar-width: none;
+	}
+
+	.guide-carousel-track::-webkit-scrollbar {
+		display: none;
+	}
+
+	.guide-slide {
+		scroll-snap-align: start;
+		min-height: 280px;
+		padding: 26px;
+		border-radius: 30px;
+		background:
+			radial-gradient(circle at 86% 12%, rgba(114, 240, 105, 0.16), transparent 32%),
+			linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+		border: 1px solid rgba(255, 255, 255, 0.16);
+		color: #fff;
+	}
+
+	.guide-slide strong {
+		display: block;
+		font-size: 0.82rem;
+		font-weight: 950;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+		color: #72f069;
+	}
+
+	.guide-slide h3 {
+		margin: 44px 0 0;
+		font-size: 2rem;
+		font-weight: 950;
+		letter-spacing: -0.065em;
+		line-height: 1.02;
+	}
+
+	.guide-slide p {
+		margin: 14px 0 0;
+		color: rgba(255, 255, 255, 0.72);
+		font-weight: 560;
+		line-height: 1.6;
+	}
+
+	.guide-analysis {
+		padding: clamp(34px, 5vw, 58px);
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 12% 18%, rgba(18, 104, 255, 0.24), transparent 34%),
+			radial-gradient(circle at 88% 8%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(135deg, #05070d 0%, #101723 48%, #05070d 100%);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+		color: #fff;
+	}
+
+	.guide-analysis-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 30px;
+		align-items: end;
+	}
+
+	.guide-analysis h2 {
+		color: #fff;
+	}
+
+	.guide-analysis p {
+		max-width: 720px;
+		margin: 22px 0 0;
+		color: rgba(255, 255, 255, 0.74);
+		font-weight: 560;
+		line-height: 1.68;
+	}
+
+	.guide-faq-list {
+		display: grid;
+		gap: 14px;
+		margin-top: 34px;
+	}
+
+	.guide-faq-item {
+		border-radius: 24px;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		background: #fff;
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.06);
+		overflow: hidden;
+	}
+
+	.guide-faq-item summary {
+		display: flex;
+		justify-content: space-between;
+		gap: 18px;
+		padding: 22px 24px;
+		cursor: pointer;
+		font-size: 1.1rem;
+		font-weight: 900;
+		letter-spacing: -0.035em;
+		list-style: none;
+	}
+
+	.guide-faq-item summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.guide-faq-item summary::after {
+		content: '+';
+		display: grid;
+		place-items: center;
+		width: 34px;
+		height: 34px;
+		border-radius: 999px;
+		background: #f4f6f9;
+	}
+
+	.guide-faq-item[open] summary::after {
+		content: '−';
+		background: var(--ink);
+		color: #fff;
+	}
+
+	.guide-faq-item p {
+		margin: 0;
+		padding: 0 24px 24px;
+		color: #667085;
+		font-weight: 560;
+		line-height: 1.68;
+	}
+
+	.guide-related-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 18px;
+		margin-top: 32px;
+	}
+
+	.guide-related-card {
+		padding: 24px;
+		border-radius: 28px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.055);
+		font-weight: 900;
+		letter-spacing: -0.035em;
+	}
+
+	@media (max-width: 1120px) {
+		.guide-hero-grid,
+		.guide-split,
+		.guide-analysis-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.guide-grid,
+		.guide-related-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.guide-visual {
+			min-height: 420px;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.guide-hero {
+			padding-top: 72px;
+		}
+
+		.guide-hero h1 {
+			font-size: clamp(2.45rem, 12vw, 3.5rem);
+			line-height: 0.98;
+			letter-spacing: -0.07em;
+		}
+
+		.guide-actions,
+		.guide-button-green,
+		.guide-button-light {
+			width: 100%;
+		}
+
+		.guide-visual {
+			min-height: 360px;
+			border-radius: 34px;
+		}
+
+		.guide-grid,
+		.guide-related-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.guide-card {
+			min-height: auto;
+			padding: 24px;
+			border-radius: 28px;
+		}
+
+		.guide-card h3 {
+			margin-top: 28px;
+		}
+
+		.guide-split h2,
+		.guide-analysis h2,
+		.guide-faq h2,
+		.guide-related h2 {
+			font-size: clamp(2.2rem, 10.5vw, 3.35rem);
+			line-height: 0.98;
+			letter-spacing: -0.07em;
+		}
+
+		.guide-carousel-head {
+			display: grid;
+		}
+
+		.guide-carousel-nav {
+			justify-content: center;
+		}
+
+		.guide-carousel-track {
+			grid-auto-columns: 86vw;
+			margin-left: -20px;
+			margin-right: -20px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		.guide-analysis-grid {
+			gap: 24px;
+		}
+	}
+</style>
+
+<script is:inline>
+	const subpageCarousels = document.querySelectorAll('[data-subpage-carousel]');
+
+	subpageCarousels.forEach((carousel) => {
+		const track = carousel.querySelector('[data-subpage-track]');
+		const prev = carousel.querySelector('[data-subpage-prev]');
+		const next = carousel.querySelector('[data-subpage-next]');
+
+		if (!track || !prev || !next) return;
+
+		const getStep = () => {
+			const firstCard = track.querySelector('.guide-slide');
+			if (!firstCard) return 360;
+			const styles = window.getComputedStyle(track);
+			const gap = parseFloat(styles.columnGap || styles.gap || '18');
+			return firstCard.getBoundingClientRect().width + gap;
+		};
+
+		prev.addEventListener('click', () => {
+			track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+		});
+
+		next.addEventListener('click', () => {
+			track.scrollBy({ left: getStep(), behavior: 'smooth' });
+		});
+	});
+</script>
+

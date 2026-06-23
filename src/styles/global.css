@@ -6334,3 +6334,185 @@ img {
 .hero-actions .button-primary span {
 	color: #06110a !important;
 }
+/* FOOTER FIX — PREMIUM PANEL */
+
+.iwm-footer {
+	padding: 70px 0 34px !important;
+	background: linear-gradient(180deg, #ffffff 0%, #f7f8fb 100%) !important;
+	border-top: 1px solid rgba(8, 16, 32, 0.08) !important;
+}
+
+.iwm-footer-panel {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr) minmax(280px, 0.55fr) !important;
+	gap: 42px !important;
+	align-items: start !important;
+	padding: 42px !important;
+	border-radius: 42px !important;
+	background:
+		linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 253, 0.96)),
+		radial-gradient(circle at 8% 10%, rgba(18, 104, 255, 0.06), transparent 34%),
+		radial-gradient(circle at 92% 0%, rgba(114, 240, 105, 0.08), transparent 32%) !important;
+	border: 1px solid rgba(8, 16, 32, 0.08) !important;
+	box-shadow:
+		0 24px 74px rgba(8, 16, 32, 0.075),
+		inset 0 1px 0 rgba(255, 255, 255, 0.86) !important;
+}
+
+.iwm-footer-brand img {
+	width: 320px !important;
+	max-width: 100% !important;
+	height: auto !important;
+	display: block !important;
+}
+
+.iwm-footer-brand p,
+.iwm-footer-contact p {
+	max-width: 520px !important;
+	margin: 22px 0 0 !important;
+	color: #667085 !important;
+	font-size: 1rem !important;
+	font-weight: 560 !important;
+	line-height: 1.62 !important;
+}
+
+.iwm-footer-cta {
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	gap: 10px !important;
+	min-height: 48px !important;
+	margin-top: 26px !important;
+	padding: 0 20px !important;
+	border-radius: 999px !important;
+	color: #06110a !important;
+	background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%) !important;
+	border: 1px solid rgba(114, 240, 105, 0.34) !important;
+	font-size: 0.92rem !important;
+	font-weight: 950 !important;
+	letter-spacing: -0.035em !important;
+	box-shadow:
+		0 16px 38px rgba(76, 244, 89, 0.22),
+		inset 0 1px 0 rgba(255, 255, 255, 0.56) !important;
+	text-decoration: none !important;
+}
+
+.iwm-footer-links {
+	display: grid !important;
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	gap: 26px !important;
+}
+
+.iwm-footer nav,
+.iwm-footer-contact {
+	padding: 22px !important;
+	border-radius: 26px !important;
+	background: rgba(255, 255, 255, 0.72) !important;
+	border: 1px solid rgba(8, 16, 32, 0.07) !important;
+	box-shadow: 0 14px 36px rgba(8, 16, 32, 0.045) !important;
+}
+
+.iwm-footer h2 {
+	margin: 0 0 16px !important;
+	color: var(--ink) !important;
+	font-size: 0.78rem !important;
+	font-weight: 950 !important;
+	letter-spacing: 0.13em !important;
+	text-transform: uppercase !important;
+}
+
+.iwm-footer ul {
+	display: grid !important;
+	gap: 11px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+}
+
+.iwm-footer li {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.iwm-footer-links a,
+.iwm-footer-contact a:not(.iwm-footer-cta) {
+	color: #344054 !important;
+	font-size: 0.98rem !important;
+	font-weight: 760 !important;
+	line-height: 1.35 !important;
+	text-decoration: none !important;
+}
+
+.iwm-footer-links a:hover,
+.iwm-footer-contact a:not(.iwm-footer-cta):hover {
+	color: var(--blue) !important;
+}
+
+.iwm-footer-contact a:not(.iwm-footer-cta) {
+	display: inline-flex !important;
+	margin-top: 18px !important;
+	color: var(--ink) !important;
+	font-weight: 920 !important;
+	letter-spacing: -0.02em !important;
+}
+
+.iwm-footer-bottom {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	gap: 18px !important;
+	padding: 24px 4px 0 !important;
+	color: #667085 !important;
+	font-size: 0.9rem !important;
+	font-weight: 560 !important;
+}
+
+.iwm-footer-bottom p {
+	margin: 0 !important;
+}
+
+@media (max-width: 1120px) {
+	.iwm-footer-panel {
+		grid-template-columns: 1fr !important;
+	}
+
+	.iwm-footer-links {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+}
+
+@media (max-width: 760px) {
+	.iwm-footer {
+		padding-top: 48px !important;
+	}
+
+	.iwm-footer-panel {
+		padding: 24px !important;
+		border-radius: 32px !important;
+		gap: 28px !important;
+	}
+
+	.iwm-footer-brand img {
+		width: min(300px, 78vw) !important;
+	}
+
+	.iwm-footer-links {
+		grid-template-columns: 1fr !important;
+		gap: 20px !important;
+	}
+
+	.iwm-footer nav,
+	.iwm-footer-contact {
+		padding: 20px !important;
+		border-radius: 24px !important;
+	}
+
+	.iwm-footer-cta {
+		width: 100% !important;
+	}
+
+	.iwm-footer-bottom {
+		display: grid !important;
+		gap: 8px !important;
+	}
+}
