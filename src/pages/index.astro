@@ -244,23 +244,7 @@ const processSteps = [
 		text: 'Wybierz rozwiązanie dopasowane do działki, budżetu, potencjału lokalizacji i długofalowego prowadzenia myjni.'
 	}
 ];
-const responsiveCards = [
-	{
-		device: 'Desktop',
-		title: 'Duże decyzje, duże kafelki',
-		text: 'Na szerokim ekranie pokazujemy inwestorowi pełną strukturę: koszt, opłacalność, działka, dostawcy i proces.'
-	},
-	{
-		device: 'Tablet',
-		title: 'Czytelny układ 2-kolumnowy',
-		text: 'Tablet ma prowadzić jak prezentacja: mniej tekstu, mocne nagłówki, duże pola klikalne i szybkie wejścia w poradniki.'
-	},
-	{
-		device: 'Mobile',
-		title: 'Szybka decyzja i kontakt',
-		text: 'Na telefonie najważniejsze są krótkie komunikaty, widoczne CTA, prosty formularz i brak przeładowania treścią.'
-	}
-];
+
 
 const faqItems = [
 	{
@@ -685,20 +669,21 @@ księgową lub doradcą podatkowym oraz dostawcami technologii.
 		<section class="section process-section process-gallery-section" aria-labelledby="process-title">
 	<div class="container">
 		<div class="split-head">
-			<div>
-				<p class="eyebrow">
-					<span></span>
-					Proces
-				</p>
-				<h2 id="process-title">
-					Prosty schemat <strong>dla każdej podstrony</strong>
-				</h2>
-			</div>
-			<p>
-				Ten układ będziemy potem powtarzać: mocny nagłówek, szybkie wyjaśnienie,
-				kafelki, checklisty, FAQ i CTA do analizy.
-			</p>
-		</div>
+	<div>
+		<p class="eyebrow">
+			<span></span>
+			Proces inwestycji
+		</p>
+		<h2 id="process-title">
+			Od pierwszej analizy do <strong>świadomej decyzji</strong>
+		</h2>
+	</div>
+	<p>
+		Budowa myjni nie powinna zaczynać się od przypadkowej oferty. Najpierw warto
+		sprawdzić działkę, określić realny budżet, skonsultować projekt, porównać
+		zakresy dostawców i dopiero wtedy podejmować decyzję inwestycyjną.
+	</p>
+</div>
 
 		<div class="process-gallery" data-process-gallery>
 			<div class="process-gallery-nav" aria-label="Nawigacja procesu inwestycji">
@@ -770,37 +755,6 @@ księgową lub doradcą podatkowym oraz dostawcami technologii.
 		</div>
 	</div>
 </section>
-
-		<section class="section responsive-section" aria-labelledby="responsive-title">
-			<div class="container">
-				<div class="section-head centered">
-					<p class="eyebrow">
-						<span></span>
-						Desktop / tablet / mobile
-					</p>
-					<h2 id="responsive-title">
-						Strona ma działać jak prezentacja <strong>na każdym ekranie</strong>
-					</h2>
-				</div>
-
-				<div class="device-grid">
-					{
-						responsiveCards.map((card) => (
-							<div class="device-card">
-								<div class={`device-frame ${card.device.toLowerCase()}`}>
-									<div></div>
-									<div></div>
-									<div></div>
-								</div>
-								<p>{card.device}</p>
-								<h3>{card.title}</h3>
-								<span>{card.text}</span>
-							</div>
-						))
-					}
-				</div>
-			</div>
-		</section>
 
 		<section class="section knowledge-section" id="poradnik" aria-labelledby="knowledge-title">
 			<div class="container">
