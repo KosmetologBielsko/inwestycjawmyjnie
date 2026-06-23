@@ -5853,3 +5853,36 @@ img {
 		font-size: 0.68rem;
 	}
 }
+/* HEADER LOGO CAPSULE — CLEAN ROUNDED TRANSPARENT LOGO */
+
+.iwm-brand {
+	overflow: hidden !important;
+	border-radius: 999px !important;
+	background: rgba(255, 255, 255, 0.96) !important;
+	border: 1px solid rgba(8, 16, 32, 0.08) !important;
+	box-shadow: 0 10px 26px rgba(8, 16, 32, 0.06) !important;
+}
+
+.iwm-brand img {
+	display: block !important;
+	border-radius: 999px !important;
+	background: transparent !important;
+}
+
+@media (min-width: 861px) {
+	.iwm-brand {
+		padding: 7px 12px !important;
+	}
+}
+
+@media (max-width: 860px) {
+	.iwm-brand {
+		padding: 5px 9px !important;
+	}
+}
+
+@media (max-width: 520px) {
+	.iwm-brand {
+		padding: 4px 7px !important;
+	}
+}
