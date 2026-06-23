@@ -5122,3 +5122,16 @@ img {
 		line-height: 1 !important;
 	}
 }
+/* HIDE HERO TOPIC PILLS ON MOBILE/TABLET ONLY */
+
+@media (max-width: 1120px) {
+	.hero-proof,
+	.hero-proof-container {
+		display: none !important;
+		visibility: hidden !important;
+		height: 0 !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		overflow: hidden !important;
+	}
+}
