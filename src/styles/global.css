@@ -5282,3 +5282,104 @@ img {
 		border-radius: 24px;
 	}
 }
+/* MOBILE — BIG WHITE IMAGE CARDS LIKE DARK PROCESS CARDS */
+
+@media (max-width: 760px) {
+	/* białe kafelki / sekcja wizualnych komunikatów */
+	.mistakes-gallery-track,
+	.mistakes-track,
+	.problem-gallery-track,
+	.visual-cards-track,
+	.audience-image-grid {
+		width: 100vw !important;
+		margin-left: calc(50% - 50vw) !important;
+		margin-right: calc(50% - 50vw) !important;
+		display: grid !important;
+		grid-auto-flow: column !important;
+		grid-auto-columns: 88vw !important;
+		gap: 16px !important;
+		padding-left: 18px !important;
+		padding-right: 18px !important;
+		padding-bottom: 20px !important;
+		overflow-x: auto !important;
+		overflow-y: hidden !important;
+		scroll-snap-type: x mandatory !important;
+		scroll-behavior: smooth !important;
+		overscroll-behavior-x: contain !important;
+	}
+
+	.mistake-image-card,
+	.mistakes-card,
+	.problem-image-card,
+	.visual-image-card,
+	.audience-image-card {
+		width: 88vw !important;
+		min-width: 88vw !important;
+		max-width: 88vw !important;
+		scroll-snap-align: center !important;
+		border-radius: 28px !important;
+		overflow: hidden !important;
+		background: #ffffff !important;
+		border: 1px solid rgba(8, 16, 32, 0.08) !important;
+		box-shadow: 0 22px 58px rgba(8, 16, 32, 0.11) !important;
+	}
+
+	.mistake-image-card img,
+	.mistakes-card img,
+	.problem-image-card img,
+	.visual-image-card img,
+	.audience-image-card img {
+		display: block !important;
+		width: 100% !important;
+		height: auto !important;
+		border-radius: 0 !important;
+	}
+
+	.mistakes-gallery-track::-webkit-scrollbar,
+	.mistakes-track::-webkit-scrollbar,
+	.problem-gallery-track::-webkit-scrollbar,
+	.visual-cards-track::-webkit-scrollbar,
+	.audience-image-grid::-webkit-scrollbar {
+		height: 7px !important;
+	}
+
+	.mistakes-gallery-track::-webkit-scrollbar-track,
+	.mistakes-track::-webkit-scrollbar-track,
+	.problem-gallery-track::-webkit-scrollbar-track,
+	.visual-cards-track::-webkit-scrollbar-track,
+	.audience-image-grid::-webkit-scrollbar-track {
+		background: transparent !important;
+	}
+
+	.mistakes-gallery-track::-webkit-scrollbar-thumb,
+	.mistakes-track::-webkit-scrollbar-thumb,
+	.problem-gallery-track::-webkit-scrollbar-thumb,
+	.visual-cards-track::-webkit-scrollbar-thumb,
+	.audience-image-grid::-webkit-scrollbar-thumb {
+		background: rgba(8, 16, 32, 0.18) !important;
+		border-radius: 999px !important;
+	}
+}
+
+@media (max-width: 430px) {
+	.mistakes-gallery-track,
+	.mistakes-track,
+	.problem-gallery-track,
+	.visual-cards-track,
+	.audience-image-grid {
+		grid-auto-columns: 90vw !important;
+		padding-left: 14px !important;
+		padding-right: 14px !important;
+	}
+
+	.mistake-image-card,
+	.mistakes-card,
+	.problem-image-card,
+	.visual-image-card,
+	.audience-image-card {
+		width: 90vw !important;
+		min-width: 90vw !important;
+		max-width: 90vw !important;
+		border-radius: 24px !important;
+	}
+}
