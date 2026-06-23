@@ -114,22 +114,6 @@ const startSteps = [
 		accent: 'green'
 	}
 ];
-
-const metricCards = [
-	{
-		title: 'Koszt startowy',
-		text: 'Ile realnie trzeba przygotować na budowę, technologię, przyłącza, projekt, formalności i uruchomienie?'
-	},
-	{
-		title: 'Przychód miesięczny',
-		text: 'Ile myć może wygenerować lokalizacja, jaki będzie średni koszyk i jak sezonowość wpływa na wynik?'
-	},
-	{
-		title: 'Koszt utrzymania',
-		text: 'Jakie będą koszty wody, ścieków, energii, chemii, serwisu, dzierżawy, pracownika i obsługi obiektu?'
-	}
-];
-
 const checklistGroups = [
 	{
 		title: 'Dojazd i widoczność',
@@ -182,6 +166,33 @@ const mistakeCards = [
 	{
 		title: 'Brak konsultacji finansowo-podatkowej',
 		text: 'Przed inwestycją warto porozmawiać z księgową lub doradcą podatkowym. Sposób finansowania, amortyzacji i rozliczania inwestycji może mieć znaczenie dla realnej opłacalności całego projektu.'
+	}
+];
+
+const mistakeSlides = [
+	{
+		image: '/images/blad-01-wybor-najtanszego-rozwiazania.webp',
+		alt: 'Wybór najtańszego rozwiązania — ukryte koszty inwestycji w myjnię.'
+	},
+	{
+		image: '/images/blad-02-niedopasowanie-myjni-do-lokalizacji.webp',
+		alt: 'Niedopasowanie myjni do lokalizacji — porównanie dobrego i złego układu obiektu.'
+	},
+	{
+		image: '/images/blad-03-brak-konsultacji-finansowo-podatkowej.webp',
+		alt: 'Brak konsultacji finansowo-podatkowej przed inwestycją w myjnię.'
+	},
+	{
+		image: '/images/blad-04-porownywanie-ofert-tylko-po-cenie.webp',
+		alt: 'Porównywanie ofert tylko po cenie — oferta tańsza kontra pełniejszy zakres.'
+	},
+	{
+		image: '/images/blad-05-zbieranie-ofert-przed-analiza-dzialki.webp',
+		alt: 'Zbieranie ofert przed analizą działki — chaos przed sprawdzeniem lokalizacji.'
+	},
+	{
+		image: '/images/blad-06-slaby-projekt-lub-brak-kontroli-technicznej.webp',
+		alt: 'Słaby projekt lub brak kontroli technicznej przy budowie myjni.'
 	}
 ];
 
@@ -479,50 +490,42 @@ const faqSchema = {
 		</div>
 	</div>
 </section>
-		<section class="section metrics-section" aria-labelledby="metrics-title">
-			<div class="container">
-				<div class="metrics-panel">
-					<div class="section-head">
-						<p class="eyebrow">
-							<span></span>
-							3 liczby
-						</p>
-						<h2 id="metrics-title">
-							Zanim powiesz „buduję”, policz <strong>trzy rzeczy</strong>
-						</h2>
-					</div>
-
-					<div class="metrics-grid">
-						{
-							metricCards.map((card) => (
-								<article class="metric-card">
-									<h3>{card.title}</h3>
-									<p>{card.text}</p>
-								</article>
-							))
-						}
-					</div>
-				</div>
-			</div>
-		</section>
 <InvestorTopicsSection />
-		<section class="section checklist-section" aria-labelledby="checklist-title">
-	<div class="container location-audit-grid">
-		<div class="location-audit-copy">
+
+		<section class="section checklist-section location-hero-section" aria-labelledby="checklist-title">
+	<div class="container location-hero-grid">
+		<div class="location-hero-copy">
 			<p class="eyebrow">
 				<span></span>
 				Audyt lokalizacji
 			</p>
-			<h2 id="checklist-title">
-				Dobra działka pod myjnię to nie tylko <strong>duży plac</strong>
-			</h2>
-			<p class="section-lead">
-				Lokalizacja powinna zostać oceniona technicznie, ekonomicznie i praktycznie.
-				Inaczej można zbudować poprawny obiekt w miejscu, które nie wykorzysta jego potencjału.
-			</p>
+
+			<h2 id="checklist-title" class="location-audit-title">
+	Czy ta działka ma <strong>realny potencjał</strong> pod myjnię?
+</h2>
+
+<p class="section-lead location-audit-lead">
+	Dobra lokalizacja to nie tylko wolny teren. Przed porównywaniem ofert i kosztów budowy
+	warto sprawdzić dojazd, widoczność, media, sąsiedztwo, konkurencję i realny potencjał ruchu.
+</p>
+
+			<a class="button button-primary location-hero-button" href="#kontakt">
+				Prześlij lokalizację
+				<span aria-hidden="true">→</span>
+			</a>
 		</div>
 
-		<div class="location-audit-cards">
+		<picture class="location-hero-image">
+			<source media="(max-width: 1120px)" srcset="/images/audyt-lokalizacji-panorama.webp" />
+			<img
+				src="/images/audyt-lokalizacji-pion.webp"
+				alt="Audyt lokalizacji pod myjnię — działka, dojazd, widoczność, media i potencjał inwestycji."
+				loading="lazy"
+				decoding="async"
+			/>
+		</picture>
+
+		<div class="location-audit-cards location-hero-cards">
 			{
 				checklistGroups.map((group, index) => (
 					<article class="location-audit-card">
@@ -544,29 +547,62 @@ const faqSchema = {
 </section>
 
 		<section class="section mistakes-section" aria-labelledby="mistakes-title">
-			<div class="container">
-				<div class="section-head centered">
-					<p class="eyebrow">
-						<span></span>
-						Błędy inwestora
-					</p>
-					<h2 id="mistakes-title">
-						Najdroższe błędy zaczynają się <strong>na początku</strong>
-					</h2>
-				</div>
+	<div class="container">
+		<div class="section-head centered mistakes-head">
+			<p class="eyebrow">
+				<span></span>
+				Błędy inwestora
+			</p>
 
-				<div class="mistake-grid">
-					{
-						mistakeCards.map((card) => (
-							<article class="mistake-card">
-								<h3>{card.title}</h3>
-								<p>{card.text}</p>
-							</article>
-						))
-					}
-				</div>
+			<h2 id="mistakes-title">
+				Najdroższe błędy zaczynają się
+				<strong>na początku</strong>
+			</h2>
+
+			<p class="mistakes-lead">
+				Zamiast sześciu zwykłych kafelków pokazujemy sześć mocnych wizualnych komunikatów,
+				które można przewijać palcem, trackpadem albo strzałkami.
+			</p>
+		</div>
+
+		<div class="mistakes-carousel-shell" data-mistakes-carousel>
+			<div class="mistakes-carousel-nav" aria-label="Nawigacja sekcji błędów inwestora">
+				<button
+					class="mistakes-arrow"
+					type="button"
+					data-mistakes-prev
+					aria-label="Poprzednia grafika"
+				>
+					←
+				</button>
+
+				<button
+					class="mistakes-arrow"
+					type="button"
+					data-mistakes-next
+					aria-label="Następna grafika"
+				>
+					→
+				</button>
 			</div>
-		</section>
+
+			<div class="mistakes-track" data-mistakes-track>
+				{
+					mistakeSlides.map((slide) => (
+						<article class="mistake-slide">
+							<img
+								src={slide.image}
+								alt={slide.alt}
+								loading="lazy"
+								decoding="async"
+							/>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
 
 		<section class="section dark-section" aria-labelledby="dark-title">
 			<div class="container">
@@ -868,4 +904,51 @@ księgową lub doradcą podatkowym oraz dostawcami technologii.
 			restart();
 		});
 	</script>
+	<script is:inline>
+	const mistakesCarousels = document.querySelectorAll('[data-mistakes-carousel]');
+
+	mistakesCarousels.forEach((carousel) => {
+		const track = carousel.querySelector('[data-mistakes-track]');
+		const prev = carousel.querySelector('[data-mistakes-prev]');
+		const next = carousel.querySelector('[data-mistakes-next]');
+
+		if (!track || !prev || !next) return;
+
+		const getStep = () => {
+			const firstCard = track.querySelector('.mistake-slide');
+			if (!firstCard) return 320;
+
+			const styles = window.getComputedStyle(track);
+			const gap = parseFloat(styles.columnGap || styles.gap || '24');
+
+			return firstCard.getBoundingClientRect().width + gap;
+		};
+
+		const updateButtons = () => {
+			const maxScroll = track.scrollWidth - track.clientWidth - 4;
+
+			prev.disabled = track.scrollLeft <= 4;
+			next.disabled = track.scrollLeft >= maxScroll;
+		};
+
+		prev.addEventListener('click', () => {
+			track.scrollBy({
+				left: -getStep(),
+				behavior: 'smooth'
+			});
+		});
+
+		next.addEventListener('click', () => {
+			track.scrollBy({
+				left: getStep(),
+				behavior: 'smooth'
+			});
+		});
+
+		track.addEventListener('scroll', updateButtons, { passive: true });
+		window.addEventListener('resize', updateButtons);
+
+		updateButtons();
+	});
+</script>
 </Layout>
