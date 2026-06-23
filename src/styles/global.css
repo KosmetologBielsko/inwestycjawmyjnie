@@ -6303,3 +6303,34 @@ img {
 		border-radius: 28px !important;
 	}
 }
+/* GLOBAL LEAD CTA — NEON GREEN LIKE HEADER ANALYSIS BUTTON */
+
+.button-primary[href="#kontakt"],
+.button-primary[href="/#kontakt"],
+.location-hero-button,
+.hero-actions .button-primary {
+	color: #06110a !important;
+	background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%) !important;
+	border: 1px solid rgba(114, 240, 105, 0.34) !important;
+	box-shadow:
+		0 18px 44px rgba(76, 244, 89, 0.24),
+		inset 0 1px 0 rgba(255, 255, 255, 0.56) !important;
+}
+
+.button-primary[href="#kontakt"]:hover,
+.button-primary[href="/#kontakt"]:hover,
+.location-hero-button:hover,
+.hero-actions .button-primary:hover {
+	transform: translateY(-2px) !important;
+	filter: saturate(1.08) !important;
+	box-shadow:
+		0 24px 58px rgba(76, 244, 89, 0.34),
+		inset 0 1px 0 rgba(255, 255, 255, 0.68) !important;
+}
+
+.button-primary[href="#kontakt"] span,
+.button-primary[href="/#kontakt"] span,
+.location-hero-button span,
+.hero-actions .button-primary span {
+	color: #06110a !important;
+}
