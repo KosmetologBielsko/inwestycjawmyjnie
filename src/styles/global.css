@@ -7131,3 +7131,75 @@ main {
 		margin-top: 14px;
 	}
 }
+/* FINAL FORCE — LOCATION AUDIT 2/2/1 LAYOUT */
+
+.location-audit-final-section .location-final-grid {
+	display: grid !important;
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	gap: clamp(18px, 2vw, 28px) !important;
+	align-items: stretch !important;
+}
+
+.location-audit-final-section .location-final-card {
+	width: auto !important;
+	max-width: none !important;
+	min-width: 0 !important;
+	grid-column: auto !important;
+}
+
+.location-audit-final-section .location-final-card.is-wide {
+	grid-column: 1 / -1 !important;
+}
+
+/* większe ekrany / 27 cali */
+@media (min-width: 1440px) {
+	.location-audit-final-section .location-final-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		gap: 30px !important;
+	}
+
+	.location-audit-final-section .location-final-card {
+		min-height: 300px !important;
+	}
+
+	.location-audit-final-section .location-final-card.is-wide {
+		min-height: 250px !important;
+	}
+}
+
+/* tablet — też 2 kolumny, żeby nie robiło jednej pod drugą za wcześnie */
+@media (min-width: 761px) and (max-width: 1120px) {
+	.location-audit-final-section .location-final-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+
+	.location-audit-final-section .location-final-card {
+		grid-template-columns: 92px minmax(0, 1fr) !important;
+		padding: 26px !important;
+	}
+
+	.location-audit-final-section .location-final-card.is-wide {
+		grid-column: 1 / -1 !important;
+	}
+}
+
+/* mobile — dopiero tutaj jedna pod drugą */
+@media (max-width: 760px) {
+	.location-audit-final-section .location-final-grid {
+		grid-template-columns: 1fr !important;
+		gap: 14px !important;
+	}
+
+	.location-audit-final-section .location-final-card,
+	.location-audit-final-section .location-final-card.is-wide {
+		grid-column: auto !important;
+		grid-template-columns: 82px minmax(0, 1fr) !important;
+	}
+}
+
+@media (max-width: 420px) {
+	.location-audit-final-section .location-final-card,
+	.location-audit-final-section .location-final-card.is-wide {
+		grid-template-columns: 1fr !important;
+	}
+}
