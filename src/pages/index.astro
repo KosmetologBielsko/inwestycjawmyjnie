@@ -426,33 +426,55 @@ const faqSchema = {
 			</div>
 		</section>
 		<section class="section audience-section" aria-labelledby="audience-title">
-			<div class="container">
-				<div class="section-head">
-					<p class="eyebrow">
-						<span></span>
-						Dla kogo
-					</p>
-					<h2 id="audience-title">
-						Poradnik dla osób, które chcą <strong>zainwestować w myjnię</strong> i potrzebują jasnego planu działania
-					</h2>
-				</div>
+	<div class="container">
+		<div class="section-head">
+			<p class="eyebrow">
+				<span></span>
+				Dla kogo
+			</p>
+			<h2 id="audience-title">
+				Poradnik dla osób, które chcą <strong>zainwestować w myjnię</strong> i potrzebują jasnego planu działania
+			</h2>
+		</div>
 
-				<div class="audience-grid audience-image-grid">
-					{
-						audienceCards.map((card) => (
-							<article class="audience-image-card">
-								<img src={card.image} alt={card.alt} loading="lazy" decoding="async" />
+		<div class="audience-carousel" data-audience-carousel>
+			<div class="audience-carousel-nav" aria-label="Nawigacja kart poradnika">
+				<button
+					class="audience-arrow"
+					type="button"
+					data-audience-prev
+					aria-label="Poprzednia karta"
+				>
+					←
+				</button>
 
-								<div class="sr-only">
-									<h3>{card.title}</h3>
-									<p>{card.text}</p>
-								</div>
-							</article>
-						))
-					}
-				</div>
+				<button
+					class="audience-arrow"
+					type="button"
+					data-audience-next
+					aria-label="Następna karta"
+				>
+					→
+				</button>
 			</div>
-		</section>
+
+			<div class="audience-grid audience-image-grid" data-audience-track>
+				{
+					audienceCards.map((card) => (
+						<article class="audience-image-card">
+							<img src={card.image} alt={card.alt} loading="lazy" decoding="async" />
+
+							<div class="sr-only">
+								<h3>{card.title}</h3>
+								<p>{card.text}</p>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
 		<section class="section roadmap-section" aria-labelledby="start-title">
 	<div class="container">
 		<div class="split-head roadmap-head">
@@ -920,6 +942,53 @@ księgową lub doradcą podatkowym oraz dostawcami technologii.
 
 			const styles = window.getComputedStyle(track);
 			const gap = parseFloat(styles.columnGap || styles.gap || '24');
+
+			return firstCard.getBoundingClientRect().width + gap;
+		};
+
+		const updateButtons = () => {
+			const maxScroll = track.scrollWidth - track.clientWidth - 4;
+
+			prev.disabled = track.scrollLeft <= 4;
+			next.disabled = track.scrollLeft >= maxScroll;
+		};
+
+		prev.addEventListener('click', () => {
+			track.scrollBy({
+				left: -getStep(),
+				behavior: 'smooth'
+			});
+		});
+
+		next.addEventListener('click', () => {
+			track.scrollBy({
+				left: getStep(),
+				behavior: 'smooth'
+			});
+		});
+
+		track.addEventListener('scroll', updateButtons, { passive: true });
+		window.addEventListener('resize', updateButtons);
+
+		updateButtons();
+	});
+</script>
+<script is:inline>
+	const audienceCarousels = document.querySelectorAll('[data-audience-carousel]');
+
+	audienceCarousels.forEach((carousel) => {
+		const track = carousel.querySelector('[data-audience-track]');
+		const prev = carousel.querySelector('[data-audience-prev]');
+		const next = carousel.querySelector('[data-audience-next]');
+
+		if (!track || !prev || !next) return;
+
+		const getStep = () => {
+			const firstCard = track.querySelector('.audience-image-card');
+			if (!firstCard) return 320;
+
+			const styles = window.getComputedStyle(track);
+			const gap = parseFloat(styles.columnGap || styles.gap || '16');
 
 			return firstCard.getBoundingClientRect().width + gap;
 		};
