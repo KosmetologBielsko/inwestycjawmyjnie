@@ -1,21 +1,116 @@
 ---
-import { siteConfig } from '../config/site';
+const menuLinks = [
+	{
+		label: 'Koszt budowy',
+		href: '/ile-kosztuje-myjnia-bezdotykowa/'
+	},
+	{
+		label: 'Opłacalność',
+		href: '/ile-zarabia-myjnia-bezdotykowa/'
+	},
+	{
+		label: 'Działka pod myjnię',
+		href: '/dzialka-pod-myjnie-bezdotykowa/'
+	},
+	{
+		label: 'Porównanie ofert',
+		href: '/jak-porownac-oferty-myjni-bezdotykowej/'
+	},
+	{
+		label: 'Kontakt',
+		href: '/#kontakt'
+	}
+];
 ---
 
-<header class="site-header">
-	<div class="container header-inner">
-		<a class="brand" href="/" aria-label="Inwestycja w Myjnię — strona główna">
-			<span class="brand-mark" aria-hidden="true"></span>
-			<span class="brand-text">{siteConfig.name}</span>
+<header class="iwm-header" data-iwm-header>
+	<div class="iwm-header-inner">
+		<a class="iwm-brand" href="/" aria-label="inwestycjawmyjnie.pl">
+			<img
+				class="iwm-logo iwm-logo-desktop"
+				src="/images/logo-inwestycjawmyjnie-poziome.webp"
+				alt="inwestycjawmyjnie.pl"
+				width="1899"
+				height="422"
+				loading="eager"
+				decoding="async"
+			/>
+			<img
+				class="iwm-logo iwm-logo-mobile"
+				src="/images/logo-inwestycjawmyjnie-symbol.webp"
+				alt="inwestycjawmyjnie.pl"
+				width="1017"
+				height="819"
+				loading="eager"
+				decoding="async"
+			/>
 		</a>
 
-		<nav class="desktop-nav" aria-label="Główna nawigacja">
-			{siteConfig.nav.map((item) => <a href={item.href}>{item.label}</a>)}
-		</nav>
+		<div class="iwm-header-actions">
+			<button class="iwm-icon-button" type="button" data-iwm-search-toggle aria-label="Szukaj">
+				<svg viewBox="0 0 24 24" aria-hidden="true">
+					<circle cx="11" cy="11" r="7"></circle>
+					<path d="M16.5 16.5L21 21"></path>
+				</svg>
+			</button>
 
-		<a class="header-cta" href="#kontakt">
-			Analiza lokalizacji
-			<span aria-hidden="true">→</span>
-		</a>
+			<a class="iwm-analysis-button" href="/#kontakt">
+				Analiza lokalizacji
+			</a>
+
+			<button class="iwm-icon-button" type="button" data-iwm-menu-toggle aria-label="Menu">
+				<svg viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M4 7h16"></path>
+					<path d="M4 12h16"></path>
+					<path d="M4 17h16"></path>
+				</svg>
+			</button>
+		</div>
 	</div>
+
+	<div class="iwm-search-panel" data-iwm-search-panel hidden>
+		<div class="iwm-panel-inner">
+			<p>Szukaj w poradniku</p>
+			<input type="search" placeholder="np. koszt budowy, działka, opłacalność..." />
+			<span>Pełne wyszukiwanie podepniemy później przy rozbudowie poradnika.</span>
+		</div>
+	</div>
+
+	<nav class="iwm-menu-panel" data-iwm-menu-panel hidden aria-label="Menu strony">
+		<div class="iwm-panel-inner iwm-menu-links">
+			{
+				menuLinks.map((link) => (
+					<a href={link.href}>
+						{link.label}
+						<span aria-hidden="true">→</span>
+					</a>
+				))
+			}
+		</div>
+	</nav>
 </header>
+
+<script is:inline>
+	const header = document.querySelector('[data-iwm-header]');
+	const searchToggle = header?.querySelector('[data-iwm-search-toggle]');
+	const menuToggle = header?.querySelector('[data-iwm-menu-toggle]');
+	const searchPanel = header?.querySelector('[data-iwm-search-panel]');
+	const menuPanel = header?.querySelector('[data-iwm-menu-panel]');
+
+	searchToggle?.addEventListener('click', () => {
+		const isHidden = searchPanel?.hasAttribute('hidden');
+
+		searchPanel?.toggleAttribute('hidden', !isHidden);
+		menuPanel?.setAttribute('hidden', '');
+
+		const input = searchPanel?.querySelector('input');
+		if (isHidden) input?.focus();
+	});
+
+	menuToggle?.addEventListener('click', () => {
+		const isHidden = menuPanel?.hasAttribute('hidden');
+
+		menuPanel?.toggleAttribute('hidden', !isHidden);
+		searchPanel?.setAttribute('hidden', '');
+	});
+</script>
