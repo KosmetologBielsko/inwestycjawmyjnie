@@ -487,59 +487,7 @@ const faqSchema = {
 
 <InvestorTopicsSection />
 
-		<section class="section checklist-section location-hero-section" aria-labelledby="checklist-title">
-	<div class="container location-hero-grid">
-		<div class="location-hero-copy">
-			<p class="eyebrow">
-				<span></span>
-				Audyt lokalizacji
-			</p>
-
-			<h2 id="checklist-title" class="location-audit-title">
-	Czy ta działka ma <strong>realny potencjał</strong> pod myjnię?
-</h2>
-
-<p class="section-lead location-audit-lead">
-	Dobra lokalizacja to nie tylko wolny teren. Przed porównywaniem ofert i kosztów budowy
-	warto sprawdzić dojazd, widoczność, media, sąsiedztwo, konkurencję i realny potencjał ruchu.
-</p>
-
-			<a class="button button-primary location-hero-button" href="#kontakt">
-				Prześlij lokalizację
-				<span aria-hidden="true">→</span>
-			</a>
-		</div>
-
-		<picture class="location-hero-image">
-			<source media="(max-width: 1120px)" srcset="/images/audyt-lokalizacji-panorama.webp" />
-			<img
-				src="/images/audyt-lokalizacji-pion.webp"
-				alt="Audyt lokalizacji pod myjnię — działka, dojazd, widoczność, media i potencjał inwestycji."
-				loading="lazy"
-				decoding="async"
-			/>
-		</picture>
-
-		<div class="location-audit-cards location-hero-cards">
-			{
-				checklistGroups.map((group, index) => (
-					<article class="location-audit-card">
-						<div class="audit-number">{String(index + 1).padStart(2, '0')}</div>
-						<div>
-							<h3>{group.title}</h3>
-							<p>{group.text}</p>
-							<ul>
-								{group.points.map((point) => (
-									<li>{point}</li>
-								))}
-							</ul>
-						</div>
-					</article>
-				))
-			}
-		</div>
-	</div>
-</section>
+<section class="section location-audit-final-section" aria-labelledby="checklist-title">
 
 		<section class="section mistakes-section" aria-labelledby="mistakes-title">
 	<div class="container">
