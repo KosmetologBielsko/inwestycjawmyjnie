@@ -313,8 +313,8 @@ const faqSchema = {
 
 	<main>
 		<section class="hero-shell" aria-labelledby="hero-title">
-			<div class="container hero-grid">
-				<div class="hero-copy">
+			<div class="container hero-grid hero-grid-stacked">
+				<div class="hero-copy hero-copy-centered">
 					<p class="eyebrow">
 						<span></span>
 						Poradnik inwestora myjni
@@ -340,66 +340,68 @@ const faqSchema = {
 							<span aria-hidden="true">↓</span>
 						</a>
 					</div>
-
-					<div class="hero-proof" aria-label="Najważniejsze obszary poradnika">
-						<span>Koszty</span>
-						<span>Opłacalność</span>
-						<span>Działka</span>
-						<span>Dostawcy</span>
-					</div>
 				</div>
+			</div>
 
-				<div class="hero-visual-wrap" data-hero-slider>
-					<figure class="hero-visual-card">
+			<div class="hero-visual-wrap hero-visual-full" data-hero-slider>
+				<figure class="hero-visual-card">
+					{
+						heroSlides.map((slide, index) => (
+							<picture
+								class={`hero-slide ${index === 0 ? 'is-active' : ''}`}
+								data-hero-slide
+								aria-hidden={index === 0 ? 'false' : 'true'}
+							>
+								<source media="(max-width: 1120px)" srcset={slide.mobile} />
+								<img
+									class="hero-visual-image"
+									src={slide.desktop}
+									alt={slide.alt}
+									loading={index === 0 ? 'eager' : 'lazy'}
+									decoding="async"
+								/>
+							</picture>
+						))
+					}
+				</figure>
+
+				<div class="hero-slider-controls hero-slider-compact" aria-label="Sterowanie grafiką hero">
+					<button class="hero-arrow" type="button" data-hero-prev aria-label="Poprzednia grafika">
+						←
+					</button>
+
+					<div class="hero-dots" aria-label="Wybierz grafikę">
 						{
 							heroSlides.map((slide, index) => (
-								<picture
-									class={`hero-slide ${index === 0 ? 'is-active' : ''}`}
-									data-hero-slide
-									aria-hidden={index === 0 ? 'false' : 'true'}
+								<button
+									class={`hero-dot ${index === 0 ? 'is-active' : ''}`}
+									type="button"
+									data-hero-dot={index}
+									aria-label={`Pokaż grafikę: ${slide.label}`}
+									aria-pressed={index === 0 ? 'true' : 'false'}
 								>
-									<source media="(max-width: 1120px)" srcset={slide.mobile} />
-									<img
-										class="hero-visual-image"
-										src={slide.desktop}
-										alt={slide.alt}
-										loading={index === 0 ? 'eager' : 'lazy'}
-										decoding="async"
-									/>
-								</picture>
+									<span>{index + 1}</span>
+								</button>
 							))
 						}
-					</figure>
-
-					<div class="hero-slider-controls" aria-label="Sterowanie grafiką hero">
-						<button class="hero-arrow" type="button" data-hero-prev aria-label="Poprzednia grafika">
-							←
-						</button>
-
-						<div class="hero-dots" aria-label="Wybierz grafikę">
-							{
-								heroSlides.map((slide, index) => (
-									<button
-										class={`hero-dot ${index === 0 ? 'is-active' : ''}`}
-										type="button"
-										data-hero-dot={index}
-										aria-label={`Pokaż grafikę: ${slide.label}`}
-										aria-pressed={index === 0 ? 'true' : 'false'}
-									>
-										<span>{index + 1}</span>
-									</button>
-								))
-							}
-						</div>
-
-						<button class="hero-arrow" type="button" data-hero-next aria-label="Następna grafika">
-							→
-						</button>
-
-						<button class="hero-pause" type="button" data-hero-toggle aria-pressed="false">
-							Pauza
-						</button>
 					</div>
+
+					<button class="hero-arrow" type="button" data-hero-next aria-label="Następna grafika">
+						→
+					</button>
+
+					<button class="hero-pause" type="button" data-hero-toggle aria-pressed="false">
+						Pauza
+					</button>
+				</div>
+			</div>
+
+			<div class="container hero-proof-container">
+				<div class="hero-proof" aria-label="Najważniejsze obszary poradnika">
+					<span>Koszt budowy</span>
+					<span>Opłacalność</span>
+					<span>Działka</span>
+					<span>Dostawcy</span>
 				</div>
 			</div>
 		</section>
