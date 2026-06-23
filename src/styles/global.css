@@ -6516,159 +6516,103 @@ img {
 		gap: 8px !important;
 	}
 }
-/* =========================================================
-   inwestycjawmyjnie.pl — poprawka szerokości / overflow desktop
-   ========================================================= */
+/* LARGE SCREEN OVERFLOW FIX — 27 INCH / 1920–2560 PX */
 
 html,
 body {
-  max-width: 100%;
-  overflow-x: clip;
+	width: 100%;
+	max-width: 100%;
+	overflow-x: hidden !important;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+main {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: clip;
 }
 
-main,
-section,
-header,
-footer {
-  max-width: 100%;
+.hero-shell,
+.intro-band,
+.audience-section,
+.checklist-section,
+.location-hero-section,
+.mistakes-section,
+.dark-section,
+.process-section,
+.knowledge-section,
+.faq-section,
+.contact-section,
+.iwm-footer {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: clip;
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  max-width: 100%;
-  height: auto;
+/* Kontener nie może być za wąski na dużych monitorach, ale też nie może wyjeżdżać */
+.container {
+	width: min(1360px, calc(100% - clamp(32px, 5vw, 96px))) !important;
+	max-width: 1360px !important;
 }
 
-/* Główne kontenery strony — zabezpieczenie przed ucieczką na boki */
-.container,
-.section-inner,
-.header-inner,
-.footer-inner,
-.hero-inner,
-.hero-grid,
-.content-grid,
-.cards-grid,
-.topic-grid,
-.topics-grid,
-.audience-grid,
-.steps-grid,
-.faq-grid,
-.cta-grid,
-.guide-grid,
-.investor-grid {
-  width: 100%;
-  max-width: min(100% - 48px, 1240px);
-  margin-left: auto;
-  margin-right: auto;
+/* Karuzela procesu — nie wypychamy już toru na prawo poza ekran */
+@media (min-width: 1280px) {
+	.process-gallery-track {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		grid-auto-columns: calc((100% - 48px) / 3) !important;
+		gap: 24px !important;
+		overflow-x: auto !important;
+		overflow-y: hidden !important;
+	}
+
+	.process-image-card {
+		width: 100% !important;
+		max-width: 100% !important;
+	}
 }
 
-/* Elementy w gridach nie mogą wymuszać większej szerokości niż ekran */
-.hero-grid,
-.content-grid,
-.cards-grid,
-.topic-grid,
-.topics-grid,
-.audience-grid,
-.steps-grid,
-.faq-grid,
-.cta-grid,
-.guide-grid,
-.investor-grid {
-  min-width: 0;
+/* Błędy inwestora — też trzymamy w kontenerze na dużych monitorach */
+@media (min-width: 1280px) {
+	.mistakes-track {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		grid-auto-columns: calc((100% - 24px) / 2) !important;
+		overflow-x: auto !important;
+		overflow-y: hidden !important;
+	}
+
+	.mistake-slide {
+		width: 100% !important;
+		max-width: 100% !important;
+	}
 }
 
-.hero-grid > *,
-.content-grid > *,
-.cards-grid > *,
-.topic-grid > *,
-.topics-grid > *,
-.audience-grid > *,
-.steps-grid > *,
-.faq-grid > *,
-.cta-grid > *,
-.guide-grid > *,
-.investor-grid > * {
-  min-width: 0;
+/* Karty dla kogo — bez wypychania strony na desktopie */
+@media (min-width: 761px) {
+	.audience-image-grid {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		overflow-x: auto !important;
+		overflow-y: hidden !important;
+	}
 }
 
-/* Sekcje szerokie i slidery — nie mogą wypychać całej strony */
-.slider,
-.carousel,
-.cards-row,
-.horizontal-scroll,
-.topics-carousel,
-.investor-cards,
-.guide-cards,
-.visual-cards,
-.home-cards {
-  max-width: 100%;
-  overflow-x: auto;
-  overflow-y: visible;
-  overscroll-behavior-x: contain;
-  scrollbar-width: none;
-}
-
-.slider::-webkit-scrollbar,
-.carousel::-webkit-scrollbar,
-.cards-row::-webkit-scrollbar,
-.horizontal-scroll::-webkit-scrollbar,
-.topics-carousel::-webkit-scrollbar,
-.investor-cards::-webkit-scrollbar,
-.guide-cards::-webkit-scrollbar,
-.visual-cards::-webkit-scrollbar,
-.home-cards::-webkit-scrollbar {
-  display: none;
-}
-
-/* Desktop szeroki — strona ma być elegancko szeroka, ale nadal w osi */
-@media (min-width: 1440px) {
-  .container,
-  .section-inner,
-  .header-inner,
-  .footer-inner,
-  .hero-inner,
-  .hero-grid,
-  .content-grid,
-  .cards-grid,
-  .topic-grid,
-  .topics-grid,
-  .audience-grid,
-  .steps-grid,
-  .faq-grid,
-  .cta-grid,
-  .guide-grid,
-  .investor-grid {
-    max-width: min(100% - 96px, 1320px);
-  }
-}
-
-/* Mobile/tablet — bez uciekania bokiem */
-@media (max-width: 900px) {
-  .container,
-  .section-inner,
-  .header-inner,
-  .footer-inner,
-  .hero-inner,
-  .hero-grid,
-  .content-grid,
-  .cards-grid,
-  .topic-grid,
-  .topics-grid,
-  .audience-grid,
-  .steps-grid,
-  .faq-grid,
-  .cta-grid,
-  .guide-grid,
-  .investor-grid {
-    max-width: min(100% - 28px, 100%);
-  }
+/* Na mobile zostawiamy przewijanie kart palcem */
+@media (max-width: 760px) {
+	.audience-image-grid,
+	.mistakes-track,
+	.process-gallery-track {
+		overflow-x: auto !important;
+		overflow-y: hidden !important;
+	}
 }
