@@ -5444,3 +5444,79 @@ img {
 		border-radius: 28px !important;
 	}
 }
+/* MOBILE CAROUSEL NAV — ARROWS BELOW IMAGES */
+
+@media (max-width: 760px) {
+	/* Sekcja: Dla kogo */
+	.audience-carousel {
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	.audience-image-grid {
+		order: 1 !important;
+	}
+
+	.audience-carousel-nav {
+		order: 2 !important;
+		display: flex !important;
+		justify-content: center !important;
+		gap: 14px !important;
+		margin: 16px 0 0 !important;
+	}
+
+	/* Sekcja: Błędy inwestora */
+	.mistakes-carousel-shell {
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	.mistakes-track {
+		order: 1 !important;
+	}
+
+	.mistakes-carousel-nav {
+		order: 2 !important;
+		display: flex !important;
+		justify-content: center !important;
+		gap: 14px !important;
+		margin: 16px 0 0 !important;
+	}
+
+	/* Sekcja: Proces inwestycji */
+	.process-gallery {
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	.process-gallery-track {
+		order: 1 !important;
+	}
+
+	.process-gallery-nav {
+		order: 2 !important;
+		display: flex !important;
+		justify-content: center !important;
+		gap: 14px !important;
+		margin: 16px 0 0 !important;
+	}
+
+	/* Ujednolicenie wszystkich strzałek */
+	.audience-arrow,
+	.mistakes-arrow,
+	.process-gallery-arrow {
+		width: 54px !important;
+		height: 54px !important;
+		min-width: 54px !important;
+		min-height: 54px !important;
+		border-radius: 999px !important;
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		background: rgba(255, 255, 255, 0.96) !important;
+		border: 1px solid rgba(8, 16, 32, 0.1) !important;
+		box-shadow: 0 14px 34px rgba(8, 16, 32, 0.08) !important;
+		font-size: 1.1rem !important;
+		font-weight: 900 !important;
+	}
+}
