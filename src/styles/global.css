@@ -6062,3 +6062,42 @@ img {
 		line-height: 1.04 !important;
 	}
 }
+/* MISTAKES SECTION — ALIGN LIKE OTHER HOMEPAGE SECTIONS */
+
+.mistakes-section .mistakes-head {
+	max-width: none !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	text-align: left !important;
+}
+
+.mistakes-section .mistakes-head .eyebrow {
+	justify-content: flex-start !important;
+}
+
+.mistakes-section .mistakes-head h2 {
+	max-width: 860px !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	text-align: left !important;
+}
+
+.mistakes-section .mistakes-lead {
+	max-width: 620px !important;
+	margin: 0 !important;
+	text-align: left !important;
+	align-self: end !important;
+}
+
+@media (max-width: 760px) {
+	.mistakes-section .mistakes-head {
+		display: grid !important;
+		grid-template-columns: 1fr !important;
+		gap: 18px !important;
+	}
+
+	.mistakes-section .mistakes-head h2,
+	.mistakes-section .mistakes-lead {
+		max-width: 100% !important;
+	}
+}
