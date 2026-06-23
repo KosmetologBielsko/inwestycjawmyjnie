@@ -6516,3 +6516,159 @@ img {
 		gap: 8px !important;
 	}
 }
+/* =========================================================
+   inwestycjawmyjnie.pl — poprawka szerokości / overflow desktop
+   ========================================================= */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+main,
+section,
+header,
+footer {
+  max-width: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Główne kontenery strony — zabezpieczenie przed ucieczką na boki */
+.container,
+.section-inner,
+.header-inner,
+.footer-inner,
+.hero-inner,
+.hero-grid,
+.content-grid,
+.cards-grid,
+.topic-grid,
+.topics-grid,
+.audience-grid,
+.steps-grid,
+.faq-grid,
+.cta-grid,
+.guide-grid,
+.investor-grid {
+  width: 100%;
+  max-width: min(100% - 48px, 1240px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Elementy w gridach nie mogą wymuszać większej szerokości niż ekran */
+.hero-grid,
+.content-grid,
+.cards-grid,
+.topic-grid,
+.topics-grid,
+.audience-grid,
+.steps-grid,
+.faq-grid,
+.cta-grid,
+.guide-grid,
+.investor-grid {
+  min-width: 0;
+}
+
+.hero-grid > *,
+.content-grid > *,
+.cards-grid > *,
+.topic-grid > *,
+.topics-grid > *,
+.audience-grid > *,
+.steps-grid > *,
+.faq-grid > *,
+.cta-grid > *,
+.guide-grid > *,
+.investor-grid > * {
+  min-width: 0;
+}
+
+/* Sekcje szerokie i slidery — nie mogą wypychać całej strony */
+.slider,
+.carousel,
+.cards-row,
+.horizontal-scroll,
+.topics-carousel,
+.investor-cards,
+.guide-cards,
+.visual-cards,
+.home-cards {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar,
+.carousel::-webkit-scrollbar,
+.cards-row::-webkit-scrollbar,
+.horizontal-scroll::-webkit-scrollbar,
+.topics-carousel::-webkit-scrollbar,
+.investor-cards::-webkit-scrollbar,
+.guide-cards::-webkit-scrollbar,
+.visual-cards::-webkit-scrollbar,
+.home-cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* Desktop szeroki — strona ma być elegancko szeroka, ale nadal w osi */
+@media (min-width: 1440px) {
+  .container,
+  .section-inner,
+  .header-inner,
+  .footer-inner,
+  .hero-inner,
+  .hero-grid,
+  .content-grid,
+  .cards-grid,
+  .topic-grid,
+  .topics-grid,
+  .audience-grid,
+  .steps-grid,
+  .faq-grid,
+  .cta-grid,
+  .guide-grid,
+  .investor-grid {
+    max-width: min(100% - 96px, 1320px);
+  }
+}
+
+/* Mobile/tablet — bez uciekania bokiem */
+@media (max-width: 900px) {
+  .container,
+  .section-inner,
+  .header-inner,
+  .footer-inner,
+  .hero-inner,
+  .hero-grid,
+  .content-grid,
+  .cards-grid,
+  .topic-grid,
+  .topics-grid,
+  .audience-grid,
+  .steps-grid,
+  .faq-grid,
+  .cta-grid,
+  .guide-grid,
+  .investor-grid {
+    max-width: min(100% - 28px, 100%);
+  }
+}
