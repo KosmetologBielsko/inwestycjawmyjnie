@@ -367,7 +367,7 @@ const faqSchema = {
 									data-hero-slide
 									aria-hidden={index === 0 ? 'false' : 'true'}
 								>
-									<source media="(max-width: 1120px)" srcset={slide.mobile} />
+									<source media="(max-width: 760px)" srcset={slide.mobile} />
 									<img
 										class="hero-visual-image"
 										src={slide.desktop}
@@ -487,9 +487,112 @@ const faqSchema = {
 
 <InvestorTopicsSection />
 
-<section class="section location-audit-final-section" aria-labelledby="checklist-title">
+<section class="section locx-section" aria-labelledby="locx-title">
+	<div class="container">
+		<div class="locx-head">
+			<div>
+				<p class="eyebrow">
+					<span></span>
+					Audyt lokalizacji
+				</p>
 
-		<section class="section mistakes-section" aria-labelledby="mistakes-title">
+				<h2 id="locx-title">
+					Czy ta działka ma <strong>realny potencjał</strong> pod myjnię?
+				</h2>
+			</div>
+
+			<div class="locx-side">
+				<p>
+					Dobra lokalizacja to nie tylko wolny teren. Przed porównywaniem ofert i kosztów
+					budowy warto sprawdzić dojazd, widoczność, media, sąsiedztwo, konkurencję
+					i realny potencjał ruchu.
+				</p>
+
+				<a class="button button-primary locx-button" href="#kontakt">
+					Prześlij lokalizację
+					<span aria-hidden="true">→</span>
+				</a>
+			</div>
+		</div>
+
+		<picture class="locx-visual">
+			<source media="(max-width: 760px)" srcset="/images/audyt-lokalizacji-pion.webp" />
+			<img
+				src="/images/audyt-lokalizacji-panorama.webp"
+				alt="Audyt lokalizacji pod myjnię — działka, dojazd, widoczność, media i potencjał inwestycji."
+				loading="lazy"
+				decoding="async"
+			/>
+		</picture>
+
+		<div class="locx-matrix">
+			<div class="locx-row">
+				{
+					checklistGroups.slice(0, 2).map((group, index) => (
+						<article class="locx-card">
+							<div class="locx-number">{String(index + 1).padStart(2, '0')}</div>
+
+							<div class="locx-content">
+								<h3>{group.title}</h3>
+								<p>{group.text}</p>
+
+								<ul>
+									{group.points.map((point) => (
+										<li>{point}</li>
+									))}
+								</ul>
+							</div>
+						</article>
+					))
+				}
+			</div>
+
+			<div class="locx-row">
+				{
+					checklistGroups.slice(2, 4).map((group, index) => (
+						<article class="locx-card">
+							<div class="locx-number">{String(index + 3).padStart(2, '0')}</div>
+
+							<div class="locx-content">
+								<h3>{group.title}</h3>
+								<p>{group.text}</p>
+
+								<ul>
+									{group.points.map((point) => (
+										<li>{point}</li>
+									))}
+								</ul>
+							</div>
+						</article>
+					))
+				}
+			</div>
+
+			<div class="locx-row locx-row-wide">
+				{
+					checklistGroups.slice(4, 5).map((group) => (
+						<article class="locx-card locx-card-wide">
+							<div class="locx-number">05</div>
+
+							<div class="locx-content">
+								<h3>{group.title}</h3>
+								<p>{group.text}</p>
+
+								<ul>
+									{group.points.map((point) => (
+										<li>{point}</li>
+									))}
+								</ul>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section mistakes-section" aria-labelledby="mistakes-title">
 	<div class="container">
 		<div class="split-head mistakes-head">
 			<div>
@@ -1017,4 +1120,354 @@ księgową lub doradcą podatkowym oraz dostawcami technologii.
 		updateButtons();
 	});
 </script>
+<style>
+	.locx-section {
+		position: relative;
+		padding-top: clamp(70px, 8vw, 118px);
+		overflow: hidden;
+	}
+
+	.locx-head {
+		display: grid;
+		grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.55fr);
+		gap: clamp(28px, 5vw, 70px);
+		align-items: end;
+		margin-bottom: clamp(28px, 4vw, 48px);
+	}
+
+	.locx-head h2 {
+		max-width: 980px;
+		margin: 0;
+		color: var(--ink);
+		font-size: clamp(3rem, 5.8vw, 6.35rem);
+		font-weight: 950;
+		letter-spacing: -0.082em;
+		line-height: 0.92;
+	}
+
+	.locx-head h2 strong {
+		background: linear-gradient(
+			90deg,
+			#0756d8 0%,
+			#1268ff 38%,
+			#4fa3ff 72%,
+			#9ed7ff 100%
+		);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		font-weight: inherit;
+	}
+
+	.locx-side {
+		display: grid;
+		gap: 24px;
+		justify-items: start;
+	}
+
+	.locx-side p {
+		max-width: 640px;
+		margin: 0;
+		color: #667085;
+		font-size: clamp(1.04rem, 1.25vw, 1.24rem);
+		font-weight: 560;
+		line-height: 1.68;
+	}
+
+	.locx-button {
+		min-width: 220px;
+	}
+
+	.locx-visual {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		margin: 0 0 clamp(24px, 3vw, 36px);
+		border-radius: clamp(28px, 3vw, 44px);
+		background: #030912;
+		aspect-ratio: 16 / 6.2;
+		box-shadow:
+			0 30px 90px rgba(8, 16, 32, 0.18),
+			0 10px 32px rgba(8, 16, 32, 0.1);
+	}
+
+	.locx-visual img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center center;
+	}
+
+	.locx-matrix {
+		display: grid;
+		gap: clamp(18px, 2vw, 28px);
+	}
+
+	.locx-row {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: clamp(18px, 2vw, 28px);
+	}
+
+	.locx-row-wide {
+		grid-template-columns: 1fr;
+	}
+
+	.locx-card {
+		position: relative;
+		display: grid;
+		grid-template-columns: 130px minmax(0, 1fr);
+		gap: 28px;
+		align-items: start;
+		min-height: 285px;
+		padding: clamp(30px, 3vw, 42px);
+		border-radius: 34px;
+		border: 1px solid rgba(8, 16, 32, 0.075);
+		background:
+			linear-gradient(145deg, rgba(255, 255, 255, 0.99), rgba(248, 250, 253, 0.96)),
+			radial-gradient(circle at 96% 8%, rgba(33, 121, 255, 0.055), transparent 38%);
+		box-shadow:
+			0 24px 70px rgba(8, 16, 32, 0.072),
+			inset 0 1px 0 rgba(255, 255, 255, 0.88);
+		overflow: hidden;
+		transition:
+			transform 0.22s ease,
+			box-shadow 0.22s ease,
+			border-color 0.22s ease;
+	}
+
+	.locx-card::before {
+		content: '';
+		position: absolute;
+		right: -96px;
+		top: -104px;
+		width: 220px;
+		height: 220px;
+		border-radius: 54% 46% 42% 58% / 44% 58% 42% 56%;
+		background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(226, 236, 249, 0.56));
+		box-shadow:
+			inset 0 1px 0 rgba(255, 255, 255, 0.94),
+			inset 0 -18px 34px rgba(8, 16, 32, 0.035),
+			0 22px 54px rgba(8, 16, 32, 0.055);
+		opacity: 0.54;
+		pointer-events: none;
+	}
+
+	.locx-card:hover {
+		transform: translateY(-3px);
+		border-color: rgba(33, 121, 255, 0.15);
+		box-shadow:
+			0 32px 86px rgba(8, 16, 32, 0.1),
+			inset 0 1px 0 rgba(255, 255, 255, 0.92);
+	}
+
+	.locx-number {
+		position: relative;
+		z-index: 1;
+		color: rgba(8, 16, 32, 0.12);
+		font-size: clamp(4.6rem, 5.6vw, 7.2rem);
+		font-weight: 950;
+		letter-spacing: -0.09em;
+		line-height: 0.82;
+	}
+
+	.locx-number::after {
+		content: '';
+		display: block;
+		width: 42px;
+		height: 5px;
+		margin-top: 22px;
+		border-radius: 999px;
+		background: linear-gradient(90deg, #1268ff, #72f069);
+		box-shadow:
+			0 0 18px rgba(18, 104, 255, 0.22),
+			0 0 18px rgba(114, 240, 105, 0.18);
+	}
+
+	.locx-content {
+		position: relative;
+		z-index: 1;
+	}
+
+	.locx-content h3 {
+		margin: 0;
+		color: var(--ink);
+		font-size: clamp(1.75rem, 2.15vw, 2.35rem);
+		font-weight: 950;
+		letter-spacing: -0.065em;
+		line-height: 0.98;
+	}
+
+	.locx-content p {
+		max-width: 780px;
+		margin: 14px 0 0;
+		color: #667085;
+		font-size: clamp(1.05rem, 1.18vw, 1.22rem);
+		font-weight: 560;
+		line-height: 1.6;
+	}
+
+	.locx-content ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin: 24px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.locx-content li {
+		display: inline-flex;
+		align-items: center;
+		gap: 9px;
+		min-height: 40px;
+		padding: 9px 16px 10px;
+		border-radius: 999px;
+		border: 1px solid rgba(8, 16, 32, 0.07);
+		background: rgba(255, 255, 255, 0.88);
+		box-shadow:
+			0 12px 30px rgba(8, 16, 32, 0.05),
+			inset 0 1px 0 rgba(255, 255, 255, 0.92);
+		color: #243044;
+		font-size: 0.92rem;
+		font-weight: 850;
+		letter-spacing: -0.02em;
+		line-height: 1.15;
+	}
+
+	.locx-content li::before {
+		content: '';
+		flex: 0 0 auto;
+		width: 9px;
+		height: 9px;
+		border-radius: 999px;
+		background: var(--green);
+		box-shadow: 0 0 0 6px rgba(114, 240, 105, 0.12);
+	}
+
+	@media (max-width: 1120px) {
+		.locx-head {
+			grid-template-columns: 1fr;
+			gap: 24px;
+		}
+
+		.locx-head h2 {
+			max-width: 900px;
+			font-size: clamp(3rem, 8vw, 5.2rem);
+			line-height: 0.94;
+		}
+
+		.locx-visual {
+			aspect-ratio: 16 / 8;
+			border-radius: 36px;
+		}
+
+		.locx-row {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.locx-card {
+			grid-template-columns: 105px minmax(0, 1fr);
+			gap: 24px;
+			min-height: 255px;
+			padding: 30px;
+		}
+
+		.locx-number {
+			font-size: clamp(4rem, 8vw, 6rem);
+		}
+
+		.locx-content h3 {
+			font-size: clamp(1.55rem, 3vw, 2rem);
+		}
+	}
+
+	@media (max-width: 760px) {
+		.locx-section {
+			padding-top: 62px;
+		}
+
+		.locx-head h2 {
+			font-size: clamp(2.45rem, 11.8vw, 3.65rem);
+			line-height: 0.96;
+			letter-spacing: -0.076em;
+		}
+
+		.locx-side p {
+			font-size: 1rem;
+			line-height: 1.62;
+		}
+
+		.locx-button {
+			width: 100%;
+			justify-content: center;
+		}
+
+		.locx-visual {
+			aspect-ratio: 4 / 5;
+			border-radius: 30px;
+			margin-bottom: 20px;
+		}
+
+		.locx-row,
+		.locx-row-wide {
+			grid-template-columns: 1fr;
+			gap: 14px;
+		}
+
+		.locx-card,
+		.locx-card-wide {
+			grid-template-columns: 82px minmax(0, 1fr);
+			gap: 18px;
+			min-height: auto;
+			padding: 24px 20px;
+			border-radius: 28px;
+		}
+
+		.locx-number {
+			font-size: 3.8rem;
+			line-height: 0.86;
+		}
+
+		.locx-number::after {
+			width: 30px;
+			height: 4px;
+			margin-top: 16px;
+		}
+
+		.locx-content h3 {
+			font-size: 1.42rem;
+			line-height: 1.02;
+			letter-spacing: -0.055em;
+		}
+
+		.locx-content p {
+			margin-top: 10px;
+			font-size: 0.98rem;
+			line-height: 1.56;
+		}
+
+		.locx-content ul {
+			margin-top: 16px;
+			gap: 8px;
+		}
+
+		.locx-content li {
+			min-height: 34px;
+			padding: 7px 12px 8px;
+			font-size: 0.8rem;
+		}
+	}
+
+	@media (max-width: 420px) {
+		.locx-card,
+		.locx-card-wide {
+			grid-template-columns: 1fr;
+		}
+
+		.locx-number {
+			font-size: 4.2rem;
+		}
+	}
+</style>
 </Layout>
