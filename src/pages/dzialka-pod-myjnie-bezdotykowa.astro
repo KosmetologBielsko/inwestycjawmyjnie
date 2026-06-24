@@ -4,234 +4,381 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const page = {
-	"filename": "dzialka-pod-myjnie-bezdotykowa.astro",
-	"canonicalPath": "/dzialka-pod-myjnie-bezdotykowa/",
-	"title": "Działka pod myjnię bezdotykową — jak ocenić lokalizację?",
-	"description": "Jak sprawdzić działkę pod myjnię bezdotykową: dojazd, widoczność, media, MPZP, konkurencja, otoczenie i potencjał ruchu.",
-	"eyebrow": "Działka pod myjnię",
-	"hero": {
-		"before": "Dobra działka pod myjnię to nie tylko",
-		"strong": "duży plac.",
-		"lead": "Lokalizacja powinna zostać oceniona technicznie, ekonomicznie i praktycznie. Inaczej można zbudować poprawny obiekt w miejscu, które nie wykorzysta jego potencjału.",
-		"statA": "wjazd",
-		"statB": "media",
-		"statC": "ruch"
-	},
-	"quick": [
-		"widoczność",
-		"wjazd",
-		"media",
-		"MPZP/WZ",
-		"konkurencja",
-		"otoczenie"
-	],
-	"cardsTitle": "Jak ocenić lokalizację?",
-	"cardsLead": "Przed wyborem producenta trzeba sprawdzić, czy działka pozwala dobrze zaprojektować, zbudować i prowadzić myjnię.",
-	"cards": [
-		[
-			"01",
-			"Widoczność z drogi",
-			"Czy kierowca widzi obiekt odpowiednio wcześnie i rozumie, jak wygodnie do niego wjechać?"
-		],
-		[
-			"02",
-			"Wjazd i wyjazd",
-			"Czy ruch aut nie będzie kolizyjny, nerwowy albo zbyt trudny dla klientów w godzinach szczytu?"
-		],
-		[
-			"03",
-			"Media",
-			"Woda, kanalizacja, prąd, ogrzewanie, separatory i możliwości techniczne działki."
-		],
-		[
-			"04",
-			"Układ stanowisk",
-			"Czy zmieści się odpowiednia liczba stanowisk, kontener, kolejka, odkurzacze i urządzenia dodatkowe?"
-		],
-		[
-			"05",
-			"Otoczenie",
-			"Sklepy, stacje paliw, osiedla, trasy dojazdowe, usługi i naturalny ruch samochodowy."
-		],
-		[
-			"06",
-			"Konkurencja",
-			"Nie chodzi tylko o liczbę myjni, ale też ich standard, położenie, wygodę i przyzwyczajenia klientów."
-		]
-	],
-	"galleryTitle": "Działkę trzeba zobaczyć jak klient i jak projektant",
-	"gallery": [
-		[
-			"Perspektywa klienta",
-			"Czy wjazd jest prosty, szybki i intuicyjny? Czy myjnia jest widoczna?"
-		],
-		[
-			"Perspektywa projektanta",
-			"Czy da się zaprojektować poprawny ruch aut, instalacje i układ techniczny?"
-		],
-		[
-			"Perspektywa inwestora",
-			"Czy koszt działki i budowy ma sens wobec potencjału przychodu?"
-		],
-		[
-			"Perspektywa rozwoju",
-			"Czy zostaje miejsce na dodatkowe urządzenia albo przyszłą rozbudowę?"
-		]
-	],
-	"analysisTitle": "Chcesz sprawdzić konkretną działkę?",
-	"analysisText": "Wyślij link do mapy, numer działki albo krótki opis lokalizacji. To najlepszy pierwszy krok przed zbieraniem ofert.",
-	"faq": [
-		[
-			"Jaka powierzchnia działki jest potrzebna?",
-			"To zależy od liczby stanowisk, układu ruchu, kontenera, urządzeń dodatkowych i wymagań lokalnych."
-		],
-		[
-			"Czy działka przy markecie jest dobra?",
-			"Często ma potencjał, ale trzeba sprawdzić widoczność, wjazd, zgodność formalną, konkurencję i możliwość ustawienia obiektu."
-		],
-		[
-			"Czy sama widoczność wystarczy?",
-			"Nie. Widoczność pomaga, ale bez wygodnego wjazdu, mediów i dobrego układu technicznego lokalizacja może być trudna."
-		],
-		[
-			"Kiedy rozmawiać z projektantem?",
-			"Jak najwcześniej, najlepiej przed wyborem ostatecznej oferty i konfiguracji myjni."
-		]
-	]
+	canonicalPath: '/dzialka-pod-myjnie-bezdotykowa/',
+	title: 'Działka pod myjnię bezdotykową — jak sprawdzić lokalizację?',
+	description:
+		'Działka pod myjnię bezdotykową: lokalizacja, MPZP, WZ, media, zjazd, PZT, konkurencja, analiza ekonomiczna i techniczna przed zakupem albo dzierżawą.'
 };
 
+const filters = [
+	{
+		number: '01',
+		title: 'Formalny',
+		text: 'Czy MPZP albo WZ pozwalają na realizację usług, czy działka ma właściwy status i czy procedura nie zatrzyma inwestycji na starcie?'
+	},
+	{
+		number: '02',
+		title: 'Techniczny',
+		text: 'Czy są media, zjazd, miejsce na stanowiska, odwodnienie, ścieki, separator, komunikacja i możliwość bezpiecznej obsługi samochodów?'
+	},
+	{
+		number: '03',
+		title: 'Ekonomiczny',
+		text: 'Czy ruch, widoczność, mieszkańcy, handel, usługi, konkurencja i otoczenie dają realny potencjał przychodu?'
+	}
+];
+
+const ownershipCards = [
+	{
+		title: 'Własna działka',
+		points: [
+			'brak miesięcznego czynszu dzierżawy',
+			'większa kontrola nad inwestycją i rozwojem obiektu',
+			'możliwość długofalowego budowania wartości nieruchomości',
+			'ryzyko: działka może być własna, ale słaba ekonomicznie albo trudna formalnie'
+		]
+	},
+	{
+		title: 'Dzierżawa działki',
+		points: [
+			'dostęp do lepszych punktów w centrum miasta lub miasteczka',
+			'mniejszy kapitał początkowy niż przy zakupie gruntu',
+			'możliwość budowania portfela kilku albo kilkunastu lokalizacji',
+			'ryzyko: umowa musi zabezpieczać nakłady, czas dzierżawy i prawo do budowy'
+		]
+	}
+];
+
+const formalCards = [
+	['01', 'MPZP', 'Wypis i wyrys z miejscowego planu pokazują, czy teren dopuszcza funkcję usługową albo inwestycję tego typu. To najlepszy punkt wyjścia do rozmowy z projektantem.'],
+	['02', 'WZ', 'Jeżeli nie ma planu miejscowego, trzeba sprawdzić możliwość uzyskania decyzji o warunkach zabudowy oraz czas i ryzyko takiej procedury.'],
+	['03', 'Plan ogólny gminy', 'W 2026 roku szczególnie warto sprawdzać, jak gmina wdraża plan ogólny, bo wpływa on na przyszłe decyzje przestrzenne i możliwość planowania inwestycji.'],
+	['04', 'Prawo do dysponowania', 'Przy własności albo dzierżawie trzeba mieć realną możliwość dysponowania działką na cele budowlane i zabezpieczyć to w dokumentach.']
+];
+
+const technicalChecklist = [
+	['Numer działki i obręb', 'podstawowe dane do sprawdzenia w ewidencji, planach i u projektanta'],
+	['Mapa zasadnicza / mapa do celów projektowych', 'baza do PZT, projektu i dalszych uzgodnień branżowych'],
+	['MPZP albo WZ', 'potwierdzenie, czy inwestycja jest formalnie możliwa'],
+	['Media', 'prąd, woda, kanalizacja, gaz, teletechnika, możliwe moce i odległości przyłączy'],
+	['Ścieki technologiczne', 'sposób odprowadzenia, separator, wymagania lokalne i uzgodnienia branżowe'],
+	['Wody opadowe', 'deszczówka, odwodnienie placu, retencja albo inne rozwiązania zależne od działki'],
+	['Zjazd i pas drogowy', 'możliwość lokalizacji albo przebudowy zjazdu, kategoria drogi i warunki zarządcy'],
+	['Układ komunikacyjny', 'wjazd, wyjazd, kolejka, promienie skrętu, wygoda dla SUV-ów, busów i mniej doświadczonych kierowców'],
+	['Sąsiedztwo i hałas', 'odległość od domów, szkół, przedszkoli, przychodni oraz terenów wrażliwych akustycznie'],
+	['PZT', 'plan zagospodarowania terenu pokazujący realny układ stanowisk, kontenera, SPA i ruchu aut']
+];
+
+const economicCards = [
+	{
+		number: '01',
+		title: 'Ruch i widoczność',
+		text: 'Działka musi być widoczna z właściwego kierunku ruchu. Sama obecność przy drodze nie wystarczy, jeśli kierowca nie widzi wjazdu albo nie może łatwo skręcić.'
+	},
+	{
+		number: '02',
+		title: 'Mieszkańcy i samochody',
+		text: 'Warto sprawdzić liczbę mieszkańców w promieniu 3, 5 i 10 km, liczbę gospodarstw domowych oraz liczbę samochodów w regionie.'
+	},
+	{
+		number: '03',
+		title: 'Handel i usługi',
+		text: 'Market, dyskont, stacja paliw, warsztat, apteka, siłownia, galeria, urząd, szkoła albo przychodnia mogą generować codzienny ruch kierowców.'
+	},
+	{
+		number: '04',
+		title: 'Konkurencja',
+		text: 'Konkurencja nie zawsze jest zła. Może pokazywać, że kierowcy w danym mieście korzystają z myjni. Trzeba jednak ocenić standard, kolejki, ceny i opinie.'
+	},
+	{
+		number: '05',
+		title: 'Inne biznesy inwestora',
+		text: 'Jeżeli inwestor prowadzi sklep, warsztat, stację, hurtownię albo inny punkt usługowy, ten ruch może wzmacniać potencjał myjni.'
+	},
+	{
+		number: '06',
+		title: 'Możliwość rozbudowy',
+		text: 'Dobra działka pozwala zaplanować nie tylko stanowiska mycia, ale też odkurzacze, rozmieniarkę, dyspensery, pranie dywaników, ozonator i wygodną kolejkę.'
+	}
+];
+
+const documentGroups = [
+	{
+		title: 'Formalne',
+		items: ['MPZP albo WZ', 'tytuł prawny do działki', 'prawo do dysponowania na cele budowlane', 'wypisy, wyrysy i dane ewidencyjne']
+	},
+	{
+		title: 'Projektowe',
+		items: ['PZT', 'projekt architektoniczno-budowlany', 'projekt techniczny do realizacji', 'warunki i uzgodnienia branżowe']
+	},
+	{
+		title: 'Techniczne',
+		items: ['warunki przyłączenia mediów', 'odwodnienie i ścieki', 'separator / podczyszczanie', 'zjazd, wjazd i układ ruchu']
+	}
+];
+
+const riskSlides = [
+	{
+		kicker: 'Formalności',
+		title: 'Działka wygląda dobrze, ale plan nie pozwala na usługi',
+		text: 'Bez sprawdzenia MPZP, WZ i planu ogólnego inwestor może stracić czas na działkę, której nie da się wykorzystać zgodnie z założeniem.'
+	},
+	{
+		kicker: 'Media',
+		title: 'Brak przyłączy może zmienić cały budżet',
+		text: 'Woda, ścieki, prąd, gaz i deszczówka są równie ważne jak cena gruntu. Brak infrastruktury potrafi podnieść koszt inwestycji.'
+	},
+	{
+		kicker: 'Komunikacja',
+		title: 'Zły wjazd obniża potencjał nawet dobrej lokalizacji',
+		text: 'Kierowca musi łatwo zauważyć myjnię, wjechać, zapłacić, umyć auto, skorzystać ze SPA i wyjechać bez stresu.'
+	},
+	{
+		kicker: 'Ekonomia',
+		title: 'Duży plac nie oznacza dużego przychodu',
+		text: 'O przychodzie decydują ruch, nawyki kierowców, sąsiedztwo, konkurencja, widoczność i dopasowanie wielkości obiektu.'
+	}
+];
+
+const faqItems = [
+	{
+		question: 'Jaka działka nadaje się pod myjnię bezdotykową?',
+		answer:
+			'Dobra działka pod myjnię powinna mieć czytelny status formalny, możliwość realizacji usług, wygodny wjazd i wyjazd, dostęp do mediów, miejsce na stanowiska, kontener, urządzenia dodatkowe, kolejkę oraz realny potencjał ruchu samochodowego.'
+	},
+	{
+		question: 'Czy lepiej kupić działkę, czy ją wydzierżawić?',
+		answer:
+			'Własna działka daje kontrolę i brak czynszu, ale nie gwarantuje dobrej inwestycji. Dzierżawa może dać dostęp do mocniejszej lokalizacji, ale wymaga dobrej umowy, długiego okresu, prawa do budowy i zabezpieczenia nakładów.'
+	},
+	{
+		question: 'Co sprawdzić w MPZP przed budową myjni?',
+		answer:
+			'Trzeba sprawdzić przeznaczenie terenu, dopuszczalne usługi, parametry zabudowy, ograniczenia, wskaźniki, linie zabudowy, obsługę komunikacyjną i zapisy, które mogą wpływać na wygląd albo techniczne warunki inwestycji.'
+	},
+	{
+		question: 'Co zrobić, jeśli działka nie ma MPZP?',
+		answer:
+			'Wtedy trzeba sprawdzić możliwość uzyskania decyzji o warunkach zabudowy oraz ryzyko czasu i wyniku procedury. W 2026 roku szczególnie ważna jest też weryfikacja planu ogólnego gminy.'
+	},
+	{
+		question: 'Jakie media są potrzebne pod myjnię?',
+		answer:
+			'Najczęściej trzeba sprawdzić prąd, wodę, kanalizację, sposób odprowadzenia ścieków, deszczówkę, gaz lub inne źródło ciepła, a także internet, monitoring i ewentualne warunki dodatkowe wynikające z projektu.'
+	},
+	{
+		question: 'Czy zjazd z drogi może zablokować inwestycję?',
+		answer:
+			'Tak. Jeżeli nie da się wykonać bezpiecznego zjazdu albo przebudować istniejącego wjazdu zgodnie z warunkami zarządcy drogi, potencjał działki może znacząco spaść albo inwestycja może wymagać dużych zmian.'
+	},
+	{
+		question: 'Czy konkurencja w okolicy przekreśla budowę myjni?',
+		answer:
+			'Nie zawsze. Konkurencja może oznaczać, że rynek korzysta z myjni. Trzeba ocenić standard istniejących obiektów, kolejki, ceny, opinie, widoczność i to, czy nowa działka daje lepszą wygodę.'
+	},
+	{
+		question: 'Jak sprawdzić potencjał ekonomiczny działki?',
+		answer:
+			'Należy ocenić ruch, mieszkańców, samochody, handel, usługi, szkoły, przychodnie, urzędy, zakłady pracy, trasy dojazdu, konkurencję, widoczność, wjazd, miejsce na kolejkę i możliwość rozbudowy o usługi dodatkowe.'
+	}
+];
+
 const relatedLinks = [
-	[
-		"Koszt budowy myjni",
-		"/ile-kosztuje-myjnia-bezdotykowa/"
-	],
-	[
-		"Opłacalność myjni",
-		"/ile-zarabia-myjnia-bezdotykowa/"
-	],
-	[
-		"Działka pod myjnię",
-		"/dzialka-pod-myjnie-bezdotykowa/"
-	],
-	[
-		"Porównanie ofert",
-		"/jak-porownac-oferty-myjni-bezdotykowej/"
-	],
-	[
-		"Budowa krok po kroku",
-		"/budowa-myjni-bezdotykowej-krok-po-kroku/"
-	],
-	[
-		"Błędy inwestora",
-		"/najczestsze-bledy-przy-budowie-myjni/"
-	]
+	['Koszt budowy myjni', '/ile-kosztuje-myjnia-bezdotykowa/'],
+	['Ile zarabia myjnia?', '/ile-zarabia-myjnia-bezdotykowa/'],
+	['Porównanie ofert', '/jak-porownac-oferty-myjni-bezdotykowej/'],
+	['Budowa krok po kroku', '/budowa-myjni-bezdotykowej-krok-po-kroku/'],
+	['Błędy inwestora', '/najczestsze-bledy-przy-budowie-myjni/'],
+	['Poradnik inwestora', '/poradnik/']
 ];
 
 const faqSchema = {
-	"@context": "https://schema.org",
-	"@type": "FAQPage",
-	"mainEntity": [
-		{
-			"@type": "Question",
-			"name": "Jaka powierzchnia działki jest potrzebna?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "To zależy od liczby stanowisk, układu ruchu, kontenera, urządzeń dodatkowych i wymagań lokalnych."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Czy działka przy markecie jest dobra?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Często ma potencjał, ale trzeba sprawdzić widoczność, wjazd, zgodność formalną, konkurencję i możliwość ustawienia obiektu."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Czy sama widoczność wystarczy?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Nie. Widoczność pomaga, ale bez wygodnego wjazdu, mediów i dobrego układu technicznego lokalizacja może być trudna."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Kiedy rozmawiać z projektantem?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Jak najwcześniej, najlepiej przed wyborem ostatecznej oferty i konfiguracji myjni."
-			}
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer
 		}
-	]
+	}))
 };
 ---
 
 <Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
 	<Header />
 
-	<main class="guide-page">
-		<section class="guide-hero" aria-labelledby="page-title">
-			<div class="container guide-hero-grid">
-				<div>
-					<p class="eyebrow">
-						<span></span>
-						{page.eyebrow}
-					</p>
+	<main class="land-page">
+		<section class="land-hero" aria-labelledby="page-title">
+			<div class="container land-hero-grid">
+				<div class="land-hero-copy">
+					<p class="eyebrow"><span></span>Działka pod myjnię</p>
 
 					<h1 id="page-title">
-						{page.hero.before}
-						<strong>{page.hero.strong}</strong>
+						Działka pod myjnię bezdotykową — jak sprawdzić, czy lokalizacja
+						<strong>ma sens?</strong>
 					</h1>
 
-					<p class="guide-lead">{page.hero.lead}</p>
+					<p class="land-lead">
+						Dobra działka to nie tylko duży plac. To miejsce, które przechodzi
+						weryfikację formalną, techniczną i ekonomiczną: MPZP albo WZ, media,
+						zjazd, układ ruchu, sąsiedztwo, konkurencję i realny potencjał przychodu.
+					</p>
 
-					<div class="guide-actions">
-						<a class="guide-button-green" href="/#kontakt">
-							Prześlij lokalizację
+					<div class="land-actions">
+						<a class="land-button-green" href="/#kontakt">
+							Prześlij działkę do analizy
 							<span aria-hidden="true">→</span>
 						</a>
-						<a class="guide-button-light" href="/poradnik/">
-							Wróć do poradnika
-							<span aria-hidden="true">→</span>
+						<a class="land-button-light" href="#filtry">
+							Zobacz trzy filtry działki
+							<span aria-hidden="true">↓</span>
 						</a>
 					</div>
 
-					<div class="guide-chips" aria-label="Najważniejsze tematy strony">
-						{page.quick.map((item) => <span>{item}</span>)}
+					<div class="land-chips" aria-label="Najważniejsze tematy strony">
+						<span>MPZP</span>
+						<span>WZ</span>
+						<span>media</span>
+						<span>zjazd</span>
+						<span>PZT</span>
+						<span>ruch</span>
 					</div>
 				</div>
 
-				<aside class="guide-visual" aria-label="Grafika do uzupełnienia">
-					<div class="guide-visual-card">
-						<div class="guide-stat"><strong>{page.hero.statA}</strong><span>01</span></div>
-						<div class="guide-stat"><strong>{page.hero.statB}</strong><span>02</span></div>
-						<div class="guide-stat"><strong>{page.hero.statC}</strong><span>03</span></div>
-					</div>
-					<div class="guide-placeholder">
-						Miejsce na mocną grafikę podstrony — docelowo wstawimy WebP dopasowany do tematu.
+				<aside class="land-hero-panel" aria-label="Najważniejszy wniosek">
+					<div class="land-panel-logo">inwestycjawmyjnie.pl</div>
+					<p>Najważniejszy filtr</p>
+					<h2>Nie każda działka, na której zmieści się myjnia, jest dobrą lokalizacją.</h2>
+					<span>
+						Najpierw trzeba sprawdzić, czy da się ją zbudować formalnie, czy da się ją
+						obsłużyć technicznie i czy ma ekonomiczny potencjał na przychód.
+					</span>
+					<div class="land-mini-grid">
+						<b>formalnie</b>
+						<b>technicznie</b>
+						<b>ekonomicznie</b>
+						<b>komunikacyjnie</b>
 					</div>
 				</aside>
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="cards-title">
+		<section class="land-section" id="filtry" aria-labelledby="filters-title">
 			<div class="container">
-				<div class="guide-split">
+				<div class="land-split">
 					<div>
-						<p class="eyebrow">
-							<span></span>
-							Analiza inwestora
-						</p>
-						<h2 id="cards-title">Jak ocenić <strong>lokalizację?</strong></h2>
+						<p class="eyebrow"><span></span>Krótka odpowiedź</p>
+						<h2 id="filters-title">
+							Dobra działka musi przejść <strong>trzy filtry</strong>
+						</h2>
 					</div>
-					<p>{page.cardsLead}</p>
+					<p>
+						Jeżeli działka odpada na jednym z tych etapów, inwestycja może być zbyt wolna,
+						zbyt droga albo po prostu słaba ekonomicznie. Dlatego analiza działki powinna
+						pojawić się przed wyceną myjni i przed podpisaniem umowy dzierżawy.
+					</p>
 				</div>
 
-				<div class="guide-grid">
-					{page.cards.map((card) => (
-						<article class="guide-card">
-							<span class="guide-number">{card[0]}</span>
+				<div class="land-card-grid land-three-grid">
+					{filters.map((item) => (
+						<article class="land-card">
+							<span>{item.number}</span>
+							<h3>{item.title}</h3>
+							<p>{item.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="land-section land-text-section" aria-labelledby="ownership-title">
+			<div class="container land-article-grid">
+				<div class="land-sticky-title">
+					<p class="eyebrow"><span></span>Własność albo dzierżawa</p>
+					<h2 id="ownership-title">
+						Kupić działkę, budować na własnej czy <strong>wydzierżawić lepszy punkt?</strong>
+					</h2>
+				</div>
+
+				<div class="land-article-card">
+					<p>
+						Własna działka daje kontrolę i brak czynszu, ale nie oznacza automatycznie
+						dobrej inwestycji. Działka może być Twoja, a mimo to mieć słaby dojazd,
+						mały ruch, trudne media albo ograniczenia formalne.
+					</p>
+
+					<p>
+						Dzierżawa może być bardzo dobrym modelem, szczególnie w centralnych rejonach
+						miast i miasteczek, gdzie zakup gruntu jest trudny albo zbyt drogi. Wtedy
+						kluczowa jest umowa: czas dzierżawy, prawo do budowy, zabezpieczenie nakładów,
+						zasady rozwiązania i podział obowiązków.
+					</p>
+
+					<p>
+						Coraz częściej inwestor nie szuka jednej działki, tylko buduje portfel kilku
+						albo kilkunastu lokalizacji. Punkty o różnym natężeniu ruchu mogą wzajemnie
+						uzupełniać profil biznesowy i pozwalać lepiej rozłożyć część kosztów
+						organizacyjnych.
+					</p>
+
+					<div class="land-quote">
+						<strong>Najpierw oceń potencjał miejsca, dopiero potem rozmawiaj o cenie gruntu albo czynszu.</strong>
+						<span>Dobra lokalizacja może obronić dzierżawę. Słaba lokalizacja nie obroni nawet własnej działki.</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="land-section" aria-labelledby="ownership-cards-title">
+			<div class="container">
+				<div class="land-split">
+					<div>
+						<p class="eyebrow"><span></span>Model inwestycji</p>
+						<h2 id="ownership-cards-title">
+							Własna działka i dzierżawa mają <strong>inne ryzyka</strong>
+						</h2>
+					</div>
+					<p>
+						W obu modelach najważniejsze jest to samo: lokalizacja musi mieć sens formalny,
+						techniczny i ekonomiczny. Różni się tylko sposób zabezpieczenia inwestycji.
+					</p>
+				</div>
+
+				<div class="land-two-grid">
+					{ownershipCards.map((card) => (
+						<article class="land-list-card">
+							<h3>{card.title}</h3>
+							<ul>
+								{card.points.map((point) => <li>{point}</li>)}
+							</ul>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="land-section" aria-labelledby="formal-title">
+			<div class="container">
+				<div class="land-split">
+					<div>
+						<p class="eyebrow"><span></span>Formalności</p>
+						<h2 id="formal-title">
+							MPZP, WZ i plan ogólny — zanim działka stanie się <strong>inwestycją</strong>
+						</h2>
+					</div>
+					<p>
+						W 2026 roku formalna weryfikacja działki ma szczególne znaczenie. Nie wystarczy,
+						że teren wygląda dobrze. Trzeba sprawdzić planowanie przestrzenne, funkcję
+						usługową, możliwość uzyskania decyzji i realny czas procedury.
+					</p>
+				</div>
+
+				<div class="land-card-grid land-four-grid">
+					{formalCards.map((card) => (
+						<article class="land-card">
+							<span>{card[0]}</span>
 							<h3>{card[1]}</h3>
 							<p>{card[2]}</p>
 						</article>
@@ -240,23 +387,29 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="gallery-title">
+		<section class="land-section" aria-labelledby="documents-title">
 			<div class="container">
-				<div class="guide-carousel-shell" data-subpage-carousel>
-					<div class="guide-carousel-head">
-						<h2 id="gallery-title">{page.galleryTitle}</h2>
-						<div class="guide-carousel-nav" aria-label="Nawigacja sekcji">
-							<button class="guide-carousel-arrow" type="button" data-subpage-prev aria-label="Poprzedni element">←</button>
-							<button class="guide-carousel-arrow" type="button" data-subpage-next aria-label="Następny element">→</button>
+				<div class="land-dark-panel">
+					<div class="land-dark-head">
+						<div>
+							<p class="eyebrow light"><span></span>Dokumenty i uzgodnienia</p>
+							<h2 id="documents-title">
+								Co sprawdzić przed pozwoleniem na <strong>budowę myjni?</strong>
+							</h2>
 						</div>
+						<p>
+							To nie jest zamknięta lista dla każdej działki. To praktyczna checklista do
+							rozmowy z projektantem, która pozwala szybko wykryć największe ryzyka.
+						</p>
 					</div>
 
-					<div class="guide-carousel-track" data-subpage-track>
-						{page.gallery.map((slide) => (
-							<article class="guide-slide">
-								<strong>{slide[0]}</strong>
-								<h3>{slide[0]}</h3>
-								<p>{slide[1]}</p>
+					<div class="land-doc-grid">
+						{documentGroups.map((group) => (
+							<article class="land-doc-card">
+								<h3>{group.title}</h3>
+								<ul>
+									{group.items.map((item) => <li>{item}</li>)}
+								</ul>
 							</article>
 						))}
 					</div>
@@ -264,52 +417,177 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="analysis-title">
+		<section class="land-section" aria-labelledby="technical-title">
 			<div class="container">
-				<div class="guide-analysis">
-					<div class="guide-analysis-grid">
+				<div class="land-split">
+					<div>
+						<p class="eyebrow"><span></span>Techniczna checklista</p>
+						<h2 id="technical-title">
+							Media, zjazd, deszczówka i PZT — tu często wychodzi <strong>prawdziwy koszt</strong>
+						</h2>
+					</div>
+					<p>
+						Plan zagospodarowania terenu pokazuje, czy działka naprawdę działa: gdzie są
+						stanowiska, kontener, urządzenia dodatkowe, kolejka, wjazd, wyjazd i promienie skrętu.
+					</p>
+				</div>
+
+				<div class="land-check-panel">
+					{technicalChecklist.map((item, index) => (
+						<article class="land-check-row">
+							<span>{String(index + 1).padStart(2, '0')}</span>
+							<div>
+								<h3>{item[0]}</h3>
+								<p>{item[1]}</p>
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="land-section" aria-labelledby="economic-title">
+			<div class="container">
+				<div class="land-split">
+					<div>
+						<p class="eyebrow"><span></span>Analiza ekonomiczna</p>
+						<h2 id="economic-title">
+							Działka musi mieć nie tylko miejsce, ale też <strong>potencjał przychodu</strong>
+						</h2>
+					</div>
+					<p>
+						W analizie liczy się ruch, mieszkańcy, samochody, handel, usługi, konkurencja,
+						widoczność, wjazd, sąsiedztwo i to, czy kierowca naturalnie wybierze właśnie ten punkt.
+					</p>
+				</div>
+
+				<div class="land-card-grid land-three-grid">
+					{economicCards.map((card) => (
+						<article class="land-card">
+							<span>{card.number}</span>
+							<h3>{card.title}</h3>
+							<p>{card.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="land-section" aria-labelledby="risk-title">
+			<div class="container">
+				<div class="land-carousel" data-land-carousel>
+					<div class="land-carousel-head">
 						<div>
-							<p class="eyebrow light"><span></span>Analiza lokalizacji</p>
-							<h2 id="analysis-title">Chcesz sprawdzić <strong>konkretną działkę?</strong></h2>
-							<p>{page.analysisText}</p>
+							<p class="eyebrow light"><span></span>Ryzyka działki</p>
+							<h2 id="risk-title">
+								Najdroższe błędy zaczynają się <strong>przed zakupem albo dzierżawą</strong>
+							</h2>
 						</div>
-						<a class="guide-button-green" href="/#kontakt">
-							Prześlij lokalizację
-							<span aria-hidden="true">→</span>
-						</a>
+						<div class="land-carousel-nav" aria-label="Nawigacja slajdera">
+							<button type="button" data-land-prev aria-label="Poprzedni element">←</button>
+							<button type="button" data-land-next aria-label="Następny element">→</button>
+						</div>
+					</div>
+
+					<div class="land-carousel-track" data-land-track>
+						{riskSlides.map((slide) => (
+							<article class="land-slide">
+								<span>{slide.kicker}</span>
+								<h3>{slide.title}</h3>
+								<p>{slide.text}</p>
+							</article>
+						))}
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-faq" aria-labelledby="faq-title">
+		<section class="land-section" aria-labelledby="competition-title">
 			<div class="container">
-				<div class="guide-split">
+				<div class="land-article-grid land-competition-grid">
+					<div class="land-sticky-title">
+						<p class="eyebrow"><span></span>Konkurencja</p>
+						<h2 id="competition-title">
+							Konkurencja w mieście nie zawsze oznacza, że jest <strong>za późno</strong>
+						</h2>
+					</div>
+
+					<div class="land-article-card">
+						<p>
+							Istniejące myjnie mogą być sygnałem, że kierowcy w danym mieście korzystają
+							z takiego typu obiektów. Sam fakt konkurencji nie przekreśla inwestycji.
+						</p>
+						<p>
+							Trzeba jednak sprawdzić, jaki mają standard, ceny, opinie, kolejki, widoczność,
+							liczbę stanowisk, jakość dojazdu i czy nowa lokalizacja daje kierowcy coś lepszego:
+							wygodniejszy wjazd, lepszy układ, lepszą widoczność albo nowocześniejszy obiekt.
+						</p>
+						<div class="land-quote">
+							<strong>Problemem nie jest konkurencja. Problemem jest brak analizy nasycenia i wygody klienta.</strong>
+							<span>Dobra działka może wygrać z istniejącymi obiektami, jeśli jest łatwiejsza i lepiej zaprojektowana.</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="land-section" aria-labelledby="analysis-title">
+			<div class="container">
+				<div class="land-analysis">
+					<div>
+						<p class="eyebrow light"><span></span>Analiza działki</p>
+						<h2 id="analysis-title">
+							Masz działkę albo lokalizację do dzierżawy? <strong>Sprawdź ją przed decyzją.</strong>
+						</h2>
+						<p>
+							Prześlij miejscowość, link do mapy, numer działki albo krótki opis miejsca.
+							Na początku nie chodzi o sprzedaż, tylko o ocenę, czy działka ma sens formalny,
+							techniczny i ekonomiczny pod budowę myjni bezdotykowej.
+						</p>
+					</div>
+					<a class="land-button-green" href="/#kontakt">
+						Prześlij lokalizację
+						<span aria-hidden="true">→</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="land-section" aria-labelledby="faq-title">
+			<div class="container">
+				<div class="land-split">
 					<div>
 						<p class="eyebrow"><span></span>FAQ</p>
-						<h2 id="faq-title">Najczęstsze pytania <strong>inwestora</strong></h2>
+						<h2 id="faq-title">
+							Najczęstsze pytania o <strong>działkę pod myjnię</strong>
+						</h2>
 					</div>
-					<p>Krótko i konkretnie — pytania, które pomagają lepiej przygotować decyzję przed rozmową z projektantem, doradcą albo dostawcą.</p>
+					<p>
+						To pytania, które warto zadać przed zakupem gruntu, podpisaniem umowy dzierżawy
+						albo zamówieniem pełnej oferty u dostawcy.
+					</p>
 				</div>
 
-				<div class="guide-faq-list">
-					{page.faq.map((item, index) => (
-						<details class="guide-faq-item" open={index === 0}>
-							<summary>{item[0]}</summary>
-							<p>{item[1]}</p>
+				<div class="land-faq-list">
+					{faqItems.map((item, index) => (
+						<details class="land-faq-item" open={index === 0}>
+							<summary>{item.question}</summary>
+							<p>{item.answer}</p>
 						</details>
 					))}
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-related" aria-labelledby="related-title">
+		<section class="land-section land-related" aria-labelledby="related-title">
 			<div class="container">
 				<p class="eyebrow"><span></span>Dalej w poradniku</p>
-				<h2 id="related-title">Powiązane tematy <strong>dla inwestora</strong></h2>
-				<div class="guide-related-grid">
+				<h2 id="related-title">
+					Powiązane tematy <strong>dla inwestora</strong>
+				</h2>
+				<div class="land-related-grid">
 					{relatedLinks.map((link) => (
-						<a class="guide-related-card" href={link[1]}>{link[0]} →</a>
+						<a class="land-related-card" href={link[1]}>{link[0]} <span>→</span></a>
 					))}
 				</div>
 			</div>
@@ -321,32 +599,36 @@ const faqSchema = {
 </Layout>
 
 <style>
-	.guide-page {
+	.land-page {
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
 		background: #fff;
 	}
 
-	.guide-hero {
+	.land-hero {
 		position: relative;
 		overflow: hidden;
-		padding: clamp(84px, 8vw, 132px) 0 clamp(64px, 7vw, 104px);
+		padding: clamp(84px, 8vw, 132px) 0 clamp(70px, 7vw, 110px);
 		background:
-			radial-gradient(circle at 78% 14%, rgba(18, 104, 255, 0.08), transparent 32%),
-			radial-gradient(circle at 16% 26%, rgba(114, 240, 105, 0.1), transparent 28%),
+			radial-gradient(circle at 78% 12%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 18% 28%, rgba(114, 240, 105, 0.11), transparent 30%),
 			linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
 	}
 
-	.guide-hero-grid {
+	.land-hero-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
-		gap: clamp(34px, 5vw, 70px);
+		grid-template-columns: minmax(0, 1fr) minmax(380px, 0.66fr);
+		gap: clamp(34px, 5vw, 74px);
 		align-items: center;
 	}
 
-	.guide-hero h1,
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.land-hero h1,
+	.land-split h2,
+	.land-sticky-title h2,
+	.land-dark-panel h2,
+	.land-analysis h2,
+	.land-related h2 {
 		margin: 0;
 		color: var(--ink);
 		font-weight: 950;
@@ -354,16 +636,17 @@ const faqSchema = {
 		line-height: 0.94;
 	}
 
-	.guide-hero h1 {
-		max-width: 940px;
-		font-size: clamp(3.35rem, 6.8vw, 7.05rem);
+	.land-hero h1 {
+		max-width: 1040px;
+		font-size: clamp(3.15rem, 6.4vw, 7rem);
 	}
 
-	.guide-hero h1 strong,
-	.guide-split h2 strong,
-	.guide-analysis h2 strong,
-	.guide-faq h2 strong,
-	.guide-related h2 strong {
+	.land-hero h1 strong,
+	.land-split h2 strong,
+	.land-sticky-title h2 strong,
+	.land-dark-panel h2 strong,
+	.land-analysis h2 strong,
+	.land-related h2 strong {
 		background: linear-gradient(90deg, #0756d8 0%, #1268ff 38%, #4fa3ff 72%, #9ed7ff 100%);
 		-webkit-background-clip: text;
 		background-clip: text;
@@ -371,25 +654,25 @@ const faqSchema = {
 		font-weight: inherit;
 	}
 
-	.guide-lead {
-		max-width: 760px;
+	.land-lead {
+		max-width: 790px;
 		margin: 28px 0 0;
 		color: #667085;
-		font-size: clamp(1.04rem, 1.35vw, 1.28rem);
+		font-size: clamp(1.05rem, 1.35vw, 1.28rem);
 		font-weight: 560;
 		line-height: 1.68;
 		letter-spacing: -0.012em;
 	}
 
-	.guide-actions {
+	.land-actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 14px;
 		margin-top: 34px;
 	}
 
-	.guide-button-green,
-	.guide-button-light {
+	.land-button-green,
+	.land-button-light {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -403,109 +686,33 @@ const faqSchema = {
 		transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 	}
 
-	.guide-button-green {
+	.land-button-green {
 		color: #06110a;
 		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
 		border: 1px solid rgba(114, 240, 105, 0.34);
 		box-shadow: 0 18px 44px rgba(76, 244, 89, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.56);
 	}
 
-	.guide-button-light {
+	.land-button-light {
 		color: var(--ink);
-		background: rgba(255, 255, 255, 0.88);
+		background: rgba(255, 255, 255, 0.9);
 		border: 1px solid rgba(8, 16, 32, 0.1);
 		box-shadow: 0 12px 34px rgba(8, 16, 32, 0.06);
 	}
 
-	.guide-button-green:hover,
-	.guide-button-light:hover {
+	.land-button-green:hover,
+	.land-button-light:hover {
 		transform: translateY(-2px);
 	}
 
-	.guide-visual {
-		position: relative;
-		min-height: 520px;
-		padding: 28px;
-		border-radius: 46px;
-		background:
-			radial-gradient(circle at 68% 24%, rgba(18, 104, 255, 0.24), transparent 30%),
-			radial-gradient(circle at 28% 78%, rgba(114, 240, 105, 0.22), transparent 30%),
-			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
-		overflow: hidden;
-	}
-
-	.guide-visual::before {
-		content: '';
-		position: absolute;
-		inset: 42px;
-		border-radius: 34px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background:
-			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-		background-size: 48px 48px;
-		mask-image: linear-gradient(180deg, black, transparent 88%);
-	}
-
-	.guide-visual-card {
-		position: relative;
-		z-index: 1;
-		display: grid;
-		gap: 16px;
-	}
-
-	.guide-stat {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 18px;
-		min-height: 92px;
-		padding: 18px;
-		border-radius: 26px;
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.14);
-		backdrop-filter: blur(16px);
-		color: rgba(255, 255, 255, 0.86);
-	}
-
-	.guide-stat strong {
-		font-size: 0.8rem;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-	}
-
-	.guide-stat span {
-		color: #72f069;
-		font-size: 1.45rem;
-		font-weight: 950;
-		letter-spacing: -0.06em;
-	}
-
-	.guide-placeholder {
-		position: absolute;
-		left: 28px;
-		right: 28px;
-		bottom: 28px;
-		z-index: 1;
-		padding: 20px;
-		border-radius: 28px;
-		background: rgba(255, 255, 255, 0.09);
-		border: 1px dashed rgba(255, 255, 255, 0.22);
-		color: rgba(255, 255, 255, 0.76);
-		font-weight: 650;
-		line-height: 1.5;
-	}
-
-	.guide-chips {
+	.land-chips {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
 		margin-top: 26px;
 	}
 
-	.guide-chips span {
+	.land-chips span {
 		display: inline-flex;
 		align-items: center;
 		min-height: 38px;
@@ -519,51 +726,169 @@ const faqSchema = {
 		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045);
 	}
 
-	.guide-section {
+	.land-hero-panel {
+		position: relative;
+		min-height: 520px;
+		padding: 32px;
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 70% 18%, rgba(18, 104, 255, 0.28), transparent 32%),
+			radial-gradient(circle at 22% 78%, rgba(114, 240, 105, 0.24), transparent 32%),
+			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
+		overflow: hidden;
+		color: #fff;
+	}
+
+	.land-hero-panel::before {
+		content: '';
+		position: absolute;
+		inset: 48px;
+		border-radius: 34px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background:
+			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+		background-size: 48px 48px;
+		mask-image: linear-gradient(180deg, black, transparent 90%);
+	}
+
+	.land-panel-logo,
+	.land-hero-panel p,
+	.land-hero-panel h2,
+	.land-hero-panel span,
+	.land-mini-grid {
+		position: relative;
+		z-index: 1;
+	}
+
+	.land-panel-logo {
+		display: inline-flex;
+		padding: 9px 13px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		color: rgba(255, 255, 255, 0.82);
+		font-size: 0.82rem;
+		font-weight: 850;
+	}
+
+	.land-hero-panel p {
+		margin: 78px 0 0;
+		color: #72f069;
+		font-size: 0.78rem;
+		font-weight: 950;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+	}
+
+	.land-hero-panel h2 {
+		max-width: 450px;
+		margin: 16px 0 0;
+		font-size: clamp(2rem, 3vw, 3.35rem);
+		font-weight: 950;
+		letter-spacing: -0.07em;
+		line-height: 0.98;
+	}
+
+	.land-hero-panel > span {
+		display: block;
+		max-width: 430px;
+		margin-top: 18px;
+		color: rgba(255, 255, 255, 0.74);
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.land-mini-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 34px;
+	}
+
+	.land-mini-grid b {
+		padding: 14px;
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.13);
+		color: rgba(255, 255, 255, 0.88);
+		font-size: 0.9rem;
+		font-weight: 850;
+		text-align: center;
+	}
+
+	.land-section {
 		padding: clamp(72px, 7vw, 110px) 0;
 	}
 
-	.guide-split {
+	.land-split,
+	.land-article-grid,
+	.land-dark-head,
+	.land-analysis {
 		display: grid;
-		grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.48fr);
-		gap: clamp(28px, 4vw, 52px);
-		align-items: end;
-		margin-bottom: 40px;
+		grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.52fr);
+		gap: clamp(30px, 4vw, 56px);
+		align-items: start;
 	}
 
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.land-split {
+		align-items: end;
+		margin-bottom: 42px;
+	}
+
+	.land-split h2,
+	.land-sticky-title h2,
+	.land-dark-panel h2,
+	.land-analysis h2,
+	.land-related h2 {
 		font-size: clamp(2.55rem, 4.6vw, 5.1rem);
 	}
 
-	.guide-split p {
+	.land-split > p,
+	.land-dark-head > p,
+	.land-analysis p {
 		margin: 0;
 		color: #667085;
-		font-size: clamp(1rem, 1.2vw, 1.14rem);
+		font-size: clamp(1rem, 1.18vw, 1.14rem);
 		font-weight: 560;
 		line-height: 1.66;
 	}
 
-	.guide-grid {
+	.land-card-grid,
+	.land-related-grid {
 		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 20px;
 	}
 
-	.guide-card {
-		position: relative;
-		min-height: 300px;
-		padding: 28px;
-		border-radius: 34px;
-		border: 1px solid rgba(8, 16, 32, 0.08);
-		background: linear-gradient(145deg, #ffffff, #f8f9fb);
-		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.86);
-		overflow: hidden;
+	.land-three-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 
-	.guide-card::before {
+	.land-four-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.land-two-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 20px;
+	}
+
+	.land-card,
+	.land-related-card {
+		position: relative;
+		overflow: hidden;
+		min-height: 280px;
+		padding: 28px;
+		border-radius: 34px;
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07);
+	}
+
+	.land-card::before {
 		content: '';
 		position: absolute;
 		right: -80px;
@@ -575,72 +900,281 @@ const faqSchema = {
 		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -18px 34px rgba(8, 16, 32, 0.035), 0 22px 54px rgba(8, 16, 32, 0.055);
 	}
 
-	.guide-number {
+	.land-card span {
 		position: relative;
 		z-index: 1;
 		display: block;
 		color: rgba(8, 16, 32, 0.12);
-		font-size: clamp(4.2rem, 5.2vw, 6.6rem);
+		font-size: clamp(4rem, 5vw, 6.4rem);
 		font-weight: 950;
 		letter-spacing: -0.09em;
 		line-height: 0.82;
 	}
 
-	.guide-card h3 {
+	.land-card h3 {
 		position: relative;
 		z-index: 1;
-		margin: 44px 0 0;
+		margin: 42px 0 0;
 		color: var(--ink);
-		font-size: clamp(1.45rem, 2vw, 2rem);
+		font-size: clamp(1.42rem, 2vw, 2rem);
 		font-weight: 950;
 		letter-spacing: -0.06em;
 		line-height: 1.02;
 	}
 
-	.guide-card p {
+	.land-card p {
 		position: relative;
 		z-index: 1;
 		margin: 14px 0 0;
 		color: #667085;
 		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.land-text-section {
+		background: #f8f9fb;
+	}
+
+	.land-sticky-title {
+		position: sticky;
+		top: 120px;
+	}
+
+	.land-article-card {
+		position: relative;
+		display: grid;
+		gap: 20px;
+		padding: clamp(28px, 3vw, 42px);
+		border-radius: 38px;
+		background:
+			linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 253, 0.96)),
+			radial-gradient(circle at 92% 8%, rgba(18, 104, 255, 0.055), transparent 36%);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 24px 74px rgba(8, 16, 32, 0.075), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+	}
+
+	.land-article-card p {
+		margin: 0;
+		color: #344054;
+		font-size: clamp(1.04rem, 1.24vw, 1.18rem);
+		font-weight: 560;
+		line-height: 1.76;
+	}
+
+	.land-quote {
+		padding: 28px;
+		border-radius: 32px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.06);
+	}
+
+	.land-quote strong {
+		display: block;
+		font-size: clamp(1.32rem, 1.8vw, 1.85rem);
+		font-weight: 950;
+		letter-spacing: -0.055em;
+	}
+
+	.land-quote span {
+		display: block;
+		margin-top: 10px;
+		color: #667085;
+		font-weight: 560;
 		line-height: 1.6;
 	}
 
-	.guide-carousel-shell {
-		position: relative;
-		overflow: hidden;
-		padding: clamp(28px, 4vw, 44px);
-		border-radius: 42px;
-		background: linear-gradient(145deg, #05070d, #121a29 62%, #05070d);
-		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.2);
+	.land-list-card,
+	.land-doc-card {
+		padding: 30px;
+		border-radius: 34px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 20px 58px rgba(8, 16, 32, 0.06);
 	}
 
-	.guide-carousel-head {
+	.land-list-card h3,
+	.land-doc-card h3 {
+		margin: 0;
+		color: var(--ink);
+		font-size: clamp(1.45rem, 2vw, 2.1rem);
+		font-weight: 950;
+		letter-spacing: -0.06em;
+		line-height: 1.02;
+	}
+
+	.land-list-card ul,
+	.land-doc-card ul {
+		display: grid;
+		gap: 11px;
+		margin: 22px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.land-list-card li,
+	.land-doc-card li {
+		display: flex;
+		gap: 10px;
+		color: #344054;
+		font-weight: 650;
+		line-height: 1.5;
+	}
+
+	.land-list-card li::before,
+	.land-doc-card li::before {
+		content: '';
+		width: 9px;
+		height: 9px;
+		margin-top: 8px;
+		border-radius: 999px;
+		background: #72f069;
+		box-shadow: 0 0 0 5px rgba(114, 240, 105, 0.12);
+		flex: 0 0 auto;
+	}
+
+	.land-dark-panel,
+	.land-analysis {
+		padding: clamp(34px, 5vw, 58px);
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 12% 18%, rgba(18, 104, 255, 0.24), transparent 34%),
+			radial-gradient(circle at 88% 8%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(135deg, #05070d 0%, #101723 48%, #05070d 100%);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+		color: #fff;
+	}
+
+	.land-dark-panel h2,
+	.land-analysis h2 {
+		color: #fff;
+	}
+
+	.land-dark-panel h2 strong,
+	.land-analysis h2 strong {
+		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.land-dark-head > p,
+	.land-analysis p {
+		color: rgba(255, 255, 255, 0.74);
+	}
+
+	.land-doc-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 18px;
+		margin-top: 34px;
+	}
+
+	.land-doc-card {
+		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.14);
+		box-shadow: none;
+	}
+
+	.land-doc-card h3,
+	.land-doc-card li {
+		color: #fff;
+	}
+
+	.land-doc-card li {
+		color: rgba(255, 255, 255, 0.78);
+	}
+
+	.land-check-panel {
+		display: grid;
+		gap: 12px;
+		padding: clamp(20px, 3vw, 34px);
+		border-radius: 42px;
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 24px 74px rgba(8, 16, 32, 0.075);
+	}
+
+	.land-check-row {
+		display: grid;
+		grid-template-columns: 72px minmax(0, 1fr);
+		gap: 18px;
+		align-items: start;
+		padding: 20px;
+		border-radius: 26px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.07);
+		box-shadow: 0 12px 34px rgba(8, 16, 32, 0.045);
+	}
+
+	.land-check-row span {
+		color: rgba(8, 16, 32, 0.15);
+		font-size: 2.2rem;
+		font-weight: 950;
+		letter-spacing: -0.08em;
+		line-height: 1;
+	}
+
+	.land-check-row h3 {
+		margin: 0;
+		color: var(--ink);
+		font-size: 1.22rem;
+		font-weight: 950;
+		letter-spacing: -0.045em;
+	}
+
+	.land-check-row p {
+		margin: 8px 0 0;
+		color: #667085;
+		font-weight: 560;
+		line-height: 1.58;
+	}
+
+	.land-carousel {
+		overflow: hidden;
+		padding: clamp(30px, 4vw, 48px);
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 12% 20%, rgba(18, 104, 255, 0.22), transparent 34%),
+			radial-gradient(circle at 88% 10%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(145deg, #05070d, #121a29 60%, #05070d);
+		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.2);
+		color: #fff;
+	}
+
+	.land-carousel-head {
 		display: flex;
 		align-items: end;
 		justify-content: space-between;
 		gap: 24px;
-		margin-bottom: 24px;
-		color: #fff;
+		margin-bottom: 28px;
 	}
 
-	.guide-carousel-head h2 {
-		max-width: 720px;
+	.land-carousel-head h2 {
+		max-width: 860px;
 		margin: 0;
-		font-size: clamp(2.1rem, 3.8vw, 4.3rem);
+		font-size: clamp(2.3rem, 4vw, 4.6rem);
 		font-weight: 950;
 		letter-spacing: -0.075em;
 		line-height: 0.96;
 	}
 
-	.guide-carousel-nav {
+	.land-carousel-head h2 strong {
+		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.land-carousel-nav {
 		display: flex;
 		gap: 12px;
 	}
 
-	.guide-carousel-arrow {
-		width: 52px;
-		height: 52px;
+	.land-carousel-nav button {
+		width: 54px;
+		height: 54px;
 		border-radius: 999px;
 		border: 1px solid rgba(255, 255, 255, 0.14);
 		background: rgba(255, 255, 255, 0.1);
@@ -650,7 +1184,7 @@ const faqSchema = {
 		cursor: pointer;
 	}
 
-	.guide-carousel-track {
+	.land-carousel-track {
 		display: grid;
 		grid-auto-flow: column;
 		grid-auto-columns: minmax(420px, 520px);
@@ -663,84 +1197,65 @@ const faqSchema = {
 		scrollbar-width: none;
 	}
 
-	.guide-carousel-track::-webkit-scrollbar {
+	.land-carousel-track::-webkit-scrollbar {
 		display: none;
 	}
 
-	.guide-slide {
+	.land-slide {
 		scroll-snap-align: start;
-		min-height: 280px;
-		padding: 26px;
+		min-height: 300px;
+		padding: 28px;
 		border-radius: 30px;
 		background:
 			radial-gradient(circle at 86% 12%, rgba(114, 240, 105, 0.16), transparent 32%),
 			linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
 		border: 1px solid rgba(255, 255, 255, 0.16);
-		color: #fff;
 	}
 
-	.guide-slide strong {
+	.land-slide span {
 		display: block;
-		font-size: 0.82rem;
+		color: #72f069;
+		font-size: 0.8rem;
 		font-weight: 950;
 		letter-spacing: 0.13em;
 		text-transform: uppercase;
-		color: #72f069;
 	}
 
-	.guide-slide h3 {
-		margin: 44px 0 0;
+	.land-slide h3 {
+		margin: 56px 0 0;
 		font-size: 2rem;
 		font-weight: 950;
 		letter-spacing: -0.065em;
 		line-height: 1.02;
 	}
 
-	.guide-slide p {
+	.land-slide p {
 		margin: 14px 0 0;
-		color: rgba(255, 255, 255, 0.72);
+		color: rgba(255, 255, 255, 0.74);
 		font-weight: 560;
 		line-height: 1.6;
 	}
 
-	.guide-analysis {
-		padding: clamp(34px, 5vw, 58px);
-		border-radius: 48px;
-		background:
-			radial-gradient(circle at 12% 18%, rgba(18, 104, 255, 0.24), transparent 34%),
-			radial-gradient(circle at 88% 8%, rgba(114, 240, 105, 0.2), transparent 30%),
-			linear-gradient(135deg, #05070d 0%, #101723 48%, #05070d 100%);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-		color: #fff;
+	.land-competition-grid {
+		align-items: start;
 	}
 
-	.guide-analysis-grid {
-		display: grid;
+	.land-analysis {
 		grid-template-columns: minmax(0, 1fr) auto;
-		gap: 30px;
 		align-items: end;
 	}
 
-	.guide-analysis h2 {
-		color: #fff;
+	.land-analysis p {
+		max-width: 820px;
+		margin-top: 22px;
 	}
 
-	.guide-analysis p {
-		max-width: 720px;
-		margin: 22px 0 0;
-		color: rgba(255, 255, 255, 0.74);
-		font-weight: 560;
-		line-height: 1.68;
-	}
-
-	.guide-faq-list {
+	.land-faq-list {
 		display: grid;
 		gap: 14px;
-		margin-top: 34px;
 	}
 
-	.guide-faq-item {
+	.land-faq-item {
 		border-radius: 24px;
 		border: 1px solid rgba(8, 16, 32, 0.08);
 		background: #fff;
@@ -748,7 +1263,7 @@ const faqSchema = {
 		overflow: hidden;
 	}
 
-	.guide-faq-item summary {
+	.land-faq-item summary {
 		display: flex;
 		justify-content: space-between;
 		gap: 18px;
@@ -760,11 +1275,11 @@ const faqSchema = {
 		list-style: none;
 	}
 
-	.guide-faq-item summary::-webkit-details-marker {
+	.land-faq-item summary::-webkit-details-marker {
 		display: none;
 	}
 
-	.guide-faq-item summary::after {
+	.land-faq-item summary::after {
 		content: '+';
 		display: grid;
 		place-items: center;
@@ -772,15 +1287,16 @@ const faqSchema = {
 		height: 34px;
 		border-radius: 999px;
 		background: #f4f6f9;
+		flex: 0 0 auto;
 	}
 
-	.guide-faq-item[open] summary::after {
+	.land-faq-item[open] summary::after {
 		content: '−';
 		background: var(--ink);
 		color: #fff;
 	}
 
-	.guide-faq-item p {
+	.land-faq-item p {
 		margin: 0;
 		padding: 0 24px 24px;
 		color: #667085;
@@ -788,120 +1304,193 @@ const faqSchema = {
 		line-height: 1.68;
 	}
 
-	.guide-related-grid {
-		display: grid;
+	.land-related h2 {
+		max-width: 900px;
+	}
+
+	.land-related-grid {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 18px;
 		margin-top: 32px;
 	}
 
-	.guide-related-card {
-		padding: 24px;
-		border-radius: 28px;
-		background: #fff;
-		border: 1px solid rgba(8, 16, 32, 0.08);
-		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.055);
+	.land-related-card {
+		min-height: 150px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 20px;
+		color: var(--ink);
+		font-size: 1.16rem;
 		font-weight: 900;
-		letter-spacing: -0.035em;
+		letter-spacing: -0.04em;
+		text-decoration: none;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
 	}
 
-	@media (max-width: 1120px) {
-		.guide-hero-grid,
-		.guide-split,
-		.guide-analysis-grid {
+	.land-related-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.1);
+	}
+
+	.land-related-card span {
+		display: grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 999px;
+		background: var(--ink);
+		color: #fff;
+		flex: 0 0 auto;
+	}
+
+	@media (max-width: 1480px) and (min-width: 1181px) {
+		.land-article-grid,
+		.land-competition-grid {
+			grid-template-columns: minmax(0, 0.9fr) minmax(430px, 0.72fr);
+			gap: 42px;
+		}
+
+		.land-sticky-title h2 {
+			font-size: clamp(3.05rem, 4.7vw, 5.35rem);
+			line-height: 0.96;
+			letter-spacing: -0.074em;
+		}
+	}
+
+	@media (max-width: 1180px) {
+		.land-hero-grid,
+		.land-split,
+		.land-article-grid,
+		.land-dark-head,
+		.land-analysis {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.land-sticky-title {
+			position: static;
+		}
+
+		.land-three-grid,
+		.land-four-grid,
+		.land-doc-grid,
+		.land-related-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
-		.guide-visual {
+		.land-hero-panel {
 			min-height: 420px;
 		}
 	}
 
 	@media (max-width: 760px) {
-		.guide-hero {
+		.land-hero {
 			padding-top: 72px;
 		}
 
-		.guide-hero h1 {
-			font-size: clamp(2.45rem, 12vw, 3.5rem);
+		.land-hero h1 {
+			font-size: clamp(2.35rem, 11.5vw, 3.45rem);
 			line-height: 0.98;
 			letter-spacing: -0.07em;
 		}
 
-		.guide-actions,
-		.guide-button-green,
-		.guide-button-light {
+		.land-actions,
+		.land-button-green,
+		.land-button-light {
 			width: 100%;
 		}
 
-		.guide-visual {
-			min-height: 360px;
+		.land-hero-panel {
+			min-height: 380px;
 			border-radius: 34px;
+			padding: 26px;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.land-hero-panel p {
+			margin-top: 58px;
+		}
+
+		.land-mini-grid,
+		.land-three-grid,
+		.land-four-grid,
+		.land-two-grid,
+		.land-doc-grid,
+		.land-related-grid {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-card {
+		.land-split h2,
+		.land-sticky-title h2,
+		.land-dark-panel h2,
+		.land-analysis h2,
+		.land-related h2 {
+			font-size: clamp(2.15rem, 10.5vw, 3.3rem);
+			line-height: 0.98;
+			letter-spacing: -0.07em;
+		}
+
+		.land-card {
 			min-height: auto;
 			padding: 24px;
 			border-radius: 28px;
 		}
 
-		.guide-card h3 {
-			margin-top: 28px;
+		.land-card h3 {
+			margin-top: 30px;
 		}
 
-		.guide-split h2,
-		.guide-analysis h2,
-		.guide-faq h2,
-		.guide-related h2 {
-			font-size: clamp(2.2rem, 10.5vw, 3.35rem);
-			line-height: 0.98;
-			letter-spacing: -0.07em;
+		.land-list-card,
+		.land-doc-card,
+		.land-article-card,
+		.land-dark-panel,
+		.land-analysis {
+			padding: 24px;
+			border-radius: 30px;
 		}
 
-		.guide-carousel-head {
+		.land-check-row {
+			grid-template-columns: 1fr;
+			gap: 12px;
+		}
+
+		.land-carousel {
+			padding: 24px;
+			border-radius: 34px;
+		}
+
+		.land-carousel-head {
 			display: grid;
 		}
 
-		.guide-carousel-nav {
+		.land-carousel-nav {
 			justify-content: center;
 		}
 
-		.guide-carousel-track {
+		.land-carousel-track {
 			grid-auto-columns: 86vw;
-			margin-left: -20px;
-			margin-right: -20px;
-			padding-left: 20px;
-			padding-right: 20px;
+			margin-left: -14px;
+			margin-right: -14px;
+			padding-left: 14px;
+			padding-right: 14px;
 		}
 
-		.guide-analysis-grid {
-			gap: 24px;
+		.land-slide {
+			min-height: 280px;
 		}
 	}
 </style>
 
 <script is:inline>
-	const subpageCarousels = document.querySelectorAll('[data-subpage-carousel]');
+	const landCarousels = document.querySelectorAll('[data-land-carousel]');
 
-	subpageCarousels.forEach((carousel) => {
-		const track = carousel.querySelector('[data-subpage-track]');
-		const prev = carousel.querySelector('[data-subpage-prev]');
-		const next = carousel.querySelector('[data-subpage-next]');
+	landCarousels.forEach((carousel) => {
+		const track = carousel.querySelector('[data-land-track]');
+		const prev = carousel.querySelector('[data-land-prev]');
+		const next = carousel.querySelector('[data-land-next]');
 
 		if (!track || !prev || !next) return;
 
 		const getStep = () => {
-			const firstCard = track.querySelector('.guide-slide');
+			const firstCard = track.querySelector('.land-slide');
 			if (!firstCard) return 360;
 			const styles = window.getComputedStyle(track);
 			const gap = parseFloat(styles.columnGap || styles.gap || '18');
@@ -917,4 +1506,3 @@ const faqSchema = {
 		});
 	});
 </script>
-

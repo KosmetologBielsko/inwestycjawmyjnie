@@ -4,259 +4,384 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const page = {
-	"filename": "najczestsze-bledy-przy-budowie-myjni.astro",
-	"canonicalPath": "/najczestsze-bledy-przy-budowie-myjni/",
-	"title": "Najczęstsze błędy przy budowie myjni bezdotykowej",
-	"description": "Najczęstsze błędy inwestora przy budowie myjni: wybór najtańszej oferty, brak analizy działki, zły projekt, niedoszacowany budżet i brak konsultacji.",
-	"eyebrow": "Błędy inwestora",
-	"hero": {
-		"before": "Najdroższe błędy pojawiają się",
-		"strong": "na początku inwestycji.",
-		"lead": "Wiele problemów z budową myjni zaczyna się jeszcze przed wyborem producenta: od złej kolejności decyzji, braku analizy działki i porównywania ofert tylko po cenie.",
-		"statA": "ryzyko",
-		"statB": "koszt",
-		"statC": "decyzja"
-	},
-	"quick": [
-		"cena",
-		"działka",
-		"projekt",
-		"budżet",
-		"serwis",
-		"podatki"
-	],
-	"cardsTitle": "Błędy, które warto wyłapać wcześnie",
-	"cardsLead": "Im wcześniej inwestor uporządkuje decyzje, tym mniejsze ryzyko kosztownych zmian w trakcie budowy.",
-	"cards": [
-		[
-			"01",
-			"Wybór najtańszego rozwiązania",
-			"Najniższa cena może oznaczać mniejszy zakres, słabsze komponenty albo większe koszty późniejszej eksploatacji."
-		],
-		[
-			"02",
-			"Oferty przed analizą działki",
-			"Bez sprawdzenia lokalizacji i mediów porównuje się przypadkowe konfiguracje, a nie realne rozwiązania."
-		],
-		[
-			"03",
-			"Słaby projekt",
-			"Brak technicznej analizy i dobrego projektu może powodować kosztowne poprawki na budowie."
-		],
-		[
-			"04",
-			"Zła skala obiektu",
-			"Za dużo lub za mało stanowisk względem potencjału ruchu może pogorszyć wynik inwestycji."
-		],
-		[
-			"05",
-			"Brak rezerwy",
-			"Bez rezerwy budżetowej każda zmiana, doposażenie albo problem techniczny robi się nerwowy."
-		],
-		[
-			"06",
-			"Brak konsultacji finansowej",
-			"Sposób finansowania, amortyzacji i rozliczenia ma znaczenie dla realnej opłacalności inwestycji."
-		]
-	],
-	"galleryTitle": "Błąd inwestora zwykle nie wygląda groźnie na początku",
-	"gallery": [
-		[
-			"Tania oferta",
-			"Na starcie wygląda korzystnie, ale po czasie może ujawnić braki w zakresie, serwisie albo jakości."
-		],
-		[
-			"Brak projektu",
-			"Szybka decyzja bez analizy technicznej może generować zmiany podczas budowy."
-		],
-		[
-			"Zła lokalizacja",
-			"Poprawnie zbudowany obiekt w słabym miejscu może nie wykorzystać potencjału inwestycji."
-		],
-		[
-			"Brak planu",
-			"Chaos w kolejności decyzji utrudnia porównanie ofert i kontrolę kosztów."
-		]
-	],
-	"analysisTitle": "Chcesz uniknąć kosztownych decyzji?",
-	"analysisText": "Prześlij lokalizację albo etap, na którym jesteś. Warto sprawdzić, czy decyzje idą w dobrej kolejności.",
-	"faq": [
-		[
-			"Jaki błąd jest najczęstszy?",
-			"Porównywanie ofert tylko po cenie, bez sprawdzenia zakresu, działki, technologii, serwisu i kosztów dodatkowych."
-		],
-		[
-			"Czy brak analizy działki jest ryzykowny?",
-			"Tak, bo układ stanowisk, media, wjazd i formalności mogą zmienić koszt oraz sens inwestycji."
-		],
-		[
-			"Czy zawsze warto budować więcej stanowisk?",
-			"Nie. Skala powinna wynikać z potencjału lokalizacji, powierzchni działki i realnego ruchu klientów."
-		],
-		[
-			"Jak ograniczyć ryzyko?",
-			"Zacząć od analizy lokalizacji, budżetu, projektu i pełnego porównania ofert, a nie od samej ceny."
-		]
-	]
+	canonicalPath: '/najczestsze-bledy-przy-budowie-myjni/',
+	title: 'Najczęstsze błędy przy budowie myjni bezdotykowej',
+	description:
+		'Najczęstsze błędy przy budowie myjni bezdotykowej: działka bez analizy, porównywanie tylko ceny, zła liczba stanowisk, brak rezerwy, media, wjazd, umowa, dokumentacja i serwis.'
 };
 
+const heroChips = [
+	'działka',
+	'cena',
+	'stanowiska',
+	'budżet',
+	'PZT',
+	'serwis'
+];
+
+const mistakeCards = [
+	{
+		number: '01',
+		title: 'Wybór działki bez analizy',
+		text: 'Działka może wyglądać atrakcyjnie, ale mieć problemy formalne, techniczne albo ekonomiczne: brak możliwości budowy myjni, brak mediów, kolizje sieci, trudny zjazd, sąsiedztwo albo zbyt słaby potencjał ruchu.'
+	},
+	{
+		number: '02',
+		title: 'Porównywanie tylko ceny',
+		text: 'Zbieranie wielu ofert bez analizy potrzeb tworzy chaos. Najniższa cena może przysłonić realne ryzyka: słabszą technologię, gorszy serwis, uboższą dokumentację i wyższe koszty późniejszej eksploatacji.'
+	},
+	{
+		number: '03',
+		title: 'Zła liczba stanowisk',
+		text: 'Za mała myjnia w mocnej lokalizacji tworzy kolejki i blokuje przychód. Za duża myjnia w słabej lokalizacji podnosi koszt inwestycji bez odpowiedniego obrotu.'
+	},
+	{
+		number: '04',
+		title: 'Brak rezerwy budżetowej',
+		text: 'Brak zapasu pieniędzy prowadzi do pochopnych oszczędności na technologii, programach, projekcie albo wykończeniu. Zimą wyższe koszty i słabszy sezon mogą dodatkowo obciążyć inwestora.'
+	},
+	{
+		number: '05',
+		title: 'Niedoszacowanie mediów',
+		text: 'Woda, ścieki, prąd, gaz, deszczówka, przyłącza, moc elektryczna, separator i odprowadzenie wód potrafią zmienić budżet oraz przyszłą rentowność myjni.'
+	},
+	{
+		number: '06',
+		title: 'Zły wjazd i wyjazd',
+		text: 'Niewygodna komunikacja odstrasza kierowców. Brak dobrego PZT powoduje problemy z kolejką, zawracaniem, ruchem SUV-ów, busów i aut prowadzonych przez mniej doświadczonych kierowców.'
+	},
+	{
+		number: '07',
+		title: 'Brak analizy konkurencji',
+		text: 'Konkurencja nie zawsze jest zła. Może pokazywać zapotrzebowanie, ale trzeba sprawdzić standard, lokalizację, kolejki, ceny, opinie i pytania, które warto zadać własnemu dostawcy.'
+	},
+	{
+		number: '08',
+		title: 'Słaba umowa',
+		text: 'Rozmowa z handlowcem to jedno, a zapisy umowy to drugie. Trzeba sprawdzić zakres, terminy, płatności, odbiory, odpowiedzialność, gwarancję i możliwość finansowania.'
+	},
+	{
+		number: '09',
+		title: 'Brak projektu technicznego',
+		text: 'Minimum dokumentacji może wystarczyć do startu procedury, ale nie zawsze porządkuje instalacje, konstrukcję i późniejsze odbiory. Pełniejszy projekt techniczny jest realną wartością inwestycji.'
+	},
+	{
+		number: '10',
+		title: 'Brak myślenia o serwisie',
+		text: 'Serwis jest jednym z najważniejszych elementów po sprzedaży. W pierwszych latach inwestor uczy się myjni, obsługi i reakcji na problemy. Dobry serwis daje bezpieczeństwo i skraca przestoje.'
+	}
+];
+
+const riskSlides = [
+	{
+		kicker: 'Działka',
+		title: 'Tani grunt może być najdroższym błędem',
+		text: 'Brak MPZP, niepewna WZ, kolizje sieci, brak mediów albo problem ze zjazdem mogą zatrzymać inwestycję jeszcze przed budową.'
+	},
+	{
+		kicker: 'Oferta',
+		title: 'Niska cena nie oznacza niskiego kosztu',
+		text: 'Różnica w zakupie może wrócić w eksploatacji: mediach, serwisie, awariach, dokumentacji, częściach i przestojach.'
+	},
+	{
+		kicker: 'Przepustowość',
+		title: 'Kolejka potrafi zabrać przychód',
+		text: 'Myjnia pracuje falami. Jeżeli liczba stanowisk i układ ruchu nie pasują do lokalizacji, kierowcy mogą odjeżdżać do konkurencji.'
+	},
+	{
+		kicker: 'Serwis',
+		title: 'Myjnia zarabia tylko wtedy, kiedy pracuje',
+		text: 'Długi czas reakcji, brak części albo trudny dostęp do technologii może być droższy niż różnica między ofertami.'
+	}
+];
+
+const landRisks = [
+	['Formalne', 'Brak właściwego przeznaczenia terenu, problem z MPZP, niepewna WZ, ograniczenia planistyczne, sąsiedztwo lub zapisy uniemożliwiające budowę myjni.'],
+	['Techniczne', 'Brak wody, kanalizacji, prądu, gazu, deszczówki, problem z mocą przyłączeniową, kolizje typu światłowód, gazociąg, sieci podziemne, tory albo pas drogowy.'],
+	['Ekonomiczne', 'Słaby ruch, brak widoczności, mało mieszkańców w promieniu oddziaływania, zły dojazd, niska siła zakupowa albo brak naturalnych generatorów ruchu.']
+];
+
+const stationCards = [
+	{
+		title: 'Za mało stanowisk',
+		text: 'W mocnej lokalizacji zbyt mała liczba stanowisk powoduje kolejki, zatory i utratę klientów. Kierowca często wybiera obiekt, na którym nie musi czekać.'
+	},
+	{
+		title: 'Za dużo stanowisk',
+		text: 'W słabszej lokalizacji zbyt duży obiekt podnosi koszt budowy, serwisu, ogrzewania i utrzymania, ale nie zawsze zwiększa proporcjonalnie przychód.'
+	},
+	{
+		title: 'Zły układ stanowisk',
+		text: 'Liczy się nie tylko liczba stanowisk, ale też przepustowość, czas mycia, dostęp do programów, kolejka, promienie skrętu, strefa sucha i wygodny wyjazd.'
+	}
+];
+
+const budgetItems = [
+	['Rezerwa inwestycyjna', 'Projekt, media, przyłącza, roboty ziemne, zjazd, separator, deszczówka i nieprzewidziane kolizje wymagają zapasu budżetu.'],
+	['Sezonowość', 'Zima, koszt ogrzewania, słabsze okresy i zmienność pogody mogą wpływać na przepływy finansowe szczególnie na początku działalności.'],
+	['Technologia', 'Oszczędzanie na technologii może obniżyć koszt zakupu, ale zwiększyć koszt użytkowania: wodę, ścieki, energię, chemię, awaryjność i czas serwisu.'],
+	['Finansowanie', 'Leasing, kredyt, harmonogram płatności i wkład własny trzeba zestawić z rezerwą operacyjną, a nie tylko z ceną zakupu myjni.']
+];
+
+const serviceCards = [
+	{
+		title: 'Serwis jako bezpieczeństwo biznesu',
+		text: 'W pierwszych latach inwestor uczy się technologii, chemii, ustawień, programów i reakcji na zgłoszenia klientów. Dobry serwisant jest wtedy realnym wsparciem, a nie dodatkiem do gwarancji.'
+	},
+	{
+		title: 'Czas reakcji i dostęp do części',
+		text: 'Przestój stanowiska oznacza utratę przychodu. Dlatego trzeba sprawdzić czas reakcji, dostępność części, akcesoriów, chemii, procedurę zgłoszeń i zasady obsługi pogwarancyjnej.'
+	},
+	{
+		title: 'Ergonomia technologii',
+		text: 'Tańszy wariant może być droższy w serwisie, jeśli każda naprawa wymaga rozbierania modułów albo długiego dojścia do pomp, zaworów, sterowania i dozowania.'
+	}
+];
+
+const checklistGroups = [
+	{
+		title: 'Przed zakupem działki',
+		items: [
+			'czy działka ma MPZP albo realną szansę na WZ?',
+			'czy teren dopuszcza funkcję usługową i myjnię samochodową?',
+			'czy są media i możliwość odprowadzenia ścieków oraz deszczówki?',
+			'czy zjazd, wjazd i wyjazd są możliwe oraz wygodne?',
+			'czy nie ma kolizji z sieciami, torami, gazem, światłowodem albo pasem drogowym?'
+		]
+	},
+	{
+		title: 'Przed wyborem producenta',
+		items: [
+			'czy oferta pokazuje zakres, a nie tylko cenę?',
+			'czy producent pomaga ocenić lokalizację i liczbę stanowisk?',
+			'czy technologia wpływa na oszczędność wody, ścieków, energii i chemii?',
+			'czy serwis, części i gwarancja są jasno opisane?',
+			'czy dokumentacja obejmuje więcej niż minimum do pozwolenia na budowę?'
+		]
+	},
+	{
+		title: 'Przed podpisaniem umowy',
+		items: [
+			'czy zapisy umowy potwierdzają rozmowy handlowe?',
+			'czy są jasne terminy, etapy płatności, odbiory i odpowiedzialność?',
+			'czy możliwe jest finansowanie, leasing albo umowa trójstronna?',
+			'czy inwestor zna warunki gwarancji i wyłączenia?',
+			'czy wiadomo, kto odpowiada za problemy po montażu?'
+		]
+	}
+];
+
+const faqItems = [
+	{
+		question: 'Jaki jest najczęstszy błąd przy budowie myjni bezdotykowej?',
+		answer:
+			'Najczęściej problem zaczyna się od decyzji bez analizy: zakup działki bez sprawdzenia MPZP/WZ, mediów, zjazdu, kolizji, konkurencji i realnego potencjału ekonomicznego lokalizacji.'
+	},
+	{
+		question: 'Czy najtańsza oferta na myjnię jest dobrym wyborem?',
+		answer:
+			'Nie zawsze. Najtańsza oferta może mieć mniejszy zakres, słabszą technologię, trudniejszy serwis, mniej dokumentacji albo wyższe koszty eksploatacji po uruchomieniu.'
+	},
+	{
+		question: 'Dlaczego liczba stanowisk jest tak ważna?',
+		answer:
+			'Liczba stanowisk musi pasować do lokalizacji, ruchu, działki i przepustowości. Za mała myjnia tworzy kolejki, a za duża może zwiększyć koszt bez odpowiedniego przychodu.'
+	},
+	{
+		question: 'Dlaczego potrzebna jest rezerwa budżetowa?',
+		answer:
+			'Budowa myjni zależy od działki, mediów, robót ziemnych, przyłączy, dokumentacji i sezonowości. Rezerwa chroni przed pochopnymi oszczędnościami oraz problemami w pierwszych miesiącach pracy.'
+	},
+	{
+		question: 'Czy konkurencja w okolicy jest problemem?',
+		answer:
+			'Nie zawsze. Konkurencja może potwierdzać zapotrzebowanie na usługę, ale trzeba sprawdzić jej standard, lokalizację, kolejki, opinie, ceny i to, czy nowa myjnia może dać klientowi lepszą wygodę.'
+	},
+	{
+		question: 'Co sprawdzić w umowie z producentem?',
+		answer:
+			'Trzeba sprawdzić zakres, terminy, harmonogram płatności, warunki odbioru, odpowiedzialność, gwarancję, serwis, części, szkolenie i to, czy ustalenia z rozmów handlowych są wpisane w dokumenty.'
+	},
+	{
+		question: 'Dlaczego serwis jest tak ważny po zakupie myjni?',
+		answer:
+			'Myjnia zarabia wtedy, kiedy pracuje. Dobry serwis skraca przestoje, pomaga inwestorowi uczyć się obsługi, wspiera w awariach i daje poczucie, że inwestor nie zostaje sam po uruchomieniu obiektu.'
+	},
+	{
+		question: 'Czy projekt techniczny jest potrzebny?',
+		answer:
+			'Projekt techniczny porządkuje instalacje, konstrukcję i rozwiązania branżowe. Jego brak może utrudniać rozliczanie prac, odbiory oraz późniejsze uporządkowanie dokumentacji inwestycji.'
+	}
+];
+
 const relatedLinks = [
-	[
-		"Koszt budowy myjni",
-		"/ile-kosztuje-myjnia-bezdotykowa/"
-	],
-	[
-		"Opłacalność myjni",
-		"/ile-zarabia-myjnia-bezdotykowa/"
-	],
-	[
-		"Działka pod myjnię",
-		"/dzialka-pod-myjnie-bezdotykowa/"
-	],
-	[
-		"Porównanie ofert",
-		"/jak-porownac-oferty-myjni-bezdotykowej/"
-	],
-	[
-		"Budowa krok po kroku",
-		"/budowa-myjni-bezdotykowej-krok-po-kroku/"
-	],
-	[
-		"Błędy inwestora",
-		"/najczestsze-bledy-przy-budowie-myjni/"
-	]
+	['Koszt budowy myjni', '/koszt-budowy-myjni-bezdotykowej/'],
+	['Ile kosztuje myjnia?', '/ile-kosztuje-myjnia-bezdotykowa/'],
+	['Działka pod myjnię', '/dzialka-pod-myjnie-bezdotykowa/'],
+	['Jak porównać oferty?', '/jak-porownac-oferty-myjni-bezdotykowej/'],
+	['Budowa krok po kroku', '/budowa-myjni-bezdotykowej-krok-po-kroku/'],
+	['Poradnik inwestora', '/poradnik/']
 ];
 
 const faqSchema = {
-	"@context": "https://schema.org",
-	"@type": "FAQPage",
-	"mainEntity": [
-		{
-			"@type": "Question",
-			"name": "Jaki błąd jest najczęstszy?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Porównywanie ofert tylko po cenie, bez sprawdzenia zakresu, działki, technologii, serwisu i kosztów dodatkowych."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Czy brak analizy działki jest ryzykowny?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Tak, bo układ stanowisk, media, wjazd i formalności mogą zmienić koszt oraz sens inwestycji."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Czy zawsze warto budować więcej stanowisk?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Nie. Skala powinna wynikać z potencjału lokalizacji, powierzchni działki i realnego ruchu klientów."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Jak ograniczyć ryzyko?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Zacząć od analizy lokalizacji, budżetu, projektu i pełnego porównania ofert, a nie od samej ceny."
-			}
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer
 		}
-	]
+	}))
 };
 ---
 
 <Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
 	<Header />
 
-	<main class="guide-page">
-		<section class="guide-hero" aria-labelledby="page-title">
-			<div class="container guide-hero-grid">
-				<div>
+	<main class="mistake-page">
+		<section class="mistake-hero" aria-labelledby="page-title">
+			<div class="container mistake-hero-grid">
+				<div class="mistake-hero-copy">
 					<p class="eyebrow">
 						<span></span>
-						{page.eyebrow}
+						Błędy inwestora
 					</p>
 
 					<h1 id="page-title">
-						{page.hero.before}
-						<strong>{page.hero.strong}</strong>
+						Najczęstsze błędy przy budowie myjni, które mogą kosztować
+						<strong>więcej niż sama różnica w ofercie</strong>
 					</h1>
 
-					<p class="guide-lead">{page.hero.lead}</p>
+					<p class="mistake-lead">
+						Największe problemy nie zaczynają się na budowie. Zaczynają się wcześniej:
+						przy wyborze działki, porównywaniu ofert, braku rezerwy, złej liczbie stanowisk,
+						słabej umowie i niedocenieniu serwisu.
+					</p>
 
-					<div class="guide-actions">
-						<a class="guide-button-green" href="/#kontakt">
-							Prześlij lokalizację
+					<div class="mistake-actions">
+						<a class="mistake-button-green" href="/#kontakt">
+							Prześlij lokalizację do analizy
 							<span aria-hidden="true">→</span>
 						</a>
-						<a class="guide-button-light" href="/poradnik/">
-							Wróć do poradnika
-							<span aria-hidden="true">→</span>
+						<a class="mistake-button-light" href="#lista-bledow">
+							Zobacz 10 błędów
+							<span aria-hidden="true">↓</span>
 						</a>
 					</div>
 
-					<div class="guide-chips" aria-label="Najważniejsze tematy strony">
-						{page.quick.map((item) => <span>{item}</span>)}
+					<div class="mistake-chips" aria-label="Najważniejsze tematy strony">
+						{heroChips.map((item) => <span>{item}</span>)}
 					</div>
 				</div>
 
-				<aside class="guide-visual" aria-label="Grafika do uzupełnienia">
-					<div class="guide-visual-card">
-						<div class="guide-stat"><strong>{page.hero.statA}</strong><span>01</span></div>
-						<div class="guide-stat"><strong>{page.hero.statB}</strong><span>02</span></div>
-						<div class="guide-stat"><strong>{page.hero.statC}</strong><span>03</span></div>
-					</div>
-					<div class="guide-placeholder">
-						Miejsce na mocną grafikę podstrony — docelowo wstawimy WebP dopasowany do tematu.
+				<aside class="mistake-hero-panel" aria-label="Najważniejszy wniosek">
+					<div class="mistake-panel-logo">inwestycjawmyjnie.pl</div>
+					<p>Najważniejsza zasada</p>
+					<h2>Decyzja bez analizy jest najdroższym wariantem.</h2>
+					<span>
+						Myjnia jest inwestycją długofalową. Błąd na etapie działki, technologii,
+						umowy albo serwisu może wracać przez wiele lat w kosztach, przestojach i nerwach.
+					</span>
+					<div class="mistake-mini-grid">
+						<b>formalnie</b>
+						<b>technicznie</b>
+						<b>finansowo</b>
+						<b>serwisowo</b>
 					</div>
 				</aside>
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="cards-title">
+		<section class="mistake-section" id="lista-bledow" aria-labelledby="mistakes-title">
 			<div class="container">
-				<div class="guide-split">
+				<div class="mistake-split">
 					<div>
-						<p class="eyebrow">
-							<span></span>
-							Analiza inwestora
-						</p>
-						<h2 id="cards-title">Błędy, które warto <strong>wyłapać wcześnie</strong></h2>
+						<p class="eyebrow"><span></span>Lista kontrolna</p>
+						<h2 id="mistakes-title">
+							10 błędów, które najczęściej psują <strong>budżet, czas i wynik inwestycji</strong>
+						</h2>
 					</div>
-					<p>{page.cardsLead}</p>
+					<p>
+						Nie każdy błąd widać od razu. Część pojawia się dopiero po zakupie działki,
+						podpisaniu umowy, rozpoczęciu robót albo w pierwszym sezonie pracy myjni.
+					</p>
 				</div>
 
-				<div class="guide-grid">
-					{page.cards.map((card) => (
-						<article class="guide-card">
-							<span class="guide-number">{card[0]}</span>
-							<h3>{card[1]}</h3>
-							<p>{card[2]}</p>
+				<div class="mistake-card-grid">
+					{mistakeCards.map((card) => (
+						<article class="mistake-card">
+							<span>{card.number}</span>
+							<h3>{card.title}</h3>
+							<p>{card.text}</p>
 						</article>
 					))}
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="gallery-title">
+		<section class="mistake-section mistake-text-section" aria-labelledby="land-title">
+			<div class="container mistake-article-grid">
+				<div class="mistake-sticky-title">
+					<p class="eyebrow"><span></span>Błąd numer jeden</p>
+					<h2 id="land-title">
+						Działka bez analizy może stać się <strong>problemem, a nie aktywem</strong>
+					</h2>
+				</div>
+
+				<div class="mistake-article-copy mistake-article-card">
+					<p>
+						Największym ryzykiem jest zakup albo dzierżawa działki bez sprawdzenia,
+						czy można na niej formalnie i technicznie wybudować myjnię samochodową.
+						Działka może wyglądać dobrze, ale mieć ograniczenia w planie, niepewną WZ,
+						brak mediów, problem ze zjazdem albo kolizję z siecią podziemną.
+					</p>
+
+					<p>
+						Nie wystarczy, że na działce fizycznie zmieści się obiekt. Trzeba sprawdzić
+						MPZP albo możliwość uzyskania WZ, sąsiedztwo, dostęp do wody, ścieków,
+						prądu, gazu, deszczówki, lokalizację zjazdu, pas drogowy, sieci, światłowód,
+						gazociąg, tory kolejowe i wszystkie elementy, które mogą zatrzymać projekt.
+					</p>
+
+					<p>
+						Druga część analizy jest ekonomiczna. Nawet działka możliwa formalnie może
+						nie mieć odpowiedniego potencjału: ruchu, widoczności, mieszkańców, aut,
+						generatorów ruchu albo wygody dla kierowcy. Bez specjalisty taka działka
+						może stać się kosztownym problemem.
+					</p>
+
+					<div class="mistake-quote">
+						<strong>Najpierw analiza działki. Dopiero potem zakup, dzierżawa i projekt.</strong>
+						<span>To prostsze, tańsze i bezpieczniejsze niż ratowanie źle wybranej lokalizacji.</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="mistake-section" aria-labelledby="risk-title">
 			<div class="container">
-				<div class="guide-carousel-shell" data-subpage-carousel>
-					<div class="guide-carousel-head">
-						<h2 id="gallery-title">{page.galleryTitle}</h2>
-						<div class="guide-carousel-nav" aria-label="Nawigacja sekcji">
-							<button class="guide-carousel-arrow" type="button" data-subpage-prev aria-label="Poprzedni element">←</button>
-							<button class="guide-carousel-arrow" type="button" data-subpage-next aria-label="Następny element">→</button>
+				<div class="mistake-carousel" data-mistake-carousel>
+					<div class="mistake-carousel-head">
+						<div>
+							<p class="eyebrow light"><span></span>Ukryte ryzyka</p>
+							<h2 id="risk-title">
+								Niektóre błędy wychodzą dopiero <strong>po podpisaniu umowy</strong>
+							</h2>
+						</div>
+						<div class="mistake-carousel-nav" aria-label="Nawigacja slajdera">
+							<button type="button" data-mistake-prev aria-label="Poprzedni element">←</button>
+							<button type="button" data-mistake-next aria-label="Następny element">→</button>
 						</div>
 					</div>
 
-					<div class="guide-carousel-track" data-subpage-track>
-						{page.gallery.map((slide) => (
-							<article class="guide-slide">
-								<strong>{slide[0]}</strong>
-								<h3>{slide[0]}</h3>
-								<p>{slide[1]}</p>
+					<div class="mistake-carousel-track" data-mistake-track>
+						{riskSlides.map((slide) => (
+							<article class="mistake-slide">
+								<span>{slide.kicker}</span>
+								<h3>{slide.title}</h3>
+								<p>{slide.text}</p>
 							</article>
 						))}
 					</div>
@@ -264,52 +389,226 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="analysis-title">
+		<section class="mistake-section" aria-labelledby="three-risks-title">
 			<div class="container">
-				<div class="guide-analysis">
-					<div class="guide-analysis-grid">
-						<div>
-							<p class="eyebrow light"><span></span>Analiza lokalizacji</p>
-							<h2 id="analysis-title">Chcesz uniknąć <strong>kosztownych decyzji?</strong></h2>
-							<p>{page.analysisText}</p>
-						</div>
-						<a class="guide-button-green" href="/#kontakt">
-							Prześlij lokalizację
-							<span aria-hidden="true">→</span>
-						</a>
+				<div class="mistake-split">
+					<div>
+						<p class="eyebrow"><span></span>Działka</p>
+						<h2 id="three-risks-title">
+							Działkę trzeba sprawdzić <strong>w trzech obszarach</strong>
+						</h2>
+					</div>
+					<p>
+						Błąd polega na tym, że inwestor patrzy tylko na powierzchnię i lokalizację
+						na mapie. Tymczasem dobra działka musi przejść filtr formalny, techniczny
+						i ekonomiczny.
+					</p>
+				</div>
+
+				<div class="risk-grid">
+					{landRisks.map((risk) => (
+						<article class="risk-card">
+							<h3>{risk[0]}</h3>
+							<p>{risk[1]}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="mistake-section station-section" aria-labelledby="stations-title">
+			<div class="container station-panel">
+				<div>
+					<p class="eyebrow light"><span></span>Liczba stanowisk</p>
+					<h2 id="stations-title">
+						Myjnia zarabia falami. <strong>Przepustowość musi pasować do lokalizacji.</strong>
+					</h2>
+					<p>
+						Na myjni liczy się czas mycia i szybkość obsługi klienta. W praktyce obiekt
+						często generuje największy przychód w wybranych oknach dnia, tygodnia i sezonu.
+						Dlatego liczba stanowisk musi wynikać z analizy ruchu, a nie z intuicji.
+					</p>
+				</div>
+
+				<div class="station-grid">
+					{stationCards.map((card) => (
+						<article>
+							<h3>{card.title}</h3>
+							<p>{card.text}</p>
+						</article>
+					))}
+				</div>
+
+				<div class="station-note">
+					<strong>W wielu lokalizacjach 3 stanowiska są rozsądnym punktem startowym, a w mocniejszych miastach często analizuje się 4 stanowiska.</strong>
+					<span>Nie jest to jednak uniwersalna reguła. Ostateczna decyzja powinna wynikać z działki, ruchu, budżetu i planu rozwoju.</span>
+				</div>
+			</div>
+		</section>
+
+		<section class="mistake-section" aria-labelledby="budget-title">
+			<div class="container">
+				<div class="mistake-split">
+					<div>
+						<p class="eyebrow"><span></span>Budżet i media</p>
+						<h2 id="budget-title">
+							Brak rezerwy i niedoszacowanie mediów <strong>niszczą spokój inwestora</strong>
+						</h2>
+					</div>
+					<p>
+						Myjnia to nie tylko zakup technologii. To także przyłącza, zużycie mediów,
+						koszty zimowe, serwis, chemia, finansowanie i rezerwa na pierwszy okres pracy.
+					</p>
+				</div>
+
+				<div class="budget-grid">
+					{budgetItems.map((item) => (
+						<article class="budget-card">
+							<h3>{item[0]}</h3>
+							<p>{item[1]}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="mistake-section route-section" aria-labelledby="route-title">
+			<div class="container route-grid">
+				<div>
+					<p class="eyebrow"><span></span>Wjazd, wyjazd i PZT</p>
+					<h2 id="route-title">
+						Komunikacja na myjni jest częścią <strong>doświadczenia klienta</strong>
+					</h2>
+				</div>
+
+				<div class="route-copy mistake-article-card">
+					<p>
+						Zły wjazd i wyjazd to częsty błąd przy inwestycjach, w których zabrakło
+						dobrego PZT. Kierowca chce wjechać szybko, umyć auto bez stresu i wyjechać
+						bez kolizji z kolejką, odkurzaczami, innymi samochodami albo ruchem z drogi.
+					</p>
+					<p>
+						Plan zagospodarowania terenu powinien pokazać nie tylko stanowiska mycia,
+						ale też kolejkę, promienie skrętu, strefę suchą, urządzenia SPA, ruch SUV-ów,
+						busów, pieszych, dostaw serwisowych i wygodę mniej doświadczonych kierowców.
+					</p>
+					<div class="mistake-quote small">
+						<strong>Klient nie ocenia tylko piany i ciśnienia.</strong>
+						<span>Ocenia też to, czy na myjni czuje się swobodnie i bezpiecznie.</span>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-faq" aria-labelledby="faq-title">
-			<div class="container">
-				<div class="guide-split">
-					<div>
-						<p class="eyebrow"><span></span>FAQ</p>
-						<h2 id="faq-title">Najczęstsze pytania <strong>inwestora</strong></h2>
-					</div>
-					<p>Krótko i konkretnie — pytania, które pomagają lepiej przygotować decyzję przed rozmową z projektantem, doradcą albo dostawcą.</p>
+		<section class="mistake-section service-section" aria-labelledby="service-title">
+			<div class="container service-panel">
+				<div>
+					<p class="eyebrow light"><span></span>Umowa, dokumentacja i serwis</p>
+					<h2 id="service-title">
+						Najważniejsze po sprzedaży jest to, <strong>czy inwestor nie zostaje sam</strong>
+					</h2>
+					<p>
+						Słaba umowa, brak projektu technicznego i niedocenienie serwisu to błędy,
+						które często wychodzą dopiero po montażu. Dobre zapisy, dokumentacja i opieka
+						techniczna są częścią bezpieczeństwa biznesu.
+					</p>
 				</div>
 
-				<div class="guide-faq-list">
-					{page.faq.map((item, index) => (
-						<details class="guide-faq-item" open={index === 0}>
-							<summary>{item[0]}</summary>
-							<p>{item[1]}</p>
+				<div class="service-grid">
+					{serviceCards.map((card) => (
+						<article>
+							<h3>{card.title}</h3>
+							<p>{card.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="mistake-section questions-section" aria-labelledby="questions-title">
+			<div class="container">
+				<div class="mistake-split">
+					<div>
+						<p class="eyebrow"><span></span>Przed decyzją</p>
+						<h2 id="questions-title">
+							Pytania, które warto zadać <strong>zanim wydasz pieniądze</strong>
+						</h2>
+					</div>
+					<p>
+						Dobre pytania zmniejszają ryzyko. Pomagają odróżnić atrakcyjną prezentację
+						od realnie bezpiecznej inwestycji.
+					</p>
+				</div>
+
+				<div class="question-grid">
+					{checklistGroups.map((group) => (
+						<article class="question-card">
+							<h3>{group.title}</h3>
+							<ul>
+								{group.items.map((item) => <li>{item}</li>)}
+							</ul>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="mistake-section" aria-labelledby="analysis-title">
+			<div class="container">
+				<div class="analysis-cta">
+					<div>
+						<p class="eyebrow light"><span></span>Analiza przed decyzją</p>
+						<h2 id="analysis-title">
+							Chcesz uniknąć błędów? Sprawdź działkę, ofertę i zakres <strong>zanim podpiszesz umowę.</strong>
+						</h2>
+						<p>
+							Prześlij lokalizację, ofertę albo podstawowe założenia. Na początku chodzi
+							o ocenę ryzyka: formalnego, technicznego, ekonomicznego, umownego i serwisowego.
+						</p>
+					</div>
+					<a class="mistake-button-green" href="/#kontakt">
+						Prześlij temat do analizy
+						<span aria-hidden="true">→</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="mistake-section" aria-labelledby="faq-title">
+			<div class="container">
+				<div class="mistake-split">
+					<div>
+						<p class="eyebrow"><span></span>FAQ</p>
+						<h2 id="faq-title">
+							Najczęstsze pytania o <strong>błędy przy budowie myjni</strong>
+						</h2>
+					</div>
+					<p>
+						Krótko i konkretnie: co sprawdzić, zanim działka, oferta albo umowa staną
+						się problemem na lata.
+					</p>
+				</div>
+
+				<div class="mistake-faq-list">
+					{faqItems.map((item, index) => (
+						<details class="mistake-faq-item" open={index === 0}>
+							<summary>{item.question}</summary>
+							<p>{item.answer}</p>
 						</details>
 					))}
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-related" aria-labelledby="related-title">
+		<section class="mistake-section related-section" aria-labelledby="related-title">
 			<div class="container">
 				<p class="eyebrow"><span></span>Dalej w poradniku</p>
-				<h2 id="related-title">Powiązane tematy <strong>dla inwestora</strong></h2>
-				<div class="guide-related-grid">
+				<h2 id="related-title">
+					Powiązane tematy <strong>dla inwestora</strong>
+				</h2>
+				<div class="related-grid">
 					{relatedLinks.map((link) => (
-						<a class="guide-related-card" href={link[1]}>{link[0]} →</a>
+						<a class="related-card" href={link[1]}>{link[0]} <span>→</span></a>
 					))}
 				</div>
 			</div>
@@ -321,32 +620,38 @@ const faqSchema = {
 </Layout>
 
 <style>
-	.guide-page {
+	.mistake-page {
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
 		background: #fff;
 	}
 
-	.guide-hero {
+	.mistake-hero {
 		position: relative;
 		overflow: hidden;
-		padding: clamp(84px, 8vw, 132px) 0 clamp(64px, 7vw, 104px);
+		padding: clamp(84px, 8vw, 132px) 0 clamp(70px, 7vw, 110px);
 		background:
-			radial-gradient(circle at 78% 14%, rgba(18, 104, 255, 0.08), transparent 32%),
-			radial-gradient(circle at 16% 26%, rgba(114, 240, 105, 0.1), transparent 28%),
+			radial-gradient(circle at 80% 12%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 18% 28%, rgba(114, 240, 105, 0.11), transparent 30%),
 			linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
 	}
 
-	.guide-hero-grid {
+	.mistake-hero-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
-		gap: clamp(34px, 5vw, 70px);
+		grid-template-columns: minmax(0, 1fr) minmax(380px, 0.66fr);
+		gap: clamp(34px, 5vw, 74px);
 		align-items: center;
 	}
 
-	.guide-hero h1,
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.mistake-hero h1,
+	.mistake-split h2,
+	.mistake-sticky-title h2,
+	.station-panel h2,
+	.route-grid h2,
+	.service-panel h2,
+	.analysis-cta h2,
+	.related-section h2 {
 		margin: 0;
 		color: var(--ink);
 		font-weight: 950;
@@ -354,16 +659,19 @@ const faqSchema = {
 		line-height: 0.94;
 	}
 
-	.guide-hero h1 {
-		max-width: 940px;
-		font-size: clamp(3.35rem, 6.8vw, 7.05rem);
+	.mistake-hero h1 {
+		max-width: 1080px;
+		font-size: clamp(3.2rem, 6.35vw, 7rem);
 	}
 
-	.guide-hero h1 strong,
-	.guide-split h2 strong,
-	.guide-analysis h2 strong,
-	.guide-faq h2 strong,
-	.guide-related h2 strong {
+	.mistake-hero h1 strong,
+	.mistake-split h2 strong,
+	.mistake-sticky-title h2 strong,
+	.station-panel h2 strong,
+	.route-grid h2 strong,
+	.service-panel h2 strong,
+	.analysis-cta h2 strong,
+	.related-section h2 strong {
 		background: linear-gradient(90deg, #0756d8 0%, #1268ff 38%, #4fa3ff 72%, #9ed7ff 100%);
 		-webkit-background-clip: text;
 		background-clip: text;
@@ -371,25 +679,25 @@ const faqSchema = {
 		font-weight: inherit;
 	}
 
-	.guide-lead {
-		max-width: 760px;
+	.mistake-lead {
+		max-width: 820px;
 		margin: 28px 0 0;
 		color: #667085;
-		font-size: clamp(1.04rem, 1.35vw, 1.28rem);
+		font-size: clamp(1.05rem, 1.35vw, 1.28rem);
 		font-weight: 560;
 		line-height: 1.68;
 		letter-spacing: -0.012em;
 	}
 
-	.guide-actions {
+	.mistake-actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 14px;
 		margin-top: 34px;
 	}
 
-	.guide-button-green,
-	.guide-button-light {
+	.mistake-button-green,
+	.mistake-button-light {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -403,109 +711,33 @@ const faqSchema = {
 		transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 	}
 
-	.guide-button-green {
+	.mistake-button-green {
 		color: #06110a;
 		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
 		border: 1px solid rgba(114, 240, 105, 0.34);
 		box-shadow: 0 18px 44px rgba(76, 244, 89, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.56);
 	}
 
-	.guide-button-light {
+	.mistake-button-light {
 		color: var(--ink);
-		background: rgba(255, 255, 255, 0.88);
+		background: rgba(255, 255, 255, 0.9);
 		border: 1px solid rgba(8, 16, 32, 0.1);
 		box-shadow: 0 12px 34px rgba(8, 16, 32, 0.06);
 	}
 
-	.guide-button-green:hover,
-	.guide-button-light:hover {
+	.mistake-button-green:hover,
+	.mistake-button-light:hover {
 		transform: translateY(-2px);
 	}
 
-	.guide-visual {
-		position: relative;
-		min-height: 520px;
-		padding: 28px;
-		border-radius: 46px;
-		background:
-			radial-gradient(circle at 68% 24%, rgba(18, 104, 255, 0.24), transparent 30%),
-			radial-gradient(circle at 28% 78%, rgba(114, 240, 105, 0.22), transparent 30%),
-			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
-		overflow: hidden;
-	}
-
-	.guide-visual::before {
-		content: '';
-		position: absolute;
-		inset: 42px;
-		border-radius: 34px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background:
-			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-		background-size: 48px 48px;
-		mask-image: linear-gradient(180deg, black, transparent 88%);
-	}
-
-	.guide-visual-card {
-		position: relative;
-		z-index: 1;
-		display: grid;
-		gap: 16px;
-	}
-
-	.guide-stat {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 18px;
-		min-height: 92px;
-		padding: 18px;
-		border-radius: 26px;
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.14);
-		backdrop-filter: blur(16px);
-		color: rgba(255, 255, 255, 0.86);
-	}
-
-	.guide-stat strong {
-		font-size: 0.8rem;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-	}
-
-	.guide-stat span {
-		color: #72f069;
-		font-size: 1.45rem;
-		font-weight: 950;
-		letter-spacing: -0.06em;
-	}
-
-	.guide-placeholder {
-		position: absolute;
-		left: 28px;
-		right: 28px;
-		bottom: 28px;
-		z-index: 1;
-		padding: 20px;
-		border-radius: 28px;
-		background: rgba(255, 255, 255, 0.09);
-		border: 1px dashed rgba(255, 255, 255, 0.22);
-		color: rgba(255, 255, 255, 0.76);
-		font-weight: 650;
-		line-height: 1.5;
-	}
-
-	.guide-chips {
+	.mistake-chips {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
 		margin-top: 26px;
 	}
 
-	.guide-chips span {
+	.mistake-chips span {
 		display: inline-flex;
 		align-items: center;
 		min-height: 38px;
@@ -519,51 +751,171 @@ const faqSchema = {
 		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045);
 	}
 
-	.guide-section {
+	.mistake-hero-panel {
+		position: relative;
+		min-height: 520px;
+		padding: 32px;
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 70% 18%, rgba(18, 104, 255, 0.28), transparent 32%),
+			radial-gradient(circle at 22% 78%, rgba(114, 240, 105, 0.24), transparent 32%),
+			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
+		overflow: hidden;
+		color: #fff;
+	}
+
+	.mistake-hero-panel::before {
+		content: '';
+		position: absolute;
+		inset: 48px;
+		border-radius: 34px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background:
+			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+		background-size: 48px 48px;
+		mask-image: linear-gradient(180deg, black, transparent 90%);
+	}
+
+	.mistake-panel-logo,
+	.mistake-hero-panel p,
+	.mistake-hero-panel h2,
+	.mistake-hero-panel span,
+	.mistake-mini-grid {
+		position: relative;
+		z-index: 1;
+	}
+
+	.mistake-panel-logo {
+		display: inline-flex;
+		padding: 9px 13px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		color: rgba(255, 255, 255, 0.82);
+		font-size: 0.82rem;
+		font-weight: 850;
+	}
+
+	.mistake-hero-panel p {
+		margin: 84px 0 0;
+		color: #72f069;
+		font-size: 0.78rem;
+		font-weight: 950;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+	}
+
+	.mistake-hero-panel h2 {
+		max-width: 420px;
+		margin: 16px 0 0;
+		font-size: clamp(2rem, 3vw, 3.4rem);
+		font-weight: 950;
+		letter-spacing: -0.07em;
+		line-height: 0.98;
+	}
+
+	.mistake-hero-panel > span {
+		display: block;
+		max-width: 420px;
+		margin-top: 18px;
+		color: rgba(255, 255, 255, 0.74);
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.mistake-mini-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 34px;
+	}
+
+	.mistake-mini-grid b {
+		padding: 14px;
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.13);
+		color: rgba(255, 255, 255, 0.88);
+		font-size: 0.9rem;
+		font-weight: 850;
+		text-align: center;
+	}
+
+	.mistake-section {
 		padding: clamp(72px, 7vw, 110px) 0;
 	}
 
-	.guide-split {
+	.mistake-split,
+	.mistake-article-grid,
+	.route-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.48fr);
-		gap: clamp(28px, 4vw, 52px);
-		align-items: end;
-		margin-bottom: 40px;
+		grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.52fr);
+		gap: clamp(30px, 4vw, 56px);
+		align-items: start;
 	}
 
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.mistake-split {
+		align-items: end;
+		margin-bottom: 42px;
+	}
+
+	.mistake-split h2,
+	.mistake-sticky-title h2,
+	.station-panel h2,
+	.route-grid h2,
+	.service-panel h2,
+	.analysis-cta h2,
+	.related-section h2 {
 		font-size: clamp(2.55rem, 4.6vw, 5.1rem);
 	}
 
-	.guide-split p {
+	.mistake-split > p,
+	.station-panel > div > p,
+	.service-panel > div > p,
+	.analysis-cta p {
 		margin: 0;
 		color: #667085;
-		font-size: clamp(1rem, 1.2vw, 1.14rem);
+		font-size: clamp(1rem, 1.18vw, 1.14rem);
 		font-weight: 560;
 		line-height: 1.66;
 	}
 
-	.guide-grid {
+	.mistake-card-grid,
+	.risk-grid,
+	.budget-grid,
+	.question-grid,
+	.related-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 20px;
 	}
 
-	.guide-card {
-		position: relative;
-		min-height: 300px;
-		padding: 28px;
-		border-radius: 34px;
-		border: 1px solid rgba(8, 16, 32, 0.08);
-		background: linear-gradient(145deg, #ffffff, #f8f9fb);
-		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.86);
-		overflow: hidden;
+	.mistake-card-grid {
+		grid-template-columns: repeat(5, minmax(0, 1fr));
 	}
 
-	.guide-card::before {
+	.mistake-card,
+	.risk-card,
+	.budget-card,
+	.question-card,
+	.related-card {
+		position: relative;
+		overflow: hidden;
+		min-height: 260px;
+		padding: 28px;
+		border-radius: 34px;
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07);
+	}
+
+	.mistake-card::before,
+	.risk-card::before,
+	.budget-card::before,
+	.question-card::before {
 		content: '';
 		position: absolute;
 		right: -80px;
@@ -575,72 +927,181 @@ const faqSchema = {
 		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -18px 34px rgba(8, 16, 32, 0.035), 0 22px 54px rgba(8, 16, 32, 0.055);
 	}
 
-	.guide-number {
+	.mistake-card span {
 		position: relative;
 		z-index: 1;
 		display: block;
 		color: rgba(8, 16, 32, 0.12);
-		font-size: clamp(4.2rem, 5.2vw, 6.6rem);
+		font-size: clamp(3.7rem, 4.8vw, 6rem);
 		font-weight: 950;
 		letter-spacing: -0.09em;
 		line-height: 0.82;
 	}
 
-	.guide-card h3 {
+	.mistake-card h3,
+	.risk-card h3,
+	.budget-card h3,
+	.question-card h3 {
 		position: relative;
 		z-index: 1;
-		margin: 44px 0 0;
+		margin: 42px 0 0;
 		color: var(--ink);
-		font-size: clamp(1.45rem, 2vw, 2rem);
+		font-size: clamp(1.24rem, 1.65vw, 1.7rem);
 		font-weight: 950;
 		letter-spacing: -0.06em;
 		line-height: 1.02;
 	}
 
-	.guide-card p {
+	.risk-card h3,
+	.budget-card h3,
+	.question-card h3 {
+		margin-top: 0;
+	}
+
+	.mistake-card p,
+	.risk-card p,
+	.budget-card p {
 		position: relative;
 		z-index: 1;
 		margin: 14px 0 0;
 		color: #667085;
 		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.mistake-text-section {
+		background: #f8f9fb;
+		overflow: hidden;
+	}
+
+	.mistake-sticky-title {
+		position: sticky;
+		top: 120px;
+	}
+
+	.mistake-sticky-title h2 {
+		max-width: 940px;
+	}
+
+	.mistake-article-copy,
+	.route-copy {
+		display: grid;
+		gap: 20px;
+	}
+
+	.mistake-article-copy p,
+	.route-copy p {
+		margin: 0;
+		color: #344054;
+		font-size: clamp(1.04rem, 1.24vw, 1.18rem);
+		font-weight: 560;
+		line-height: 1.76;
+	}
+
+	.mistake-article-card {
+		position: relative;
+		padding: clamp(28px, 3vw, 42px);
+		border-radius: 38px;
+		background:
+			linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 253, 0.96)),
+			radial-gradient(circle at 92% 8%, rgba(18, 104, 255, 0.055), transparent 36%);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 24px 74px rgba(8, 16, 32, 0.075), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+	}
+
+	.mistake-article-card::before {
+		content: '';
+		position: absolute;
+		right: -90px;
+		top: -110px;
+		width: 230px;
+		height: 230px;
+		border-radius: 54% 46% 42% 58% / 44% 58% 42% 56%;
+		background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(226, 236, 249, 0.6));
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -18px 34px rgba(8, 16, 32, 0.035), 0 22px 54px rgba(8, 16, 32, 0.055);
+		opacity: 0.62;
+		pointer-events: none;
+	}
+
+	.mistake-article-card > * {
+		position: relative;
+		z-index: 1;
+	}
+
+	.mistake-quote {
+		padding: 28px;
+		border-radius: 32px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.06);
+	}
+
+	.mistake-quote.small {
+		margin-top: 22px;
+	}
+
+	.mistake-quote strong {
+		display: block;
+		font-size: clamp(1.35rem, 2vw, 2rem);
+		font-weight: 950;
+		letter-spacing: -0.055em;
+	}
+
+	.mistake-quote span {
+		display: block;
+		margin-top: 10px;
+		color: #667085;
+		font-weight: 560;
 		line-height: 1.6;
 	}
 
-	.guide-carousel-shell {
-		position: relative;
+	.mistake-carousel {
 		overflow: hidden;
-		padding: clamp(28px, 4vw, 44px);
-		border-radius: 42px;
-		background: linear-gradient(145deg, #05070d, #121a29 62%, #05070d);
+		padding: clamp(30px, 4vw, 48px);
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 12% 20%, rgba(18, 104, 255, 0.22), transparent 34%),
+			radial-gradient(circle at 88% 10%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(145deg, #05070d, #121a29 60%, #05070d);
 		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.2);
+		color: #fff;
 	}
 
-	.guide-carousel-head {
+	.mistake-carousel-head {
 		display: flex;
 		align-items: end;
 		justify-content: space-between;
 		gap: 24px;
-		margin-bottom: 24px;
-		color: #fff;
+		margin-bottom: 28px;
 	}
 
-	.guide-carousel-head h2 {
-		max-width: 720px;
+	.mistake-carousel-head h2 {
+		max-width: 900px;
 		margin: 0;
-		font-size: clamp(2.1rem, 3.8vw, 4.3rem);
+		font-size: clamp(2.3rem, 4vw, 4.6rem);
 		font-weight: 950;
 		letter-spacing: -0.075em;
 		line-height: 0.96;
 	}
 
-	.guide-carousel-nav {
+	.mistake-carousel-head h2 strong,
+	.station-panel h2 strong,
+	.service-panel h2 strong,
+	.analysis-cta h2 strong {
+		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.mistake-carousel-nav {
 		display: flex;
 		gap: 12px;
 	}
 
-	.guide-carousel-arrow {
-		width: 52px;
-		height: 52px;
+	.mistake-carousel-nav button {
+		width: 54px;
+		height: 54px;
 		border-radius: 999px;
 		border: 1px solid rgba(255, 255, 255, 0.14);
 		background: rgba(255, 255, 255, 0.1);
@@ -650,7 +1111,7 @@ const faqSchema = {
 		cursor: pointer;
 	}
 
-	.guide-carousel-track {
+	.mistake-carousel-track {
 		display: grid;
 		grid-auto-flow: column;
 		grid-auto-columns: minmax(420px, 520px);
@@ -663,47 +1124,52 @@ const faqSchema = {
 		scrollbar-width: none;
 	}
 
-	.guide-carousel-track::-webkit-scrollbar {
+	.mistake-carousel-track::-webkit-scrollbar {
 		display: none;
 	}
 
-	.guide-slide {
+	.mistake-slide {
 		scroll-snap-align: start;
-		min-height: 280px;
-		padding: 26px;
+		min-height: 300px;
+		padding: 28px;
 		border-radius: 30px;
 		background:
 			radial-gradient(circle at 86% 12%, rgba(114, 240, 105, 0.16), transparent 32%),
 			linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
 		border: 1px solid rgba(255, 255, 255, 0.16);
-		color: #fff;
 	}
 
-	.guide-slide strong {
+	.mistake-slide span {
 		display: block;
-		font-size: 0.82rem;
+		color: #72f069;
+		font-size: 0.8rem;
 		font-weight: 950;
 		letter-spacing: 0.13em;
 		text-transform: uppercase;
-		color: #72f069;
 	}
 
-	.guide-slide h3 {
-		margin: 44px 0 0;
+	.mistake-slide h3 {
+		margin: 56px 0 0;
 		font-size: 2rem;
 		font-weight: 950;
 		letter-spacing: -0.065em;
 		line-height: 1.02;
 	}
 
-	.guide-slide p {
+	.mistake-slide p {
 		margin: 14px 0 0;
-		color: rgba(255, 255, 255, 0.72);
+		color: rgba(255, 255, 255, 0.74);
 		font-weight: 560;
 		line-height: 1.6;
 	}
 
-	.guide-analysis {
+	.station-section {
+		padding-top: 0;
+	}
+
+	.station-panel,
+	.service-panel,
+	.analysis-cta {
 		padding: clamp(34px, 5vw, 58px);
 		border-radius: 48px;
 		background:
@@ -715,32 +1181,138 @@ const faqSchema = {
 		color: #fff;
 	}
 
-	.guide-analysis-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		gap: 30px;
-		align-items: end;
-	}
-
-	.guide-analysis h2 {
+	.station-panel h2,
+	.service-panel h2,
+	.analysis-cta h2 {
 		color: #fff;
 	}
 
-	.guide-analysis p {
-		max-width: 720px;
-		margin: 22px 0 0;
+	.station-panel > div > p,
+	.service-panel > div > p,
+	.analysis-cta p {
+		max-width: 940px;
+		margin-top: 22px;
 		color: rgba(255, 255, 255, 0.74);
-		font-weight: 560;
-		line-height: 1.68;
 	}
 
-	.guide-faq-list {
+	.station-grid,
+	.service-grid {
 		display: grid;
-		gap: 14px;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 16px;
 		margin-top: 34px;
 	}
 
-	.guide-faq-item {
+	.station-grid article,
+	.service-grid article {
+		padding: 24px;
+		border-radius: 28px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+	}
+
+	.station-grid h3,
+	.service-grid h3 {
+		margin: 0;
+		color: #fff;
+		font-size: 1.34rem;
+		font-weight: 950;
+		letter-spacing: -0.055em;
+		line-height: 1.04;
+	}
+
+	.station-grid p,
+	.service-grid p {
+		margin: 14px 0 0;
+		color: rgba(255, 255, 255, 0.74);
+		font-weight: 560;
+		line-height: 1.6;
+	}
+
+	.station-note {
+		display: grid;
+		gap: 10px;
+		margin-top: 18px;
+		padding: 24px;
+		border-radius: 28px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+	}
+
+	.station-note strong {
+		color: #fff;
+		font-weight: 950;
+		letter-spacing: -0.035em;
+	}
+
+	.station-note span {
+		color: rgba(255, 255, 255, 0.74);
+		font-weight: 560;
+		line-height: 1.6;
+	}
+
+	.route-grid {
+		align-items: start;
+	}
+
+	.route-copy {
+		gap: 18px;
+	}
+
+	.service-panel {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.7fr);
+		gap: clamp(28px, 4vw, 54px);
+		align-items: start;
+	}
+
+	.service-grid {
+		grid-template-columns: 1fr;
+		margin-top: 0;
+	}
+
+	.question-card ul {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		gap: 10px;
+		margin: 18px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.question-card li {
+		display: flex;
+		gap: 10px;
+		color: #344054;
+		font-weight: 650;
+		line-height: 1.5;
+	}
+
+	.question-card li::before {
+		content: '';
+		width: 9px;
+		height: 9px;
+		margin-top: 8px;
+		border-radius: 999px;
+		background: #72f069;
+		box-shadow: 0 0 0 5px rgba(114, 240, 105, 0.12);
+		flex: 0 0 auto;
+	}
+
+	.analysis-cta {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 32px;
+		align-items: end;
+	}
+
+	.mistake-faq-list {
+		display: grid;
+		gap: 14px;
+	}
+
+	.mistake-faq-item {
 		border-radius: 24px;
 		border: 1px solid rgba(8, 16, 32, 0.08);
 		background: #fff;
@@ -748,7 +1320,7 @@ const faqSchema = {
 		overflow: hidden;
 	}
 
-	.guide-faq-item summary {
+	.mistake-faq-item summary {
 		display: flex;
 		justify-content: space-between;
 		gap: 18px;
@@ -760,11 +1332,11 @@ const faqSchema = {
 		list-style: none;
 	}
 
-	.guide-faq-item summary::-webkit-details-marker {
+	.mistake-faq-item summary::-webkit-details-marker {
 		display: none;
 	}
 
-	.guide-faq-item summary::after {
+	.mistake-faq-item summary::after {
 		content: '+';
 		display: grid;
 		place-items: center;
@@ -772,15 +1344,16 @@ const faqSchema = {
 		height: 34px;
 		border-radius: 999px;
 		background: #f4f6f9;
+		flex: 0 0 auto;
 	}
 
-	.guide-faq-item[open] summary::after {
+	.mistake-faq-item[open] summary::after {
 		content: '−';
 		background: var(--ink);
 		color: #fff;
 	}
 
-	.guide-faq-item p {
+	.mistake-faq-item p {
 		margin: 0;
 		padding: 0 24px 24px;
 		color: #667085;
@@ -788,120 +1361,196 @@ const faqSchema = {
 		line-height: 1.68;
 	}
 
-	.guide-related-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 18px;
+	.related-section h2 {
+		max-width: 900px;
+	}
+
+	.related-grid {
 		margin-top: 32px;
 	}
 
-	.guide-related-card {
-		padding: 24px;
-		border-radius: 28px;
-		background: #fff;
-		border: 1px solid rgba(8, 16, 32, 0.08);
-		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.055);
+	.related-card {
+		min-height: 150px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 20px;
+		color: var(--ink);
+		font-size: 1.16rem;
 		font-weight: 900;
-		letter-spacing: -0.035em;
+		letter-spacing: -0.04em;
+		text-decoration: none;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
 	}
 
-	@media (max-width: 1120px) {
-		.guide-hero-grid,
-		.guide-split,
-		.guide-analysis-grid {
+	.related-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.1);
+	}
+
+	.related-card span {
+		display: grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 999px;
+		background: var(--ink);
+		color: #fff;
+		flex: 0 0 auto;
+	}
+
+	@media (max-width: 1540px) {
+		.mistake-card-grid {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 1280px) {
+		.mistake-card-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 1180px) {
+		.mistake-hero-grid,
+		.mistake-split,
+		.mistake-article-grid,
+		.route-grid,
+		.service-panel,
+		.analysis-cta {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.mistake-sticky-title {
+			position: static;
+		}
+
+		.mistake-card-grid,
+		.risk-grid,
+		.budget-grid,
+		.question-grid,
+		.related-grid,
+		.station-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
-		.guide-visual {
+		.mistake-hero-panel {
 			min-height: 420px;
 		}
 	}
 
 	@media (max-width: 760px) {
-		.guide-hero {
+		.mistake-hero {
 			padding-top: 72px;
 		}
 
-		.guide-hero h1 {
-			font-size: clamp(2.45rem, 12vw, 3.5rem);
+		.mistake-hero h1 {
+			font-size: clamp(2.35rem, 11.5vw, 3.45rem);
 			line-height: 0.98;
 			letter-spacing: -0.07em;
 		}
 
-		.guide-actions,
-		.guide-button-green,
-		.guide-button-light {
+		.mistake-actions,
+		.mistake-button-green,
+		.mistake-button-light {
 			width: 100%;
 		}
 
-		.guide-visual {
-			min-height: 360px;
+		.mistake-hero-panel {
+			min-height: 380px;
 			border-radius: 34px;
+			padding: 26px;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.mistake-hero-panel p {
+			margin-top: 58px;
+		}
+
+		.mistake-mini-grid,
+		.mistake-card-grid,
+		.risk-grid,
+		.budget-grid,
+		.question-grid,
+		.related-grid,
+		.station-grid {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-card {
+		.mistake-split h2,
+		.mistake-sticky-title h2,
+		.station-panel h2,
+		.route-grid h2,
+		.service-panel h2,
+		.analysis-cta h2,
+		.related-section h2 {
+			font-size: clamp(2.15rem, 10.5vw, 3.3rem);
+			line-height: 0.98;
+			letter-spacing: -0.07em;
+		}
+
+		.mistake-card,
+		.risk-card,
+		.budget-card,
+		.question-card {
 			min-height: auto;
 			padding: 24px;
 			border-radius: 28px;
 		}
 
-		.guide-card h3 {
-			margin-top: 28px;
+		.mistake-card h3 {
+			margin-top: 30px;
 		}
 
-		.guide-split h2,
-		.guide-analysis h2,
-		.guide-faq h2,
-		.guide-related h2 {
-			font-size: clamp(2.2rem, 10.5vw, 3.35rem);
-			line-height: 0.98;
-			letter-spacing: -0.07em;
+		.mistake-carousel {
+			padding: 24px;
+			border-radius: 34px;
 		}
 
-		.guide-carousel-head {
+		.mistake-carousel-head {
 			display: grid;
 		}
 
-		.guide-carousel-nav {
+		.mistake-carousel-nav {
 			justify-content: center;
 		}
 
-		.guide-carousel-track {
+		.mistake-carousel-track {
 			grid-auto-columns: 86vw;
-			margin-left: -20px;
-			margin-right: -20px;
-			padding-left: 20px;
-			padding-right: 20px;
+			margin-left: -14px;
+			margin-right: -14px;
+			padding-left: 14px;
+			padding-right: 14px;
 		}
 
-		.guide-analysis-grid {
-			gap: 24px;
+		.mistake-slide {
+			min-height: 280px;
+		}
+
+		.station-panel,
+		.service-panel,
+		.analysis-cta {
+			padding: 28px;
+			border-radius: 34px;
+		}
+
+		.analysis-cta .mistake-button-green {
+			width: 100%;
 		}
 	}
 </style>
 
 <script is:inline>
-	const subpageCarousels = document.querySelectorAll('[data-subpage-carousel]');
+	const mistakeCarousels = document.querySelectorAll('[data-mistake-carousel]');
 
-	subpageCarousels.forEach((carousel) => {
-		const track = carousel.querySelector('[data-subpage-track]');
-		const prev = carousel.querySelector('[data-subpage-prev]');
-		const next = carousel.querySelector('[data-subpage-next]');
+	mistakeCarousels.forEach((carousel) => {
+		const track = carousel.querySelector('[data-mistake-track]');
+		const prev = carousel.querySelector('[data-mistake-prev]');
+		const next = carousel.querySelector('[data-mistake-next]');
 
 		if (!track || !prev || !next) return;
 
 		const getStep = () => {
-			const firstCard = track.querySelector('.guide-slide');
+			const firstCard = track.querySelector('.mistake-slide');
 			if (!firstCard) return 360;
 			const styles = window.getComputedStyle(track);
 			const gap = parseFloat(styles.columnGap || styles.gap || '18');
@@ -917,4 +1566,3 @@ const faqSchema = {
 		});
 	});
 </script>
-

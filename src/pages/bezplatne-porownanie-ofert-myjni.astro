@@ -1,0 +1,980 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config/site';
+
+const page = {
+	canonicalPath: '/bezplatne-porownanie-ofert-myjni/',
+	title: 'Bezpłatne porównanie ofert myjni bezdotykowych',
+	description:
+		'Chcesz porównać oferty producentów myjni bezdotykowych? Sprawdź bezpłatnie zakres, technologię, cenę, serwis, dokumentację i dopasowanie do inwestycji.'
+};
+
+const comparisonCards = [
+	{
+		number: '01',
+		title: 'Cena i zakres',
+		text: 'Porównujemy, co realnie obejmuje oferta: technologię, kontener lub moduł, posadzkę, konstrukcję, montaż, dokumentację, szkolenie i serwis.'
+	},
+	{
+		number: '02',
+		title: 'Technologia i jakość',
+		text: 'Patrzymy na elementy, które wpływają na pracę myjni przez lata: pompy, zawory, automatykę, dozowanie, uzdatnianie wody i zabezpieczenia zimowe.'
+	},
+	{
+		number: '03',
+		title: 'Koszty eksploatacji',
+		text: 'Najtańsza cena zakupu nie zawsze oznacza najniższy koszt prowadzenia. Ważne są media, serwis, części, chemia i czas przestoju.'
+	},
+	{
+		number: '04',
+		title: 'Dopasowanie do inwestora',
+		text: 'Inna oferta ma sens dla inwestora z własną działką, inna dla dzierżawy, finansowania leasingiem, kilku lokalizacji albo pierwszej małej inwestycji.'
+	}
+];
+
+const processSteps = [
+	['01', 'Opisujesz inwestycję', 'Podajesz lokalizację, liczbę stanowisk, budżet, status działki i oczekiwany zakres.'],
+	['02', 'Porządkujemy zapytanie', 'Sprawdzamy, jakie parametry warto doprecyzować, żeby porównywać podobny zakres, a nie przypadkowe ceny.'],
+	['03', 'Dostajesz kierunek rozmowy', 'Pomagamy zrozumieć, o co pytać producentów i jakie rozwiązanie może pasować do Twojej inwestycji.']
+];
+
+const faqItems = [
+	{
+		question: 'Czy porównanie ofert jest bezpłatne?',
+		answer:
+			'Tak. Wstępne porównanie i uporządkowanie zapytania jest bezpłatne. Chodzi o sprawdzenie, czy porównujesz podobny zakres i czy cena pokazuje pełny obraz inwestycji.'
+	},
+	{
+		question: 'Czy muszę mieć już ofertę od producenta?',
+		answer:
+			'Nie. Możesz mieć konkretną ofertę, kilka ofert albo dopiero plan inwestycji. W każdym przypadku warto uporządkować wymagania przed rozmową z producentami.'
+	},
+	{
+		question: 'Czy porównanie dotyczy tylko ceny?',
+		answer:
+			'Nie. Sama cena jest tylko jednym z elementów. Ważny jest zakres, technologia, posadzka, dokumentacja, warunki umowy, gwarancja, serwis, części, chemia i koszty eksploatacji.'
+	},
+	{
+		question: 'Czy możecie skontaktować mnie z producentem?',
+		answer:
+			'Tak, docelowo zapytanie może zostać skierowane do odpowiedniego partnera technologicznego, jeżeli inwestor będzie chciał przejść do dalszej rozmowy ofertowej.'
+	}
+];
+
+const relatedLinks = [
+	['Jak porównać oferty?', '/jak-porownac-oferty-myjni-bezdotykowej/'],
+	['Ile kosztuje myjnia?', '/ile-kosztuje-myjnia-bezdotykowa/'],
+	['Koszt budowy myjni', '/koszt-budowy-myjni-bezdotykowej/'],
+	['Błędy inwestora', '/najczestsze-bledy-przy-budowie-myjni/']
+];
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer
+		}
+	}))
+};
+---
+
+<Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
+	<Header />
+
+	<main class="lead-page lead-compare-page">
+		<section class="lead-hero" aria-labelledby="page-title">
+			<div class="container lead-hero-grid">
+				<div class="lead-hero-copy">
+					<p class="eyebrow"><span></span>Bezpłatne porównanie ofert</p>
+					<h1 id="page-title">
+						Porównaj oferty myjni bezdotykowych <strong>mądrzej niż po samej cenie.</strong>
+					</h1>
+					<p class="lead-main-text">
+						Uporządkuj zapytanie, sprawdź zakres, technologię, dokumentację, serwis,
+						warunki gwarancji i koszty eksploatacji. Celem nie jest najniższa cena,
+						tylko bezpieczna decyzja inwestycyjna.
+					</p>
+					<div class="lead-hero-actions">
+						<a class="lead-button-green" href="#formularz">Wypełnij formularz <span aria-hidden="true">↓</span></a>
+						<a class="lead-button-light" href="/jak-porownac-oferty-myjni-bezdotykowej/">Co porównać? <span aria-hidden="true">→</span></a>
+					</div>
+					<div class="lead-tags" aria-label="Najważniejsze elementy porównania">
+						<span>cena i zakres</span>
+						<span>technologia</span>
+						<span>serwis</span>
+						<span>gwarancja</span>
+					</div>
+				</div>
+
+				<aside class="lead-form-card" id="formularz" aria-label="Formularz porównania ofert">
+					<div class="lead-form-head">
+						<p>Formularz</p>
+						<h2>Bezpłatne porównanie ofert</h2>
+						<span>Podaj założenia inwestycji. Pomożemy uporządkować temat i wskazać, co warto sprawdzić przed decyzją.</span>
+					</div>
+
+					<form class="smart-form" data-lead-form>
+						<input type="hidden" name="typ_zapytania" value="Bezpłatne porównanie ofert myjni" />
+
+						<div class="form-section-title full">
+							<span>01</span>
+							<strong>Dane kontaktowe</strong>
+						</div>
+
+						<label>
+							Imię i nazwisko
+							<input type="text" name="name" placeholder="Twoje imię i nazwisko" autocomplete="name" />
+						</label>
+
+						<label>
+							Telefon
+							<input type="tel" name="phone" placeholder="Numer telefonu" autocomplete="tel" />
+						</label>
+
+						<label>
+							E-mail
+							<input type="email" name="email" placeholder="Twój adres e-mail" autocomplete="email" />
+						</label>
+
+						<label>
+							Forma działalności
+							<select name="business_form">
+								<option value="">Wybierz</option>
+								<option>Działalność gospodarcza</option>
+								<option>Spółka z o.o.</option>
+								<option>Spółka cywilna</option>
+								<option>Osoba prywatna przed założeniem działalności</option>
+								<option>Inna forma</option>
+							</select>
+						</label>
+
+						<div class="form-section-title full">
+							<span>02</span>
+							<strong>Lokalizacja inwestycji</strong>
+						</div>
+
+						<label>
+							Województwo inwestycji
+							<select name="voivodeship">
+								<option value="">Wybierz województwo</option>
+								<option>dolnośląskie</option>
+								<option>kujawsko-pomorskie</option>
+								<option>lubelskie</option>
+								<option>lubuskie</option>
+								<option>łódzkie</option>
+								<option>małopolskie</option>
+								<option>mazowieckie</option>
+								<option>opolskie</option>
+								<option>podkarpackie</option>
+								<option>podlaskie</option>
+								<option>pomorskie</option>
+								<option>śląskie</option>
+								<option>świętokrzyskie</option>
+								<option>warmińsko-mazurskie</option>
+								<option>wielkopolskie</option>
+								<option>zachodniopomorskie</option>
+							</select>
+						</label>
+
+						<label>
+							Powiat
+							<input type="text" name="county" placeholder="Np. głubczycki" />
+						</label>
+
+						<label>
+							Gmina
+							<input type="text" name="municipality" placeholder="Np. Branice" />
+						</label>
+
+						<label>
+							Miasto / miejscowość
+							<input type="text" name="city" placeholder="Gdzie planujesz inwestycję?" />
+						</label>
+
+						<label>
+							Kod pocztowy inwestycji
+							<input type="text" name="postal_code" placeholder="Np. 48-140" inputmode="numeric" />
+						</label>
+
+						<label>
+							Status posiadania działki
+							<select name="plot_status">
+								<option value="">Wybierz</option>
+								<option>Własność</option>
+								<option>Dzierżawa</option>
+								<option>Umowa przedwstępna / w trakcie zakupu</option>
+								<option>Jeszcze szukam działki</option>
+								<option>Nie wiem / do ustalenia</option>
+							</select>
+						</label>
+
+						<fieldset class="compare-options media-options full">
+							<legend>Media na działce albo w pobliżu</legend>
+							<label><input type="checkbox" name="media_water" /> Woda</label>
+							<label><input type="checkbox" name="media_gas" /> Gaz</label>
+							<label><input type="checkbox" name="media_power" /> Prąd</label>
+							<label><input type="checkbox" name="media_sewage" /> Kanalizacja</label>
+							<label><input type="checkbox" name="media_rainwater" /> Deszczówka / odwodnienie</label>
+							<label><input type="checkbox" name="media_none" /> Brak / do sprawdzenia</label>
+						</fieldset>
+
+						<div class="form-section-title full">
+							<span>03</span>
+							<strong>Założenia myjni i finansowanie</strong>
+						</div>
+
+						<label>
+							Typ myjni
+							<select name="wash_type">
+								<option value="">Wybierz typ</option>
+								<option>Bezdotykowa kontenerowa</option>
+								<option>Bezdotykowa modułowa</option>
+								<option>Bezdotykowa — nie wiem, chcę porównać</option>
+								<option>Myjnia z dodatkową strefą SPA</option>
+								<option>Inny wariant / do ustalenia</option>
+							</select>
+						</label>
+
+						<label>
+							Liczba stanowisk
+							<select name="stations">
+								<option value="">Nie wiem / do ustalenia</option>
+								<option>2 stanowiska</option>
+								<option>3 stanowiska</option>
+								<option>4 stanowiska</option>
+								<option>5 stanowisk</option>
+								<option>6 stanowisk</option>
+							</select>
+						</label>
+
+						<label>
+							Stanowisko niezadaszone BUS/TIR do 3,5 t
+							<select name="open_bay">
+								<option value="">Wybierz</option>
+								<option>Tak</option>
+								<option>Nie</option>
+								<option>Do ustalenia</option>
+							</select>
+						</label>
+
+						<label>
+							Budżet orientacyjny
+							<select name="budget">
+								<option value="">Wybierz zakres</option>
+								<option>do 500 tys. zł netto</option>
+								<option>500–700 tys. zł netto</option>
+								<option>700 tys.–1 mln zł netto</option>
+								<option>1–1,5 mln zł netto</option>
+								<option>powyżej 1,5 mln zł netto</option>
+								<option>Nie wiem / chcę policzyć</option>
+							</select>
+						</label>
+
+						<label>
+							Akceptacja przybliżonych kosztów
+							<select name="cost_acceptance">
+								<option value="">Wybierz</option>
+								<option>Tak — znam orientacyjne koszty inwestycji</option>
+								<option>Nie — potrzebuję wyjaśnienia kosztów</option>
+								<option>Częściowo — mam wstępny budżet</option>
+							</select>
+						</label>
+
+						<label>
+							Finansowanie
+							<select name="financing">
+								<option value="">Wybierz</option>
+								<option>Środki własne</option>
+								<option>Leasing</option>
+								<option>Kredyt</option>
+								<option>Gotówka + kredyt / leasing</option>
+								<option>Około 60% gotówka + finansowanie</option>
+								<option>Jeszcze nie wiem</option>
+							</select>
+						</label>
+
+						<fieldset class="compare-options full">
+							<legend>Co chcesz porównać?</legend>
+							<label><input type="checkbox" name="compare_price" /> Cena i zakres</label>
+							<label><input type="checkbox" name="compare_technology" /> Technologia</label>
+							<label><input type="checkbox" name="compare_service" /> Serwis i gwarancja</label>
+							<label><input type="checkbox" name="compare_contract" /> Umowa i dokumentacja</label>
+						</fieldset>
+
+						<label class="full">
+							Link do oferty / link do mapy / opis inwestycji
+							<textarea name="message" rows="5" placeholder="Wklej link do oferty, link do mapy, numer działki, opisz planowaną myjnię albo napisz, czego oczekujesz od producenta..."></textarea>
+						</label>
+
+						<div class="form-consents full">
+							<label class="checkbox-label">
+								<input type="checkbox" name="contact_consent" />
+								<span>Wyrażam zgodę na kontakt w sprawie porównania ofert i inwestycji.</span>
+							</label>
+							<label class="checkbox-label">
+								<input type="checkbox" name="privacy_consent" />
+								<span>Akceptuję kontakt i przetwarzanie danych w celu obsługi zapytania.</span>
+							</label>
+						</div>
+
+						<button type="button" class="form-submit">Wyślij do porównania <span aria-hidden="true">→</span></button>
+
+						<small class="form-note full">
+							Formularz jest przygotowany wizualnie. Wysyłkę podłączymy później pod {siteConfig.email}.
+						</small>
+					</form>
+				</aside>
+			</div>
+		</section>
+
+		<section class="lead-section" aria-labelledby="comparison-title">
+			<div class="container">
+				<div class="lead-split">
+					<div>
+						<p class="eyebrow"><span></span>Co porównujemy?</p>
+						<h2 id="comparison-title">Oferta to nie tylko <strong>cena końcowa</strong></h2>
+					</div>
+					<p>
+						Dwie oferty mogą wyglądać podobnie cenowo, ale oznaczać inną technologię,
+						inny zakres, inną dokumentację, inny serwis i inne koszty prowadzenia obiektu.
+					</p>
+				</div>
+
+				<div class="lead-card-grid">
+					{comparisonCards.map((card) => (
+						<article class="lead-info-card">
+							<span>{card.number}</span>
+							<h3>{card.title}</h3>
+							<p>{card.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="lead-section process-band" aria-labelledby="process-title">
+			<div class="container process-panel">
+				<div>
+					<p class="eyebrow light"><span></span>Jak to działa?</p>
+					<h2 id="process-title">Najpierw porządkujemy zapytanie, potem porównujemy rozwiązania</h2>
+				</div>
+				<div class="process-steps">
+					{processSteps.map((step) => (
+						<article>
+							<span>{step[0]}</span>
+							<h3>{step[1]}</h3>
+							<p>{step[2]}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="lead-section" aria-labelledby="faq-title">
+			<div class="container">
+				<div class="lead-split">
+					<div>
+						<p class="eyebrow"><span></span>FAQ</p>
+						<h2 id="faq-title">Najczęstsze pytania o <strong>porównanie ofert</strong></h2>
+					</div>
+					<p>Porównanie ofert ma pomóc inwestorowi uniknąć decyzji wyłącznie po najniższej cenie.</p>
+				</div>
+				<div class="lead-faq-list">
+					{faqItems.map((item, index) => (
+						<details class="lead-faq-item" open={index === 0}>
+							<summary>{item.question}</summary>
+							<p>{item.answer}</p>
+						</details>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="lead-section related-section" aria-labelledby="related-title">
+			<div class="container">
+				<p class="eyebrow"><span></span>Dalej w poradniku</p>
+				<h2 id="related-title">Powiązane tematy <strong>dla inwestora</strong></h2>
+				<div class="related-grid">
+					{relatedLinks.map((link) => (
+						<a class="related-card" href={link[1]}>{link[0]} <span>→</span></a>
+					))}
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
+
+<style>
+	.lead-page {
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
+		background: #fff;
+	}
+
+	.lead-hero {
+		position: relative;
+		overflow: hidden;
+		padding: clamp(76px, 7vw, 118px) 0 clamp(72px, 7vw, 108px);
+		background:
+			radial-gradient(circle at 82% 12%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 18% 28%, rgba(114, 240, 105, 0.12), transparent 30%),
+			linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
+	}
+
+	.lead-hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.92fr) minmax(420px, 0.74fr);
+		gap: clamp(34px, 5vw, 74px);
+		align-items: start;
+	}
+
+	.lead-hero h1,
+	.lead-split h2,
+	.process-panel h2,
+	.related-section h2 {
+		margin: 0;
+		color: var(--ink);
+		font-weight: 950;
+		letter-spacing: -0.078em;
+		line-height: 0.94;
+	}
+
+	.lead-hero h1 {
+		font-size: clamp(3.15rem, 6vw, 6.7rem);
+		max-width: 1000px;
+	}
+
+	.lead-hero h1 strong,
+	.lead-split h2 strong,
+	.related-section h2 strong {
+		background: linear-gradient(90deg, #0756d8 0%, #1268ff 38%, #4fa3ff 72%, #9ed7ff 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		font-weight: inherit;
+	}
+
+	.lead-main-text {
+		max-width: 780px;
+		margin: 28px 0 0;
+		color: #667085;
+		font-size: clamp(1.05rem, 1.35vw, 1.28rem);
+		font-weight: 560;
+		line-height: 1.68;
+		letter-spacing: -0.012em;
+	}
+
+	.lead-hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 14px;
+		margin-top: 34px;
+	}
+
+	.lead-button-green,
+	.lead-button-light,
+	.form-submit {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		min-height: 58px;
+		padding: 0 24px;
+		border-radius: 999px;
+		font-weight: 950;
+		letter-spacing: -0.03em;
+		text-decoration: none;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.lead-button-green,
+	.form-submit {
+		color: #06110a;
+		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
+		border: 1px solid rgba(114, 240, 105, 0.34);
+		box-shadow: 0 18px 44px rgba(76, 244, 89, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.56);
+		cursor: pointer;
+	}
+
+	.lead-button-light {
+		color: var(--ink);
+		background: rgba(255, 255, 255, 0.9);
+		border: 1px solid rgba(8, 16, 32, 0.1);
+		box-shadow: 0 12px 34px rgba(8, 16, 32, 0.06);
+	}
+
+	.lead-button-green:hover,
+	.lead-button-light:hover,
+	.form-submit:hover {
+		transform: translateY(-2px);
+	}
+
+	.lead-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 26px;
+	}
+
+	.lead-tags span {
+		display: inline-flex;
+		align-items: center;
+		min-height: 38px;
+		padding: 8px 14px;
+		border: 1px solid rgba(8, 16, 32, 0.09);
+		border-radius: 999px;
+		background: #fff;
+		color: #344054;
+		font-size: 0.9rem;
+		font-weight: 820;
+		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045);
+	}
+
+	.lead-form-card {
+		position: relative;
+		padding: clamp(24px, 3vw, 34px);
+		border-radius: 42px;
+		background:
+			radial-gradient(circle at 92% 6%, rgba(114, 240, 105, 0.16), transparent 30%),
+			linear-gradient(145deg, #05070d, #101723 58%, #05070d);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
+		color: #fff;
+	}
+
+	.lead-form-head p {
+		margin: 0;
+		color: #72f069;
+		font-size: 0.78rem;
+		font-weight: 950;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+	}
+
+	.lead-form-head h2 {
+		margin: 10px 0 0;
+		font-size: clamp(1.9rem, 3vw, 3rem);
+		font-weight: 950;
+		letter-spacing: -0.065em;
+		line-height: 0.98;
+	}
+
+	.lead-form-head span {
+		display: block;
+		margin-top: 12px;
+		color: rgba(255, 255, 255, 0.72);
+		font-weight: 560;
+		line-height: 1.55;
+	}
+
+	.smart-form {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 14px;
+		margin-top: 24px;
+	}
+
+	.smart-form label {
+		display: grid;
+		gap: 8px;
+		color: rgba(255, 255, 255, 0.86);
+		font-size: 0.88rem;
+		font-weight: 850;
+		letter-spacing: -0.02em;
+	}
+
+	.smart-form .full,
+	.form-submit {
+		grid-column: 1 / -1;
+	}
+
+	.smart-form input,
+	.smart-form select,
+	.smart-form textarea {
+		width: 100%;
+		min-height: 52px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.94);
+		color: #081020;
+		font: inherit;
+		font-weight: 720;
+		padding: 14px 16px;
+		outline: none;
+	}
+
+	.smart-form textarea {
+		min-height: 132px;
+		resize: vertical;
+	}
+
+	.compare-options {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px 14px;
+		padding: 16px;
+		border-radius: 20px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(255, 255, 255, 0.08);
+	}
+
+	.compare-options legend {
+		grid-column: 1 / -1;
+		padding: 0 8px;
+		color: rgba(255, 255, 255, 0.88);
+		font-weight: 900;
+	}
+
+	.compare-options label {
+		display: flex !important;
+		grid-template-columns: none !important;
+		align-items: center;
+		gap: 9px !important;
+		font-size: 0.86rem !important;
+		font-weight: 700 !important;
+	}
+
+	.compare-options input {
+		width: 18px;
+		min-height: 18px;
+		padding: 0;
+		flex: 0 0 auto;
+	}
+
+
+	.form-section-title {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-top: 8px;
+		padding: 10px 2px 2px;
+		color: rgba(255, 255, 255, 0.92);
+	}
+
+	.form-section-title span {
+		display: grid;
+		place-items: center;
+		width: 28px;
+		height: 28px;
+		border-radius: 999px;
+		background: rgba(114, 240, 105, 0.16);
+		color: #72f069;
+		font-size: 0.78rem;
+		font-weight: 950;
+	}
+
+	.form-section-title strong {
+		font-size: 0.96rem;
+		font-weight: 950;
+		letter-spacing: -0.03em;
+	}
+
+	.form-consents {
+		display: grid;
+		gap: 10px;
+	}
+
+	.checkbox-label {
+		display: flex !important;
+		grid-template-columns: none !important;
+		align-items: flex-start;
+		gap: 10px !important;
+		font-size: 0.84rem !important;
+		font-weight: 650 !important;
+		line-height: 1.45;
+	}
+
+	.checkbox-label input {
+		width: 18px;
+		min-height: 18px;
+		margin-top: 2px;
+		padding: 0;
+		border-radius: 5px;
+		flex: 0 0 auto;
+	}
+
+	.form-note {
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 0.82rem;
+		font-weight: 560;
+		line-height: 1.5;
+	}
+
+	.lead-section {
+		padding: clamp(72px, 7vw, 110px) 0;
+	}
+
+	.lead-split {
+		display: grid;
+		grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.52fr);
+		gap: clamp(30px, 4vw, 56px);
+		align-items: end;
+		margin-bottom: 42px;
+	}
+
+	.lead-split h2,
+	.process-panel h2,
+	.related-section h2 {
+		font-size: clamp(2.55rem, 4.6vw, 5.1rem);
+	}
+
+	.lead-split > p {
+		margin: 0;
+		color: #667085;
+		font-size: clamp(1rem, 1.18vw, 1.14rem);
+		font-weight: 560;
+		line-height: 1.66;
+	}
+
+	.lead-card-grid,
+	.related-grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 20px;
+	}
+
+	.lead-info-card,
+	.related-card {
+		position: relative;
+		overflow: hidden;
+		min-height: 280px;
+		padding: 28px;
+		border-radius: 34px;
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07);
+	}
+
+	.lead-info-card span {
+		display: block;
+		color: rgba(8, 16, 32, 0.12);
+		font-size: clamp(4rem, 5vw, 6.2rem);
+		font-weight: 950;
+		letter-spacing: -0.09em;
+		line-height: 0.82;
+	}
+
+	.lead-info-card h3 {
+		margin: 42px 0 0;
+		color: var(--ink);
+		font-size: clamp(1.32rem, 1.85vw, 1.9rem);
+		font-weight: 950;
+		letter-spacing: -0.06em;
+		line-height: 1.02;
+	}
+
+	.lead-info-card p {
+		margin: 14px 0 0;
+		color: #667085;
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.process-band {
+		padding-top: 0;
+	}
+
+	.process-panel {
+		padding: clamp(34px, 5vw, 58px);
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 12% 18%, rgba(18, 104, 255, 0.24), transparent 34%),
+			radial-gradient(circle at 88% 8%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(135deg, #05070d 0%, #101723 48%, #05070d 100%);
+		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.24);
+		color: #fff;
+	}
+
+	.process-panel h2 {
+		max-width: 940px;
+		color: #fff;
+	}
+
+	.process-steps {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 16px;
+		margin-top: 34px;
+	}
+
+	.process-steps article {
+		padding: 24px;
+		border-radius: 28px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+	}
+
+	.process-steps span {
+		color: #72f069;
+		font-weight: 950;
+	}
+
+	.process-steps h3 {
+		margin: 26px 0 0;
+		color: #fff;
+		font-size: 1.36rem;
+		font-weight: 950;
+		letter-spacing: -0.055em;
+	}
+
+	.process-steps p {
+		margin: 12px 0 0;
+		color: rgba(255, 255, 255, 0.72);
+		font-weight: 560;
+		line-height: 1.6;
+	}
+
+	.lead-faq-list {
+		display: grid;
+		gap: 14px;
+	}
+
+	.lead-faq-item {
+		border-radius: 24px;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		background: #fff;
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.06);
+		overflow: hidden;
+	}
+
+	.lead-faq-item summary {
+		display: flex;
+		justify-content: space-between;
+		gap: 18px;
+		padding: 22px 24px;
+		cursor: pointer;
+		font-size: 1.1rem;
+		font-weight: 900;
+		letter-spacing: -0.035em;
+		list-style: none;
+	}
+
+	.lead-faq-item summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.lead-faq-item summary::after {
+		content: '+';
+		display: grid;
+		place-items: center;
+		width: 34px;
+		height: 34px;
+		border-radius: 999px;
+		background: #f4f6f9;
+		flex: 0 0 auto;
+	}
+
+	.lead-faq-item[open] summary::after {
+		content: '−';
+		background: var(--ink);
+		color: #fff;
+	}
+
+	.lead-faq-item p {
+		margin: 0;
+		padding: 0 24px 24px;
+		color: #667085;
+		font-weight: 560;
+		line-height: 1.68;
+	}
+
+	.related-card {
+		min-height: 150px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 20px;
+		color: var(--ink);
+		font-size: 1.16rem;
+		font-weight: 900;
+		letter-spacing: -0.04em;
+		text-decoration: none;
+	}
+
+	.related-card span {
+		display: grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 999px;
+		background: var(--ink);
+		color: #fff;
+		flex: 0 0 auto;
+	}
+
+	@media (max-width: 1180px) {
+		.lead-hero-grid,
+		.lead-split {
+			grid-template-columns: 1fr;
+		}
+
+		.lead-card-grid,
+		.related-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 760px) {
+		.lead-hero {
+			padding-top: 72px;
+		}
+
+		.lead-hero h1 {
+			font-size: clamp(2.35rem, 11vw, 3.45rem);
+			line-height: 0.98;
+			letter-spacing: -0.07em;
+		}
+
+		.lead-hero-actions,
+		.lead-button-green,
+		.lead-button-light {
+			width: 100%;
+		}
+
+		.lead-form-card {
+			border-radius: 34px;
+			padding: 22px;
+		}
+
+		.smart-form,
+		.lead-card-grid,
+		.process-steps,
+		.related-grid,
+		.compare-options {
+			grid-template-columns: 1fr;
+		}
+
+		.lead-split h2,
+		.process-panel h2,
+		.related-section h2 {
+			font-size: clamp(2.15rem, 10.5vw, 3.3rem);
+			line-height: 0.98;
+			letter-spacing: -0.07em;
+		}
+
+		.lead-info-card {
+			min-height: auto;
+			padding: 24px;
+			border-radius: 28px;
+		}
+
+		.lead-info-card h3 {
+			margin-top: 30px;
+		}
+
+		.process-panel {
+			padding: 28px;
+			border-radius: 34px;
+		}
+	}
+</style>

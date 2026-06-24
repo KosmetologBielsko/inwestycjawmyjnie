@@ -4,259 +4,418 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const page = {
-	"filename": "ile-zarabia-myjnia-bezdotykowa.astro",
-	"canonicalPath": "/ile-zarabia-myjnia-bezdotykowa/",
-	"title": "Ile zarabia myjnia bezdotykowa? Opłacalność, przychody i koszty",
-	"description": "Od czego zależy przychód i opłacalność myjni bezdotykowej: lokalizacja, liczba myć, sezonowość, koszty stałe, koszty zmienne i usługi dodatkowe.",
-	"eyebrow": "Opłacalność myjni",
-	"hero": {
-		"before": "Ile może zarabiać myjnia i od czego zależy",
-		"strong": "realny zwrot?",
-		"lead": "Przychód myjni nie wynika wyłącznie z liczby stanowisk. Kluczowe są lokalizacja, widoczność, ruch, średni koszyk, sezonowość, koszty mediów, chemia, serwis i urządzenia dodatkowe.",
-		"statA": "przychód",
-		"statB": "koszty",
-		"statC": "zwrot"
-	},
-	"quick": [
-		"ruch",
-		"koszyk",
-		"sezonowość",
-		"koszty",
-		"urządzenia",
-		"zwrot"
-	],
-	"cardsTitle": "Co wpływa na wynik myjni?",
-	"cardsLead": "Ten sam obiekt może mieć różny wynik w zależności od lokalizacji, standardu i sposobu prowadzenia.",
-	"cards": [
-		[
-			"01",
-			"Liczba klientów",
-			"Ruch samochodowy, widoczność i wygoda wjazdu decydują, ile aut realnie będzie korzystać z myjni."
-		],
-		[
-			"02",
-			"Średni koszyk",
-			"Cena programów, czas mycia, dodatki i jakość chemii wpływają na wartość pojedynczej wizyty."
-		],
-		[
-			"03",
-			"Sezonowość",
-			"Pogoda, zima, sól drogowa, deszcze i lokalne nawyki kierowców zmieniają obroty w ciągu roku."
-		],
-		[
-			"04",
-			"Koszty stałe",
-			"Dzierżawa, kredyt lub leasing, ubezpieczenia, księgowość, serwis, monitoring i utrzymanie terenu."
-		],
-		[
-			"05",
-			"Koszty zmienne",
-			"Woda, prąd, gaz lub ogrzewanie, ścieki, chemia, eksploatacja i elementy zużywające się w pracy."
-		],
-		[
-			"06",
-			"Usługi dodatkowe",
-			"Odkurzacze, dyspensery, pranie dywaników, ozonator czy płyny mogą zwiększać przychód i częstotliwość wizyt."
-		]
-	],
-	"galleryTitle": "Opłacalność trzeba liczyć realistycznie",
-	"gallery": [
-		[
-			"Przychód",
-			"Ile myć dziennie może wygenerować lokalizacja i jaki średni koszyk jest realny?"
-		],
-		[
-			"Koszty",
-			"Które koszty są stałe, a które rosną wraz z obrotem i intensywnością użytkowania?"
-		],
-		[
-			"Sezon",
-			"Jak wynik zmienia się zimą, latem, po deszczu, przy soli drogowej i w okresach słabszego ruchu?"
-		],
-		[
-			"Zwrot",
-			"Czy wynik uzasadnia koszt inwestycji, finansowanie i oczekiwany czas zwrotu?"
-		]
-	],
-	"analysisTitle": "Chcesz ocenić potencjał przychodu lokalizacji?",
-	"analysisText": "Wyślij miejscowość albo link do mapy. Na start warto ocenić ruch, otoczenie, konkurencję i układ działki pod realny model przychodowy.",
-	"faq": [
-		[
-			"Czy da się zagwarantować zarobek myjni?",
-			"Nie. Można analizować potencjał, ale wynik zależy od lokalizacji, kosztów, pogody, konkurencji i sposobu prowadzenia."
-		],
-		[
-			"Czy więcej stanowisk zawsze oznacza większy zysk?",
-			"Nie zawsze. Więcej stanowisk ma sens tylko wtedy, gdy lokalizacja ma wystarczający ruch i przestrzeń do obsługi klientów."
-		],
-		[
-			"Co najbardziej obniża opłacalność?",
-			"Słaba lokalizacja, zły wjazd, niedoszacowany koszt budowy, wysokie media, brak rezerwy i wybór technologii tylko po cenie."
-		],
-		[
-			"Czy urządzenia dodatkowe są ważne?",
-			"Tak. Mogą poprawiać koszyk klienta i zwiększać użyteczność obiektu, ale trzeba je dobrze rozplanować na działce."
-		]
-	]
+	canonicalPath: '/ile-zarabia-myjnia-bezdotykowa/',
+	title: 'Ile zarabia myjnia bezdotykowa? Przychody, koszty i realny zwrot',
+	description:
+		'Ile zarabia myjnia bezdotykowa? Sprawdź, od czego zależy przychód, zysk, koszt utrzymania, rentowność i zwrot z inwestycji w myjnię.'
 };
 
+const revenueModel = [
+	{
+		label: 'Przychód',
+		title: 'Ile klienci realnie zostawiają na myjni?',
+		text: 'To suma myć, programów, czasu korzystania, płatności i usług dodatkowych. Przychód zależy głównie od lokalizacji, widoczności, wygody wjazdu, jakości mycia i liczby klientów.'
+	},
+	{
+		label: 'Koszty',
+		title: 'Ile kosztuje wykonanie usługi i utrzymanie obiektu?',
+		text: 'Wynik myjni zależy od zużycia wody, ścieków, energii, chemii, ogrzewania, serwisu, prowizji płatniczych, obsługi, dzierżawy, leasingu i kosztów okresowych.'
+	},
+	{
+		label: 'Wynik',
+		title: 'Co zostaje inwestorowi przed podatkiem i po finansowaniu?',
+		text: 'Zysk nie jest tym samym co obrót. Dopiero po odjęciu kosztów, finansowania, podatków i rezerw można ocenić realną opłacalność inwestycji.'
+	}
+];
+
+const revenueFactors = [
+	{
+		number: '01',
+		title: 'Lokalizacja i ruch',
+		text: 'Ruch samochodowy, widoczność, wygodny wjazd, brak trudnego manewrowania, sąsiedztwo usług i codzienne trasy kierowców decydują, czy myjnia ma naturalny dopływ klientów.'
+	},
+	{
+		number: '02',
+		title: 'Liczba stanowisk',
+		text: 'Myjnia powinna mieć tyle stanowisk, ile lokalizacja jest w stanie realnie wykorzystać. Za mały obiekt może tworzyć kolejki, a za duży niepotrzebnie podnosi koszt inwestycji.'
+	},
+	{
+		number: '03',
+		title: 'Projekt ruchu na obiekcie',
+		text: 'Dobry układ stanowisk, odkurzaczy, urządzeń dodatkowych, wjazdu i wyjazdu wpływa na komfort kierowcy. Im prostsza komunikacja, tym większa szansa na powtarzalne wizyty.'
+	},
+	{
+		number: '04',
+		title: 'Jakość technologii',
+		text: 'Technologia wpływa na jakość mycia, stabilność pracy, zużycie mediów, awaryjność i koszty serwisu. To jeden z kluczowych czynników rentowności w perspektywie kilku lat.'
+	},
+	{
+		number: '05',
+		title: 'Standard wizualny',
+		text: 'Czysty, widoczny, dobrze oświetlony i nowoczesny obiekt przyciąga kierowców. Wygląd myjni nie jest dodatkiem — wpływa na pierwszą decyzję klienta.'
+	},
+	{
+		number: '06',
+		title: 'Usługi dodatkowe',
+		text: 'Odkurzacze, rozmieniarki, pranie dywaników, dyspensery, ozonator, płyny i inne urządzenia mogą zwiększać średni koszyk oraz wydłużać kontakt klienta z obiektem.'
+	}
+];
+
+const costGroups = [
+	{
+		title: 'Koszty zmienne',
+		text: 'Rosną razem z liczbą myć i intensywnością korzystania z obiektu.',
+		points: ['woda i ścieki', 'energia elektryczna', 'ogrzewanie wody', 'detergenty i chemia', 'prowizje płatnicze', 'elementy eksploatacyjne']
+	},
+	{
+		title: 'Koszty stałe i organizacyjne',
+		text: 'Pojawiają się niezależnie od tego, czy dany miesiąc jest mocny czy słabszy.',
+		points: ['dzierżawa albo czynsz', 'księgowość i obsługa prawna', 'internet, telefon, monitoring', 'ubezpieczenie', 'podatek od nieruchomości', 'marketing lokalny']
+	},
+	{
+		title: 'Koszty finansowania',
+		text: 'W wielu inwestycjach to element, który mocno zmienia przepływ gotówki.',
+		points: ['leasing', 'kredyt', 'wkład własny', 'odsetki', 'zabezpieczenia', 'harmonogram spłat']
+	},
+	{
+		title: 'Koszty okresowe',
+		text: 'Nie występują codziennie, ale trzeba je uwzględnić w modelu rocznym.',
+		points: ['czyszczenie separatora', 'przeglądy', 'serwis i naprawy', 'odśnieżanie', 'wymiany części', 'modernizacje']
+	}
+];
+
+const efficiencySlides = [
+	{
+		kicker: 'Media',
+		title: 'Woda, ścieki i energia mogą zmienić wynik',
+		text: 'Różnice w technologii, odzysku wody, źródłach ciepła, cenach mediów i sposobie eksploatacji mogą znacząco zmieniać koszt jednego mycia.'
+	},
+	{
+		kicker: 'Czas mycia',
+		title: 'Jedna złotówka musi mieć ekonomiczny sens',
+		text: 'Na rynku często spotyka się czasy mycia w okolicach 20–32 sekund za 1 zł, zależnie od lokalizacji i ustawień. Zbyt długi czas może obniżać rentowność.'
+	},
+	{
+		kicker: 'Serwis',
+		title: 'Przestój to utracony przychód',
+		text: 'Łatwy dostęp do komponentów, sprawny serwis, dobra konstrukcja serca myjni i szybka diagnostyka pomagają ograniczać czas, w którym obiekt nie zarabia.'
+	},
+	{
+		kicker: 'Technologia',
+		title: 'Droższy wariant może obniżać koszt w czasie',
+		text: 'Wyższy koszt początkowy może mieć sens, jeśli technologia zmniejsza zużycie mediów, poprawia trwałość komponentów i stabilność pracy obiektu.'
+	}
+];
+
+const returnScenarios = [
+	{
+		label: 'Bardzo mocna lokalizacja',
+		value: 'poniżej 36 miesięcy',
+		text: 'Możliwe w lokalizacjach o wysokim ruchu, dobrej widoczności, wygodnym układzie i wysokim wykorzystaniu stanowisk. To scenariusz ambitny, nie standard.'
+	},
+	{
+		label: 'Dobra, stabilna lokalizacja',
+		value: 'około 5 lat',
+		text: 'Często przyjmowany punkt odniesienia do spokojnej kalkulacji inwestora, pod warunkiem właściwego kosztu budowy i kontroli kosztów prowadzenia.'
+	},
+	{
+		label: 'Spokojniejsza lokalizacja',
+		value: 'około 7 lat lub dłużej',
+		text: 'Wymaga ostrożniejszej konfiguracji, rozsądnej liczby stanowisk i bardzo dokładnego pilnowania kosztów stałych oraz finansowania.'
+	}
+];
+
+const profitNotes = [
+	{
+		title: 'Model 50/50',
+		text: 'W dobrze przygotowanym obiekcie często analizuje się scenariusz, w którym koszty i wynik przed podatkiem mogą układać się orientacyjnie w okolicach połowy przychodu. To model poglądowy, nie gwarancja.'
+	},
+	{
+		title: 'Model z wysokimi kosztami',
+		text: 'Przy drogim finansowaniu, wysokiej dzierżawie, dużej obsłudze, słabszej technologii albo wysokich mediach udział kosztów może być dużo wyższy.'
+	},
+	{
+		title: 'Model zoptymalizowany',
+		text: 'Własny grunt, dobra technologia, odzysk wody, fotowoltaika, korzystne media, studnia lub przemyślana eksploatacja mogą poprawiać rentowność, ale wymagają indywidualnej kalkulacji.'
+	}
+];
+
+const faqItems = [
+	{
+		question: 'Ile zarabia myjnia bezdotykowa miesięcznie?',
+		answer:
+			'Nie ma jednej uczciwej kwoty. Wynik zależy od lokalizacji, liczby stanowisk, liczby myć, średniego koszyka, kosztów mediów, chemii, serwisu, finansowania i organizacji pracy. Najpierw trzeba policzyć przychód, koszty i realny wynik inwestora.'
+	},
+	{
+		question: 'Ile może zarabiać jedno stanowisko myjni?',
+		answer:
+			'W dobrej lokalizacji jedno stanowisko może generować wysoki miesięczny obrót, nawet około 20 000 zł brutto. To jednak przykład potencjału, a nie gwarancja. W słabszej lokalizacji wynik może być dużo niższy.'
+	},
+	{
+		question: 'Czy przychód z myjni to zysk?',
+		answer:
+			'Nie. Przychód to obrót z myć i usług dodatkowych. Zysk pojawia się dopiero po odjęciu kosztów zmiennych, kosztów stałych, kosztów finansowania, podatków, serwisu i rezerw.'
+	},
+	{
+		question: 'Jakie koszty najbardziej wpływają na rentowność myjni?',
+		answer:
+			'Największe znaczenie mają zwykle media, ścieki, energia, ogrzewanie, chemia, serwis, dzierżawa, leasing, prowizje płatnicze, obsługa, podatek od nieruchomości, separator, ubezpieczenie i koszty okresowe.'
+	},
+	{
+		question: 'Czy myjnia bezdotykowa się opłaca?',
+		answer:
+			'Może być opłacalną inwestycją, ale tylko wtedy, gdy lokalizacja, koszt budowy, technologia, liczba stanowisk, koszty prowadzenia i model finansowania są dobrze dopasowane. Sama budowa myjni nie gwarantuje zysku.'
+	},
+	{
+		question: 'Po ilu latach zwraca się myjnia bezdotykowa?',
+		answer:
+			'W bardzo mocnych lokalizacjach zwrot może nastąpić poniżej 36 miesięcy, w stabilnych lokalizacjach często analizuje się około 5 lat, a w spokojniejszych lokalizacjach około 7 lat lub dłużej. Każdy przypadek wymaga indywidualnej kalkulacji.'
+	},
+	{
+		question: 'Czy technologia wpływa na zysk myjni?',
+		answer:
+			'Tak. Technologia wpływa na zużycie wody, ścieków, energii, chemii, awaryjność, łatwość serwisu, jakość mycia i przestoje. Dlatego dostawcę trzeba oceniać nie tylko po cenie zakupu.'
+	},
+	{
+		question: 'Czy leasing obniża zysk myjni?',
+		answer:
+			'Leasing wpływa na przepływ gotówki i wynik finansowy inwestora. Może ułatwić uruchomienie inwestycji, ale zwiększa miesięczne obciążenia. Warto go analizować z księgową, doradcą podatkowym i leasingodawcą.'
+	}
+];
+
 const relatedLinks = [
-	[
-		"Koszt budowy myjni",
-		"/ile-kosztuje-myjnia-bezdotykowa/"
-	],
-	[
-		"Opłacalność myjni",
-		"/ile-zarabia-myjnia-bezdotykowa/"
-	],
-	[
-		"Działka pod myjnię",
-		"/dzialka-pod-myjnie-bezdotykowa/"
-	],
-	[
-		"Porównanie ofert",
-		"/jak-porownac-oferty-myjni-bezdotykowej/"
-	],
-	[
-		"Budowa krok po kroku",
-		"/budowa-myjni-bezdotykowej-krok-po-kroku/"
-	],
-	[
-		"Błędy inwestora",
-		"/najczestsze-bledy-przy-budowie-myjni/"
-	]
+	['Koszt budowy myjni', '/ile-kosztuje-myjnia-bezdotykowa/'],
+	['Działka pod myjnię', '/dzialka-pod-myjnie-bezdotykowa/'],
+	['Jak porównać oferty?', '/jak-porownac-oferty-myjni-bezdotykowej/'],
+	['Budowa krok po kroku', '/budowa-myjni-bezdotykowej-krok-po-kroku/'],
+	['Błędy inwestora', '/najczestsze-bledy-przy-budowie-myjni/'],
+	['Poradnik inwestora', '/poradnik/']
 ];
 
 const faqSchema = {
-	"@context": "https://schema.org",
-	"@type": "FAQPage",
-	"mainEntity": [
-		{
-			"@type": "Question",
-			"name": "Czy da się zagwarantować zarobek myjni?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Nie. Można analizować potencjał, ale wynik zależy od lokalizacji, kosztów, pogody, konkurencji i sposobu prowadzenia."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Czy więcej stanowisk zawsze oznacza większy zysk?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Nie zawsze. Więcej stanowisk ma sens tylko wtedy, gdy lokalizacja ma wystarczający ruch i przestrzeń do obsługi klientów."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Co najbardziej obniża opłacalność?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Słaba lokalizacja, zły wjazd, niedoszacowany koszt budowy, wysokie media, brak rezerwy i wybór technologii tylko po cenie."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Czy urządzenia dodatkowe są ważne?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Tak. Mogą poprawiać koszyk klienta i zwiększać użyteczność obiektu, ale trzeba je dobrze rozplanować na działce."
-			}
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer
 		}
-	]
+	}))
 };
 ---
 
 <Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
 	<Header />
 
-	<main class="guide-page">
-		<section class="guide-hero" aria-labelledby="page-title">
-			<div class="container guide-hero-grid">
-				<div>
+	<main class="profit-page">
+		<section class="profit-hero" aria-labelledby="page-title">
+			<div class="container profit-hero-grid">
+				<div class="profit-hero-copy">
 					<p class="eyebrow">
 						<span></span>
-						{page.eyebrow}
+						Opłacalność myjni
 					</p>
 
 					<h1 id="page-title">
-						{page.hero.before}
-						<strong>{page.hero.strong}</strong>
+						Ile zarabia myjnia bezdotykowa i od czego zależy
+						<strong>realny zwrot?</strong>
 					</h1>
 
-					<p class="guide-lead">{page.hero.lead}</p>
+					<p class="profit-lead">
+						Zarobek myjni nie wynika wyłącznie z liczby stanowisk. Najpierw trzeba
+						policzyć przychód, koszty, finansowanie, podatki i realny potencjał
+						lokalizacji.
+					</p>
 
-					<div class="guide-actions">
-						<a class="guide-button-green" href="/#kontakt">
+					<div class="profit-actions">
+						<a class="profit-button-green" href="/#kontakt">
 							Prześlij lokalizację
 							<span aria-hidden="true">→</span>
 						</a>
-						<a class="guide-button-light" href="/poradnik/">
-							Wróć do poradnika
-							<span aria-hidden="true">→</span>
+						<a class="profit-button-light" href="#model-wyniku">
+							Zobacz model wyniku
+							<span aria-hidden="true">↓</span>
 						</a>
 					</div>
 
-					<div class="guide-chips" aria-label="Najważniejsze tematy strony">
-						{page.quick.map((item) => <span>{item}</span>)}
+					<div class="profit-chips" aria-label="Najważniejsze tematy strony">
+						<span>przychód</span>
+						<span>koszty</span>
+						<span>zysk</span>
+						<span>zwrot</span>
+						<span>lokalizacja</span>
 					</div>
 				</div>
 
-				<aside class="guide-visual" aria-label="Grafika do uzupełnienia">
-					<div class="guide-visual-card">
-						<div class="guide-stat"><strong>{page.hero.statA}</strong><span>01</span></div>
-						<div class="guide-stat"><strong>{page.hero.statB}</strong><span>02</span></div>
-						<div class="guide-stat"><strong>{page.hero.statC}</strong><span>03</span></div>
-					</div>
-					<div class="guide-placeholder">
-						Miejsce na mocną grafikę podstrony — docelowo wstawimy WebP dopasowany do tematu.
+				<aside class="profit-hero-panel" aria-label="Najważniejszy wniosek">
+					<div class="profit-panel-logo">inwestycjawmyjnie.pl</div>
+					<p>Najważniejsza zasada</p>
+					<h2>Obrót nie jest jeszcze zyskiem.</h2>
+					<span>
+						Dopiero po odjęciu kosztów mediów, chemii, serwisu, finansowania, podatków
+						i rezerw widać realny wynik inwestora.
+					</span>
+					<div class="profit-mini-grid">
+						<b>przychód</b>
+						<b>koszty</b>
+						<b>cash flow</b>
+						<b>zwrot</b>
 					</div>
 				</aside>
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="cards-title">
+		<section class="profit-section" id="model-wyniku" aria-labelledby="model-title">
 			<div class="container">
-				<div class="guide-split">
+				<div class="profit-split">
 					<div>
-						<p class="eyebrow">
-							<span></span>
-							Analiza inwestora
-						</p>
-						<h2 id="cards-title">Co wpływa na <strong>wynik myjni?</strong></h2>
+						<p class="eyebrow"><span></span>Krótka odpowiedź</p>
+						<h2 id="model-title">
+							Myjnię trzeba liczyć jako <strong>model przychodu i kosztów</strong>
+						</h2>
 					</div>
-					<p>{page.cardsLead}</p>
+					<p>
+						Pytanie „ile zarabia myjnia?” ma sens dopiero wtedy, gdy oddzielimy
+						przychód od zysku. Inwestor powinien patrzeć na obrót, koszty operacyjne,
+						finansowanie, podatki i rezerwę na serwis.
+					</p>
 				</div>
 
-				<div class="guide-grid">
-					{page.cards.map((card) => (
-						<article class="guide-card">
-							<span class="guide-number">{card[0]}</span>
-							<h3>{card[1]}</h3>
-							<p>{card[2]}</p>
+				<div class="profit-model-grid">
+					{revenueModel.map((item, index) => (
+						<article class="profit-model-card">
+							<span>{String(index + 1).padStart(2, '0')}</span>
+							<p>{item.label}</p>
+							<h3>{item.title}</h3>
+							<b>{item.text}</b>
+						</article>
+					))}
+				</div>
+
+				<p class="profit-disclaimer">
+					W dobrej lokalizacji jedno stanowisko może generować nawet około 20 000 zł brutto
+					miesięcznie, ale to przykład potencjału, nie obietnica wyniku. Każdą lokalizację
+					trzeba policzyć osobno.
+				</p>
+			</div>
+		</section>
+
+		<section class="profit-section profit-text-section" aria-labelledby="revenue-title">
+			<div class="container profit-article-grid">
+				<div class="profit-sticky-title">
+					<p class="eyebrow"><span></span>Przychód</p>
+					<h2 id="revenue-title">
+						Najpierw trzeba zrozumieć, <strong>skąd bierze się obrót</strong>
+					</h2>
+				</div>
+
+				<div class="profit-article-copy profit-article-card">
+					<p>
+						Przychód z myjni powstaje wtedy, gdy lokalizacja regularnie przyciąga kierowców,
+						a obiekt jest wygodny, widoczny, dobrze zaprojektowany i technicznie przygotowany
+						do obsługi ruchu.
+					</p>
+
+					<p>
+						Kluczowe znaczenie ma nie tylko liczba stanowisk, ale też ich wykorzystanie.
+						Za mała myjnia w mocnej lokalizacji może tworzyć kolejki, a zbyt duża myjnia
+						w spokojnym miejscu może nie wykorzystywać swojego potencjału.
+					</p>
+
+					<p>
+						Dlatego przychód trzeba analizować razem z działką, układem komunikacyjnym,
+						widocznością, ruchem samochodowym, konkurencją, standardem wizualnym, jakością
+						mycia i urządzeniami dodatkowymi.
+					</p>
+
+					<div class="profit-quote">
+						<strong>Celem nie jest samo zbudowanie myjni.</strong>
+						<span>Celem jest przygotowanie obiektu, który potrafi regularnie generować przychód.</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="profit-section" aria-labelledby="factors-title">
+			<div class="container">
+				<div class="profit-split">
+					<div>
+						<p class="eyebrow"><span></span>Źródła przychodu</p>
+						<h2 id="factors-title">
+							Co wpływa na <strong>wynik myjni?</strong>
+						</h2>
+					</div>
+					<p>
+						Ten sam obiekt może mieć zupełnie inny wynik w zależności od lokalizacji,
+						standardu, projektu ruchu, technologii i sposobu prowadzenia.
+					</p>
+				</div>
+
+				<div class="profit-factor-grid">
+					{revenueFactors.map((factor) => (
+						<article class="profit-factor-card">
+							<span>{factor.number}</span>
+							<h3>{factor.title}</h3>
+							<p>{factor.text}</p>
 						</article>
 					))}
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="gallery-title">
+		<section class="profit-section" aria-labelledby="costs-title">
 			<div class="container">
-				<div class="guide-carousel-shell" data-subpage-carousel>
-					<div class="guide-carousel-head">
-						<h2 id="gallery-title">{page.galleryTitle}</h2>
-						<div class="guide-carousel-nav" aria-label="Nawigacja sekcji">
-							<button class="guide-carousel-arrow" type="button" data-subpage-prev aria-label="Poprzedni element">←</button>
-							<button class="guide-carousel-arrow" type="button" data-subpage-next aria-label="Następny element">→</button>
+				<div class="profit-split">
+					<div>
+						<p class="eyebrow"><span></span>Koszty prowadzenia</p>
+						<h2 id="costs-title">
+							Koszty decydują, ile z przychodu <strong>zostaje inwestorowi</strong>
+						</h2>
+					</div>
+					<p>
+						W myjni trzeba oddzielić koszty zmienne, stałe, finansowe i okresowe.
+						Dopiero ich suma pokazuje realną rentowność.
+					</p>
+				</div>
+
+				<div class="profit-cost-grid">
+					{costGroups.map((group) => (
+						<article class="profit-cost-card">
+							<h3>{group.title}</h3>
+							<p>{group.text}</p>
+							<ul>
+								{group.points.map((point) => <li>{point}</li>)}
+							</ul>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="profit-section" aria-labelledby="technology-title">
+			<div class="container">
+				<div class="profit-carousel" data-profit-carousel>
+					<div class="profit-carousel-head">
+						<div>
+							<p class="eyebrow light"><span></span>Technologia i rentowność</p>
+							<h2 id="technology-title">
+								Dostawca wpływa nie tylko na cenę, ale też <strong>na późniejszy zysk</strong>
+							</h2>
+						</div>
+						<div class="profit-carousel-nav" aria-label="Nawigacja slajdera">
+							<button type="button" data-profit-prev aria-label="Poprzedni element">←</button>
+							<button type="button" data-profit-next aria-label="Następny element">→</button>
 						</div>
 					</div>
 
-					<div class="guide-carousel-track" data-subpage-track>
-						{page.gallery.map((slide) => (
-							<article class="guide-slide">
-								<strong>{slide[0]}</strong>
-								<h3>{slide[0]}</h3>
-								<p>{slide[1]}</p>
+					<div class="profit-carousel-track" data-profit-track>
+						{efficiencySlides.map((slide) => (
+							<article class="profit-slide">
+								<span>{slide.kicker}</span>
+								<h3>{slide.title}</h3>
+								<p>{slide.text}</p>
 							</article>
 						))}
 					</div>
@@ -264,52 +423,118 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="analysis-title">
+		<section class="profit-section" aria-labelledby="return-title">
 			<div class="container">
-				<div class="guide-analysis">
-					<div class="guide-analysis-grid">
-						<div>
-							<p class="eyebrow light"><span></span>Analiza lokalizacji</p>
-							<h2 id="analysis-title">Chcesz ocenić potencjał <strong>przychodu lokalizacji?</strong></h2>
-							<p>{page.analysisText}</p>
-						</div>
-						<a class="guide-button-green" href="/#kontakt">
-							Prześlij lokalizację
-							<span aria-hidden="true">→</span>
-						</a>
+				<div class="profit-split">
+					<div>
+						<p class="eyebrow"><span></span>Zwrot z inwestycji</p>
+						<h2 id="return-title">
+							Realny zwrot zależy od scenariusza <strong>lokalizacji i kosztów</strong>
+						</h2>
+					</div>
+					<p>
+						Nie da się uczciwie wyliczyć jednej statystyki dla każdej myjni. Można jednak
+						przygotować scenariusze i sprawdzić, czy inwestycja mieści się w akceptowalnym
+						horyzoncie zwrotu.
+					</p>
+				</div>
+
+				<div class="profit-return-grid">
+					{returnScenarios.map((scenario) => (
+						<article class="profit-return-card">
+							<p>{scenario.label}</p>
+							<strong>{scenario.value}</strong>
+							<span>{scenario.text}</span>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="profit-section profit-profitability-section" aria-labelledby="profitability-title">
+			<div class="container">
+				<div class="profitability-panel">
+					<div>
+						<p class="eyebrow light"><span></span>Rentowność</p>
+						<h2 id="profitability-title">
+							Na wynik wpływa nie tylko obrót, ale też <strong>konfiguracja kosztów</strong>
+						</h2>
+						<p>
+							W praktyce model kosztów może wyglądać bardzo różnie. Własny grunt, leasing,
+							dzierżawa, odzysk wody, źródło ciepła, fotowoltaika, serwis i sposób obsługi
+							mogą całkowicie zmienić wynik inwestora.
+						</p>
+					</div>
+
+					<div class="profit-note-grid">
+						{profitNotes.map((note) => (
+							<article>
+								<h3>{note.title}</h3>
+								<p>{note.text}</p>
+							</article>
+						))}
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-faq" aria-labelledby="faq-title">
+		<section class="profit-section" aria-labelledby="analysis-title">
 			<div class="container">
-				<div class="guide-split">
+				<div class="profit-analysis-cta">
+					<div>
+						<p class="eyebrow light"><span></span>Analiza lokalizacji</p>
+						<h2 id="analysis-title">
+							Chcesz policzyć potencjał przychodu <strong>dla swojej działki?</strong>
+						</h2>
+						<p>
+							Prześlij miejscowość, link do mapy, numer działki albo krótki opis miejsca.
+							Na początku warto ocenić ruch, konkurencję, układ działki, liczbę stanowisk,
+							koszty i możliwy model zwrotu.
+						</p>
+					</div>
+					<a class="profit-button-green" href="/#kontakt">
+						Prześlij lokalizację
+						<span aria-hidden="true">→</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="profit-section" aria-labelledby="faq-title">
+			<div class="container">
+				<div class="profit-split">
 					<div>
 						<p class="eyebrow"><span></span>FAQ</p>
-						<h2 id="faq-title">Najczęstsze pytania <strong>inwestora</strong></h2>
+						<h2 id="faq-title">
+							Najczęstsze pytania o <strong>zarobek myjni</strong>
+						</h2>
 					</div>
-					<p>Krótko i konkretnie — pytania, które pomagają lepiej przygotować decyzję przed rozmową z projektantem, doradcą albo dostawcą.</p>
+					<p>
+						Odpowiedzi na pytania, które inwestor powinien zadać przed zakupem działki,
+						wyborem technologii, leasingiem i rozmową z dostawcą.
+					</p>
 				</div>
 
-				<div class="guide-faq-list">
-					{page.faq.map((item, index) => (
-						<details class="guide-faq-item" open={index === 0}>
-							<summary>{item[0]}</summary>
-							<p>{item[1]}</p>
+				<div class="profit-faq-list">
+					{faqItems.map((item, index) => (
+						<details class="profit-faq-item" open={index === 0}>
+							<summary>{item.question}</summary>
+							<p>{item.answer}</p>
 						</details>
 					))}
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-related" aria-labelledby="related-title">
+		<section class="profit-section profit-related-section" aria-labelledby="related-title">
 			<div class="container">
 				<p class="eyebrow"><span></span>Dalej w poradniku</p>
-				<h2 id="related-title">Powiązane tematy <strong>dla inwestora</strong></h2>
-				<div class="guide-related-grid">
+				<h2 id="related-title">
+					Powiązane tematy <strong>dla inwestora</strong>
+				</h2>
+				<div class="profit-related-grid">
 					{relatedLinks.map((link) => (
-						<a class="guide-related-card" href={link[1]}>{link[0]} →</a>
+						<a class="profit-related-card" href={link[1]}>{link[0]} <span>→</span></a>
 					))}
 				</div>
 			</div>
@@ -321,32 +546,37 @@ const faqSchema = {
 </Layout>
 
 <style>
-	.guide-page {
+	.profit-page {
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
 		background: #fff;
 	}
 
-	.guide-hero {
+	.profit-hero {
 		position: relative;
 		overflow: hidden;
-		padding: clamp(84px, 8vw, 132px) 0 clamp(64px, 7vw, 104px);
+		padding: clamp(84px, 8vw, 132px) 0 clamp(70px, 7vw, 110px);
 		background:
-			radial-gradient(circle at 78% 14%, rgba(18, 104, 255, 0.08), transparent 32%),
-			radial-gradient(circle at 16% 26%, rgba(114, 240, 105, 0.1), transparent 28%),
+			radial-gradient(circle at 80% 12%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 18% 28%, rgba(114, 240, 105, 0.11), transparent 30%),
 			linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
 	}
 
-	.guide-hero-grid {
+	.profit-hero-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
-		gap: clamp(34px, 5vw, 70px);
+		grid-template-columns: minmax(0, 1fr) minmax(380px, 0.66fr);
+		gap: clamp(34px, 5vw, 74px);
 		align-items: center;
 	}
 
-	.guide-hero h1,
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.profit-hero h1,
+	.profit-split h2,
+	.profit-sticky-title h2,
+	.profit-carousel-head h2,
+	.profitability-panel h2,
+	.profit-analysis-cta h2,
+	.profit-related-section h2 {
 		margin: 0;
 		color: var(--ink);
 		font-weight: 950;
@@ -354,16 +584,18 @@ const faqSchema = {
 		line-height: 0.94;
 	}
 
-	.guide-hero h1 {
-		max-width: 940px;
-		font-size: clamp(3.35rem, 6.8vw, 7.05rem);
+	.profit-hero h1 {
+		max-width: 980px;
+		font-size: clamp(3.25rem, 6.6vw, 7.05rem);
 	}
 
-	.guide-hero h1 strong,
-	.guide-split h2 strong,
-	.guide-analysis h2 strong,
-	.guide-faq h2 strong,
-	.guide-related h2 strong {
+	.profit-hero h1 strong,
+	.profit-split h2 strong,
+	.profit-sticky-title h2 strong,
+	.profit-carousel-head h2 strong,
+	.profitability-panel h2 strong,
+	.profit-analysis-cta h2 strong,
+	.profit-related-section h2 strong {
 		background: linear-gradient(90deg, #0756d8 0%, #1268ff 38%, #4fa3ff 72%, #9ed7ff 100%);
 		-webkit-background-clip: text;
 		background-clip: text;
@@ -371,25 +603,25 @@ const faqSchema = {
 		font-weight: inherit;
 	}
 
-	.guide-lead {
-		max-width: 760px;
+	.profit-lead {
+		max-width: 780px;
 		margin: 28px 0 0;
 		color: #667085;
-		font-size: clamp(1.04rem, 1.35vw, 1.28rem);
+		font-size: clamp(1.05rem, 1.35vw, 1.28rem);
 		font-weight: 560;
 		line-height: 1.68;
 		letter-spacing: -0.012em;
 	}
 
-	.guide-actions {
+	.profit-actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 14px;
 		margin-top: 34px;
 	}
 
-	.guide-button-green,
-	.guide-button-light {
+	.profit-button-green,
+	.profit-button-light {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -403,109 +635,33 @@ const faqSchema = {
 		transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 	}
 
-	.guide-button-green {
+	.profit-button-green {
 		color: #06110a;
 		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
 		border: 1px solid rgba(114, 240, 105, 0.34);
 		box-shadow: 0 18px 44px rgba(76, 244, 89, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.56);
 	}
 
-	.guide-button-light {
+	.profit-button-light {
 		color: var(--ink);
-		background: rgba(255, 255, 255, 0.88);
+		background: rgba(255, 255, 255, 0.9);
 		border: 1px solid rgba(8, 16, 32, 0.1);
 		box-shadow: 0 12px 34px rgba(8, 16, 32, 0.06);
 	}
 
-	.guide-button-green:hover,
-	.guide-button-light:hover {
+	.profit-button-green:hover,
+	.profit-button-light:hover {
 		transform: translateY(-2px);
 	}
 
-	.guide-visual {
-		position: relative;
-		min-height: 520px;
-		padding: 28px;
-		border-radius: 46px;
-		background:
-			radial-gradient(circle at 68% 24%, rgba(18, 104, 255, 0.24), transparent 30%),
-			radial-gradient(circle at 28% 78%, rgba(114, 240, 105, 0.22), transparent 30%),
-			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
-		overflow: hidden;
-	}
-
-	.guide-visual::before {
-		content: '';
-		position: absolute;
-		inset: 42px;
-		border-radius: 34px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background:
-			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-		background-size: 48px 48px;
-		mask-image: linear-gradient(180deg, black, transparent 88%);
-	}
-
-	.guide-visual-card {
-		position: relative;
-		z-index: 1;
-		display: grid;
-		gap: 16px;
-	}
-
-	.guide-stat {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 18px;
-		min-height: 92px;
-		padding: 18px;
-		border-radius: 26px;
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.14);
-		backdrop-filter: blur(16px);
-		color: rgba(255, 255, 255, 0.86);
-	}
-
-	.guide-stat strong {
-		font-size: 0.8rem;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-	}
-
-	.guide-stat span {
-		color: #72f069;
-		font-size: 1.45rem;
-		font-weight: 950;
-		letter-spacing: -0.06em;
-	}
-
-	.guide-placeholder {
-		position: absolute;
-		left: 28px;
-		right: 28px;
-		bottom: 28px;
-		z-index: 1;
-		padding: 20px;
-		border-radius: 28px;
-		background: rgba(255, 255, 255, 0.09);
-		border: 1px dashed rgba(255, 255, 255, 0.22);
-		color: rgba(255, 255, 255, 0.76);
-		font-weight: 650;
-		line-height: 1.5;
-	}
-
-	.guide-chips {
+	.profit-chips {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
 		margin-top: 26px;
 	}
 
-	.guide-chips span {
+	.profit-chips span {
 		display: inline-flex;
 		align-items: center;
 		min-height: 38px;
@@ -519,51 +675,165 @@ const faqSchema = {
 		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045);
 	}
 
-	.guide-section {
+	.profit-hero-panel {
+		position: relative;
+		min-height: 520px;
+		padding: 32px;
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 70% 18%, rgba(18, 104, 255, 0.28), transparent 32%),
+			radial-gradient(circle at 22% 78%, rgba(114, 240, 105, 0.24), transparent 32%),
+			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
+		overflow: hidden;
+		color: #fff;
+	}
+
+	.profit-hero-panel::before {
+		content: '';
+		position: absolute;
+		inset: 48px;
+		border-radius: 34px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background:
+			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+		background-size: 48px 48px;
+		mask-image: linear-gradient(180deg, black, transparent 90%);
+	}
+
+	.profit-panel-logo,
+	.profit-hero-panel p,
+	.profit-hero-panel h2,
+	.profit-hero-panel span,
+	.profit-mini-grid {
+		position: relative;
+		z-index: 1;
+	}
+
+	.profit-panel-logo {
+		display: inline-flex;
+		padding: 9px 13px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		color: rgba(255, 255, 255, 0.82);
+		font-size: 0.82rem;
+		font-weight: 850;
+	}
+
+	.profit-hero-panel p {
+		margin: 84px 0 0;
+		color: #72f069;
+		font-size: 0.78rem;
+		font-weight: 950;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+	}
+
+	.profit-hero-panel h2 {
+		max-width: 420px;
+		margin: 16px 0 0;
+		font-size: clamp(2rem, 3vw, 3.4rem);
+		font-weight: 950;
+		letter-spacing: -0.07em;
+		line-height: 0.98;
+	}
+
+	.profit-hero-panel > span {
+		display: block;
+		max-width: 420px;
+		margin-top: 18px;
+		color: rgba(255, 255, 255, 0.74);
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.profit-mini-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 34px;
+	}
+
+	.profit-mini-grid b {
+		padding: 14px;
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.13);
+		color: rgba(255, 255, 255, 0.88);
+		font-size: 0.9rem;
+		font-weight: 850;
+		text-align: center;
+	}
+
+	.profit-section {
 		padding: clamp(72px, 7vw, 110px) 0;
 	}
 
-	.guide-split {
+	.profit-split,
+	.profit-article-grid,
+	.profitability-panel,
+	.profit-analysis-cta {
 		display: grid;
-		grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.48fr);
-		gap: clamp(28px, 4vw, 52px);
-		align-items: end;
-		margin-bottom: 40px;
+		grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.52fr);
+		gap: clamp(30px, 4vw, 56px);
+		align-items: start;
 	}
 
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.profit-split {
+		align-items: end;
+		margin-bottom: 42px;
+	}
+
+	.profit-split h2,
+	.profit-sticky-title h2,
+	.profitability-panel h2,
+	.profit-analysis-cta h2,
+	.profit-related-section h2 {
 		font-size: clamp(2.55rem, 4.6vw, 5.1rem);
 	}
 
-	.guide-split p {
+	.profit-split > p,
+	.profitability-panel p,
+	.profit-analysis-cta p {
 		margin: 0;
 		color: #667085;
-		font-size: clamp(1rem, 1.2vw, 1.14rem);
+		font-size: clamp(1rem, 1.18vw, 1.14rem);
 		font-weight: 560;
 		line-height: 1.66;
 	}
 
-	.guide-grid {
+	.profit-model-grid,
+	.profit-factor-grid,
+	.profit-cost-grid,
+	.profit-return-grid,
+	.profit-related-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 20px;
 	}
 
-	.guide-card {
+	.profit-model-card,
+	.profit-factor-card,
+	.profit-cost-card,
+	.profit-return-card,
+	.profit-related-card {
 		position: relative;
-		min-height: 300px;
+		overflow: hidden;
+		min-height: 260px;
 		padding: 28px;
 		border-radius: 34px;
-		border: 1px solid rgba(8, 16, 32, 0.08);
 		background: linear-gradient(145deg, #ffffff, #f8f9fb);
-		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.86);
-		overflow: hidden;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07);
 	}
 
-	.guide-card::before {
+	.profit-model-card::before,
+	.profit-factor-card::before,
+	.profit-cost-card::before,
+	.profit-return-card::before {
 		content: '';
 		position: absolute;
 		right: -80px;
@@ -575,72 +845,208 @@ const faqSchema = {
 		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -18px 34px rgba(8, 16, 32, 0.035), 0 22px 54px rgba(8, 16, 32, 0.055);
 	}
 
-	.guide-number {
+	.profit-model-card span,
+	.profit-factor-card span {
 		position: relative;
 		z-index: 1;
 		display: block;
 		color: rgba(8, 16, 32, 0.12);
-		font-size: clamp(4.2rem, 5.2vw, 6.6rem);
+		font-size: clamp(4rem, 5vw, 6.4rem);
 		font-weight: 950;
 		letter-spacing: -0.09em;
 		line-height: 0.82;
 	}
 
-	.guide-card h3 {
+	.profit-model-card > p {
 		position: relative;
 		z-index: 1;
-		margin: 44px 0 0;
+		margin: 34px 0 0;
+		color: #1268ff;
+		font-size: 0.8rem;
+		font-weight: 950;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.profit-model-card h3,
+	.profit-factor-card h3,
+	.profit-cost-card h3 {
+		position: relative;
+		z-index: 1;
+		margin: 14px 0 0;
 		color: var(--ink);
-		font-size: clamp(1.45rem, 2vw, 2rem);
+		font-size: clamp(1.42rem, 2vw, 2rem);
 		font-weight: 950;
 		letter-spacing: -0.06em;
 		line-height: 1.02;
 	}
 
-	.guide-card p {
+	.profit-factor-card h3 {
+		margin-top: 42px;
+	}
+
+	.profit-model-card b,
+	.profit-factor-card p,
+	.profit-cost-card p,
+	.profit-return-card span {
 		position: relative;
 		z-index: 1;
-		margin: 14px 0 0;
+		display: block;
+		margin-top: 14px;
+		color: #667085;
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.profit-disclaimer {
+		max-width: 980px;
+		margin: 24px 0 0;
+		color: #667085;
+		font-size: 0.98rem;
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.profit-text-section {
+		background: #f8f9fb;
+	}
+
+	.profit-sticky-title {
+		position: sticky;
+		top: 120px;
+	}
+
+	.profit-article-copy {
+		display: grid;
+		gap: 20px;
+	}
+
+	.profit-article-copy p {
+		margin: 0;
+		color: #344054;
+		font-size: clamp(1.04rem, 1.24vw, 1.18rem);
+		font-weight: 560;
+		line-height: 1.76;
+	}
+
+	.profit-article-card {
+		position: relative;
+		padding: clamp(28px, 3vw, 42px);
+		border-radius: 38px;
+		background:
+			linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 253, 0.96)),
+			radial-gradient(circle at 92% 8%, rgba(18, 104, 255, 0.055), transparent 36%);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 24px 74px rgba(8, 16, 32, 0.075), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+	}
+
+	.profit-quote {
+		padding: 28px;
+		border-radius: 32px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.06);
+	}
+
+	.profit-quote strong {
+		display: block;
+		font-size: clamp(1.35rem, 2vw, 2rem);
+		font-weight: 950;
+		letter-spacing: -0.055em;
+	}
+
+	.profit-quote span {
+		display: block;
+		margin-top: 10px;
 		color: #667085;
 		font-weight: 560;
 		line-height: 1.6;
 	}
 
-	.guide-carousel-shell {
-		position: relative;
-		overflow: hidden;
-		padding: clamp(28px, 4vw, 44px);
-		border-radius: 42px;
-		background: linear-gradient(145deg, #05070d, #121a29 62%, #05070d);
-		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.2);
+	.profit-factor-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 
-	.guide-carousel-head {
+	.profit-cost-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.profit-cost-card {
+		min-height: 360px;
+	}
+
+	.profit-cost-card ul {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		gap: 10px;
+		margin: 18px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.profit-cost-card li {
+		display: flex;
+		gap: 10px;
+		color: #344054;
+		font-weight: 650;
+		line-height: 1.5;
+	}
+
+	.profit-cost-card li::before {
+		content: '';
+		width: 9px;
+		height: 9px;
+		margin-top: 8px;
+		border-radius: 999px;
+		background: #72f069;
+		box-shadow: 0 0 0 5px rgba(114, 240, 105, 0.12);
+		flex: 0 0 auto;
+	}
+
+	.profit-carousel {
+		overflow: hidden;
+		padding: clamp(30px, 4vw, 48px);
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 12% 20%, rgba(18, 104, 255, 0.22), transparent 34%),
+			radial-gradient(circle at 88% 10%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(145deg, #05070d, #121a29 60%, #05070d);
+		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.2);
+		color: #fff;
+	}
+
+	.profit-carousel-head {
 		display: flex;
 		align-items: end;
 		justify-content: space-between;
 		gap: 24px;
-		margin-bottom: 24px;
+		margin-bottom: 28px;
+	}
+
+	.profit-carousel-head h2 {
+		max-width: 920px;
+		font-size: clamp(2.3rem, 4vw, 4.6rem);
 		color: #fff;
 	}
 
-	.guide-carousel-head h2 {
-		max-width: 720px;
-		margin: 0;
-		font-size: clamp(2.1rem, 3.8vw, 4.3rem);
-		font-weight: 950;
-		letter-spacing: -0.075em;
-		line-height: 0.96;
+	.profit-carousel-head h2 strong,
+	.profitability-panel h2 strong,
+	.profit-analysis-cta h2 strong {
+		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
 	}
 
-	.guide-carousel-nav {
+	.profit-carousel-nav {
 		display: flex;
 		gap: 12px;
 	}
 
-	.guide-carousel-arrow {
-		width: 52px;
-		height: 52px;
+	.profit-carousel-nav button {
+		width: 54px;
+		height: 54px;
 		border-radius: 999px;
 		border: 1px solid rgba(255, 255, 255, 0.14);
 		background: rgba(255, 255, 255, 0.1);
@@ -650,7 +1056,7 @@ const faqSchema = {
 		cursor: pointer;
 	}
 
-	.guide-carousel-track {
+	.profit-carousel-track {
 		display: grid;
 		grid-auto-flow: column;
 		grid-auto-columns: minmax(420px, 520px);
@@ -663,47 +1069,74 @@ const faqSchema = {
 		scrollbar-width: none;
 	}
 
-	.guide-carousel-track::-webkit-scrollbar {
+	.profit-carousel-track::-webkit-scrollbar {
 		display: none;
 	}
 
-	.guide-slide {
+	.profit-slide {
 		scroll-snap-align: start;
-		min-height: 280px;
-		padding: 26px;
+		min-height: 300px;
+		padding: 28px;
 		border-radius: 30px;
 		background:
 			radial-gradient(circle at 86% 12%, rgba(114, 240, 105, 0.16), transparent 32%),
 			linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
 		border: 1px solid rgba(255, 255, 255, 0.16);
-		color: #fff;
 	}
 
-	.guide-slide strong {
+	.profit-slide span {
 		display: block;
-		font-size: 0.82rem;
+		color: #72f069;
+		font-size: 0.8rem;
 		font-weight: 950;
 		letter-spacing: 0.13em;
 		text-transform: uppercase;
-		color: #72f069;
 	}
 
-	.guide-slide h3 {
-		margin: 44px 0 0;
+	.profit-slide h3 {
+		margin: 56px 0 0;
 		font-size: 2rem;
 		font-weight: 950;
 		letter-spacing: -0.065em;
 		line-height: 1.02;
 	}
 
-	.guide-slide p {
+	.profit-slide p {
 		margin: 14px 0 0;
-		color: rgba(255, 255, 255, 0.72);
+		color: rgba(255, 255, 255, 0.74);
 		font-weight: 560;
 		line-height: 1.6;
 	}
 
-	.guide-analysis {
+	.profit-return-card p {
+		position: relative;
+		z-index: 1;
+		margin: 0;
+		color: #1268ff;
+		font-size: 0.82rem;
+		font-weight: 950;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.profit-return-card strong {
+		position: relative;
+		z-index: 1;
+		display: block;
+		margin-top: 54px;
+		color: var(--ink);
+		font-size: clamp(2rem, 3vw, 3.4rem);
+		font-weight: 950;
+		letter-spacing: -0.075em;
+		line-height: 0.95;
+	}
+
+	.profitability-section {
+		padding-top: 0;
+	}
+
+	.profitability-panel,
+	.profit-analysis-cta {
 		padding: clamp(34px, 5vw, 58px);
 		border-radius: 48px;
 		background:
@@ -715,32 +1148,57 @@ const faqSchema = {
 		color: #fff;
 	}
 
-	.guide-analysis-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		gap: 30px;
-		align-items: end;
-	}
-
-	.guide-analysis h2 {
+	.profitability-panel h2,
+	.profit-analysis-cta h2 {
 		color: #fff;
 	}
 
-	.guide-analysis p {
-		max-width: 720px;
-		margin: 22px 0 0;
+	.profitability-panel p,
+	.profit-analysis-cta p {
 		color: rgba(255, 255, 255, 0.74);
-		font-weight: 560;
-		line-height: 1.68;
 	}
 
-	.guide-faq-list {
+	.profitability-panel > div:first-child > p:last-child,
+	.profit-analysis-cta p {
+		margin-top: 22px;
+	}
+
+	.profit-note-grid {
 		display: grid;
 		gap: 14px;
-		margin-top: 34px;
 	}
 
-	.guide-faq-item {
+	.profit-note-grid article {
+		padding: 22px;
+		border-radius: 26px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.13);
+	}
+
+	.profit-note-grid h3 {
+		margin: 0;
+		color: #fff;
+		font-size: 1.25rem;
+		font-weight: 950;
+		letter-spacing: -0.045em;
+	}
+
+	.profit-note-grid p {
+		margin: 10px 0 0;
+	}
+
+	.profit-analysis-cta {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		align-items: end;
+	}
+
+	.profit-faq-list {
+		display: grid;
+		gap: 14px;
+	}
+
+	.profit-faq-item {
 		border-radius: 24px;
 		border: 1px solid rgba(8, 16, 32, 0.08);
 		background: #fff;
@@ -748,7 +1206,7 @@ const faqSchema = {
 		overflow: hidden;
 	}
 
-	.guide-faq-item summary {
+	.profit-faq-item summary {
 		display: flex;
 		justify-content: space-between;
 		gap: 18px;
@@ -760,11 +1218,11 @@ const faqSchema = {
 		list-style: none;
 	}
 
-	.guide-faq-item summary::-webkit-details-marker {
+	.profit-faq-item summary::-webkit-details-marker {
 		display: none;
 	}
 
-	.guide-faq-item summary::after {
+	.profit-faq-item summary::after {
 		content: '+';
 		display: grid;
 		place-items: center;
@@ -772,15 +1230,16 @@ const faqSchema = {
 		height: 34px;
 		border-radius: 999px;
 		background: #f4f6f9;
+		flex: 0 0 auto;
 	}
 
-	.guide-faq-item[open] summary::after {
+	.profit-faq-item[open] summary::after {
 		content: '−';
 		background: var(--ink);
 		color: #fff;
 	}
 
-	.guide-faq-item p {
+	.profit-faq-item p {
 		margin: 0;
 		padding: 0 24px 24px;
 		color: #667085;
@@ -788,120 +1247,178 @@ const faqSchema = {
 		line-height: 1.68;
 	}
 
-	.guide-related-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 18px;
+	.profit-related-section h2 {
+		max-width: 900px;
+	}
+
+	.profit-related-grid {
 		margin-top: 32px;
 	}
 
-	.guide-related-card {
-		padding: 24px;
-		border-radius: 28px;
-		background: #fff;
-		border: 1px solid rgba(8, 16, 32, 0.08);
-		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.055);
+	.profit-related-card {
+		min-height: 150px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 20px;
+		color: var(--ink);
+		font-size: 1.16rem;
 		font-weight: 900;
-		letter-spacing: -0.035em;
+		letter-spacing: -0.04em;
+		text-decoration: none;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
 	}
 
-	@media (max-width: 1120px) {
-		.guide-hero-grid,
-		.guide-split,
-		.guide-analysis-grid {
+	.profit-related-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.1);
+	}
+
+	.profit-related-card span {
+		display: grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 999px;
+		background: var(--ink);
+		color: #fff;
+		flex: 0 0 auto;
+	}
+
+	@media (max-width: 1180px) {
+		.profit-hero-grid,
+		.profit-split,
+		.profit-article-grid,
+		.profitability-panel,
+		.profit-analysis-cta {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.profit-sticky-title {
+			position: static;
+		}
+
+		.profit-model-grid,
+		.profit-factor-grid,
+		.profit-return-grid,
+		.profit-related-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
-		.guide-visual {
+		.profit-cost-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.profit-hero-panel {
 			min-height: 420px;
 		}
 	}
 
 	@media (max-width: 760px) {
-		.guide-hero {
+		.profit-hero {
 			padding-top: 72px;
 		}
 
-		.guide-hero h1 {
-			font-size: clamp(2.45rem, 12vw, 3.5rem);
+		.profit-hero h1 {
+			font-size: clamp(2.35rem, 11.5vw, 3.45rem);
 			line-height: 0.98;
 			letter-spacing: -0.07em;
 		}
 
-		.guide-actions,
-		.guide-button-green,
-		.guide-button-light {
+		.profit-actions,
+		.profit-button-green,
+		.profit-button-light {
 			width: 100%;
 		}
 
-		.guide-visual {
-			min-height: 360px;
+		.profit-hero-panel {
+			min-height: 380px;
 			border-radius: 34px;
+			padding: 26px;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.profit-hero-panel p {
+			margin-top: 58px;
+		}
+
+		.profit-mini-grid,
+		.profit-model-grid,
+		.profit-factor-grid,
+		.profit-cost-grid,
+		.profit-return-grid,
+		.profit-related-grid {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-card {
+		.profit-split h2,
+		.profit-sticky-title h2,
+		.profit-carousel-head h2,
+		.profitability-panel h2,
+		.profit-analysis-cta h2,
+		.profit-related-section h2 {
+			font-size: clamp(2.15rem, 10.5vw, 3.3rem);
+			line-height: 0.98;
+			letter-spacing: -0.07em;
+		}
+
+		.profit-model-card,
+		.profit-factor-card,
+		.profit-cost-card,
+		.profit-return-card {
 			min-height: auto;
 			padding: 24px;
 			border-radius: 28px;
 		}
 
-		.guide-card h3 {
-			margin-top: 28px;
+		.profit-carousel {
+			padding: 24px;
+			border-radius: 34px;
 		}
 
-		.guide-split h2,
-		.guide-analysis h2,
-		.guide-faq h2,
-		.guide-related h2 {
-			font-size: clamp(2.2rem, 10.5vw, 3.35rem);
-			line-height: 0.98;
-			letter-spacing: -0.07em;
-		}
-
-		.guide-carousel-head {
+		.profit-carousel-head {
 			display: grid;
 		}
 
-		.guide-carousel-nav {
+		.profit-carousel-nav {
 			justify-content: center;
 		}
 
-		.guide-carousel-track {
+		.profit-carousel-track {
 			grid-auto-columns: 86vw;
-			margin-left: -20px;
-			margin-right: -20px;
-			padding-left: 20px;
-			padding-right: 20px;
+			margin-left: -14px;
+			margin-right: -14px;
+			padding-left: 14px;
+			padding-right: 14px;
 		}
 
-		.guide-analysis-grid {
-			gap: 24px;
+		.profit-slide {
+			min-height: 280px;
+		}
+
+		.profitability-panel,
+		.profit-analysis-cta {
+			padding: 28px;
+			border-radius: 34px;
+		}
+
+		.profit-analysis-cta .profit-button-green {
+			width: 100%;
 		}
 	}
 </style>
 
 <script is:inline>
-	const subpageCarousels = document.querySelectorAll('[data-subpage-carousel]');
+	const profitCarousels = document.querySelectorAll('[data-profit-carousel]');
 
-	subpageCarousels.forEach((carousel) => {
-		const track = carousel.querySelector('[data-subpage-track]');
-		const prev = carousel.querySelector('[data-subpage-prev]');
-		const next = carousel.querySelector('[data-subpage-next]');
+	profitCarousels.forEach((carousel) => {
+		const track = carousel.querySelector('[data-profit-track]');
+		const prev = carousel.querySelector('[data-profit-prev]');
+		const next = carousel.querySelector('[data-profit-next]');
 
 		if (!track || !prev || !next) return;
 
 		const getStep = () => {
-			const firstCard = track.querySelector('.guide-slide');
+			const firstCard = track.querySelector('.profit-slide');
 			if (!firstCard) return 360;
 			const styles = window.getComputedStyle(track);
 			const gap = parseFloat(styles.columnGap || styles.gap || '18');
@@ -917,4 +1434,3 @@ const faqSchema = {
 		});
 	});
 </script>
-

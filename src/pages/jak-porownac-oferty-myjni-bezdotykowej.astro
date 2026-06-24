@@ -1,237 +1,384 @@
 ---
+
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const page = {
-	"filename": "jak-porownac-oferty-myjni-bezdotykowej.astro",
-	"canonicalPath": "/jak-porownac-oferty-myjni-bezdotykowej/",
-	"title": "Jak porównać oferty myjni bezdotykowej? Cena, zakres, serwis i technologia",
-	"description": "Jak porównywać oferty producentów myjni bezdotykowych: zakres, konstrukcja, technologia, serwis, gwarancja, automatyka i koszty eksploatacji.",
-	"eyebrow": "Porównanie ofert",
-	"hero": {
-		"before": "Oferty myjni porównuje się po zakresie,",
-		"strong": "nie tylko po cenie.",
-		"lead": "Dwie oferty mogą wyglądać podobnie, ale różnić się komponentami, konstrukcją, automatyką, zabezpieczeniami, serwisem, gwarancją i tym, co nie jest ujęte w cenie.",
-		"statA": "zakres",
-		"statB": "serwis",
-		"statC": "technologia"
-	},
-	"quick": [
-		"zakres",
-		"komponenty",
-		"gwarancja",
-		"serwis",
-		"automatyka",
-		"eksploatacja"
-	],
-	"cardsTitle": "Co porównać przed decyzją?",
-	"cardsLead": "Celem nie jest znalezienie najniższej kwoty, tylko zrozumienie, co inwestor realnie kupuje i jakie koszty zostają poza ofertą.",
-	"cards": [
-		[
-			"01",
-			"Zakres oferty",
-			"Czy oferta obejmuje technologię, konstrukcję, kontener, montaż, automatykę, system płatności i uruchomienie?"
-		],
-		[
-			"02",
-			"Jakość komponentów",
-			"Pompy, zawory, sterowanie, filtry, zabezpieczenia, ogrzewanie i elementy pracujące codziennie pod obciążeniem."
-		],
-		[
-			"03",
-			"Konstrukcja",
-			"Dach, słupy, wykończenie, odporność, estetyka, oświetlenie i dopasowanie do lokalizacji."
-		],
-		[
-			"04",
-			"Serwis",
-			"Czas reakcji, dostępność części, doświadczenie zespołu i wsparcie po uruchomieniu obiektu."
-		],
-		[
-			"05",
-			"Gwarancja",
-			"Nie tylko długość gwarancji, ale też warunki, wyłączenia, odpowiedzialność i zakres obsługi."
-		],
-		[
-			"06",
-			"Eksploatacja",
-			"Zużycie mediów, chemii, awaryjność, łatwość obsługi i koszty prowadzenia w perspektywie lat."
-		]
-	],
-	"galleryTitle": "Porównuj pełny obraz, nie samą kwotę",
-	"gallery": [
-		[
-			"Cena netto",
-			"Kwota startowa może wyglądać atrakcyjnie, ale bez zakresu niewiele mówi o całości inwestycji."
-		],
-		[
-			"Zakres",
-			"Najważniejsze pytanie: co dokładnie jest w cenie, a co inwestor musi zorganizować osobno?"
-		],
-		[
-			"Ryzyko",
-			"Tania oferta może przenieść część kosztów na budowę, serwis albo późniejszą eksploatację."
-		],
-		[
-			"Decyzja",
-			"Najlepsza oferta to ta, która pasuje do działki, budżetu i modelu prowadzenia obiektu."
-		]
-	],
-	"analysisTitle": "Masz kilka ofert i chcesz je uporządkować?",
-	"analysisText": "Można przygotować prostą listę porównawczą: zakres, technologia, konstrukcja, serwis, gwarancja i elementy poza ofertą.",
-	"faq": [
-		[
-			"Czy najtańsza oferta może być dobra?",
-			"Może, ale tylko jeśli zakres, komponenty, serwis i koszty eksploatacji są porównywalne z innymi rozwiązaniami."
-		],
-		[
-			"O co zapytać producenta?",
-			"O dokładny zakres, komponenty, zużycia, serwis, gwarancję, automatykę, system płatności i elementy nieujęte w cenie."
-		],
-		[
-			"Czy droższa oferta zawsze jest lepsza?",
-			"Nie zawsze. Wyższa cena ma sens tylko wtedy, gdy wynika z lepszego zakresu, jakości, serwisu lub niższego ryzyka."
-		],
-		[
-			"Kiedy porównanie ofert ma sens?",
-			"Po analizie działki i ustaleniu realnej konfiguracji myjni dla konkretnej lokalizacji."
-		]
-	]
+	canonicalPath: '/jak-porownac-oferty-myjni-bezdotykowej/',
+	title: 'Jak porównać oferty myjni bezdotykowej? Cena, zakres i technologia',
+	description:
+		'Jak porównać oferty producentów myjni bezdotykowych? Sprawdź zakres, technologię, posadzkę, konstrukcję, dokumentację, umowę, serwis, gwarancję i koszty eksploatacji.'
 };
 
+const heroChips = [
+	'zakres oferty',
+	'technologia',
+	'posadzka',
+	'dokumentacja',
+	'umowa',
+	'serwis'
+];
+
+const decisionCards = [
+	{
+		number: '01',
+		title: 'Cena nie pokazuje zakresu',
+		text: 'Dwie oferty mogą mieć podobną kwotę, ale obejmować zupełnie inne elementy: kontener, moduł, posadzkę, konstrukcję, dokumentację, montaż, szkolenie albo serwis.'
+	},
+	{
+		number: '02',
+		title: 'Technologia pracuje codziennie',
+		text: 'Najważniejsze elementy są często niewidoczne: pompy, zawory, automatyka, dozowanie, uzdatnianie wody, ogrzewanie, zabezpieczenia zimowe i dostęp serwisowy.'
+	},
+	{
+		number: '03',
+		title: 'Oferta musi bronić się po latach',
+		text: 'Myjnia jest inwestycją długoterminową. Niższa cena początkowa może oznaczać wyższe koszty mediów, dłuższe przestoje albo trudniejszy serwis.'
+	}
+];
+
+const criteriaCards = [
+	['01', 'Zakres oferty', 'Co dokładnie obejmuje cena: technologia, kontener, moduł, posadzka, konstrukcja, zabudowa, montaż, dokumentacja, szkolenie, serwis i uruchomienie?'],
+	['02', 'Kontener czy moduł', 'Jak wygląda przestrzeń techniczna, dostęp do serwisu, wentylacja, izolacja, ergonomia pracy i możliwość przyszłej rozbudowy?'],
+	['03', 'Rodzaj chemii', 'Czy system działa na chemii płynnej, proszkowej albo mieszanej? Jak wpływa to na dozowanie, logistykę, jakość mycia, serwis i koszt pracy?'],
+	['04', 'Posadzka', 'Czy oferta obejmuje płytę monolityczną, prefabrykowaną albo inny system? Jak rozwiązano odpływy, ogrzewanie, instalacje i ryzyko pęknięć?'],
+	['05', 'Konstrukcja', 'Czy konstrukcja jest dopasowana do projektu, zapisów MPZP, działki, obciążeń, liczby stanowisk i sposobu montażu technologii?'],
+	['06', 'Zabudowa wizualna', 'Jakie materiały, attyka, słupy, panele, oświetlenie i detale wpływają na odbiór obiektu oraz późniejszą trwałość wizualną?'],
+	['07', 'Technologia mycia', 'Pompy, programy, ciśnienie, piana, osmoza, uzdatnianie wody, dozowanie, ogrzewanie i zabezpieczenia zimowe decydują o pracy obiektu.'],
+	['08', 'Komponenty', 'Jakie zastosowano zawory, przewody, mocowania, szafy, sterowanie, izolację, wentylację, manometry, systemy bezpieczeństwa i elementy robocze?'],
+	['09', 'Koszty eksploatacji', 'Porównuj zużycie wody, ścieków, energii, chemii, ogrzewania, części, serwisu oraz wpływ technologii na czas mycia za 1 zł.'],
+	['10', 'Serwis i gwarancja', 'Sprawdź czas reakcji, zasady zgłoszeń, warunki gwarancji, wyłączenia, przeglądy, części, wsparcie i opiekę po uruchomieniu.'],
+	['11', 'Dokumentacja', 'Czy producent daje tylko dokumentację do pozwolenia na budowę, czy również pełniejszy projekt techniczny z instalacjami i konstrukcją?'],
+	['12', 'Umowa i odpowiedzialność', 'Czy deklaracje handlowe są wpisane w umowę? Kto odpowiada za zakres, terminy, odbiory, płatności, zmiany i ewentualne problemy?']
+];
+
+const hiddenCostSlides = [
+	{
+		kicker: 'Cena końcowa',
+		title: 'Nie mówi, co realnie kupujesz',
+		text: 'Niższa cena może wynikać z mniejszego zakresu, słabszych komponentów, braku dokumentacji, krótszej gwarancji albo przerzucenia części prac na inwestora.'
+	},
+	{
+		kicker: 'Budowa technologii',
+		title: 'Wpływa na czas serwisu',
+		text: 'Jeżeli dostęp do pomp, zaworów, dozowania albo sterowania jest utrudniony, każda awaria może oznaczać dłuższy postój i realną utratę przychodu.'
+	},
+	{
+		kicker: 'Umowa',
+		title: 'Musi potwierdzać rozmowę handlową',
+		text: 'Warto sprawdzić, czy obietnice z prezentacji znajdują się w projekcie umowy: zakres, terminy, gwarancja, serwis, odbiory i odpowiedzialność producenta.'
+	},
+	{
+		kicker: 'Jakość',
+		title: 'Może być droższa, ale bezpieczniejsza',
+		text: 'W tej branży nie szukasz wyłącznie najniższej ceny. Szukasz rozwiązania, które ogranicza ryzyko błędów, przestojów i kosztownych poprawek.'
+	}
+];
+
+const systemCards = [
+	{
+		title: 'Kontener technologiczny',
+		text: 'Pełniejsza przestrzeń techniczna może ułatwiać wentylację, izolację, serwis, dostęp do urządzeń, rozbudowę i uporządkowanie instalacji. Warto porównać nie tylko cenę, ale też ergonomię pracy w środku.'
+	},
+	{
+		title: 'Moduł technologiczny',
+		text: 'Mniejszy moduł może być atrakcyjny kosztowo i przestrzennie, ale trzeba sprawdzić dostęp do podzespołów, chłodzenie, obsługę serwisową, możliwość modernizacji i czas naprawy.'
+	},
+	{
+		title: 'Chemia płynna / proszkowa',
+		text: 'Rodzaj chemii wpływa na logistykę, dozowanie, koszty, jakość programu, serwis i powtarzalność efektu mycia. Nie chodzi o slogan, tylko o stabilny wynik na stanowisku.'
+	}
+];
+
+const floorCards = [
+	{
+		title: 'Płyta monolityczna',
+		text: 'Wymaga bardzo dobrej kontroli wykonania, betonu, zbrojenia, dylatacji, instalacji i ochrony ogrzewania. Błędy wykonawcze mogą powodować pęknięcia, przeróbki i kosztowne naprawy.'
+	},
+	{
+		title: 'Posadzka prefabrykowana',
+		text: 'Może dawać większą powtarzalność, precyzję instalacji i szybszą organizację budowy, ale powinna być częścią systemu technologicznego, a nie tylko gotowym elementem betonowym.'
+	},
+	{
+		title: 'Instalacje w posadzce',
+		text: 'Odpływy, ogrzewanie, arot, sterowanie, rury, odwodnienie i punkty montażowe muszą pasować do technologii, konstrukcji i rzeczywistego układu stanowisk.'
+	}
+];
+
+const technologyPoints = [
+	['Pompy i ciśnienie', 'Sprawdź nie tylko deklarowane ciśnienie, ale też stabilność pracy, drgania, żywotność i dostęp serwisowy.'],
+	['Dozowanie chemii', 'Ważna jest niezależność stanowisk, powtarzalność dozowania i możliwość regulacji pod lokalne warunki.'],
+	['Uzdatnianie wody', 'Filtracja, osmoza, jakość wody i ochrona membran wpływają na efekt mycia oraz koszty pracy.'],
+	['Zabezpieczenie zimowe', 'Ogrzewanie posadzki, anti-freeze, obiegi i sterowanie muszą być oceniane pod polskie warunki zimowe.'],
+	['Oszczędność mediów', 'Zużycie wody, ścieków, energii i chemii może mocno różnić się między technologiami. To wpływa na zysk przez lata.'],
+	['Gotowość do modernizacji', 'Dobra technologia powinna umożliwiać późniejsze aktualizacje, serwis, wymianę elementów i rozwój programów.']
+];
+
+const documentationCards = [
+	{
+		number: '01',
+		title: 'Projekt architektoniczno-budowlany',
+		text: 'Służy głównie przejściu procedury pozwolenia na budowę. Pokazuje formalny zakres inwestycji, ale nie zawsze daje inwestorowi pełny obraz techniczny instalacji i konstrukcji.'
+	},
+	{
+		number: '02',
+		title: 'Projekt techniczny',
+		text: 'To praktyczna dokumentacja branżowa: instalacje, konstrukcja, technologia i rozwiązania potrzebne do realizacji oraz późniejszych odbiorów po wybudowaniu obiektu.'
+	},
+	{
+		number: '03',
+		title: 'Wartość dodatkowa',
+		text: 'Pełniejsza dokumentacja ogranicza chaos na budowie, ułatwia odbiory, porządkuje odpowiedzialność i pomaga inwestorowi po zakończeniu montażu.'
+	}
+];
+
+const contractCards = [
+	['Draft umowy', 'Czy to, co mówi handlowiec, znajduje się w zapisach umownych? Sprawdź terminy, zakres, płatności, odbiory, odpowiedzialność i procedurę zmian.'],
+	['Warunki gwarancji', 'Na co dokładnie jest gwarancja, na jak długo, jakie są wyłączenia, czy wymagane są płatne przeglądy i jakie obowiązki ma inwestor?'],
+	['Szkolenie inwestora', 'Czy producent uczy obsługi systemu, programów, chemii, ustawień, podstaw serwisu, kontroli kosztów i reakcji na typowe sytuacje?'],
+	['Dostęp do części i chemii', 'Czy inwestor ma zapewniony dostęp do kompatybilnych części, akcesoriów, materiałów eksploatacyjnych i chemii po uruchomieniu myjni?']
+];
+
+const questionGroups = [
+	{
+		title: 'Zakres i odpowiedzialność',
+		items: [
+			'Co dokładnie obejmuje cena, a czego nie obejmuje?',
+			'Kto odpowiada za technologię, montaż, uruchomienie i koordynację?',
+			'Czy zakres handlowy jest później potwierdzony w umowie?',
+			'Jakie elementy inwestor musi zorganizować samodzielnie?'
+		]
+	},
+	{
+		title: 'Technologia i serwis',
+		items: [
+			'Jak wygląda dostęp do pomp, zaworów, sterowania i dozowania?',
+			'Ile trwa typowa interwencja serwisowa i czy wymaga rozbierania modułów?',
+			'Czy awaria jednego programu zatrzymuje całe stanowisko albo całą myjnię?',
+			'Czy technologia jest przygotowana do modernizacji po kilku latach?'
+		]
+	},
+	{
+		title: 'Dokumentacja i formalności',
+		items: [
+			'Czy oferta obejmuje projekt techniczny, czy tylko dokumentację do pozwolenia?',
+			'Czy dokumentacja obejmuje instalacje, konstrukcję i rozwiązania branżowe?',
+			'Czy producent pomaga projektantowi w prawidłowym ułożeniu technologii na działce?',
+			'Czy inwestor otrzymuje dokumenty potrzebne do dalszych procedur po budowie?'
+		]
+	}
+];
+
+const faqItems = [
+	{
+		question: 'Jak porównać oferty na myjnię bezdotykową?',
+		answer:
+			'Nie porównuj wyłącznie ceny końcowej. Porównuj zakres, technologię, posadzkę, konstrukcję, zabudowę, komponenty, dokumentację, umowę, gwarancję, serwis, dostęp do części i koszty eksploatacji.'
+	},
+	{
+		question: 'Dlaczego najtańsza oferta może być ryzykowna?',
+		answer:
+			'Niższa cena może oznaczać mniejszy zakres, słabsze komponenty, mniej dokumentacji, trudniejszy serwis, krótszą gwarancję albo koszty, które pojawią się dopiero na budowie lub po uruchomieniu myjni.'
+	},
+	{
+		question: 'Czym różni się myjnia kontenerowa od modułowej?',
+		answer:
+			'Różnica dotyczy przede wszystkim przestrzeni technologicznej, ergonomii serwisowej, izolacji, wentylacji, możliwości rozbudowy i dostępu do urządzeń. Nie zawsze większy element jest automatycznie lepszy, ale trzeba sprawdzić realny komfort eksploatacji.'
+	},
+	{
+		question: 'Czy posadzka ma duże znaczenie przy porównaniu ofert?',
+		answer:
+			'Tak. Posadzka w myjni to nie tylko beton. To element, w którym znajdują się odpływy, ogrzewanie, instalacje i punkty techniczne. Błędy w posadzce mogą generować kosztowne przeróbki i awarie.'
+	},
+	{
+		question: 'Czy projekt techniczny jest ważny dla inwestora?',
+		answer:
+			'Tak. Projekt architektoniczno-budowlany służy głównie do pozwolenia na budowę, natomiast projekt techniczny porządkuje instalacje, konstrukcję i rozwiązania branżowe. To duża wartość przy realizacji oraz późniejszych procedurach po wybudowaniu.'
+	},
+	{
+		question: 'Co sprawdzić w warunkach gwarancji?',
+		answer:
+			'Trzeba sprawdzić zakres gwarancji, czas jej trwania, wyłączenia, obowiązkowe przeglądy, procedurę zgłoszeń, dostępność serwisu, czas reakcji i dostęp do części po okresie gwarancyjnym.'
+	},
+	{
+		question: 'Jak technologia wpływa na zysk myjni?',
+		answer:
+			'Technologia wpływa na zużycie wody, ścieków, energii, chemii, awaryjność, czas serwisu i jakość mycia. To wszystko decyduje o kosztach eksploatacji i stabilności przychodu.'
+	},
+	{
+		question: 'Czy warto wybrać droższą ofertę?',
+		answer:
+			'W wielu przypadkach tak, jeśli droższa oferta oznacza lepszą technologię, dokumentację, serwis, gwarancję, niższe koszty eksploatacji i mniejsze ryzyko przestojów. Celem nie jest najniższa cena, tylko bezpieczna inwestycja.'
+	}
+];
+
 const relatedLinks = [
-	[
-		"Koszt budowy myjni",
-		"/ile-kosztuje-myjnia-bezdotykowa/"
-	],
-	[
-		"Opłacalność myjni",
-		"/ile-zarabia-myjnia-bezdotykowa/"
-	],
-	[
-		"Działka pod myjnię",
-		"/dzialka-pod-myjnie-bezdotykowa/"
-	],
-	[
-		"Porównanie ofert",
-		"/jak-porownac-oferty-myjni-bezdotykowej/"
-	],
-	[
-		"Budowa krok po kroku",
-		"/budowa-myjni-bezdotykowej-krok-po-kroku/"
-	],
-	[
-		"Błędy inwestora",
-		"/najczestsze-bledy-przy-budowie-myjni/"
-	]
+	['Koszt budowy myjni', '/ile-kosztuje-myjnia-bezdotykowa/'],
+	['Ile zarabia myjnia?', '/ile-zarabia-myjnia-bezdotykowa/'],
+	['Działka pod myjnię', '/dzialka-pod-myjnie-bezdotykowa/'],
+	['Budowa krok po kroku', '/budowa-myjni-bezdotykowej-krok-po-kroku/'],
+	['Błędy inwestora', '/najczestsze-bledy-przy-budowie-myjni/'],
+	['Poradnik inwestora', '/poradnik/']
 ];
 
 const faqSchema = {
-	"@context": "https://schema.org",
-	"@type": "FAQPage",
-	"mainEntity": [
-		{
-			"@type": "Question",
-			"name": "Czy najtańsza oferta może być dobra?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Może, ale tylko jeśli zakres, komponenty, serwis i koszty eksploatacji są porównywalne z innymi rozwiązaniami."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "O co zapytać producenta?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "O dokładny zakres, komponenty, zużycia, serwis, gwarancję, automatykę, system płatności i elementy nieujęte w cenie."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Czy droższa oferta zawsze jest lepsza?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Nie zawsze. Wyższa cena ma sens tylko wtedy, gdy wynika z lepszego zakresu, jakości, serwisu lub niższego ryzyka."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Kiedy porównanie ofert ma sens?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Po analizie działki i ustaleniu realnej konfiguracji myjni dla konkretnej lokalizacji."
-			}
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer
 		}
-	]
+	}))
 };
 ---
 
 <Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
 	<Header />
 
-	<main class="guide-page">
-		<section class="guide-hero" aria-labelledby="page-title">
-			<div class="container guide-hero-grid">
-				<div>
+	<main class="offer-page">
+		<section class="offer-hero" aria-labelledby="page-title">
+			<div class="container offer-hero-grid">
+				<div class="offer-hero-copy">
 					<p class="eyebrow">
 						<span></span>
-						{page.eyebrow}
+						Porównanie ofert
 					</p>
 
 					<h1 id="page-title">
-						{page.hero.before}
-						<strong>{page.hero.strong}</strong>
+						Jak porównać oferty producentów myjni i nie wybrać
+						<strong>pozornie najtańszego rozwiązania?</strong>
 					</h1>
 
-					<p class="guide-lead">{page.hero.lead}</p>
+					<p class="offer-lead">
+						Oferta na myjnię bezdotykową to nie tylko cena końcowa. To zakres technologii,
+						posadzki, konstrukcji, dokumentacji, umowy, serwisu, gwarancji i odpowiedzialności
+						producenta za inwestycję, która ma pracować przez lata.
+					</p>
 
-					<div class="guide-actions">
-						<a class="guide-button-green" href="/#kontakt">
-							Prześlij lokalizację
+					<div class="offer-actions">
+						<a class="offer-button-green" href="/#kontakt">
+							Prześlij ofertę do analizy
 							<span aria-hidden="true">→</span>
 						</a>
-						<a class="guide-button-light" href="/poradnik/">
-							Wróć do poradnika
-							<span aria-hidden="true">→</span>
+						<a class="offer-button-light" href="#checklista">
+							Zobacz checklistę
+							<span aria-hidden="true">↓</span>
 						</a>
 					</div>
 
-					<div class="guide-chips" aria-label="Najważniejsze tematy strony">
-						{page.quick.map((item) => <span>{item}</span>)}
+					<div class="offer-chips" aria-label="Najważniejsze tematy strony">
+						{heroChips.map((item) => <span>{item}</span>)}
 					</div>
 				</div>
 
-				<aside class="guide-visual" aria-label="Grafika do uzupełnienia">
-					<div class="guide-visual-card">
-						<div class="guide-stat"><strong>{page.hero.statA}</strong><span>01</span></div>
-						<div class="guide-stat"><strong>{page.hero.statB}</strong><span>02</span></div>
-						<div class="guide-stat"><strong>{page.hero.statC}</strong><span>03</span></div>
-					</div>
-					<div class="guide-placeholder">
-						Miejsce na mocną grafikę podstrony — docelowo wstawimy WebP dopasowany do tematu.
+				<aside class="offer-hero-panel" aria-label="Najważniejszy wniosek">
+					<div class="offer-panel-logo">inwestycjawmyjnie.pl</div>
+					<p>Najważniejsza zasada</p>
+					<h2>Cena jest początkiem rozmowy, nie decyzją.</h2>
+					<span>
+						Dwie oferty mogą wyglądać podobnie w PDF-ie, ale oznaczać zupełnie inną
+						technologię, inne koszty eksploatacji i inny poziom bezpieczeństwa inwestora.
+					</span>
+					<div class="offer-mini-grid">
+						<b>zakres</b>
+						<b>jakość</b>
+						<b>umowa</b>
+						<b>serwis</b>
 					</div>
 				</aside>
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="cards-title">
+		<section class="offer-section" aria-labelledby="decision-title">
 			<div class="container">
-				<div class="guide-split">
+				<div class="offer-split">
 					<div>
-						<p class="eyebrow">
-							<span></span>
-							Analiza inwestora
-						</p>
-						<h2 id="cards-title">Co porównać <strong>przed decyzją?</strong></h2>
+						<p class="eyebrow"><span></span>Krótka odpowiedź</p>
+						<h2 id="decision-title">
+							Nie porównuj ceny. Porównuj <strong>to, co buduje inwestycję.</strong>
+						</h2>
 					</div>
-					<p>{page.cardsLead}</p>
+					<p>
+						Najniższa kwota nie zawsze oznacza najbezpieczniejszą decyzję. W branży myjni
+						jakość może kosztować więcej, ale daje spokój, przewidywalność i mniejsze ryzyko
+						przestojów, błędów wykonawczych oraz kosztownych poprawek.
+					</p>
 				</div>
 
-				<div class="guide-grid">
-					{page.cards.map((card) => (
-						<article class="guide-card">
-							<span class="guide-number">{card[0]}</span>
+				<div class="decision-grid">
+					{decisionCards.map((card) => (
+						<article class="decision-card">
+							<span>{card.number}</span>
+							<h3>{card.title}</h3>
+							<p>{card.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="offer-section offer-text-section" aria-labelledby="why-title">
+			<div class="container offer-article-grid">
+				<div class="offer-sticky-title">
+					<p class="eyebrow"><span></span>Dlaczego to trudne?</p>
+					<h2 id="why-title">
+						Dwie oferty mogą mieć podobną cenę, ale oznaczać <strong>zupełnie inną myjnię.</strong>
+					</h2>
+				</div>
+
+				<div class="offer-article-copy offer-article-card">
+					<p>
+						Porównanie ofert na myjnię bezdotykową jest trudne, bo producenci inaczej
+						opisują zakres. Jedna oferta może obejmować kontener, posadzkę, konstrukcję,
+						dokumentację, montaż i szkolenie, a druga tylko część technologii z długą listą
+						elementów po stronie inwestora.
+					</p>
+
+					<p>
+						Różnice mogą zaczynać się już od podstaw: kontener technologiczny albo moduł,
+						chemia płynna albo proszkowa, posadzka monolityczna albo prefabrykowana,
+						inny standard konstrukcji, inna zabudowa, inne pompy, zawory, sterowanie,
+						ogrzewanie, uzdatnianie wody, systemy zimowe, serwis i gwarancja.
+					</p>
+
+					<p>
+						Oferta handlowa to dopiero pierwszy dokument. Równie ważne są draft umowy,
+						warunki gwarancji, sposób odbioru, serwis, szkolenie, dostęp do części,
+						akcesoriów i chemii oraz to, czy deklaracje handlowca są później zapisane
+						w dokumentach.
+					</p>
+
+					<div class="offer-quote">
+						<strong>W tej podstronie nie szukamy najniższej ceny.</strong>
+						<span>Szukamy jakości, kompletności, odpowiedzialności i technologii, która ma zarabiać przez lata.</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="offer-section" id="checklista" aria-labelledby="criteria-title">
+			<div class="container">
+				<div class="offer-split">
+					<div>
+						<p class="eyebrow"><span></span>12 kryteriów</p>
+						<h2 id="criteria-title">
+							Co realnie porównać <strong>w ofertach producentów?</strong>
+						</h2>
+					</div>
+					<p>
+						Dobra oferta powinna być czytelna, kompletna i możliwa do sprawdzenia.
+						Nie wystarczy porównać ceny końcowej. Trzeba wiedzieć, z czego ta cena wynika.
+					</p>
+				</div>
+
+				<div class="criteria-grid">
+					{criteriaCards.map((card) => (
+						<article class="criteria-card">
+							<span>{card[0]}</span>
 							<h3>{card[1]}</h3>
 							<p>{card[2]}</p>
 						</article>
@@ -240,23 +387,28 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="gallery-title">
+		<section class="offer-section" aria-labelledby="hidden-title">
 			<div class="container">
-				<div class="guide-carousel-shell" data-subpage-carousel>
-					<div class="guide-carousel-head">
-						<h2 id="gallery-title">{page.galleryTitle}</h2>
-						<div class="guide-carousel-nav" aria-label="Nawigacja sekcji">
-							<button class="guide-carousel-arrow" type="button" data-subpage-prev aria-label="Poprzedni element">←</button>
-							<button class="guide-carousel-arrow" type="button" data-subpage-next aria-label="Następny element">→</button>
+				<div class="offer-carousel" data-offer-carousel>
+					<div class="offer-carousel-head">
+						<div>
+							<p class="eyebrow light"><span></span>Czego nie widać w cenie?</p>
+							<h2 id="hidden-title">
+								Największe różnice pojawiają się <strong>po uruchomieniu myjni</strong>
+							</h2>
+						</div>
+						<div class="offer-carousel-nav" aria-label="Nawigacja slajdera">
+							<button type="button" data-offer-prev aria-label="Poprzedni element">←</button>
+							<button type="button" data-offer-next aria-label="Następny element">→</button>
 						</div>
 					</div>
 
-					<div class="guide-carousel-track" data-subpage-track>
-						{page.gallery.map((slide) => (
-							<article class="guide-slide">
-								<strong>{slide[0]}</strong>
-								<h3>{slide[0]}</h3>
-								<p>{slide[1]}</p>
+					<div class="offer-carousel-track" data-offer-track>
+						{hiddenCostSlides.map((slide) => (
+							<article class="offer-slide">
+								<span>{slide.kicker}</span>
+								<h3>{slide.title}</h3>
+								<p>{slide.text}</p>
 							</article>
 						))}
 					</div>
@@ -264,52 +416,263 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="analysis-title">
+		<section class="offer-section" aria-labelledby="systems-title">
 			<div class="container">
-				<div class="guide-analysis">
-					<div class="guide-analysis-grid">
-						<div>
-							<p class="eyebrow light"><span></span>Analiza lokalizacji</p>
-							<h2 id="analysis-title">Masz kilka ofert i chcesz <strong>je uporządkować?</strong></h2>
-							<p>{page.analysisText}</p>
-						</div>
-						<a class="guide-button-green" href="/#kontakt">
-							Prześlij lokalizację
-							<span aria-hidden="true">→</span>
-						</a>
+				<div class="offer-split">
+					<div>
+						<p class="eyebrow"><span></span>Podstawowe różnice</p>
+						<h2 id="systems-title">
+							Kontener, moduł, chemia — <strong>już tutaj zaczyna się różnica w cenie</strong>
+						</h2>
+					</div>
+					<p>
+						Na pierwszy rzut oka każda myjnia wygląda podobnie: stanowiska, lance,
+						panele i programy. Różnice kryją się w rozwiązaniu technologicznym, ergonomii
+						serwisu, typie chemii i sposobie uporządkowania instalacji.
+					</p>
+				</div>
+
+				<div class="system-grid">
+					{systemCards.map((card) => (
+						<article class="system-card">
+							<h3>{card.title}</h3>
+							<p>{card.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="offer-section floor-section" aria-labelledby="floor-title">
+			<div class="container">
+				<div class="floor-panel">
+					<div>
+						<p class="eyebrow light"><span></span>Posadzka</p>
+						<h2 id="floor-title">
+							Posadzka to nie tylko beton. To <strong>część systemu technologicznego.</strong>
+						</h2>
+						<p>
+							Na myjni posadzka pracuje w wodzie, soli, mrozie, chemii, ruchu samochodów
+							i cyklach ogrzewania. W niej spotykają się odpływy, ogrzewanie, instalacje,
+							punkty montażowe i geometria stanowisk. Dlatego trzeba ją porównywać tak samo
+							poważnie jak technologię mycia.
+						</p>
+					</div>
+
+					<div class="floor-grid">
+						{floorCards.map((card) => (
+							<article>
+								<h3>{card.title}</h3>
+								<p>{card.text}</p>
+							</article>
+						))}
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-faq" aria-labelledby="faq-title">
-			<div class="container">
-				<div class="guide-split">
-					<div>
-						<p class="eyebrow"><span></span>FAQ</p>
-						<h2 id="faq-title">Najczęstsze pytania <strong>inwestora</strong></h2>
-					</div>
-					<p>Krótko i konkretnie — pytania, które pomagają lepiej przygotować decyzję przed rozmową z projektantem, doradcą albo dostawcą.</p>
+		<section class="offer-section" aria-labelledby="visual-title">
+			<div class="container visual-grid">
+				<div>
+					<p class="eyebrow"><span></span>Konstrukcja i wygląd</p>
+					<h2 id="visual-title">
+						Konstrukcja jest techniczna. Zabudowa jest wizualna. <strong>Nie myl ich roli.</strong>
+					</h2>
 				</div>
 
-				<div class="guide-faq-list">
-					{page.faq.map((item, index) => (
-						<details class="guide-faq-item" open={index === 0}>
-							<summary>{item[0]}</summary>
+				<div class="visual-copy offer-article-card">
+					<p>
+						Konstrukcja musi być zgodna z projektem, działką, obciążeniami, zapisami
+						planistycznymi, układem stanowisk i sposobem montażu technologii. To element,
+						którego nie powinno się oceniać wyłącznie po wyglądzie albo wizualizacji.
+					</p>
+					<p>
+						Zabudowa wpływa na odbiór myjni, estetykę, rozpoznawalność i pierwsze wrażenie
+						klienta. Jest ważna, ale nie może przykrywać pytania o technologię, serwis,
+						koszty eksploatacji i jakość komponentów.
+					</p>
+					<div class="offer-quote small">
+						<strong>Ładna attyka nie obniży rachunków za media.</strong>
+						<span>Wygląd przyciąga klienta, ale technologia i serwis utrzymują rentowność.</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="offer-section" aria-labelledby="technology-title">
+			<div class="container">
+				<div class="offer-split">
+					<div>
+						<p class="eyebrow"><span></span>Technologia</p>
+						<h2 id="technology-title">
+							Najważniejsze elementy oferty są często <strong>niewidoczne dla inwestora</strong>
+						</h2>
+					</div>
+					<p>
+						Inwestor widzi panele, lance i programy. Rentowność budują jednak pompy,
+						sterowanie, dozowanie, uzdatnianie wody, zabezpieczenia zimowe, odzysk mediów,
+						jakość komponentów i łatwość serwisu.
+					</p>
+				</div>
+
+				<div class="technology-grid">
+					{technologyPoints.map((item) => (
+						<article class="technology-card">
+							<h3>{item[0]}</h3>
 							<p>{item[1]}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="offer-section documentation-section" aria-labelledby="documentation-title">
+			<div class="container">
+				<div class="documentation-head">
+					<p class="eyebrow"><span></span>Dokumentacja projektowa</p>
+					<h2 id="documentation-title">
+						Ukryta wartość dobrej oferty: <strong>projekt techniczny</strong>
+					</h2>
+					<p>
+						Przy porównaniu producentów trzeba sprawdzić nie tylko urządzenia, ale też
+						jaką dokumentację inwestor realnie otrzymuje. To może mieć ogromne znaczenie
+						przy budowie, odbiorach i późniejszym uporządkowaniu formalności.
+					</p>
+				</div>
+
+				<div class="documentation-grid">
+					{documentationCards.map((card) => (
+						<article class="documentation-card">
+							<span>{card.number}</span>
+							<h3>{card.title}</h3>
+							<p>{card.text}</p>
+						</article>
+					))}
+				</div>
+
+				<div class="documentation-note">
+					<strong>To właśnie tutaj tania oferta może okazać się uboższa.</strong>
+					<span>
+						Jeżeli inwestor dostaje tylko minimum potrzebne do rozpoczęcia procedury,
+						może później samodzielnie porządkować elementy, które lepszy producent
+						uwzględnia już na etapie dokumentacji technicznej.
+					</span>
+				</div>
+			</div>
+		</section>
+
+		<section class="offer-section contract-section" aria-labelledby="contract-title">
+			<div class="container contract-panel">
+				<div>
+					<p class="eyebrow light"><span></span>Umowa, gwarancja i serwis</p>
+					<h2 id="contract-title">
+						Oferta handlowa to jedno. <strong>Warunki po podpisaniu umowy to drugie.</strong>
+					</h2>
+					<p>
+						Na etapie prezentacji wiele rzeczy brzmi podobnie. Prawdziwe różnice widać
+						dopiero w umowie, gwarancji, zasadach serwisu, szkoleniu i dostępności części.
+						Myjnia zarabia wtedy, kiedy pracuje — dlatego czas serwisu i ergonomia technologii
+						mają bezpośredni wpływ na wynik inwestora.
+					</p>
+				</div>
+
+				<div class="contract-grid">
+					{contractCards.map((card) => (
+						<article>
+							<h3>{card[0]}</h3>
+							<p>{card[1]}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="offer-section questions-section" aria-labelledby="questions-title">
+			<div class="container">
+				<div class="offer-split">
+					<div>
+						<p class="eyebrow"><span></span>Pytania przed decyzją</p>
+						<h2 id="questions-title">
+							Zapytaj producenta o rzeczy, których <strong>nie widać w pierwszej cenie</strong>
+						</h2>
+					</div>
+					<p>
+						Dobra oferta nie boi się pytań. Jeżeli producent potrafi jasno wyjaśnić zakres,
+						technologię, dokumentację, serwis i odpowiedzialność, inwestor ma dużo większą
+						kontrolę nad decyzją.
+					</p>
+				</div>
+
+				<div class="question-grid">
+					{questionGroups.map((group) => (
+						<article class="question-card">
+							<h3>{group.title}</h3>
+							<ul>
+								{group.items.map((item) => <li>{item}</li>)}
+							</ul>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="offer-section" aria-labelledby="analysis-title">
+			<div class="container">
+				<div class="analysis-cta">
+					<div>
+						<p class="eyebrow light"><span></span>Analiza oferty</p>
+						<h2 id="analysis-title">
+							Masz ofertę na myjnię? Sprawdźmy, <strong>co naprawdę obejmuje.</strong>
+						</h2>
+						<p>
+							Prześlij ofertę, zakres, rzut działki albo podstawowe założenia inwestycji.
+							Na początku nie chodzi o wybór producenta, tylko o zrozumienie, czy porównujesz
+							podobny zakres i czy cena pokazuje pełny obraz inwestycji.
+						</p>
+					</div>
+					<a class="offer-button-green" href="/#kontakt">
+						Prześlij ofertę do analizy
+						<span aria-hidden="true">→</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="offer-section" aria-labelledby="faq-title">
+			<div class="container">
+				<div class="offer-split">
+					<div>
+						<p class="eyebrow"><span></span>FAQ</p>
+						<h2 id="faq-title">
+							Najczęstsze pytania o <strong>porównanie ofert</strong>
+						</h2>
+					</div>
+					<p>
+						Odpowiedzi na pytania, które warto zadać przed podpisaniem umowy i przed
+						wyborem rozwiązania tylko dlatego, że wygląda najtaniej w tabeli.
+					</p>
+				</div>
+
+				<div class="offer-faq-list">
+					{faqItems.map((item, index) => (
+						<details class="offer-faq-item" open={index === 0}>
+							<summary>{item.question}</summary>
+							<p>{item.answer}</p>
 						</details>
 					))}
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-related" aria-labelledby="related-title">
+		<section class="offer-section related-section" aria-labelledby="related-title">
 			<div class="container">
 				<p class="eyebrow"><span></span>Dalej w poradniku</p>
-				<h2 id="related-title">Powiązane tematy <strong>dla inwestora</strong></h2>
-				<div class="guide-related-grid">
+				<h2 id="related-title">
+					Powiązane tematy <strong>dla inwestora</strong>
+				</h2>
+				<div class="related-grid">
 					{relatedLinks.map((link) => (
-						<a class="guide-related-card" href={link[1]}>{link[0]} →</a>
+						<a class="related-card" href={link[1]}>{link[0]} <span>→</span></a>
 					))}
 				</div>
 			</div>
@@ -321,32 +684,39 @@ const faqSchema = {
 </Layout>
 
 <style>
-	.guide-page {
+	.offer-page {
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
 		background: #fff;
 	}
 
-	.guide-hero {
+	.offer-hero {
 		position: relative;
 		overflow: hidden;
-		padding: clamp(84px, 8vw, 132px) 0 clamp(64px, 7vw, 104px);
+		padding: clamp(84px, 8vw, 132px) 0 clamp(70px, 7vw, 110px);
 		background:
-			radial-gradient(circle at 78% 14%, rgba(18, 104, 255, 0.08), transparent 32%),
-			radial-gradient(circle at 16% 26%, rgba(114, 240, 105, 0.1), transparent 28%),
+			radial-gradient(circle at 80% 12%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 18% 28%, rgba(114, 240, 105, 0.11), transparent 30%),
 			linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
 	}
 
-	.guide-hero-grid {
+	.offer-hero-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
-		gap: clamp(34px, 5vw, 70px);
+		grid-template-columns: minmax(0, 1fr) minmax(380px, 0.66fr);
+		gap: clamp(34px, 5vw, 74px);
 		align-items: center;
 	}
 
-	.guide-hero h1,
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.offer-hero h1,
+	.offer-split h2,
+	.offer-sticky-title h2,
+	.floor-panel h2,
+	.visual-grid h2,
+	.documentation-head h2,
+	.contract-panel h2,
+	.analysis-cta h2,
+	.related-section h2 {
 		margin: 0;
 		color: var(--ink);
 		font-weight: 950;
@@ -354,16 +724,20 @@ const faqSchema = {
 		line-height: 0.94;
 	}
 
-	.guide-hero h1 {
-		max-width: 940px;
-		font-size: clamp(3.35rem, 6.8vw, 7.05rem);
+	.offer-hero h1 {
+		max-width: 1060px;
+		font-size: clamp(3.25rem, 6.35vw, 7.05rem);
 	}
 
-	.guide-hero h1 strong,
-	.guide-split h2 strong,
-	.guide-analysis h2 strong,
-	.guide-faq h2 strong,
-	.guide-related h2 strong {
+	.offer-hero h1 strong,
+	.offer-split h2 strong,
+	.offer-sticky-title h2 strong,
+	.floor-panel h2 strong,
+	.visual-grid h2 strong,
+	.documentation-head h2 strong,
+	.contract-panel h2 strong,
+	.analysis-cta h2 strong,
+	.related-section h2 strong {
 		background: linear-gradient(90deg, #0756d8 0%, #1268ff 38%, #4fa3ff 72%, #9ed7ff 100%);
 		-webkit-background-clip: text;
 		background-clip: text;
@@ -371,25 +745,25 @@ const faqSchema = {
 		font-weight: inherit;
 	}
 
-	.guide-lead {
-		max-width: 760px;
+	.offer-lead {
+		max-width: 800px;
 		margin: 28px 0 0;
 		color: #667085;
-		font-size: clamp(1.04rem, 1.35vw, 1.28rem);
+		font-size: clamp(1.05rem, 1.35vw, 1.28rem);
 		font-weight: 560;
 		line-height: 1.68;
 		letter-spacing: -0.012em;
 	}
 
-	.guide-actions {
+	.offer-actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 14px;
 		margin-top: 34px;
 	}
 
-	.guide-button-green,
-	.guide-button-light {
+	.offer-button-green,
+	.offer-button-light {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -403,109 +777,33 @@ const faqSchema = {
 		transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 	}
 
-	.guide-button-green {
+	.offer-button-green {
 		color: #06110a;
 		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
 		border: 1px solid rgba(114, 240, 105, 0.34);
 		box-shadow: 0 18px 44px rgba(76, 244, 89, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.56);
 	}
 
-	.guide-button-light {
+	.offer-button-light {
 		color: var(--ink);
-		background: rgba(255, 255, 255, 0.88);
+		background: rgba(255, 255, 255, 0.9);
 		border: 1px solid rgba(8, 16, 32, 0.1);
 		box-shadow: 0 12px 34px rgba(8, 16, 32, 0.06);
 	}
 
-	.guide-button-green:hover,
-	.guide-button-light:hover {
+	.offer-button-green:hover,
+	.offer-button-light:hover {
 		transform: translateY(-2px);
 	}
 
-	.guide-visual {
-		position: relative;
-		min-height: 520px;
-		padding: 28px;
-		border-radius: 46px;
-		background:
-			radial-gradient(circle at 68% 24%, rgba(18, 104, 255, 0.24), transparent 30%),
-			radial-gradient(circle at 28% 78%, rgba(114, 240, 105, 0.22), transparent 30%),
-			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
-		overflow: hidden;
-	}
-
-	.guide-visual::before {
-		content: '';
-		position: absolute;
-		inset: 42px;
-		border-radius: 34px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background:
-			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-		background-size: 48px 48px;
-		mask-image: linear-gradient(180deg, black, transparent 88%);
-	}
-
-	.guide-visual-card {
-		position: relative;
-		z-index: 1;
-		display: grid;
-		gap: 16px;
-	}
-
-	.guide-stat {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 18px;
-		min-height: 92px;
-		padding: 18px;
-		border-radius: 26px;
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.14);
-		backdrop-filter: blur(16px);
-		color: rgba(255, 255, 255, 0.86);
-	}
-
-	.guide-stat strong {
-		font-size: 0.8rem;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-	}
-
-	.guide-stat span {
-		color: #72f069;
-		font-size: 1.45rem;
-		font-weight: 950;
-		letter-spacing: -0.06em;
-	}
-
-	.guide-placeholder {
-		position: absolute;
-		left: 28px;
-		right: 28px;
-		bottom: 28px;
-		z-index: 1;
-		padding: 20px;
-		border-radius: 28px;
-		background: rgba(255, 255, 255, 0.09);
-		border: 1px dashed rgba(255, 255, 255, 0.22);
-		color: rgba(255, 255, 255, 0.76);
-		font-weight: 650;
-		line-height: 1.5;
-	}
-
-	.guide-chips {
+	.offer-chips {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
 		margin-top: 26px;
 	}
 
-	.guide-chips span {
+	.offer-chips span {
 		display: inline-flex;
 		align-items: center;
 		min-height: 38px;
@@ -519,51 +817,179 @@ const faqSchema = {
 		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045);
 	}
 
-	.guide-section {
+	.offer-hero-panel {
+		position: relative;
+		min-height: 520px;
+		padding: 32px;
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 70% 18%, rgba(18, 104, 255, 0.28), transparent 32%),
+			radial-gradient(circle at 22% 78%, rgba(114, 240, 105, 0.24), transparent 32%),
+			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
+		overflow: hidden;
+		color: #fff;
+	}
+
+	.offer-hero-panel::before {
+		content: '';
+		position: absolute;
+		inset: 48px;
+		border-radius: 34px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background:
+			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+		background-size: 48px 48px;
+		mask-image: linear-gradient(180deg, black, transparent 90%);
+	}
+
+	.offer-panel-logo,
+	.offer-hero-panel p,
+	.offer-hero-panel h2,
+	.offer-hero-panel span,
+	.offer-mini-grid {
+		position: relative;
+		z-index: 1;
+	}
+
+	.offer-panel-logo {
+		display: inline-flex;
+		padding: 9px 13px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		color: rgba(255, 255, 255, 0.82);
+		font-size: 0.82rem;
+		font-weight: 850;
+	}
+
+	.offer-hero-panel p {
+		margin: 84px 0 0;
+		color: #72f069;
+		font-size: 0.78rem;
+		font-weight: 950;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+	}
+
+	.offer-hero-panel h2 {
+		position: relative;
+		z-index: 1;
+		max-width: 420px;
+		margin: 16px 0 0;
+		font-size: clamp(2rem, 3vw, 3.4rem);
+		font-weight: 950;
+		letter-spacing: -0.07em;
+		line-height: 0.98;
+	}
+
+	.offer-hero-panel > span {
+		display: block;
+		max-width: 420px;
+		margin-top: 18px;
+		color: rgba(255, 255, 255, 0.74);
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.offer-mini-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 34px;
+	}
+
+	.offer-mini-grid b {
+		padding: 14px;
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.13);
+		color: rgba(255, 255, 255, 0.88);
+		font-size: 0.9rem;
+		font-weight: 850;
+		text-align: center;
+	}
+
+	.offer-section {
 		padding: clamp(72px, 7vw, 110px) 0;
 	}
 
-	.guide-split {
+	.offer-split,
+	.offer-article-grid,
+	.visual-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.48fr);
-		gap: clamp(28px, 4vw, 52px);
-		align-items: end;
-		margin-bottom: 40px;
+		grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.52fr);
+		gap: clamp(30px, 4vw, 56px);
+		align-items: start;
 	}
 
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.offer-split {
+		align-items: end;
+		margin-bottom: 42px;
+	}
+
+	.offer-split h2,
+	.offer-sticky-title h2,
+	.floor-panel h2,
+	.visual-grid h2,
+	.documentation-head h2,
+	.contract-panel h2,
+	.analysis-cta h2,
+	.related-section h2 {
 		font-size: clamp(2.55rem, 4.6vw, 5.1rem);
 	}
 
-	.guide-split p {
+	.offer-split > p,
+	.floor-panel > div > p,
+	.documentation-head p,
+	.contract-panel > div > p,
+	.analysis-cta p {
 		margin: 0;
 		color: #667085;
-		font-size: clamp(1rem, 1.2vw, 1.14rem);
+		font-size: clamp(1rem, 1.18vw, 1.14rem);
 		font-weight: 560;
 		line-height: 1.66;
 	}
 
-	.guide-grid {
+	.decision-grid,
+	.criteria-grid,
+	.system-grid,
+	.technology-grid,
+	.documentation-grid,
+	.question-grid,
+	.related-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 20px;
 	}
 
-	.guide-card {
-		position: relative;
-		min-height: 300px;
-		padding: 28px;
-		border-radius: 34px;
-		border: 1px solid rgba(8, 16, 32, 0.08);
-		background: linear-gradient(145deg, #ffffff, #f8f9fb);
-		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.86);
-		overflow: hidden;
+	.criteria-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 
-	.guide-card::before {
+	.decision-card,
+	.criteria-card,
+	.system-card,
+	.technology-card,
+	.documentation-card,
+	.question-card,
+	.related-card {
+		position: relative;
+		overflow: hidden;
+		min-height: 260px;
+		padding: 28px;
+		border-radius: 34px;
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07);
+	}
+
+	.decision-card::before,
+	.criteria-card::before,
+	.documentation-card::before,
+	.question-card::before {
 		content: '';
 		position: absolute;
 		right: -80px;
@@ -575,72 +1001,187 @@ const faqSchema = {
 		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -18px 34px rgba(8, 16, 32, 0.035), 0 22px 54px rgba(8, 16, 32, 0.055);
 	}
 
-	.guide-number {
+	.decision-card span,
+	.criteria-card span,
+	.documentation-card span {
 		position: relative;
 		z-index: 1;
 		display: block;
 		color: rgba(8, 16, 32, 0.12);
-		font-size: clamp(4.2rem, 5.2vw, 6.6rem);
+		font-size: clamp(4rem, 5vw, 6.4rem);
 		font-weight: 950;
 		letter-spacing: -0.09em;
 		line-height: 0.82;
 	}
 
-	.guide-card h3 {
+	.decision-card h3,
+	.criteria-card h3,
+	.system-card h3,
+	.technology-card h3,
+	.documentation-card h3,
+	.question-card h3 {
 		position: relative;
 		z-index: 1;
-		margin: 44px 0 0;
+		margin: 42px 0 0;
 		color: var(--ink);
-		font-size: clamp(1.45rem, 2vw, 2rem);
+		font-size: clamp(1.32rem, 1.75vw, 1.82rem);
 		font-weight: 950;
 		letter-spacing: -0.06em;
 		line-height: 1.02;
 	}
 
-	.guide-card p {
+	.system-card h3,
+	.technology-card h3,
+	.question-card h3 {
+		margin-top: 0;
+	}
+
+	.decision-card p,
+	.criteria-card p,
+	.system-card p,
+	.technology-card p,
+	.documentation-card p,
+	.question-card p {
 		position: relative;
 		z-index: 1;
 		margin: 14px 0 0;
 		color: #667085;
 		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.offer-text-section {
+		background: #f8f9fb;
+		overflow: hidden;
+	}
+
+	.offer-sticky-title {
+		position: sticky;
+		top: 120px;
+	}
+
+	.offer-sticky-title h2 {
+		max-width: 940px;
+	}
+
+	.offer-article-copy {
+		display: grid;
+		gap: 20px;
+	}
+
+	.offer-article-copy p,
+	.visual-copy p {
+		margin: 0;
+		color: #344054;
+		font-size: clamp(1.04rem, 1.24vw, 1.18rem);
+		font-weight: 560;
+		line-height: 1.76;
+	}
+
+	.offer-article-card {
+		position: relative;
+		padding: clamp(28px, 3vw, 42px);
+		border-radius: 38px;
+		background:
+			linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 253, 0.96)),
+			radial-gradient(circle at 92% 8%, rgba(18, 104, 255, 0.055), transparent 36%);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 24px 74px rgba(8, 16, 32, 0.075), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+	}
+
+	.offer-article-card::before {
+		content: '';
+		position: absolute;
+		right: -90px;
+		top: -110px;
+		width: 230px;
+		height: 230px;
+		border-radius: 54% 46% 42% 58% / 44% 58% 42% 56%;
+		background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(226, 236, 249, 0.6));
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -18px 34px rgba(8, 16, 32, 0.035), 0 22px 54px rgba(8, 16, 32, 0.055);
+		opacity: 0.62;
+		pointer-events: none;
+	}
+
+	.offer-article-card > * {
+		position: relative;
+		z-index: 1;
+	}
+
+	.offer-quote {
+		padding: 28px;
+		border-radius: 32px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.06);
+	}
+
+	.offer-quote.small {
+		margin-top: 22px;
+	}
+
+	.offer-quote strong {
+		display: block;
+		font-size: clamp(1.35rem, 2vw, 2rem);
+		font-weight: 950;
+		letter-spacing: -0.055em;
+	}
+
+	.offer-quote span {
+		display: block;
+		margin-top: 10px;
+		color: #667085;
+		font-weight: 560;
 		line-height: 1.6;
 	}
 
-	.guide-carousel-shell {
-		position: relative;
+	.offer-carousel {
 		overflow: hidden;
-		padding: clamp(28px, 4vw, 44px);
-		border-radius: 42px;
-		background: linear-gradient(145deg, #05070d, #121a29 62%, #05070d);
+		padding: clamp(30px, 4vw, 48px);
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 12% 20%, rgba(18, 104, 255, 0.22), transparent 34%),
+			radial-gradient(circle at 88% 10%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(145deg, #05070d, #121a29 60%, #05070d);
 		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.2);
+		color: #fff;
 	}
 
-	.guide-carousel-head {
+	.offer-carousel-head {
 		display: flex;
 		align-items: end;
 		justify-content: space-between;
 		gap: 24px;
-		margin-bottom: 24px;
-		color: #fff;
+		margin-bottom: 28px;
 	}
 
-	.guide-carousel-head h2 {
-		max-width: 720px;
+	.offer-carousel-head h2 {
+		max-width: 900px;
 		margin: 0;
-		font-size: clamp(2.1rem, 3.8vw, 4.3rem);
+		font-size: clamp(2.3rem, 4vw, 4.6rem);
 		font-weight: 950;
 		letter-spacing: -0.075em;
 		line-height: 0.96;
 	}
 
-	.guide-carousel-nav {
+	.offer-carousel-head h2 strong,
+	.floor-panel h2 strong,
+	.contract-panel h2 strong,
+	.analysis-cta h2 strong {
+		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.offer-carousel-nav {
 		display: flex;
 		gap: 12px;
 	}
 
-	.guide-carousel-arrow {
-		width: 52px;
-		height: 52px;
+	.offer-carousel-nav button {
+		width: 54px;
+		height: 54px;
 		border-radius: 999px;
 		border: 1px solid rgba(255, 255, 255, 0.14);
 		background: rgba(255, 255, 255, 0.1);
@@ -650,7 +1191,7 @@ const faqSchema = {
 		cursor: pointer;
 	}
 
-	.guide-carousel-track {
+	.offer-carousel-track {
 		display: grid;
 		grid-auto-flow: column;
 		grid-auto-columns: minmax(420px, 520px);
@@ -663,47 +1204,57 @@ const faqSchema = {
 		scrollbar-width: none;
 	}
 
-	.guide-carousel-track::-webkit-scrollbar {
+	.offer-carousel-track::-webkit-scrollbar {
 		display: none;
 	}
 
-	.guide-slide {
+	.offer-slide {
 		scroll-snap-align: start;
-		min-height: 280px;
-		padding: 26px;
+		min-height: 300px;
+		padding: 28px;
 		border-radius: 30px;
 		background:
 			radial-gradient(circle at 86% 12%, rgba(114, 240, 105, 0.16), transparent 32%),
 			linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
 		border: 1px solid rgba(255, 255, 255, 0.16);
-		color: #fff;
 	}
 
-	.guide-slide strong {
+	.offer-slide span {
 		display: block;
-		font-size: 0.82rem;
+		color: #72f069;
+		font-size: 0.8rem;
 		font-weight: 950;
 		letter-spacing: 0.13em;
 		text-transform: uppercase;
-		color: #72f069;
 	}
 
-	.guide-slide h3 {
-		margin: 44px 0 0;
+	.offer-slide h3 {
+		margin: 56px 0 0;
 		font-size: 2rem;
 		font-weight: 950;
 		letter-spacing: -0.065em;
 		line-height: 1.02;
 	}
 
-	.guide-slide p {
+	.offer-slide p {
 		margin: 14px 0 0;
-		color: rgba(255, 255, 255, 0.72);
+		color: rgba(255, 255, 255, 0.74);
 		font-weight: 560;
 		line-height: 1.6;
 	}
 
-	.guide-analysis {
+	.system-card,
+	.technology-card {
+		min-height: 240px;
+	}
+
+	.floor-section {
+		padding-top: 0;
+	}
+
+	.floor-panel,
+	.contract-panel,
+	.analysis-cta {
 		padding: clamp(34px, 5vw, 58px);
 		border-radius: 48px;
 		background:
@@ -715,32 +1266,158 @@ const faqSchema = {
 		color: #fff;
 	}
 
-	.guide-analysis-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		gap: 30px;
-		align-items: end;
-	}
-
-	.guide-analysis h2 {
+	.floor-panel h2,
+	.contract-panel h2,
+	.analysis-cta h2 {
 		color: #fff;
 	}
 
-	.guide-analysis p {
-		max-width: 720px;
-		margin: 22px 0 0;
+	.floor-panel > div > p,
+	.contract-panel > div > p,
+	.analysis-cta p {
+		max-width: 940px;
+		margin-top: 22px;
 		color: rgba(255, 255, 255, 0.74);
-		font-weight: 560;
-		line-height: 1.68;
 	}
 
-	.guide-faq-list {
+	.floor-grid {
 		display: grid;
-		gap: 14px;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 16px;
 		margin-top: 34px;
 	}
 
-	.guide-faq-item {
+	.floor-grid article,
+	.contract-grid article {
+		padding: 24px;
+		border-radius: 28px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+	}
+
+	.floor-grid h3,
+	.contract-grid h3 {
+		margin: 0;
+		color: #fff;
+		font-size: 1.34rem;
+		font-weight: 950;
+		letter-spacing: -0.055em;
+		line-height: 1.04;
+	}
+
+	.floor-grid p,
+	.contract-grid p {
+		margin: 14px 0 0;
+		color: rgba(255, 255, 255, 0.74);
+		font-weight: 560;
+		line-height: 1.6;
+	}
+
+	.visual-grid {
+		align-items: start;
+	}
+
+	.visual-copy {
+		display: grid;
+		gap: 18px;
+	}
+
+	.documentation-section {
+		background: #f8f9fb;
+	}
+
+	.documentation-head {
+		max-width: 1080px;
+		margin-bottom: 38px;
+	}
+
+	.documentation-head p {
+		margin-top: 22px;
+	}
+
+	.documentation-card {
+		min-height: 300px;
+	}
+
+	.documentation-note {
+		display: grid;
+		gap: 10px;
+		margin-top: 22px;
+		padding: 28px;
+		border-radius: 32px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.06);
+	}
+
+	.documentation-note strong {
+		color: var(--ink);
+		font-size: clamp(1.22rem, 2vw, 1.8rem);
+		font-weight: 950;
+		letter-spacing: -0.055em;
+	}
+
+	.documentation-note span {
+		color: #667085;
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.contract-panel {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.7fr);
+		gap: clamp(28px, 4vw, 54px);
+		align-items: start;
+	}
+
+	.contract-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 14px;
+	}
+
+	.question-card ul {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		gap: 10px;
+		margin: 18px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.question-card li {
+		display: flex;
+		gap: 10px;
+		color: #344054;
+		font-weight: 650;
+		line-height: 1.5;
+	}
+
+	.question-card li::before {
+		content: '';
+		width: 9px;
+		height: 9px;
+		margin-top: 8px;
+		border-radius: 999px;
+		background: #72f069;
+		box-shadow: 0 0 0 5px rgba(114, 240, 105, 0.12);
+		flex: 0 0 auto;
+	}
+
+	.analysis-cta {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 32px;
+		align-items: end;
+	}
+
+	.offer-faq-list {
+		display: grid;
+		gap: 14px;
+	}
+
+	.offer-faq-item {
 		border-radius: 24px;
 		border: 1px solid rgba(8, 16, 32, 0.08);
 		background: #fff;
@@ -748,7 +1425,7 @@ const faqSchema = {
 		overflow: hidden;
 	}
 
-	.guide-faq-item summary {
+	.offer-faq-item summary {
 		display: flex;
 		justify-content: space-between;
 		gap: 18px;
@@ -760,11 +1437,11 @@ const faqSchema = {
 		list-style: none;
 	}
 
-	.guide-faq-item summary::-webkit-details-marker {
+	.offer-faq-item summary::-webkit-details-marker {
 		display: none;
 	}
 
-	.guide-faq-item summary::after {
+	.offer-faq-item summary::after {
 		content: '+';
 		display: grid;
 		place-items: center;
@@ -772,15 +1449,16 @@ const faqSchema = {
 		height: 34px;
 		border-radius: 999px;
 		background: #f4f6f9;
+		flex: 0 0 auto;
 	}
 
-	.guide-faq-item[open] summary::after {
+	.offer-faq-item[open] summary::after {
 		content: '−';
 		background: var(--ink);
 		color: #fff;
 	}
 
-	.guide-faq-item p {
+	.offer-faq-item p {
 		margin: 0;
 		padding: 0 24px 24px;
 		color: #667085;
@@ -788,120 +1466,199 @@ const faqSchema = {
 		line-height: 1.68;
 	}
 
-	.guide-related-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 18px;
+	.related-section h2 {
+		max-width: 900px;
+	}
+
+	.related-grid {
 		margin-top: 32px;
 	}
 
-	.guide-related-card {
-		padding: 24px;
-		border-radius: 28px;
-		background: #fff;
-		border: 1px solid rgba(8, 16, 32, 0.08);
-		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.055);
+	.related-card {
+		min-height: 150px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 20px;
+		color: var(--ink);
+		font-size: 1.16rem;
 		font-weight: 900;
-		letter-spacing: -0.035em;
+		letter-spacing: -0.04em;
+		text-decoration: none;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
 	}
 
-	@media (max-width: 1120px) {
-		.guide-hero-grid,
-		.guide-split,
-		.guide-analysis-grid {
+	.related-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.1);
+	}
+
+	.related-card span {
+		display: grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 999px;
+		background: var(--ink);
+		color: #fff;
+		flex: 0 0 auto;
+	}
+
+	@media (max-width: 1420px) {
+		.criteria-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 1180px) {
+		.offer-hero-grid,
+		.offer-split,
+		.offer-article-grid,
+		.visual-grid,
+		.contract-panel,
+		.analysis-cta {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.offer-sticky-title {
+			position: static;
+		}
+
+		.decision-grid,
+		.criteria-grid,
+		.system-grid,
+		.technology-grid,
+		.documentation-grid,
+		.question-grid,
+		.related-grid,
+		.floor-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
-		.guide-visual {
+		.offer-hero-panel {
 			min-height: 420px;
 		}
 	}
 
 	@media (max-width: 760px) {
-		.guide-hero {
+		.offer-hero {
 			padding-top: 72px;
 		}
 
-		.guide-hero h1 {
-			font-size: clamp(2.45rem, 12vw, 3.5rem);
+		.offer-hero h1 {
+			font-size: clamp(2.35rem, 11.5vw, 3.45rem);
 			line-height: 0.98;
 			letter-spacing: -0.07em;
 		}
 
-		.guide-actions,
-		.guide-button-green,
-		.guide-button-light {
+		.offer-actions,
+		.offer-button-green,
+		.offer-button-light {
 			width: 100%;
 		}
 
-		.guide-visual {
-			min-height: 360px;
+		.offer-hero-panel {
+			min-height: 380px;
 			border-radius: 34px;
+			padding: 26px;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.offer-hero-panel p {
+			margin-top: 58px;
+		}
+
+		.offer-mini-grid,
+		.decision-grid,
+		.criteria-grid,
+		.system-grid,
+		.technology-grid,
+		.documentation-grid,
+		.question-grid,
+		.related-grid,
+		.floor-grid {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-card {
+		.offer-split h2,
+		.offer-sticky-title h2,
+		.floor-panel h2,
+		.visual-grid h2,
+		.documentation-head h2,
+		.contract-panel h2,
+		.analysis-cta h2,
+		.related-section h2 {
+			font-size: clamp(2.15rem, 10.5vw, 3.3rem);
+			line-height: 0.98;
+			letter-spacing: -0.07em;
+		}
+
+		.decision-card,
+		.criteria-card,
+		.system-card,
+		.technology-card,
+		.documentation-card,
+		.question-card {
 			min-height: auto;
 			padding: 24px;
 			border-radius: 28px;
 		}
 
-		.guide-card h3 {
-			margin-top: 28px;
+		.decision-card h3,
+		.criteria-card h3,
+		.documentation-card h3 {
+			margin-top: 30px;
 		}
 
-		.guide-split h2,
-		.guide-analysis h2,
-		.guide-faq h2,
-		.guide-related h2 {
-			font-size: clamp(2.2rem, 10.5vw, 3.35rem);
-			line-height: 0.98;
-			letter-spacing: -0.07em;
+		.offer-carousel {
+			padding: 24px;
+			border-radius: 34px;
 		}
 
-		.guide-carousel-head {
+		.offer-carousel-head {
 			display: grid;
 		}
 
-		.guide-carousel-nav {
+		.offer-carousel-nav {
 			justify-content: center;
 		}
 
-		.guide-carousel-track {
+		.offer-carousel-track {
 			grid-auto-columns: 86vw;
-			margin-left: -20px;
-			margin-right: -20px;
-			padding-left: 20px;
-			padding-right: 20px;
+			margin-left: -14px;
+			margin-right: -14px;
+			padding-left: 14px;
+			padding-right: 14px;
 		}
 
-		.guide-analysis-grid {
-			gap: 24px;
+		.offer-slide {
+			min-height: 280px;
+		}
+
+		.floor-panel,
+		.contract-panel,
+		.analysis-cta {
+			padding: 28px;
+			border-radius: 34px;
+		}
+
+		.analysis-cta .offer-button-green {
+			width: 100%;
 		}
 	}
 </style>
 
 <script is:inline>
-	const subpageCarousels = document.querySelectorAll('[data-subpage-carousel]');
+	const offerCarousels = document.querySelectorAll('[data-offer-carousel]');
 
-	subpageCarousels.forEach((carousel) => {
-		const track = carousel.querySelector('[data-subpage-track]');
-		const prev = carousel.querySelector('[data-subpage-prev]');
-		const next = carousel.querySelector('[data-subpage-next]');
+	offerCarousels.forEach((carousel) => {
+		const track = carousel.querySelector('[data-offer-track]');
+		const prev = carousel.querySelector('[data-offer-prev]');
+		const next = carousel.querySelector('[data-offer-next]');
 
 		if (!track || !prev || !next) return;
 
 		const getStep = () => {
-			const firstCard = track.querySelector('.guide-slide');
+			const firstCard = track.querySelector('.offer-slide');
 			if (!firstCard) return 360;
 			const styles = window.getComputedStyle(track);
 			const gap = parseFloat(styles.columnGap || styles.gap || '18');
@@ -917,4 +1674,3 @@ const faqSchema = {
 		});
 	});
 </script>
-

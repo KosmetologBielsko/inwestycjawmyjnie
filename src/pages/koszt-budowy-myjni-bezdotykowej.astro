@@ -4,234 +4,459 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const page = {
-	"filename": "koszt-budowy-myjni-bezdotykowej.astro",
-	"canonicalPath": "/ile-kosztuje-myjnia-bezdotykowa/",
-	"title": "Koszt budowy myjni bezdotykowej — co policzyć przed inwestycją?",
-	"description": "Koszt budowy myjni bezdotykowej rozpisany praktycznie: działka, projekt, budowa, technologia, media, urządzenia dodatkowe i rezerwa.",
-	"eyebrow": "Budżet inwestora",
-	"hero": {
-		"before": "Koszt budowy myjni to nie tylko",
-		"strong": "cena urządzeń.",
-		"lead": "Ta strona porządkuje elementy budżetu, które inwestor powinien policzyć przed porównywaniem ofert i wyborem technologii myjni.",
-		"statA": "budowa",
-		"statB": "technologia",
-		"statC": "rezerwa"
-	},
-	"quick": [
-		"działka",
-		"projekt",
-		"budowa",
-		"technologia",
-		"uruchomienie",
-		"rezerwa"
-	],
-	"cardsTitle": "Co wpisać do budżetu inwestycji?",
-	"cardsLead": "Najbezpieczniej traktować koszt jako sumę kilku bloków, a nie jedną pozycję ofertową.",
-	"cards": [
-		[
-			"01",
-			"Teren i przygotowanie",
-			"Niwelacja, prace ziemne, utwardzenia, odwodnienie, drogi manewrowe i przygotowanie miejsca pod stanowiska."
-		],
-		[
-			"02",
-			"Dokumentacja",
-			"Projekt, uzgodnienia, formalności, analiza warunków, kontakt z projektantem i przygotowanie procesu."
-		],
-		[
-			"03",
-			"Stanowiska i konstrukcja",
-			"Ilość stanowisk, dach, słupy, zabudowa, oświetlenie, podbitka, grafika i estetyka obiektu."
-		],
-		[
-			"04",
-			"Technologia i automatyka",
-			"Pompy, programy, płatności, sterowanie, ogrzewanie, zabezpieczenia i rozwiązania wpływające na eksploatację."
-		],
-		[
-			"05",
-			"Urządzenia dodatkowe",
-			"Odkurzacze, rozmieniarki, dyspensery, pranie dywaników, ozonator i inne elementy zwiększające koszyk klienta."
-		],
-		[
-			"06",
-			"Rezerwa i doposażenie",
-			"Budżet na zmiany, doposażenie, korekty i elementy, które pojawiają się dopiero po analizie technicznej."
-		]
-	],
-	"galleryTitle": "Budżet lepiej planować etapami",
-	"gallery": [
-		[
-			"Etap 1",
-			"Czy działka w ogóle nadaje się pod myjnię i jaki układ jest realny?"
-		],
-		[
-			"Etap 2",
-			"Jaki standard obiektu ma sens dla tej lokalizacji i potencjału ruchu?"
-		],
-		[
-			"Etap 3",
-			"Co dokładnie obejmuje oferta producenta, a co zostaje po stronie inwestora?"
-		],
-		[
-			"Etap 4",
-			"Jaka rezerwa zabezpiecza inwestora przed zmianami w trakcie budowy?"
-		]
-	],
-	"analysisTitle": "Masz działkę i chcesz uporządkować koszt?",
-	"analysisText": "Prześlij lokalizację. Wstępnie można sprawdzić, jakie elementy budżetu będą najważniejsze w konkretnym miejscu.",
-	"faq": [
-		[
-			"Czy ta strona dubluje temat ceny myjni?",
-			"Nie. Traktuje koszt szerzej: jako budowę całego obiektu, a nie tylko zakup technologii."
-		],
-		[
-			"Czy liczba stanowisk najmocniej wpływa na koszt?",
-			"Jest ważna, ale koszt mocno zależy też od działki, mediów, robót budowlanych, standardu i zakresu oferty."
-		],
-		[
-			"Czy urządzenia dodatkowe warto planować od razu?",
-			"Tak, bo wpływają na układ działki, instalacje, przychody dodatkowe i docelowy model działania obiektu."
-		],
-		[
-			"Kiedy porównywać producentów?",
-			"Po wstępnej analizie działki i budżetu, żeby porównywać realne rozwiązania, a nie przypadkowe konfiguracje."
-		]
-	]
+	canonicalPath: '/koszt-budowy-myjni-bezdotykowej/',
+	title: 'Koszt budowy myjni bezdotykowej — projekt, PZT i roboty budowlane',
+	description:
+		'Koszt budowy myjni bezdotykowej to nie tylko cena technologii. Sprawdź projekt, formalności, PZT, przyłącza, roboty ziemne, kostkę, krawężniki, separatory i rezerwę budżetową.'
 };
 
+const technologyRows = [
+	{
+		stations: '2 stanowiska',
+		amount: '500 000 zł netto',
+		note: 'orientacyjna wartość technologiczna do wstępnej kalkulacji inwestora'
+	},
+	{
+		stations: '3 stanowiska',
+		amount: '600 000 zł netto',
+		note: 'częsty wariant pierwszej samodzielnej inwestycji myjniowej'
+	},
+	{
+		stations: '4 stanowiska',
+		amount: '850 000 zł netto',
+		note: 'większy potencjał, ale też większe znaczenie układu działki'
+	},
+	{
+		stations: '5 stanowisk',
+		amount: '1 100 000 zł netto',
+		note: 'wariant dla mocniejszej lokalizacji i dobrze zaprojektowanej komunikacji'
+	},
+	{
+		stations: '6 stanowisk',
+		amount: '1 300 000 zł netto',
+		note: 'większa skala, która wymaga dokładniejszej analizy ruchu i budżetu'
+	}
+];
+
+const budgetLayers = [
+	{
+		number: '01',
+		title: 'Cena technologii',
+		text: 'Kontener albo moduł, technologia mycia, stanowiska, automatyka, programy, konstrukcja, posadzka, urządzenia i zakres producenta.'
+	},
+	{
+		number: '02',
+		title: 'Projekt i formalności',
+		text: 'Analiza działki, PZT, dokumentacja do pozwolenia, branże, uzgodnienia, operat wodnoprawny, zjazd i prowadzenie procesu.'
+	},
+	{
+		number: '03',
+		title: 'Prace budowlane',
+		text: 'Roboty ziemne, niwelacja, podbudowy, kostka, krawężniki, przyłącza, odwodnienie, separatory, osadniki, porządkowanie terenu.'
+	}
+];
+
+const projectScope = [
+	['Analiza działki', 'sprawdzenie podstawowych warunków lokalizacji, MPZP albo WZ, możliwości obsługi komunikacyjnej i ograniczeń formalnych'],
+	['Koncepcja inwestycji', 'ustalenie liczby stanowisk, położenia kontenera albo modułu, strefy mokrej, strefy suchej i komunikacji samochodów'],
+	['PZT', 'plan zagospodarowania terenu z układem myjni, urządzeń SPA, przyłączy, odwodnienia, separatorów, krawężników i nawierzchni'],
+	['Branże i media', 'koordynacja wody, kanalizacji, deszczówki, prądu, gazu, teletechniki, separatora, osadników i przyłączy'],
+	['Zjazd i pas drogowy', 'weryfikacja wjazdu, wyjazdu, ewentualnego nowego zjazdu albo przebudowy istniejącego zjazdu z drogi'],
+	['Operat wodnoprawny', 'przygotowanie albo koordynacja operatu, jeżeli sposób odprowadzenia wód, ścieków lub urządzenia wodne tego wymagają'],
+	['Pozwolenie na budowę', 'kompletacja dokumentacji, wnioski, korekty po uwagach urzędu i prowadzenie inwestora przez procedurę'],
+	['Materiał do kosztorysu', 'dane pozwalające określić m² nawierzchni, mb krawężników, zakres robót ziemnych, przyłącza i elementy infrastruktury']
+];
+
+const pztCards = [
+	{
+		title: 'Strefa mokra',
+		text: 'Stanowiska mycia, odwodnienie, posadzka, spadki, odpływy, kontener albo moduł techniczny, zasilanie technologii i układ pracy samochodów.'
+	},
+	{
+		title: 'Strefa sucha SPA',
+		text: 'Odkurzacze, dyspensery, pranie dywaników, ozonator, rozmieniarka, nalewak płynu i miejsce, w którym klient kończy usługę po myciu.'
+	},
+	{
+		title: 'Komunikacja i kolejka',
+		text: 'Wjazd, wyjazd, promienie skrętu, miejsce na oczekiwanie, ruch SUV-ów, busów i kierowców o różnym doświadczeniu.'
+	},
+	{
+		title: 'Infrastruktura budowlana',
+		text: 'Krawężniki, kostka, podbudowa, geokrata, utwardzenia, separator, osadniki, deszczówka, przyłącza, studnie i roboty ziemne.'
+	}
+];
+
+const worksCards = [
+	['01', 'Roboty ziemne', 'Niwelacja, wykopy, zasypki, stabilizacja, wymiana gruntu, przygotowanie podbudowy i prace koparką zależne od warunków działki.'],
+	['02', 'Rozbiórki i porządki', 'Usunięcie starego asfaltu, płyt, kostki, krawężników, fundamentów, wywóz gruzu, uporządkowanie terenu i przygotowanie placu.'],
+	['03', 'Podbudowy i utwardzenia', 'Kruszywo, warstwy nośne, zagęszczenie, stabilizacja, geokrata albo inne rozwiązania zależne od gruntu i obciążeń.'],
+	['04', 'Nawierzchnie', 'Kostka brukowa, płyty, obrzeża, krawężniki, strefy manewrowe, dojazdy, place oczekiwania i strefa urządzeń dodatkowych.'],
+	['05', 'Media i przyłącza', 'Prąd, woda, kanalizacja, gaz, teletechnika, monitoring, oświetlenie i ewentualne przebudowy infrastruktury na działce.'],
+	['06', 'Odwodnienie i separacja', 'Kanalizacja technologiczna, deszczówka, separator, osadniki, studnie, spadki i rozwiązania wymagane przez projekt oraz warunki lokalne.'],
+	['07', 'Zjazd i droga', 'Nowy zjazd, przebudowa istniejącego, pas drogowy, widoczność, oznakowanie, promienie skrętu i bezpieczne włączenie do ruchu.'],
+	['08', 'Urządzenia dodatkowe', 'Przygotowanie fundamentów, przewodów, zasilania i nawierzchni pod odkurzacze, dyspensery, pranie dywaników i inne elementy SPA.']
+];
+
+const unitCosts = [
+	['Kostka betonowa z ułożeniem', 'ok. 130–200 zł/m²', 'zależnie od kostki, regionu, wzoru, podbudowy i trudności prac'],
+	['Nawierzchnia z mocniejszą podbudową', 'ok. 180–300+ zł/m²', 'przy myjni trzeba myśleć o obciążeniach, wodzie, soli, ruchu i spadkach'],
+	['Sama robocizna układania kostki', 'ok. 50–100 zł/m² netto', 'widełki orientacyjne, bez materiałów i prac dodatkowych'],
+	['Podbudowa', 'ok. 30–80 zł/m²', 'grubość i warstwy zależą od gruntu, projektu i obciążeń'],
+	['Krawężniki i obrzeża', 'ok. 35–95 zł/mb', 'zależnie od typu: obrzeże, krawężnik najazdowy, drogowy albo oporowy'],
+	['Geokrata / nawierzchnie przepuszczalne', 'indywidualnie', 'czasem pomocne w wybranych strefach, ale nie zawsze właściwe dla ruchu na myjni'],
+	['Minikoparka z operatorem', 'ok. 140–250 zł/h', 'zależnie od maszyny, regionu, dojazdu i zakresu robót'],
+	['Minikoparka bez operatora', 'ok. 400–750 zł/doba', 'zależnie od tonażu, okresu najmu i warunków wypożyczalni'],
+	['Rozbiórki, wywóz, niwelacja', 'indywidualnie', 'często pomijane na starcie, a potrafią mocno zmienić budżet'],
+	['Separator, osadniki, kanalizacja', 'indywidualnie', 'koszt zależy od projektu, odbiornika, warunków wodno-kanalizacyjnych i zakresu robót'],
+	['Przyłącza: prąd, woda, kanalizacja, gaz', 'indywidualnie', 'największe różnice między działkami i jeden z głównych powodów rozbieżności budżetu'],
+	['Projekt i formalności', 'ok. 30 000 zł netto', 'założenie robocze dla pełniejszego zakresu z prowadzeniem do pozwolenia i operatem']
+];
+
+const hiddenCosts = [
+	{
+		kicker: 'Zjazd',
+		title: 'Działka ma drogę, ale nie zawsze ma dobry wjazd',
+		text: 'Nowy zjazd, przebudowa istniejącego albo warunki zarządcy drogi mogą zmienić koszt, termin i układ całej inwestycji.'
+	},
+	{
+		kicker: 'Deszczówka',
+		title: 'Woda opadowa musi mieć gdzie odpłynąć',
+		text: 'Retencja, kanalizacja deszczowa, spadki, odwodnienie i sposób odprowadzenia wód potrafią mocno wpłynąć na zakres robót.'
+	},
+	{
+		kicker: 'Grunt',
+		title: 'Na mapie wygląda prosto, w terenie bywa inaczej',
+		text: 'Różnice wysokości, słaba nośność, stara nawierzchnia, korzenie albo ukryte instalacje mogą podnieść koszt przygotowania placu.'
+	},
+	{
+		kicker: 'SPA',
+		title: 'Urządzenia dodatkowe też wymagają przygotowania',
+		text: 'Odkurzacze, dyspensery, pranie dywaników i inne urządzenia potrzebują miejsca, zasilania, fundamentów, nawierzchni i komunikacji.'
+	}
+];
+
+const overlookedItems = [
+	'koszt projektu i uzgodnień',
+	'PZT i projekty branżowe',
+	'operat wodnoprawny',
+	'uzgodnienie zjazdu albo przebudowy wjazdu',
+	'warunki przyłączenia prądu',
+	'doprowadzenie wody i kanalizacji',
+	'odprowadzenie deszczówki',
+	'separator i osadniki',
+	'roboty ziemne i niwelacja',
+	'rozbiórka starej nawierzchni',
+	'wywóz gruzu albo ziemi',
+	'krawężniki, obrzeża, kostka i utwardzenia',
+	'oświetlenie, monitoring, internet i oznakowanie',
+	'przygotowanie pod urządzenia SPA',
+	'miejsce na kolejkę i komunikację samochodów',
+	'rezerwa budżetowa na elementy ujawnione po PZT'
+];
+
+const faqItems = [
+	{
+		question: 'Czy cena myjni jest tym samym co koszt budowy myjni?',
+		answer:
+			'Nie. Cena myjni albo technologii jest tylko częścią inwestycji. Do pełnego budżetu trzeba doliczyć projekt, formalności, PZT, przyłącza, prace ziemne, utwardzenia, odwodnienie, separatory, krawężniki, nawierzchnie, zjazd i rezerwę.'
+	},
+	{
+		question: 'Ile kosztuje projekt myjni bezdotykowej?',
+		answer:
+			'W 2026 roku do wstępnej kalkulacji można przyjąć około 30 000 zł netto dla pełniejszego zakresu projektowego z prowadzeniem inwestora do pozwolenia na budowę oraz operatem wodnoprawnym. Ostateczna cena zależy od działki, zakresu pracowni, uzgodnień i wymagań urzędu.'
+	},
+	{
+		question: 'Dlaczego PZT jest tak ważny przy kosztach budowy?',
+		answer:
+			'PZT pokazuje realny układ inwestycji: stanowiska, kontener albo moduł, strefę mokrą, strefę suchą SPA, wjazd, wyjazd, odwodnienie, przyłącza, separatory, krawężniki, kostkę i zakres utwardzeń. Dopiero po PZT można konkretniej liczyć roboty budowlane.'
+	},
+	{
+		question: 'Jakie prace budowlane trzeba doliczyć do myjni?',
+		answer:
+			'Najczęściej trzeba uwzględnić roboty ziemne, rozbiórki, niwelację, podbudowy, kostkę, krawężniki, odwodnienie, kanalizację, separator, osadniki, przyłącza, zjazd, przygotowanie strefy SPA, oświetlenie i uporządkowanie terenu.'
+	},
+	{
+		question: 'Czy koszt budowy można policzyć bez PZT?',
+		answer:
+			'Można wykonać tylko bardzo wstępne założenia. Bez PZT inwestor nie wie dokładnie, ile m² nawierzchni trzeba wykonać, ile mb krawężników, jak prowadzić media, gdzie umieścić separator i jak rozwiązać komunikację na działce.'
+	},
+	{
+		question: 'Czy prace budowlane są podobne na każdej działce?',
+		answer:
+			'Nie. Dwie myjnie o podobnej liczbie stanowisk mogą mieć bardzo różny koszt budowy, jeżeli jedna działka ma media, dobry zjazd i płaski teren, a druga wymaga niwelacji, przyłączy, odwodnienia i przebudowy wjazdu.'
+	},
+	{
+		question: 'Jaką rezerwę budżetową warto przyjąć?',
+		answer:
+			'Rezerwa powinna zależeć od stopnia rozpoznania działki. Im mniej wiadomo o gruncie, mediach, odwodnieniu i zjeździe, tym ostrożniej trzeba planować budżet. W praktyce rezerwa chroni inwestora przed kosztami ujawnionymi dopiero po projekcie albo w trakcie prac.'
+	},
+	{
+		question: 'Co inwestor najczęściej pomija w kosztach budowy?',
+		answer:
+			'Najczęściej pomijane są: projekt, PZT, operat wodnoprawny, zjazd, przyłącza, deszczówka, separator, osadniki, krawężniki, rozbiórki, wywóz materiału, oświetlenie, monitoring, internet, strefa SPA i rezerwa na nieprzewidziane prace.'
+	}
+];
+
 const relatedLinks = [
-	[
-		"Koszt budowy myjni",
-		"/ile-kosztuje-myjnia-bezdotykowa/"
-	],
-	[
-		"Opłacalność myjni",
-		"/ile-zarabia-myjnia-bezdotykowa/"
-	],
-	[
-		"Działka pod myjnię",
-		"/dzialka-pod-myjnie-bezdotykowa/"
-	],
-	[
-		"Porównanie ofert",
-		"/jak-porownac-oferty-myjni-bezdotykowej/"
-	],
-	[
-		"Budowa krok po kroku",
-		"/budowa-myjni-bezdotykowej-krok-po-kroku/"
-	],
-	[
-		"Błędy inwestora",
-		"/najczestsze-bledy-przy-budowie-myjni/"
-	]
+	['Ile kosztuje myjnia?', '/ile-kosztuje-myjnia-bezdotykowa/'],
+	['Ile zarabia myjnia?', '/ile-zarabia-myjnia-bezdotykowa/'],
+	['Działka pod myjnię', '/dzialka-pod-myjnie-bezdotykowa/'],
+	['Porównanie ofert', '/jak-porownac-oferty-myjni-bezdotykowej/'],
+	['Budowa krok po kroku', '/budowa-myjni-bezdotykowej-krok-po-kroku/'],
+	['Błędy inwestora', '/najczestsze-bledy-przy-budowie-myjni/']
 ];
 
 const faqSchema = {
-	"@context": "https://schema.org",
-	"@type": "FAQPage",
-	"mainEntity": [
-		{
-			"@type": "Question",
-			"name": "Czy ta strona dubluje temat ceny myjni?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Nie. Traktuje koszt szerzej: jako budowę całego obiektu, a nie tylko zakup technologii."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Czy liczba stanowisk najmocniej wpływa na koszt?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Jest ważna, ale koszt mocno zależy też od działki, mediów, robót budowlanych, standardu i zakresu oferty."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Czy urządzenia dodatkowe warto planować od razu?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Tak, bo wpływają na układ działki, instalacje, przychody dodatkowe i docelowy model działania obiektu."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Kiedy porównywać producentów?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Po wstępnej analizie działki i budżetu, żeby porównywać realne rozwiązania, a nie przypadkowe konfiguracje."
-			}
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer
 		}
-	]
+	}))
 };
 ---
 
 <Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
 	<Header />
 
-	<main class="guide-page">
-		<section class="guide-hero" aria-labelledby="page-title">
-			<div class="container guide-hero-grid">
-				<div>
-					<p class="eyebrow">
-						<span></span>
-						{page.eyebrow}
-					</p>
+	<main class="build-page">
+		<section class="build-hero" aria-labelledby="page-title">
+			<div class="container build-hero-grid">
+				<div class="build-hero-copy">
+					<p class="eyebrow"><span></span>Koszt budowy</p>
 
 					<h1 id="page-title">
-						{page.hero.before}
-						<strong>{page.hero.strong}</strong>
+						Koszt budowy myjni bezdotykowej — co trzeba doliczyć
+						<strong>poza ceną technologii?</strong>
 					</h1>
 
-					<p class="guide-lead">{page.hero.lead}</p>
+					<p class="build-lead">
+						Cena producenta to dopiero część budżetu. Pełny koszt budowy obejmuje
+						projekt, formalności, PZT, przyłącza, roboty ziemne, odwodnienie,
+						separatory, krawężniki, nawierzchnie, strefę SPA i rezerwę na elementy
+						wynikające z konkretnej działki.
+					</p>
 
-					<div class="guide-actions">
-						<a class="guide-button-green" href="/#kontakt">
-							Prześlij lokalizację
+					<div class="build-actions">
+						<a class="build-button-green" href="/#kontakt">
+							Prześlij działkę do analizy
 							<span aria-hidden="true">→</span>
 						</a>
-						<a class="guide-button-light" href="/poradnik/">
-							Wróć do poradnika
-							<span aria-hidden="true">→</span>
+						<a class="build-button-light" href="#pzt">
+							Zobacz rolę PZT
+							<span aria-hidden="true">↓</span>
 						</a>
 					</div>
 
-					<div class="guide-chips" aria-label="Najważniejsze tematy strony">
-						{page.quick.map((item) => <span>{item}</span>)}
+					<div class="build-chips" aria-label="Najważniejsze tematy strony">
+						<span>projekt</span>
+						<span>PZT</span>
+						<span>przyłącza</span>
+						<span>roboty ziemne</span>
+						<span>nawierzchnie</span>
+						<span>rezerwa</span>
 					</div>
 				</div>
 
-				<aside class="guide-visual" aria-label="Grafika do uzupełnienia">
-					<div class="guide-visual-card">
-						<div class="guide-stat"><strong>{page.hero.statA}</strong><span>01</span></div>
-						<div class="guide-stat"><strong>{page.hero.statB}</strong><span>02</span></div>
-						<div class="guide-stat"><strong>{page.hero.statC}</strong><span>03</span></div>
-					</div>
-					<div class="guide-placeholder">
-						Miejsce na mocną grafikę podstrony — docelowo wstawimy WebP dopasowany do tematu.
+				<aside class="build-hero-panel" aria-label="Najważniejszy wniosek">
+					<div class="build-panel-logo">inwestycjawmyjnie.pl</div>
+					<p>Najważniejsza zasada</p>
+					<h2>Cena myjni nie jest pełnym kosztem budowy.</h2>
+					<span>
+						Dopiero analiza działki i PZT pokazują, ile trzeba wykonać nawierzchni,
+						krawężników, przyłączy, odwodnienia, robót ziemnych i infrastruktury.
+					</span>
+					<div class="build-mini-grid">
+						<b>technologia</b>
+						<b>projekt</b>
+						<b>budowa</b>
+						<b>rezerwa</b>
 					</div>
 				</aside>
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="cards-title">
+		<section class="build-section" aria-labelledby="layers-title">
 			<div class="container">
-				<div class="guide-split">
+				<div class="build-split">
 					<div>
-						<p class="eyebrow">
-							<span></span>
-							Analiza inwestora
-						</p>
-						<h2 id="cards-title">Co wpisać do <strong>budżetu inwestycji?</strong></h2>
+						<p class="eyebrow"><span></span>Pełny budżet</p>
+						<h2 id="layers-title">
+							Koszt budowy składa się z <strong>trzech dużych warstw</strong>
+						</h2>
 					</div>
-					<p>{page.cardsLead}</p>
+					<p>
+						Inwestor najczęściej zna cenę myjni, ale nie zna jeszcze kosztu działki
+						jako placu budowy. A to właśnie działka, media, zjazd i PZT decydują,
+						ile trzeba doliczyć poza samą technologią.
+					</p>
 				</div>
 
-				<div class="guide-grid">
-					{page.cards.map((card) => (
-						<article class="guide-card">
-							<span class="guide-number">{card[0]}</span>
+				<div class="layer-grid">
+					{budgetLayers.map((card) => (
+						<article class="layer-card">
+							<span>{card.number}</span>
+							<h3>{card.title}</h3>
+							<p>{card.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="build-section" aria-labelledby="technology-title">
+			<div class="container">
+				<div class="build-split">
+					<div>
+						<p class="eyebrow"><span></span>Część technologiczna</p>
+						<h2 id="technology-title">
+							Orientacyjne ceny myjni w 2026 roku <strong>to punkt startowy</strong>
+						</h2>
+					</div>
+					<p>
+						Poniższe kwoty są wartościami kalkulacyjnymi netto. Ostateczna cena może
+						się różnić w zależności od producenta, zakresu, technologii, posadzki,
+						konstrukcji, urządzeń dodatkowych i indywidualnej konfiguracji.
+					</p>
+				</div>
+
+				<div class="build-table-panel">
+					{technologyRows.map((row) => (
+						<article class="build-row">
+							<div>
+								<strong>{row.stations}</strong>
+								<p>{row.note}</p>
+							</div>
+							<b>{row.amount}</b>
+						</article>
+					))}
+				</div>
+
+				<p class="build-disclaimer">
+					To nie jest pełny koszt budowy. Do tych wartości trzeba doliczyć projekt,
+					formalności, przygotowanie terenu, przyłącza, odwodnienie, nawierzchnie,
+					zjazd, separatory, strefę urządzeń dodatkowych i rezerwę budżetową.
+				</p>
+			</div>
+		</section>
+
+		<section class="build-section build-text-section" aria-labelledby="project-title">
+			<div class="container build-article-grid">
+				<div class="build-sticky-title">
+					<p class="eyebrow"><span></span>Projekt i formalności</p>
+					<h2 id="project-title">
+						Projekt nie jest dodatkiem. To etap, który <strong>porządkuje budżet</strong>
+					</h2>
+				</div>
+
+				<div class="build-article-copy build-article-card">
+					<p>
+						Koszt projektowy przy budowie myjni bezdotykowej nie powinien być
+						traktowany jako drobny wydatek. To etap, który porządkuje działkę,
+						układ stanowisk, media, zjazd, odwodnienie, separację, strefę mokrą,
+						strefę suchą, przyłącza i dokumenty potrzebne do dalszego procesu.
+					</p>
+
+					<p>
+						W 2026 roku do wstępnej kalkulacji można przyjąć, że pełniejszy zakres
+						projektowy dla inwestycji myjniowej może wynosić około 30 000 zł netto.
+						Taki budżet może obejmować prowadzenie inwestora do pozwolenia na budowę
+						oraz operat wodnoprawny, ale zawsze zależy od działki, gminy, zakresu
+						pracowni, uzgodnień i stopnia skomplikowania inwestycji.
+					</p>
+
+					<p>
+						Dobry projekt nie służy wyłącznie temu, żeby złożyć dokumenty w urzędzie.
+						Jest narzędziem inwestora do sprawdzenia, co naprawdę trzeba zbudować,
+						ile robót będzie na działce i gdzie mogą pojawić się koszty, których
+						nie widać w pierwszej rozmowie z producentem.
+					</p>
+
+					<div class="build-quote">
+						<strong>Bez projektu inwestor zna cenę myjni. Po projekcie zaczyna znać koszt budowy.</strong>
+						<span>PZT i dokumentacja branżowa zamieniają ogólną rozmowę o budżecie w konkretne metry, przyłącza, krawężniki i roboty.</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="build-section" aria-labelledby="scope-title">
+			<div class="container">
+				<div class="build-split">
+					<div>
+						<p class="eyebrow"><span></span>Zakres pracowni</p>
+						<h2 id="scope-title">
+							Co może obejmować pełniejszy <strong>zakres projektowy?</strong>
+						</h2>
+					</div>
+					<p>
+						Zakres zależy od umowy z pracownią i projektantami branżowymi, ale przy
+						myjni samoobsługowej warto sprawdzić, czy projekt obejmuje nie tylko
+						rysunek obiektu, ale też pełną koordynację techniczną działki.
+					</p>
+				</div>
+
+				<div class="scope-grid">
+					{projectScope.map((item) => (
+						<article class="scope-card">
+							<h3>{item[0]}</h3>
+							<p>{item[1]}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="build-section pzt-section" id="pzt" aria-labelledby="pzt-title">
+			<div class="container pzt-panel">
+				<div>
+					<p class="eyebrow light"><span></span>PZT</p>
+					<h2 id="pzt-title">
+						Plan zagospodarowania terenu to <strong>pierwszy realny kosztorys działki</strong>
+					</h2>
+					<p>
+						Na PZT widać, jak myjnia ma działać na działce. Dopiero wtedy można
+						określić strefę mokrą, strefę suchą, ruch samochodów, media, odwodnienie,
+						przyłącza, separatory, osadniki, krawężniki, kostkę, geokratę i zakres
+						prac budowlanych.
+					</p>
+				</div>
+
+				<div class="pzt-grid">
+					{pztCards.map((card) => (
+						<article>
+							<h3>{card.title}</h3>
+							<p>{card.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="build-section" aria-labelledby="works-title">
+			<div class="container">
+				<div class="build-split">
+					<div>
+						<p class="eyebrow"><span></span>Roboty budowlane</p>
+						<h2 id="works-title">
+							Co realnie może wejść <strong>w koszt budowy działki?</strong>
+						</h2>
+					</div>
+					<p>
+						Myjnia nie jest zwykłym podjazdem. Na działce pracują samochody, woda,
+						ścieki, sól, chemia, mróz, ogrzewanie, kanalizacja technologiczna i ruch
+						manewrowy. Dlatego zakres robót musi wynikać z projektu.
+					</p>
+				</div>
+
+				<div class="works-grid">
+					{worksCards.map((card) => (
+						<article class="works-card">
+							<span>{card[0]}</span>
 							<h3>{card[1]}</h3>
 							<p>{card[2]}</p>
 						</article>
@@ -240,23 +465,57 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="gallery-title">
+		<section class="build-section" aria-labelledby="unit-title">
 			<div class="container">
-				<div class="guide-carousel-shell" data-subpage-carousel>
-					<div class="guide-carousel-head">
-						<h2 id="gallery-title">{page.galleryTitle}</h2>
-						<div class="guide-carousel-nav" aria-label="Nawigacja sekcji">
-							<button class="guide-carousel-arrow" type="button" data-subpage-prev aria-label="Poprzedni element">←</button>
-							<button class="guide-carousel-arrow" type="button" data-subpage-next aria-label="Następny element">→</button>
+				<div class="build-split">
+					<div>
+						<p class="eyebrow"><span></span>Widełki 2026</p>
+						<h2 id="unit-title">
+							Orientacyjne ceny jednostkowe <strong>do wstępnej kalkulacji</strong>
+						</h2>
+					</div>
+					<p>
+						To nie jest kosztorys wykonawczy. Ceny są poglądowe i zależą od regionu,
+						gruntu, materiału, dojazdu, zakresu robót, terminu, wykonawcy i wymagań
+						projektowych. Przy myjni często potrzebny jest mocniejszy standard niż
+						przy zwykłym podjeździe.
+					</p>
+				</div>
+
+				<div class="unit-table">
+					{unitCosts.map((row) => (
+						<article class="unit-row">
+							<strong>{row[0]}</strong>
+							<b>{row[1]}</b>
+							<p>{row[2]}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="build-section" aria-labelledby="hidden-title">
+			<div class="container">
+				<div class="build-carousel" data-build-carousel>
+					<div class="build-carousel-head">
+						<div>
+							<p class="eyebrow light"><span></span>Koszty pomijane na starcie</p>
+							<h2 id="hidden-title">
+								Największe różnice wychodzą <strong>po analizie działki</strong>
+							</h2>
+						</div>
+						<div class="build-carousel-nav" aria-label="Nawigacja slajdera">
+							<button type="button" data-build-prev aria-label="Poprzedni element">←</button>
+							<button type="button" data-build-next aria-label="Następny element">→</button>
 						</div>
 					</div>
 
-					<div class="guide-carousel-track" data-subpage-track>
-						{page.gallery.map((slide) => (
-							<article class="guide-slide">
-								<strong>{slide[0]}</strong>
-								<h3>{slide[0]}</h3>
-								<p>{slide[1]}</p>
+					<div class="build-carousel-track" data-build-track>
+						{hiddenCosts.map((slide) => (
+							<article class="build-slide">
+								<span>{slide.kicker}</span>
+								<h3>{slide.title}</h3>
+								<p>{slide.text}</p>
 							</article>
 						))}
 					</div>
@@ -264,52 +523,83 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="analysis-title">
+		<section class="build-section overlooked-section" aria-labelledby="overlooked-title">
+			<div class="container overlooked-grid">
+				<div>
+					<p class="eyebrow"><span></span>Lista kontrolna</p>
+					<h2 id="overlooked-title">
+						Elementy, które inwestor <strong>często pomija w budżecie</strong>
+					</h2>
+					<p>
+						Im wcześniej te punkty zostaną sprawdzone, tym mniejsze ryzyko, że
+						po podpisaniu umowy albo po rozpoczęciu prac pojawią się nieplanowane
+						koszty i nerwowe decyzje.
+					</p>
+				</div>
+
+				<ul class="overlooked-list">
+					{overlookedItems.map((item) => <li>{item}</li>)}
+				</ul>
+			</div>
+		</section>
+
+		<section class="build-section" aria-labelledby="analysis-title">
 			<div class="container">
-				<div class="guide-analysis">
-					<div class="guide-analysis-grid">
-						<div>
-							<p class="eyebrow light"><span></span>Analiza lokalizacji</p>
-							<h2 id="analysis-title">Masz działkę i chcesz <strong>uporządkować koszt?</strong></h2>
-							<p>{page.analysisText}</p>
-						</div>
-						<a class="guide-button-green" href="/#kontakt">
-							Prześlij lokalizację
-							<span aria-hidden="true">→</span>
-						</a>
+				<div class="analysis-cta">
+					<div>
+						<p class="eyebrow light"><span></span>Analiza kosztu budowy</p>
+						<h2 id="analysis-title">
+							Chcesz sprawdzić, co trzeba doliczyć <strong>na Twojej działce?</strong>
+						</h2>
+						<p>
+							Prześlij numer działki, link do mapy, miejscowość albo wstępny rzut.
+							Na początku nie chodzi o dokładny kosztorys, tylko o sprawdzenie, jakie
+							warstwy budżetu mogą pojawić się poza ceną samej myjni.
+						</p>
 					</div>
+					<a class="build-button-green" href="/#kontakt">
+						Prześlij działkę
+						<span aria-hidden="true">→</span>
+					</a>
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-faq" aria-labelledby="faq-title">
+		<section class="build-section" aria-labelledby="faq-title">
 			<div class="container">
-				<div class="guide-split">
+				<div class="build-split">
 					<div>
 						<p class="eyebrow"><span></span>FAQ</p>
-						<h2 id="faq-title">Najczęstsze pytania <strong>inwestora</strong></h2>
+						<h2 id="faq-title">
+							Najczęstsze pytania o <strong>koszt budowy myjni</strong>
+						</h2>
 					</div>
-					<p>Krótko i konkretnie — pytania, które pomagają lepiej przygotować decyzję przed rozmową z projektantem, doradcą albo dostawcą.</p>
+					<p>
+						Odpowiedzi na pytania, które warto zadać przed przyjęciem, że cena
+						producenta jest pełnym budżetem inwestycji.
+					</p>
 				</div>
 
-				<div class="guide-faq-list">
-					{page.faq.map((item, index) => (
-						<details class="guide-faq-item" open={index === 0}>
-							<summary>{item[0]}</summary>
-							<p>{item[1]}</p>
+				<div class="build-faq-list">
+					{faqItems.map((item, index) => (
+						<details class="build-faq-item" open={index === 0}>
+							<summary>{item.question}</summary>
+							<p>{item.answer}</p>
 						</details>
 					))}
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-related" aria-labelledby="related-title">
+		<section class="build-section related-section" aria-labelledby="related-title">
 			<div class="container">
 				<p class="eyebrow"><span></span>Dalej w poradniku</p>
-				<h2 id="related-title">Powiązane tematy <strong>dla inwestora</strong></h2>
-				<div class="guide-related-grid">
+				<h2 id="related-title">
+					Powiązane tematy <strong>dla inwestora</strong>
+				</h2>
+				<div class="related-grid">
 					{relatedLinks.map((link) => (
-						<a class="guide-related-card" href={link[1]}>{link[0]} →</a>
+						<a class="related-card" href={link[1]}>{link[0]} <span>→</span></a>
 					))}
 				</div>
 			</div>
@@ -321,32 +611,37 @@ const faqSchema = {
 </Layout>
 
 <style>
-	.guide-page {
+	.build-page {
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
 		background: #fff;
 	}
 
-	.guide-hero {
+	.build-hero {
 		position: relative;
 		overflow: hidden;
-		padding: clamp(84px, 8vw, 132px) 0 clamp(64px, 7vw, 104px);
+		padding: clamp(84px, 8vw, 132px) 0 clamp(70px, 7vw, 110px);
 		background:
-			radial-gradient(circle at 78% 14%, rgba(18, 104, 255, 0.08), transparent 32%),
-			radial-gradient(circle at 16% 26%, rgba(114, 240, 105, 0.1), transparent 28%),
+			radial-gradient(circle at 80% 12%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 18% 28%, rgba(114, 240, 105, 0.11), transparent 30%),
 			linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
 	}
 
-	.guide-hero-grid {
+	.build-hero-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
-		gap: clamp(34px, 5vw, 70px);
+		grid-template-columns: minmax(0, 1fr) minmax(380px, 0.66fr);
+		gap: clamp(34px, 5vw, 74px);
 		align-items: center;
 	}
 
-	.guide-hero h1,
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.build-hero h1,
+	.build-split h2,
+	.build-sticky-title h2,
+	.pzt-panel h2,
+	.overlooked-grid h2,
+	.analysis-cta h2,
+	.related-section h2 {
 		margin: 0;
 		color: var(--ink);
 		font-weight: 950;
@@ -354,16 +649,18 @@ const faqSchema = {
 		line-height: 0.94;
 	}
 
-	.guide-hero h1 {
-		max-width: 940px;
-		font-size: clamp(3.35rem, 6.8vw, 7.05rem);
+	.build-hero h1 {
+		max-width: 1040px;
+		font-size: clamp(3.25rem, 6.35vw, 7.05rem);
 	}
 
-	.guide-hero h1 strong,
-	.guide-split h2 strong,
-	.guide-analysis h2 strong,
-	.guide-faq h2 strong,
-	.guide-related h2 strong {
+	.build-hero h1 strong,
+	.build-split h2 strong,
+	.build-sticky-title h2 strong,
+	.pzt-panel h2 strong,
+	.overlooked-grid h2 strong,
+	.analysis-cta h2 strong,
+	.related-section h2 strong {
 		background: linear-gradient(90deg, #0756d8 0%, #1268ff 38%, #4fa3ff 72%, #9ed7ff 100%);
 		-webkit-background-clip: text;
 		background-clip: text;
@@ -371,25 +668,25 @@ const faqSchema = {
 		font-weight: inherit;
 	}
 
-	.guide-lead {
-		max-width: 760px;
+	.build-lead {
+		max-width: 810px;
 		margin: 28px 0 0;
 		color: #667085;
-		font-size: clamp(1.04rem, 1.35vw, 1.28rem);
+		font-size: clamp(1.05rem, 1.35vw, 1.28rem);
 		font-weight: 560;
 		line-height: 1.68;
 		letter-spacing: -0.012em;
 	}
 
-	.guide-actions {
+	.build-actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 14px;
 		margin-top: 34px;
 	}
 
-	.guide-button-green,
-	.guide-button-light {
+	.build-button-green,
+	.build-button-light {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -403,109 +700,33 @@ const faqSchema = {
 		transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 	}
 
-	.guide-button-green {
+	.build-button-green {
 		color: #06110a;
 		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
 		border: 1px solid rgba(114, 240, 105, 0.34);
 		box-shadow: 0 18px 44px rgba(76, 244, 89, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.56);
 	}
 
-	.guide-button-light {
+	.build-button-light {
 		color: var(--ink);
-		background: rgba(255, 255, 255, 0.88);
+		background: rgba(255, 255, 255, 0.9);
 		border: 1px solid rgba(8, 16, 32, 0.1);
 		box-shadow: 0 12px 34px rgba(8, 16, 32, 0.06);
 	}
 
-	.guide-button-green:hover,
-	.guide-button-light:hover {
+	.build-button-green:hover,
+	.build-button-light:hover {
 		transform: translateY(-2px);
 	}
 
-	.guide-visual {
-		position: relative;
-		min-height: 520px;
-		padding: 28px;
-		border-radius: 46px;
-		background:
-			radial-gradient(circle at 68% 24%, rgba(18, 104, 255, 0.24), transparent 30%),
-			radial-gradient(circle at 28% 78%, rgba(114, 240, 105, 0.22), transparent 30%),
-			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
-		overflow: hidden;
-	}
-
-	.guide-visual::before {
-		content: '';
-		position: absolute;
-		inset: 42px;
-		border-radius: 34px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background:
-			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-		background-size: 48px 48px;
-		mask-image: linear-gradient(180deg, black, transparent 88%);
-	}
-
-	.guide-visual-card {
-		position: relative;
-		z-index: 1;
-		display: grid;
-		gap: 16px;
-	}
-
-	.guide-stat {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 18px;
-		min-height: 92px;
-		padding: 18px;
-		border-radius: 26px;
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.14);
-		backdrop-filter: blur(16px);
-		color: rgba(255, 255, 255, 0.86);
-	}
-
-	.guide-stat strong {
-		font-size: 0.8rem;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-	}
-
-	.guide-stat span {
-		color: #72f069;
-		font-size: 1.45rem;
-		font-weight: 950;
-		letter-spacing: -0.06em;
-	}
-
-	.guide-placeholder {
-		position: absolute;
-		left: 28px;
-		right: 28px;
-		bottom: 28px;
-		z-index: 1;
-		padding: 20px;
-		border-radius: 28px;
-		background: rgba(255, 255, 255, 0.09);
-		border: 1px dashed rgba(255, 255, 255, 0.22);
-		color: rgba(255, 255, 255, 0.76);
-		font-weight: 650;
-		line-height: 1.5;
-	}
-
-	.guide-chips {
+	.build-chips {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
 		margin-top: 26px;
 	}
 
-	.guide-chips span {
+	.build-chips span {
 		display: inline-flex;
 		align-items: center;
 		min-height: 38px;
@@ -519,51 +740,168 @@ const faqSchema = {
 		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045);
 	}
 
-	.guide-section {
+	.build-hero-panel {
+		position: relative;
+		min-height: 520px;
+		padding: 32px;
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 70% 18%, rgba(18, 104, 255, 0.28), transparent 32%),
+			radial-gradient(circle at 22% 78%, rgba(114, 240, 105, 0.24), transparent 32%),
+			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
+		overflow: hidden;
+		color: #fff;
+	}
+
+	.build-hero-panel::before {
+		content: '';
+		position: absolute;
+		inset: 48px;
+		border-radius: 34px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background:
+			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+		background-size: 48px 48px;
+		mask-image: linear-gradient(180deg, black, transparent 90%);
+	}
+
+	.build-panel-logo,
+	.build-hero-panel p,
+	.build-hero-panel h2,
+	.build-hero-panel span,
+	.build-mini-grid {
+		position: relative;
+		z-index: 1;
+	}
+
+	.build-panel-logo {
+		display: inline-flex;
+		padding: 9px 13px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		color: rgba(255, 255, 255, 0.82);
+		font-size: 0.82rem;
+		font-weight: 850;
+	}
+
+	.build-hero-panel p {
+		margin: 84px 0 0;
+		color: #72f069;
+		font-size: 0.78rem;
+		font-weight: 950;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+	}
+
+	.build-hero-panel h2 {
+		max-width: 430px;
+		margin: 16px 0 0;
+		font-size: clamp(2rem, 3vw, 3.4rem);
+		font-weight: 950;
+		letter-spacing: -0.07em;
+		line-height: 0.98;
+	}
+
+	.build-hero-panel > span {
+		display: block;
+		max-width: 430px;
+		margin-top: 18px;
+		color: rgba(255, 255, 255, 0.74);
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.build-mini-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 34px;
+	}
+
+	.build-mini-grid b {
+		padding: 14px;
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.13);
+		color: rgba(255, 255, 255, 0.88);
+		font-size: 0.9rem;
+		font-weight: 850;
+		text-align: center;
+	}
+
+	.build-section {
 		padding: clamp(72px, 7vw, 110px) 0;
 	}
 
-	.guide-split {
+	.build-split,
+	.build-article-grid,
+	.overlooked-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.48fr);
-		gap: clamp(28px, 4vw, 52px);
-		align-items: end;
-		margin-bottom: 40px;
+		grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.52fr);
+		gap: clamp(30px, 4vw, 56px);
+		align-items: start;
 	}
 
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.build-split {
+		align-items: end;
+		margin-bottom: 42px;
+	}
+
+	.build-split h2,
+	.build-sticky-title h2,
+	.pzt-panel h2,
+	.overlooked-grid h2,
+	.analysis-cta h2,
+	.related-section h2 {
 		font-size: clamp(2.55rem, 4.6vw, 5.1rem);
 	}
 
-	.guide-split p {
+	.build-split > p,
+	.pzt-panel > div > p,
+	.overlooked-grid > div > p,
+	.analysis-cta p {
 		margin: 0;
 		color: #667085;
-		font-size: clamp(1rem, 1.2vw, 1.14rem);
+		font-size: clamp(1rem, 1.18vw, 1.14rem);
 		font-weight: 560;
 		line-height: 1.66;
 	}
 
-	.guide-grid {
+	.layer-grid,
+	.scope-grid,
+	.works-grid,
+	.pzt-grid,
+	.related-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 20px;
 	}
 
-	.guide-card {
-		position: relative;
-		min-height: 300px;
-		padding: 28px;
-		border-radius: 34px;
-		border: 1px solid rgba(8, 16, 32, 0.08);
-		background: linear-gradient(145deg, #ffffff, #f8f9fb);
-		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.86);
-		overflow: hidden;
+	.scope-grid,
+	.works-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 
-	.guide-card::before {
+	.layer-card,
+	.scope-card,
+	.works-card,
+	.related-card {
+		position: relative;
+		overflow: hidden;
+		min-height: 260px;
+		padding: 28px;
+		border-radius: 34px;
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07);
+	}
+
+	.layer-card::before,
+	.works-card::before {
 		content: '';
 		position: absolute;
 		right: -80px;
@@ -575,72 +913,339 @@ const faqSchema = {
 		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -18px 34px rgba(8, 16, 32, 0.035), 0 22px 54px rgba(8, 16, 32, 0.055);
 	}
 
-	.guide-number {
+	.layer-card span,
+	.works-card span {
 		position: relative;
 		z-index: 1;
 		display: block;
 		color: rgba(8, 16, 32, 0.12);
-		font-size: clamp(4.2rem, 5.2vw, 6.6rem);
+		font-size: clamp(4rem, 5vw, 6.4rem);
 		font-weight: 950;
 		letter-spacing: -0.09em;
 		line-height: 0.82;
 	}
 
-	.guide-card h3 {
+	.layer-card h3,
+	.scope-card h3,
+	.works-card h3 {
 		position: relative;
 		z-index: 1;
-		margin: 44px 0 0;
+		margin: 42px 0 0;
 		color: var(--ink);
-		font-size: clamp(1.45rem, 2vw, 2rem);
+		font-size: clamp(1.32rem, 1.8vw, 1.92rem);
 		font-weight: 950;
 		letter-spacing: -0.06em;
 		line-height: 1.02;
 	}
 
-	.guide-card p {
+	.scope-card h3 {
+		margin-top: 0;
+	}
+
+	.layer-card p,
+	.scope-card p,
+	.works-card p {
 		position: relative;
 		z-index: 1;
 		margin: 14px 0 0;
 		color: #667085;
 		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.build-table-panel {
+		display: grid;
+		gap: 14px;
+		padding: clamp(20px, 3vw, 34px);
+		border-radius: 42px;
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 24px 74px rgba(8, 16, 32, 0.075);
+	}
+
+	.build-row {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 24px;
+		align-items: center;
+		padding: 20px;
+		border-radius: 26px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.07);
+		box-shadow: 0 12px 34px rgba(8, 16, 32, 0.045);
+	}
+
+	.build-row strong {
+		color: var(--ink);
+		font-size: clamp(1.28rem, 2vw, 2rem);
+		font-weight: 950;
+		letter-spacing: -0.055em;
+	}
+
+	.build-row p {
+		margin: 8px 0 0;
+		color: #667085;
+		font-weight: 560;
+		line-height: 1.5;
+	}
+
+	.build-row b {
+		color: #06110a;
+		padding: 12px 16px;
+		border-radius: 999px;
+		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
+		font-size: clamp(1rem, 1.5vw, 1.24rem);
+		font-weight: 950;
+		white-space: nowrap;
+	}
+
+	.build-disclaimer {
+		max-width: 980px;
+		margin: 24px 0 0;
+		color: #667085;
+		font-size: 0.98rem;
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.build-text-section {
+		background: #f8f9fb;
+		overflow: hidden;
+	}
+
+	.build-sticky-title {
+		position: sticky;
+		top: 120px;
+	}
+
+	.build-sticky-title h2 {
+		max-width: 940px;
+	}
+
+	.build-article-copy {
+		display: grid;
+		gap: 20px;
+	}
+
+	.build-article-copy p {
+		margin: 0;
+		color: #344054;
+		font-size: clamp(1.04rem, 1.24vw, 1.18rem);
+		font-weight: 560;
+		line-height: 1.76;
+	}
+
+	.build-article-card {
+		position: relative;
+		padding: clamp(28px, 3vw, 42px);
+		border-radius: 38px;
+		background:
+			linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 253, 0.96)),
+			radial-gradient(circle at 92% 8%, rgba(18, 104, 255, 0.055), transparent 36%);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 24px 74px rgba(8, 16, 32, 0.075), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+	}
+
+	.build-article-card::before {
+		content: '';
+		position: absolute;
+		right: -90px;
+		top: -110px;
+		width: 230px;
+		height: 230px;
+		border-radius: 54% 46% 42% 58% / 44% 58% 42% 56%;
+		background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(226, 236, 249, 0.6));
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -18px 34px rgba(8, 16, 32, 0.035), 0 22px 54px rgba(8, 16, 32, 0.055);
+		opacity: 0.62;
+		pointer-events: none;
+	}
+
+	.build-article-card > * {
+		position: relative;
+		z-index: 1;
+	}
+
+	.build-quote {
+		padding: 28px;
+		border-radius: 32px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.06);
+	}
+
+	.build-quote strong {
+		display: block;
+		font-size: clamp(1.35rem, 2vw, 2rem);
+		font-weight: 950;
+		letter-spacing: -0.055em;
+	}
+
+	.build-quote span {
+		display: block;
+		margin-top: 10px;
+		color: #667085;
+		font-weight: 560;
 		line-height: 1.6;
 	}
 
-	.guide-carousel-shell {
-		position: relative;
-		overflow: hidden;
-		padding: clamp(28px, 4vw, 44px);
-		border-radius: 42px;
-		background: linear-gradient(145deg, #05070d, #121a29 62%, #05070d);
-		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.2);
+	.scope-card {
+		min-height: 240px;
 	}
 
-	.guide-carousel-head {
+	.pzt-section {
+		padding-top: 0;
+	}
+
+	.pzt-panel,
+	.analysis-cta {
+		padding: clamp(34px, 5vw, 58px);
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 12% 18%, rgba(18, 104, 255, 0.24), transparent 34%),
+			radial-gradient(circle at 88% 8%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(135deg, #05070d 0%, #101723 48%, #05070d 100%);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+		color: #fff;
+	}
+
+	.pzt-panel h2,
+	.analysis-cta h2 {
+		color: #fff;
+	}
+
+	.pzt-panel > div > p,
+	.analysis-cta p {
+		max-width: 940px;
+		margin-top: 22px;
+		color: rgba(255, 255, 255, 0.74);
+	}
+
+	.pzt-panel h2 strong,
+	.analysis-cta h2 strong {
+		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.pzt-grid {
+		margin-top: 34px;
+	}
+
+	.pzt-grid article {
+		padding: 24px;
+		border-radius: 28px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+	}
+
+	.pzt-grid h3 {
+		margin: 0;
+		color: #fff;
+		font-size: 1.34rem;
+		font-weight: 950;
+		letter-spacing: -0.055em;
+		line-height: 1.04;
+	}
+
+	.pzt-grid p {
+		margin: 14px 0 0;
+		color: rgba(255, 255, 255, 0.74);
+		font-weight: 560;
+		line-height: 1.6;
+	}
+
+	.works-card {
+		min-height: 310px;
+	}
+
+	.unit-table {
+		display: grid;
+		gap: 12px;
+		padding: clamp(18px, 3vw, 30px);
+		border-radius: 42px;
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 24px 74px rgba(8, 16, 32, 0.075);
+	}
+
+	.unit-row {
+		display: grid;
+		grid-template-columns: minmax(240px, 0.8fr) minmax(170px, 0.35fr) minmax(0, 1fr);
+		gap: 18px;
+		align-items: center;
+		padding: 18px;
+		border-radius: 24px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.07);
+	}
+
+	.unit-row strong {
+		color: var(--ink);
+		font-size: 1.06rem;
+		font-weight: 950;
+		letter-spacing: -0.04em;
+	}
+
+	.unit-row b {
+		color: #06110a;
+		font-size: 1rem;
+		font-weight: 950;
+	}
+
+	.unit-row p {
+		margin: 0;
+		color: #667085;
+		font-size: 0.96rem;
+		font-weight: 560;
+		line-height: 1.52;
+	}
+
+	.build-carousel {
+		overflow: hidden;
+		padding: clamp(30px, 4vw, 48px);
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 12% 20%, rgba(18, 104, 255, 0.22), transparent 34%),
+			radial-gradient(circle at 88% 10%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(145deg, #05070d, #121a29 60%, #05070d);
+		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.2);
+		color: #fff;
+	}
+
+	.build-carousel-head {
 		display: flex;
 		align-items: end;
 		justify-content: space-between;
 		gap: 24px;
-		margin-bottom: 24px;
-		color: #fff;
+		margin-bottom: 28px;
 	}
 
-	.guide-carousel-head h2 {
-		max-width: 720px;
+	.build-carousel-head h2 {
+		max-width: 900px;
 		margin: 0;
-		font-size: clamp(2.1rem, 3.8vw, 4.3rem);
+		font-size: clamp(2.3rem, 4vw, 4.6rem);
 		font-weight: 950;
 		letter-spacing: -0.075em;
 		line-height: 0.96;
 	}
 
-	.guide-carousel-nav {
+	.build-carousel-head h2 strong {
+		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.build-carousel-nav {
 		display: flex;
 		gap: 12px;
 	}
 
-	.guide-carousel-arrow {
-		width: 52px;
-		height: 52px;
+	.build-carousel-nav button {
+		width: 54px;
+		height: 54px;
 		border-radius: 999px;
 		border: 1px solid rgba(255, 255, 255, 0.14);
 		background: rgba(255, 255, 255, 0.1);
@@ -650,7 +1255,7 @@ const faqSchema = {
 		cursor: pointer;
 	}
 
-	.guide-carousel-track {
+	.build-carousel-track {
 		display: grid;
 		grid-auto-flow: column;
 		grid-auto-columns: minmax(420px, 520px);
@@ -663,84 +1268,102 @@ const faqSchema = {
 		scrollbar-width: none;
 	}
 
-	.guide-carousel-track::-webkit-scrollbar {
+	.build-carousel-track::-webkit-scrollbar {
 		display: none;
 	}
 
-	.guide-slide {
+	.build-slide {
 		scroll-snap-align: start;
-		min-height: 280px;
-		padding: 26px;
+		min-height: 300px;
+		padding: 28px;
 		border-radius: 30px;
 		background:
 			radial-gradient(circle at 86% 12%, rgba(114, 240, 105, 0.16), transparent 32%),
 			linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
 		border: 1px solid rgba(255, 255, 255, 0.16);
-		color: #fff;
 	}
 
-	.guide-slide strong {
+	.build-slide span {
 		display: block;
-		font-size: 0.82rem;
+		color: #72f069;
+		font-size: 0.8rem;
 		font-weight: 950;
 		letter-spacing: 0.13em;
 		text-transform: uppercase;
-		color: #72f069;
 	}
 
-	.guide-slide h3 {
-		margin: 44px 0 0;
+	.build-slide h3 {
+		margin: 56px 0 0;
 		font-size: 2rem;
 		font-weight: 950;
 		letter-spacing: -0.065em;
 		line-height: 1.02;
 	}
 
-	.guide-slide p {
+	.build-slide p {
 		margin: 14px 0 0;
-		color: rgba(255, 255, 255, 0.72);
+		color: rgba(255, 255, 255, 0.74);
 		font-weight: 560;
 		line-height: 1.6;
 	}
 
-	.guide-analysis {
-		padding: clamp(34px, 5vw, 58px);
-		border-radius: 48px;
-		background:
-			radial-gradient(circle at 12% 18%, rgba(18, 104, 255, 0.24), transparent 34%),
-			radial-gradient(circle at 88% 8%, rgba(114, 240, 105, 0.2), transparent 30%),
-			linear-gradient(135deg, #05070d 0%, #101723 48%, #05070d 100%);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-		color: #fff;
+	.overlooked-section {
+		background: #f8f9fb;
 	}
 
-	.guide-analysis-grid {
+	.overlooked-grid {
+		align-items: start;
+	}
+
+	.overlooked-grid > div > p {
+		margin-top: 22px;
+	}
+
+	.overlooked-list {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin: 0;
+		padding: 28px;
+		border-radius: 38px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07);
+		list-style: none;
+	}
+
+	.overlooked-list li {
+		display: flex;
+		gap: 10px;
+		color: #344054;
+		font-weight: 650;
+		line-height: 1.5;
+	}
+
+	.overlooked-list li::before {
+		content: '';
+		width: 9px;
+		height: 9px;
+		margin-top: 8px;
+		border-radius: 999px;
+		background: #72f069;
+		box-shadow: 0 0 0 5px rgba(114, 240, 105, 0.12);
+		flex: 0 0 auto;
+	}
+
+	.analysis-cta {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) auto;
-		gap: 30px;
+		gap: 32px;
 		align-items: end;
 	}
 
-	.guide-analysis h2 {
-		color: #fff;
-	}
-
-	.guide-analysis p {
-		max-width: 720px;
-		margin: 22px 0 0;
-		color: rgba(255, 255, 255, 0.74);
-		font-weight: 560;
-		line-height: 1.68;
-	}
-
-	.guide-faq-list {
+	.build-faq-list {
 		display: grid;
 		gap: 14px;
-		margin-top: 34px;
 	}
 
-	.guide-faq-item {
+	.build-faq-item {
 		border-radius: 24px;
 		border: 1px solid rgba(8, 16, 32, 0.08);
 		background: #fff;
@@ -748,7 +1371,7 @@ const faqSchema = {
 		overflow: hidden;
 	}
 
-	.guide-faq-item summary {
+	.build-faq-item summary {
 		display: flex;
 		justify-content: space-between;
 		gap: 18px;
@@ -760,11 +1383,11 @@ const faqSchema = {
 		list-style: none;
 	}
 
-	.guide-faq-item summary::-webkit-details-marker {
+	.build-faq-item summary::-webkit-details-marker {
 		display: none;
 	}
 
-	.guide-faq-item summary::after {
+	.build-faq-item summary::after {
 		content: '+';
 		display: grid;
 		place-items: center;
@@ -772,15 +1395,16 @@ const faqSchema = {
 		height: 34px;
 		border-radius: 999px;
 		background: #f4f6f9;
+		flex: 0 0 auto;
 	}
 
-	.guide-faq-item[open] summary::after {
+	.build-faq-item[open] summary::after {
 		content: '−';
 		background: var(--ink);
 		color: #fff;
 	}
 
-	.guide-faq-item p {
+	.build-faq-item p {
 		margin: 0;
 		padding: 0 24px 24px;
 		color: #667085;
@@ -788,120 +1412,202 @@ const faqSchema = {
 		line-height: 1.68;
 	}
 
-	.guide-related-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 18px;
+	.related-section h2 {
+		max-width: 900px;
+	}
+
+	.related-grid {
 		margin-top: 32px;
 	}
 
-	.guide-related-card {
-		padding: 24px;
-		border-radius: 28px;
-		background: #fff;
-		border: 1px solid rgba(8, 16, 32, 0.08);
-		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.055);
+	.related-card {
+		min-height: 150px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 20px;
+		color: var(--ink);
+		font-size: 1.16rem;
 		font-weight: 900;
-		letter-spacing: -0.035em;
+		letter-spacing: -0.04em;
+		text-decoration: none;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
 	}
 
-	@media (max-width: 1120px) {
-		.guide-hero-grid,
-		.guide-split,
-		.guide-analysis-grid {
+	.related-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.1);
+	}
+
+	.related-card span {
+		display: grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 999px;
+		background: var(--ink);
+		color: #fff;
+		flex: 0 0 auto;
+	}
+
+	@media (max-width: 1420px) {
+		.scope-grid,
+		.works-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 1180px) {
+		.build-hero-grid,
+		.build-split,
+		.build-article-grid,
+		.overlooked-grid,
+		.analysis-cta {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.build-sticky-title {
+			position: static;
+		}
+
+		.layer-grid,
+		.scope-grid,
+		.works-grid,
+		.pzt-grid,
+		.related-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
-		.guide-visual {
+		.build-hero-panel {
 			min-height: 420px;
+		}
+
+		.unit-row {
+			grid-template-columns: 1fr;
+			gap: 8px;
 		}
 	}
 
 	@media (max-width: 760px) {
-		.guide-hero {
+		.build-hero {
 			padding-top: 72px;
 		}
 
-		.guide-hero h1 {
-			font-size: clamp(2.45rem, 12vw, 3.5rem);
+		.build-hero h1 {
+			font-size: clamp(2.35rem, 11.5vw, 3.45rem);
 			line-height: 0.98;
 			letter-spacing: -0.07em;
 		}
 
-		.guide-actions,
-		.guide-button-green,
-		.guide-button-light {
+		.build-actions,
+		.build-button-green,
+		.build-button-light {
 			width: 100%;
 		}
 
-		.guide-visual {
-			min-height: 360px;
+		.build-hero-panel {
+			min-height: 380px;
 			border-radius: 34px;
+			padding: 26px;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.build-hero-panel p {
+			margin-top: 58px;
+		}
+
+		.build-mini-grid,
+		.layer-grid,
+		.scope-grid,
+		.works-grid,
+		.pzt-grid,
+		.related-grid,
+		.overlooked-list {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-card {
+		.build-split h2,
+		.build-sticky-title h2,
+		.pzt-panel h2,
+		.overlooked-grid h2,
+		.analysis-cta h2,
+		.related-section h2 {
+			font-size: clamp(2.15rem, 10.5vw, 3.3rem);
+			line-height: 0.98;
+			letter-spacing: -0.07em;
+		}
+
+		.layer-card,
+		.scope-card,
+		.works-card {
 			min-height: auto;
 			padding: 24px;
 			border-radius: 28px;
 		}
 
-		.guide-card h3 {
-			margin-top: 28px;
+		.layer-card h3,
+		.works-card h3 {
+			margin-top: 30px;
 		}
 
-		.guide-split h2,
-		.guide-analysis h2,
-		.guide-faq h2,
-		.guide-related h2 {
-			font-size: clamp(2.2rem, 10.5vw, 3.35rem);
-			line-height: 0.98;
-			letter-spacing: -0.07em;
+		.build-row {
+			grid-template-columns: 1fr;
+			gap: 14px;
 		}
 
-		.guide-carousel-head {
+		.build-row b {
+			justify-self: start;
+			white-space: normal;
+		}
+
+		.build-carousel {
+			padding: 24px;
+			border-radius: 34px;
+		}
+
+		.build-carousel-head {
 			display: grid;
 		}
 
-		.guide-carousel-nav {
+		.build-carousel-nav {
 			justify-content: center;
 		}
 
-		.guide-carousel-track {
+		.build-carousel-track {
 			grid-auto-columns: 86vw;
-			margin-left: -20px;
-			margin-right: -20px;
-			padding-left: 20px;
-			padding-right: 20px;
+			margin-left: -14px;
+			margin-right: -14px;
+			padding-left: 14px;
+			padding-right: 14px;
 		}
 
-		.guide-analysis-grid {
-			gap: 24px;
+		.build-slide {
+			min-height: 280px;
+		}
+
+		.pzt-panel,
+		.analysis-cta {
+			padding: 28px;
+			border-radius: 34px;
+		}
+
+		.analysis-cta .build-button-green {
+			width: 100%;
 		}
 	}
 </style>
 
 <script is:inline>
-	const subpageCarousels = document.querySelectorAll('[data-subpage-carousel]');
+	const buildCarousels = document.querySelectorAll('[data-build-carousel]');
 
-	subpageCarousels.forEach((carousel) => {
-		const track = carousel.querySelector('[data-subpage-track]');
-		const prev = carousel.querySelector('[data-subpage-prev]');
-		const next = carousel.querySelector('[data-subpage-next]');
+	buildCarousels.forEach((carousel) => {
+		const track = carousel.querySelector('[data-build-track]');
+		const prev = carousel.querySelector('[data-build-prev]');
+		const next = carousel.querySelector('[data-build-next]');
 
 		if (!track || !prev || !next) return;
 
 		const getStep = () => {
-			const firstCard = track.querySelector('.guide-slide');
+			const firstCard = track.querySelector('.build-slide');
 			if (!firstCard) return 360;
 			const styles = window.getComputedStyle(track);
 			const gap = parseFloat(styles.columnGap || styles.gap || '18');
@@ -917,4 +1623,3 @@ const faqSchema = {
 		});
 	});
 </script>
-
