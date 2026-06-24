@@ -4,234 +4,400 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const page = {
-	"filename": "ile-kosztuje-myjnia-bezdotykowa.astro",
-	"canonicalPath": "/ile-kosztuje-myjnia-bezdotykowa/",
-	"title": "Ile kosztuje myjnia bezdotykowa? Koszt budowy i budżet inwestora",
-	"description": "Praktyczne wyjaśnienie kosztu budowy myjni bezdotykowej: technologia, budowa, przyłącza, posadzka, kontener, automatyka, rezerwa i ukryte koszty.",
-	"eyebrow": "Koszt budowy",
-	"hero": {
-		"before": "Ile kosztuje myjnia bezdotykowa i co naprawdę",
-		"strong": "wchodzi w budżet?",
-		"lead": "Cena myjni nie jest jedną pozycją z oferty. Na realny budżet wpływa działka, roboty budowlane, media, technologia, konstrukcja, kontener, automatyka, projekt i rezerwa inwestora.",
-		"statA": "koszt startowy",
-		"statB": "zakres oferty",
-		"statC": "rezerwa budżetu"
-	},
-	"quick": [
-		"technologia",
-		"budowa",
-		"media",
-		"kontener",
-		"posadzka",
-		"automatyka"
-	],
-	"cardsTitle": "Najważniejsze składowe kosztu",
-	"cardsLead": "Dobra analiza kosztu rozdziela ofertę producenta od kosztów działki, budowy, przyłączy i późniejszego uruchomienia.",
-	"cards": [
-		[
-			"01",
-			"Technologia mycia",
-			"Pompy, instalacje, sterowanie, programy mycia, chemia, system płatności i zabezpieczenia techniczne."
-		],
-		[
-			"02",
-			"Konstrukcja i stanowiska",
-			"Liczba stanowisk, dach, słupy, zabudowa, oświetlenie, banery, odwodnienie i standard wykończenia."
-		],
-		[
-			"03",
-			"Przyłącza i media",
-			"Woda, prąd, kanalizacja, separatory, uzgodnienia, zapasy mocy i lokalne warunki techniczne."
-		],
-		[
-			"04",
-			"Roboty budowlane",
-			"Przygotowanie terenu, fundamenty, posadzka, instalacje podziemne, odwodnienie, drogi manewrowe i otoczenie."
-		],
-		[
-			"05",
-			"Projekt i formalności",
-			"Projektant, dokumentacja, warunki zabudowy lub MPZP, pozwolenia, uzgodnienia branżowe i organizacja procesu."
-		],
-		[
-			"06",
-			"Rezerwa inwestora",
-			"Bezpieczna rezerwa na zmiany, doposażenie, korekty projektowe i elementy, których nie widać w pierwszej ofercie."
-		]
-	],
-	"galleryTitle": "Koszt warto czytać warstwowo",
-	"gallery": [
-		[
-			"Zakres podstawowy",
-			"Sprawdź, czy oferta obejmuje tylko technologię, czy także konstrukcję, kontener, montaż i automatykę."
-		],
-		[
-			"Koszty poza ofertą",
-			"Najczęściej dochodzą roboty ziemne, przyłącza, projekt, media, odwodnienie, oznakowanie i zagospodarowanie terenu."
-		],
-		[
-			"Porównanie ofert",
-			"Nie porównuj tylko ceny końcowej. Porównuj zakres, komponenty, gwarancję, serwis i kompletność rozwiązania."
-		],
-		[
-			"Budżet bezpieczny",
-			"Lepiej znać realny przedział kosztu niż podjąć decyzję na podstawie najtańszej wersji bez rezerwy."
-		]
-	],
-	"analysisTitle": "Chcesz sprawdzić realny budżet dla swojej lokalizacji?",
-	"analysisText": "Wyślij miejscowość, link do mapy albo numer działki. Na start można ocenić, czy lokalizacja wymaga prostego, średniego czy bardziej złożonego zakresu inwestycji.",
-	"faq": [
-		[
-			"Czy da się podać jedną cenę budowy myjni?",
-			"Nie rzetelnie. Cena zależy od liczby stanowisk, działki, mediów, zakresu budowy, technologii, standardu i tego, co zawiera oferta."
-		],
-		[
-			"Dlaczego najtańsza oferta może być ryzykowna?",
-			"Bo może nie obejmować części prac, mieć słabsze komponenty, mniejszy zakres, mniej zabezpieczeń albo wyższe koszty późniejszej eksploatacji."
-		],
-		[
-			"Co sprawdzić przed pytaniem o cenę?",
-			"Najpierw warto ocenić działkę, dojazd, media, lokalne formalności, możliwy układ stanowisk i potencjał ruchu."
-		],
-		[
-			"Czy koszt technologii to cały koszt inwestycji?",
-			"Nie. Technologia to tylko część budżetu. Osobno trzeba uwzględnić budowę, przyłącza, projekt, posadzkę, odwodnienie i wyposażenie dodatkowe."
-		]
-	]
+	canonicalPath: '/ile-kosztuje-myjnia-bezdotykowa/',
+	title: 'Ile kosztuje myjnia bezdotykowa? Koszt budowy i budżet inwestora',
+	description:
+		'Ile kosztuje myjnia bezdotykowa? Sprawdź orientacyjny koszt budowy myjni 2, 3, 4, 5 i 6 stanowisk oraz elementy, które realnie wpływają na budżet inwestora.'
 };
 
+const costRows = [
+	{
+		stations: '2 stanowiska',
+		amount: '500 000 zł netto',
+		note: 'bezpieczna wartość kalkulacyjna dla prostego modelu inwestora'
+	},
+	{
+		stations: '3 stanowiska',
+		amount: '600 000 zł netto',
+		note: 'wariant często wybierany jako pierwszy realny obiekt inwestycyjny'
+	},
+	{
+		stations: '4 stanowiska',
+		amount: '850 000 zł netto',
+		note: 'większy potencjał, ale też większe znaczenie układu działki i zakresu prac'
+	},
+	{
+		stations: '5 stanowisk',
+		amount: '1 100 000 zł netto',
+		note: 'wariant wymagający mocniejszej lokalizacji i przemyślanego ruchu na obiekcie'
+	},
+	{
+		stations: '6 stanowisk',
+		amount: '1 300 000 zł netto',
+		note: 'większa inwestycja, zwykle wymagająca dokładniejszej analizy potencjału'
+	}
+];
+
+const keyFactors = [
+	{
+		number: '01',
+		title: 'Działka i lokalizacja',
+		text: 'To punkt wyjścia do rozmowy o cenie. Ten sam obiekt może mieć podobny koszt budowy w mieście i poza miastem, ale zupełnie inny potencjał przychodu.'
+	},
+	{
+		number: '02',
+		title: 'Liczba stanowisk',
+		text: 'Więcej stanowisk to nie tylko większy obiekt. To także inny układ ruchu, większa technologia, większy zakres instalacji i inne wymagania wobec działki.'
+	},
+	{
+		number: '03',
+		title: 'Zakres dostawcy',
+		text: 'Jedna oferta może obejmować głównie technologię, inna także kontener, konstrukcję, automatykę, montaż, serwis, szkolenie i szerszy pakiet uruchomienia.'
+	},
+	{
+		number: '04',
+		title: 'Prace budowlane',
+		text: 'Przygotowanie terenu, instalacje, posadzka, odwodnienie, przyłącza, drogi manewrowe i zagospodarowanie mogą istotnie zmienić całkowity budżet.'
+	},
+	{
+		number: '05',
+		title: 'Technologia i wyposażenie',
+		text: 'Pompy, sterowanie, programy, chemia, płatności, filtracja, zabezpieczenia, urządzenia dodatkowe i rozwiązania eksploatacyjne wpływają na cenę i późniejsze koszty.'
+	},
+	{
+		number: '06',
+		title: 'Finansowanie i podatki',
+		text: 'Leasing, amortyzacja i rozliczenia podatkowe mogą zmienić sposób patrzenia na droższy lub tańszy wariant, ale trzeba je omówić z księgową albo doradcą.'
+	}
+];
+
+const locationCards = [
+	{
+		title: 'Lokalizacja miejska',
+		text: 'Zwykle większy potencjał ruchu, wyższa konkurencja, większe znaczenie widoczności, wygody wjazdu i dopasowania standardu obiektu do otoczenia.'
+	},
+	{
+		title: 'Lokalizacja podmiejska',
+		text: 'Często dobry kompromis między kosztem gruntu, ruchem lokalnym i możliwością budowy większego, wygodniejszego układu stanowisk.'
+	},
+	{
+		title: 'Mniejsza miejscowość lub wieś',
+		text: 'Koszt budowy może być podobny, ale model przychodu i sens rozbudowanej konfiguracji trzeba ocenić dużo ostrożniej.'
+	}
+];
+
+const componentCards = [
+	['01', 'Kontener lub moduł techniczny', 'Serce myjni: technologia, instalacje, sterowanie, chemia, zabezpieczenia i rozwiązania techniczne. Zakres tego elementu bardzo różni się między producentami.'],
+	['02', 'Technologia mycia', 'Pompy, programy, system dozowania, płatności, automatyka, filtracja, zabezpieczenia i elementy odpowiedzialne za jakość oraz stabilność pracy.'],
+	['03', 'Posadzka', 'Może być monolityczna albo prefabrykowana. Wybór zależy od projektu, organizacji budowy, czasu realizacji, gruntu i sposobu prowadzenia inwestycji.'],
+	['04', 'Konstrukcja i zabudowa', 'Dach, słupy, attyka, panele, oświetlenie i wygląd obiektu. Często muszą pasować do wymagań planu miejscowego albo architektury otoczenia.'],
+	['05', 'Urządzenia zewnętrzne SPA', 'Odkurzacze, rozmieniarki, dyspensery, pranie dywaników, ozonator, nalewak płynu i inne dodatki, które wpływają na przychód oraz koszt inwestycji.'],
+	['06', 'Projekt, kierownik i formalności', 'Projektant, dokumentacja, uzgodnienia branżowe, warunki techniczne, kierownik budowy i formalne przygotowanie procesu inwestycyjnego.'],
+	['07', 'Prace instalacyjno-budowlane', 'Roboty ziemne, fundamenty, instalacje podziemne, przyłącza, odwodnienie, drogi manewrowe, kanalizacja i przygotowanie terenu.'],
+	['08', 'Serwis, gwarancja i szkolenie', 'Cena powinna być oceniana razem z opieką po zakupie, szkoleniem, dostępnością serwisu, części i odpowiedzialnością za całość rozwiązania.']
+];
+
+const comparisonSlides = [
+	{
+		kicker: 'Błąd inwestora',
+		title: 'Zbieranie ofert bez analizy działki',
+		text: 'Jeżeli nie wiadomo, co realnie można zbudować, porównywanie ofert staje się porównywaniem przypadkowych zakresów, a nie realnych rozwiązań.'
+	},
+	{
+		kicker: 'Zakres oferty',
+		title: 'Cena może oznaczać coś zupełnie innego',
+		text: 'W jednej ofercie w cenie może być więcej elementów, w drugiej mniej. Dlatego najtańsza oferta nie zawsze oznacza najtańszą inwestycję.'
+	},
+	{
+		kicker: 'Lokalizacja',
+		title: 'Taki sam koszt, inna rentowność',
+		text: 'Obiekt w mocnej lokalizacji i obiekt w słabej lokalizacji mogą kosztować podobnie, ale ich przychody i sens konfiguracji mogą być całkowicie różne.'
+	},
+	{
+		kicker: 'Decyzja',
+		title: 'Najpierw budżet, potem dostawca',
+		text: 'Dostawcę warto wybierać po analizie lokalizacji, budżetu, zakresu inwestycji, jakości komponentów, serwisu i dopasowania do planu finansowego.'
+	}
+];
+
+const faqItems = [
+	{
+		question: 'Ile kosztuje myjnia bezdotykowa?',
+		answer:
+			'Orientacyjnie do prostego kalkulatora inwestora można przyjąć około 500 000 zł netto dla 2 stanowisk, 600 000 zł netto dla 3 stanowisk, 850 000 zł netto dla 4 stanowisk, 1 100 000 zł netto dla 5 stanowisk i 1 300 000 zł netto dla 6 stanowisk. To wartości kalkulacyjne, a nie gotowe oferty.'
+	},
+	{
+		question: 'Dlaczego nie da się rzetelnie podać jednej ceny myjni?',
+		answer:
+			'Bo cena zależy od działki, liczby stanowisk, technologii, zakresu dostawcy, konstrukcji, posadzki, kontenera, przyłączy, prac budowlanych, projektu, urządzeń dodatkowych, transportu, montażu, serwisu i lokalnych warunków formalnych.'
+	},
+	{
+		question: 'Czy warto zbierać oferty od wszystkich producentów myjni?',
+		answer:
+			'Samo zbieranie ofert bez analizy działki często prowadzi do chaosu. Najpierw warto sprawdzić potencjał lokalizacji, możliwy układ obiektu, media i budżet, a dopiero później porównywać oferty według tego samego zakresu.'
+	},
+	{
+		question: 'Czy lokalizacja wpływa na koszt myjni?',
+		answer:
+			'Lokalizacja wpływa nie tylko na koszt, ale przede wszystkim na sens konfiguracji. Myjnia w mieście, przy trasie, na przedmieściach albo w małej miejscowości może wymagać innego zakresu, innej liczby stanowisk i innego poziomu wyposażenia.'
+	},
+	{
+		question: 'Co można zrobić metodą gospodarczą?',
+		answer:
+			'Część inwestorów wykonuje we własnym zakresie prace instalacyjno-budowlane, posadzkę w uzgodnieniu z projektem, konstrukcję, zabudowę wizualną albo zakup urządzeń dodatkowych. Trzeba jednak sprawdzić wpływ takiego modelu na gwarancję, odpowiedzialność, bezpieczeństwo i spójność całego projektu.'
+	},
+	{
+		question: 'Czy myjnię można finansować leasingiem?',
+		answer:
+			'W praktyce elementy technologiczne i wyposażenie mogą być przedmiotem finansowania, ale szczegóły zależą od struktury inwestycji, dostawcy, formy prawnej, zabezpieczeń i decyzji instytucji finansującej. Warto omówić to z leasingodawcą oraz księgową przed wyborem wariantu.'
+	},
+	{
+		question: 'Czy myjnię można amortyzować?',
+		answer:
+			'Amortyzacja zależy od klasyfikacji poszczególnych elementów inwestycji, sposobu ich nabycia, rodzaju środka trwałego i przyjętych zasad podatkowych. Nie należy zakładać jednej stawki dla całej inwestycji bez konsultacji z księgową albo doradcą podatkowym.'
+	},
+	{
+		question: 'Czy najtańsza oferta na myjnię jest najlepsza?',
+		answer:
+			'Nie zawsze. Niższa cena może oznaczać mniejszy zakres, słabsze komponenty, mniej zabezpieczeń, ograniczony serwis albo koszty, które pojawią się dopiero po podpisaniu umowy lub na etapie budowy.'
+	}
+];
+
 const relatedLinks = [
-	[
-		"Koszt budowy myjni",
-		"/ile-kosztuje-myjnia-bezdotykowa/"
-	],
-	[
-		"Opłacalność myjni",
-		"/ile-zarabia-myjnia-bezdotykowa/"
-	],
-	[
-		"Działka pod myjnię",
-		"/dzialka-pod-myjnie-bezdotykowa/"
-	],
-	[
-		"Porównanie ofert",
-		"/jak-porownac-oferty-myjni-bezdotykowej/"
-	],
-	[
-		"Budowa krok po kroku",
-		"/budowa-myjni-bezdotykowej-krok-po-kroku/"
-	],
-	[
-		"Błędy inwestora",
-		"/najczestsze-bledy-przy-budowie-myjni/"
-	]
+	['Opłacalność myjni', '/ile-zarabia-myjnia-bezdotykowa/'],
+	['Działka pod myjnię', '/dzialka-pod-myjnie-bezdotykowa/'],
+	['Jak porównać oferty?', '/jak-porownac-oferty-myjni-bezdotykowej/'],
+	['Budowa krok po kroku', '/budowa-myjni-bezdotykowej-krok-po-kroku/'],
+	['Błędy inwestora', '/najczestsze-bledy-przy-budowie-myjni/'],
+	['Poradnik inwestora', '/poradnik/']
 ];
 
 const faqSchema = {
-	"@context": "https://schema.org",
-	"@type": "FAQPage",
-	"mainEntity": [
-		{
-			"@type": "Question",
-			"name": "Czy da się podać jedną cenę budowy myjni?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Nie rzetelnie. Cena zależy od liczby stanowisk, działki, mediów, zakresu budowy, technologii, standardu i tego, co zawiera oferta."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Dlaczego najtańsza oferta może być ryzykowna?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Bo może nie obejmować części prac, mieć słabsze komponenty, mniejszy zakres, mniej zabezpieczeń albo wyższe koszty późniejszej eksploatacji."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Co sprawdzić przed pytaniem o cenę?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Najpierw warto ocenić działkę, dojazd, media, lokalne formalności, możliwy układ stanowisk i potencjał ruchu."
-			}
-		},
-		{
-			"@type": "Question",
-			"name": "Czy koszt technologii to cały koszt inwestycji?",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "Nie. Technologia to tylko część budżetu. Osobno trzeba uwzględnić budowę, przyłącza, projekt, posadzkę, odwodnienie i wyposażenie dodatkowe."
-			}
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer
 		}
-	]
+	}))
 };
 ---
 
 <Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
 	<Header />
 
-	<main class="guide-page">
-		<section class="guide-hero" aria-labelledby="page-title">
-			<div class="container guide-hero-grid">
-				<div>
+	<main class="cost-page">
+		<section class="cost-hero" aria-labelledby="page-title">
+			<div class="container cost-hero-grid">
+				<div class="cost-hero-copy">
 					<p class="eyebrow">
 						<span></span>
-						{page.eyebrow}
+						Koszt budowy myjni
 					</p>
 
 					<h1 id="page-title">
-						{page.hero.before}
-						<strong>{page.hero.strong}</strong>
+						Ile kosztuje myjnia bezdotykowa i dlaczego sama
+						<strong>oferta producenta to za mało?</strong>
 					</h1>
 
-					<p class="guide-lead">{page.hero.lead}</p>
+					<p class="cost-lead">
+						Cena myjni nie zaczyna się od rabatu. Zaczyna się od działki,
+						lokalizacji, potencjału przychodu, zakresu inwestycji, technologii,
+						sposobu budowy i finansowania.
+					</p>
 
-					<div class="guide-actions">
-						<a class="guide-button-green" href="/#kontakt">
+					<div class="cost-actions">
+						<a class="cost-button-green" href="/#kontakt">
 							Prześlij lokalizację
 							<span aria-hidden="true">→</span>
 						</a>
-						<a class="guide-button-light" href="/poradnik/">
-							Wróć do poradnika
-							<span aria-hidden="true">→</span>
+						<a class="cost-button-light" href="#orientacyjne-koszty">
+							Zobacz widełki kosztów
+							<span aria-hidden="true">↓</span>
 						</a>
 					</div>
 
-					<div class="guide-chips" aria-label="Najważniejsze tematy strony">
-						{page.quick.map((item) => <span>{item}</span>)}
+					<div class="cost-chips" aria-label="Najważniejsze tematy strony">
+						<span>działka</span>
+						<span>liczba stanowisk</span>
+						<span>technologia</span>
+						<span>budowa</span>
+						<span>leasing</span>
 					</div>
 				</div>
 
-				<aside class="guide-visual" aria-label="Grafika do uzupełnienia">
-					<div class="guide-visual-card">
-						<div class="guide-stat"><strong>{page.hero.statA}</strong><span>01</span></div>
-						<div class="guide-stat"><strong>{page.hero.statB}</strong><span>02</span></div>
-						<div class="guide-stat"><strong>{page.hero.statC}</strong><span>03</span></div>
-					</div>
-					<div class="guide-placeholder">
-						Miejsce na mocną grafikę podstrony — docelowo wstawimy WebP dopasowany do tematu.
+				<aside class="cost-hero-panel" aria-label="Najważniejszy wniosek">
+					<div class="cost-panel-logo">inwestycjawmyjnie.pl</div>
+					<p>Najważniejsza zasada</p>
+					<h2>Nie porównuj ceny, dopóki nie znasz zakresu.</h2>
+					<span>
+						Dwie oferty mogą mieć podobną kwotę, ale zupełnie inny zakres technologii,
+						budowy, serwisu, gwarancji i odpowiedzialności.
+					</span>
+					<div class="cost-mini-grid">
+						<b>działka</b>
+						<b>budżet</b>
+						<b>zakres</b>
+						<b>finansowanie</b>
 					</div>
 				</aside>
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="cards-title">
+		<section class="cost-section" id="orientacyjne-koszty" aria-labelledby="cost-table-title">
 			<div class="container">
-				<div class="guide-split">
+				<div class="cost-split">
 					<div>
-						<p class="eyebrow">
-							<span></span>
-							Analiza inwestora
-						</p>
-						<h2 id="cards-title">Najważniejsze składowe <strong>kosztu</strong></h2>
+						<p class="eyebrow"><span></span>Krótka odpowiedź</p>
+						<h2 id="cost-table-title">
+							Orientacyjny koszt myjni <strong>w kalkulatorze inwestora</strong>
+						</h2>
 					</div>
-					<p>{page.cardsLead}</p>
+					<p>
+						Poniższe wartości traktuj jako bezpieczne założenia do wstępnej rozmowy,
+						a nie jako gotową ofertę. Cena może być niższa albo wyższa w zależności
+						od zakresu, działki, producenta i prac dodatkowych.
+					</p>
 				</div>
 
-				<div class="guide-grid">
-					{page.cards.map((card) => (
-						<article class="guide-card">
-							<span class="guide-number">{card[0]}</span>
+				<div class="cost-table-panel">
+					{costRows.map((row) => (
+						<article class="cost-row">
+							<div>
+								<strong>{row.stations}</strong>
+								<p>{row.note}</p>
+							</div>
+							<b>{row.amount}</b>
+						</article>
+					))}
+				</div>
+
+				<p class="cost-disclaimer">
+					To są wartości kalkulacyjne netto na 2026 rok. Ostateczna cena zależy od
+					konfiguracji, technologii, konstrukcji, posadzki, kontenera, urządzeń SPA,
+					przyłączy, projektu, montażu, transportu, prac budowlanych oraz warunków
+					konkretnej lokalizacji.
+				</p>
+			</div>
+		</section>
+
+		<section class="cost-section cost-text-section" aria-labelledby="why-title">
+	<div class="container cost-article-grid">
+		<div class="cost-sticky-title">
+			<p class="eyebrow"><span></span>Błąd na starcie</p>
+			<h2 id="why-title">
+				Dlaczego samo zbieranie ofert <strong>może wprowadzić w błąd?</strong>
+			</h2>
+		</div>
+
+		<div class="cost-article-copy cost-article-card">
+			<p>
+				Najważniejsze pytanie inwestora brzmi: <strong>ile kosztuje myjnia bezdotykowa?</strong>
+				To naturalne, bo inwestor chce wiedzieć, czy budżet jest realny i czy temat
+				warto rozwijać. Problem zaczyna się wtedy, gdy cała decyzja sprowadza się
+				do zebrania ofert od producentów i negocjowania najniższej ceny.
+			</p>
+
+			<p>
+				Wielu inwestorów porównuje oferty bez wiedzy, co faktycznie znajduje się
+				w zakresie, czego nie ma, jaki jest standard technologii, jak wygląda serwis,
+				jakie będą koszty po zakupie i czy proponowana konfiguracja pasuje do
+				konkretnej działki.
+			</p>
+
+			<p>
+				Dodatkowo część osób szuka odpowiedzi na grupach myjniowych, forach albo
+				w mediach społecznościowych. To może być pomocne informacyjnie, ale nie może
+				zastąpić analizy konkretnej lokalizacji. Myjnia jest inwestycją bardzo
+				indywidualną, a cudze doświadczenie może dotyczyć zupełnie innej działki,
+				innego rynku, innej technologii i innego modelu finansowania.
+			</p>
+
+			<div class="cost-quote">
+				<strong>Najpierw trzeba ustalić, co warto zbudować.</strong>
+				<span>Dopiero potem ma sens pytanie, kto zrobi to najlepiej i za jaką cenę.</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+		<section class="cost-section" aria-labelledby="location-title">
+			<div class="container">
+				<div class="cost-split">
+					<div>
+						<p class="eyebrow"><span></span>Najpierw działka</p>
+						<h2 id="location-title">
+							Lokalizacja decyduje, czy dana cena <strong>ma sens</strong>
+						</h2>
+					</div>
+					<p>
+						Myjnia o podobnym koszcie może działać w centrum miasta, na przedmieściach
+						albo w małej miejscowości. Ale jej potencjał przychodu, rentowność i sens
+						wyposażenia mogą być diametralnie różne.
+					</p>
+				</div>
+
+				<div class="location-card-grid">
+					{locationCards.map((card, index) => (
+						<article class="location-context-card">
+							<span>{String(index + 1).padStart(2, '0')}</span>
+							<h3>{card.title}</h3>
+							<p>{card.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="cost-section" aria-labelledby="factors-title">
+			<div class="container">
+				<div class="cost-split">
+					<div>
+						<p class="eyebrow"><span></span>Co wpływa na koszt?</p>
+						<h2 id="factors-title">
+							Cena myjni składa się z wielu <strong>warstw decyzji</strong>
+						</h2>
+					</div>
+					<p>
+						Dopiero suma tych elementów pokazuje, czy oferta jest tania, droga,
+						kompletna, niepełna, bezpieczna albo ryzykowna.
+					</p>
+				</div>
+
+				<div class="factor-grid">
+					{keyFactors.map((factor) => (
+						<article class="factor-card">
+							<span>{factor.number}</span>
+							<h3>{factor.title}</h3>
+							<p>{factor.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="cost-section" aria-labelledby="components-title">
+			<div class="container">
+				<div class="cost-split">
+					<div>
+						<p class="eyebrow"><span></span>Składniki budżetu</p>
+						<h2 id="components-title">
+							Co realnie wchodzi <strong>w koszt myjni?</strong>
+						</h2>
+					</div>
+					<p>
+						Przy porównaniu ofert trzeba oddzielić cenę technologii od całkowitego
+						kosztu inwestycji. To dwie różne rzeczy.
+					</p>
+				</div>
+
+				<div class="component-grid">
+					{componentCards.map((card) => (
+						<article class="component-card">
+							<span>{card[0]}</span>
 							<h3>{card[1]}</h3>
 							<p>{card[2]}</p>
 						</article>
@@ -240,23 +406,28 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="gallery-title">
+		<section class="cost-section" aria-labelledby="offers-title">
 			<div class="container">
-				<div class="guide-carousel-shell" data-subpage-carousel>
-					<div class="guide-carousel-head">
-						<h2 id="gallery-title">{page.galleryTitle}</h2>
-						<div class="guide-carousel-nav" aria-label="Nawigacja sekcji">
-							<button class="guide-carousel-arrow" type="button" data-subpage-prev aria-label="Poprzedni element">←</button>
-							<button class="guide-carousel-arrow" type="button" data-subpage-next aria-label="Następny element">→</button>
+				<div class="cost-carousel" data-cost-carousel>
+					<div class="cost-carousel-head">
+						<div>
+							<p class="eyebrow light"><span></span>Porównanie ofert</p>
+							<h2 id="offers-title">
+								Nie każda cena oznacza <strong>ten sam zakres</strong>
+							</h2>
+						</div>
+						<div class="cost-carousel-nav" aria-label="Nawigacja slajdera">
+							<button type="button" data-cost-prev aria-label="Poprzedni element">←</button>
+							<button type="button" data-cost-next aria-label="Następny element">→</button>
 						</div>
 					</div>
 
-					<div class="guide-carousel-track" data-subpage-track>
-						{page.gallery.map((slide) => (
-							<article class="guide-slide">
-								<strong>{slide[0]}</strong>
-								<h3>{slide[0]}</h3>
-								<p>{slide[1]}</p>
+					<div class="cost-carousel-track" data-cost-track>
+						{comparisonSlides.map((slide) => (
+							<article class="cost-slide">
+								<span>{slide.kicker}</span>
+								<h3>{slide.title}</h3>
+								<p>{slide.text}</p>
 							</article>
 						))}
 					</div>
@@ -264,52 +435,128 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="guide-section" aria-labelledby="analysis-title">
-			<div class="container">
-				<div class="guide-analysis">
-					<div class="guide-analysis-grid">
-						<div>
-							<p class="eyebrow light"><span></span>Analiza lokalizacji</p>
-							<h2 id="analysis-title">Chcesz sprawdzić realny budżet <strong>dla swojej lokalizacji?</strong></h2>
-							<p>{page.analysisText}</p>
-						</div>
-						<a class="guide-button-green" href="/#kontakt">
-							Prześlij lokalizację
-							<span aria-hidden="true">→</span>
-						</a>
-					</div>
+		<section class="cost-section model-section" aria-labelledby="model-title">
+	<div class="container model-grid">
+		<div class="model-intro">
+			<p class="eyebrow"><span></span>Zakres realizacji</p>
+
+			<h2 id="model-title">
+				Metoda gospodarcza czy <strong>kompleksowa realizacja?</strong>
+			</h2>
+
+			<p class="model-lead">
+				Część elementów można wykonać we własnym zakresie, ale trzeba sprawdzić,
+				jak wpływa to na gwarancję, odpowiedzialność, bezpieczeństwo i spójność projektu.
+			</p>
+		</div>
+
+		<div class="model-cards">
+			<article>
+				<h3>Elementy, które inwestor czasem wykonuje sam</h3>
+				<ul>
+					<li>prace instalacyjno-budowlane</li>
+					<li>posadzka w uzgodnieniu z projektem</li>
+					<li>konstrukcja i zabudowa wizualna</li>
+					<li>zakup wybranych urządzeń SPA na wolnym rynku</li>
+					<li>część zagospodarowania terenu</li>
+				</ul>
+			</article>
+
+			<article>
+				<h3>Pytania, które trzeba zadać przed taką decyzją</h3>
+				<ul>
+					<li>kto odpowiada za całość projektu?</li>
+					<li>co dzieje się z gwarancją?</li>
+					<li>czy elementy są zgodne z technologią?</li>
+					<li>czy pozorna oszczędność nie podniesie kosztu później?</li>
+					<li>czy projektant i dostawca akceptują taki zakres?</li>
+				</ul>
+			</article>
+		</div>
+	</div>
+</section>
+
+		<section class="cost-section finance-section" aria-labelledby="finance-title">
+			<div class="container finance-panel">
+				<div>
+					<p class="eyebrow light"><span></span>Finansowanie</p>
+					<h2 id="finance-title">
+						Leasing, amortyzacja i podatki mogą zmienić <strong>sposób patrzenia na cenę</strong>
+					</h2>
+				</div>
+				<div>
+					<p>
+						Droższy wariant technologii albo bardziej kompletny zakres nie zawsze oznacza
+						gorszą decyzję. Przy działalności gospodarczej znaczenie może mieć sposób
+						finansowania, leasing, amortyzacja i rozliczenie podatkowe inwestycji.
+					</p>
+					<p>
+						Nie należy jednak zakładać jednej prostej reguły dla całej myjni. Inaczej mogą
+						być traktowane urządzenia techniczne, inaczej elementy budowlane, konstrukcja,
+						posadzka albo prace związane z gruntem. Przed decyzją warto skonsultować model
+						z księgową, doradcą podatkowym i instytucją finansującą.
+					</p>
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-faq" aria-labelledby="faq-title">
+		<section class="cost-section" aria-labelledby="analysis-title">
 			<div class="container">
-				<div class="guide-split">
+				<div class="analysis-cta">
+					<div>
+						<p class="eyebrow light"><span></span>Analiza lokalizacji</p>
+						<h2 id="analysis-title">
+							Chcesz sprawdzić realny budżet <strong>dla swojej działki?</strong>
+						</h2>
+						<p>
+							Prześlij miejscowość, link do mapy, numer działki albo krótki opis miejsca.
+							Na początku nie chodzi o sprzedaż, tylko o ocenę, czy temat warto rozwijać
+							i jaki zakres inwestycji ma sens.
+						</p>
+					</div>
+					<a class="cost-button-green" href="/#kontakt">
+						Prześlij lokalizację
+						<span aria-hidden="true">→</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="cost-section" aria-labelledby="faq-title">
+			<div class="container">
+				<div class="cost-split">
 					<div>
 						<p class="eyebrow"><span></span>FAQ</p>
-						<h2 id="faq-title">Najczęstsze pytania <strong>inwestora</strong></h2>
+						<h2 id="faq-title">
+							Najczęstsze pytania o <strong>koszt myjni</strong>
+						</h2>
 					</div>
-					<p>Krótko i konkretnie — pytania, które pomagają lepiej przygotować decyzję przed rozmową z projektantem, doradcą albo dostawcą.</p>
+					<p>
+						Odpowiedzi na pytania, które inwestor powinien zadać przed rozmową
+						z producentem, projektantem, księgową albo leasingodawcą.
+					</p>
 				</div>
 
-				<div class="guide-faq-list">
-					{page.faq.map((item, index) => (
-						<details class="guide-faq-item" open={index === 0}>
-							<summary>{item[0]}</summary>
-							<p>{item[1]}</p>
+				<div class="cost-faq-list">
+					{faqItems.map((item, index) => (
+						<details class="cost-faq-item" open={index === 0}>
+							<summary>{item.question}</summary>
+							<p>{item.answer}</p>
 						</details>
 					))}
 				</div>
 			</div>
 		</section>
 
-		<section class="guide-section guide-related" aria-labelledby="related-title">
+		<section class="cost-section related-section" aria-labelledby="related-title">
 			<div class="container">
 				<p class="eyebrow"><span></span>Dalej w poradniku</p>
-				<h2 id="related-title">Powiązane tematy <strong>dla inwestora</strong></h2>
-				<div class="guide-related-grid">
+				<h2 id="related-title">
+					Powiązane tematy <strong>dla inwestora</strong>
+				</h2>
+				<div class="related-grid">
 					{relatedLinks.map((link) => (
-						<a class="guide-related-card" href={link[1]}>{link[0]} →</a>
+						<a class="related-card" href={link[1]}>{link[0]} <span>→</span></a>
 					))}
 				</div>
 			</div>
@@ -321,32 +568,37 @@ const faqSchema = {
 </Layout>
 
 <style>
-	.guide-page {
+	.cost-page {
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
 		background: #fff;
 	}
 
-	.guide-hero {
+	.cost-hero {
 		position: relative;
 		overflow: hidden;
-		padding: clamp(84px, 8vw, 132px) 0 clamp(64px, 7vw, 104px);
+		padding: clamp(84px, 8vw, 132px) 0 clamp(70px, 7vw, 110px);
 		background:
-			radial-gradient(circle at 78% 14%, rgba(18, 104, 255, 0.08), transparent 32%),
-			radial-gradient(circle at 16% 26%, rgba(114, 240, 105, 0.1), transparent 28%),
+			radial-gradient(circle at 80% 12%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 18% 28%, rgba(114, 240, 105, 0.11), transparent 30%),
 			linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
 	}
 
-	.guide-hero-grid {
+	.cost-hero-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
-		gap: clamp(34px, 5vw, 70px);
+		grid-template-columns: minmax(0, 1fr) minmax(380px, 0.66fr);
+		gap: clamp(34px, 5vw, 74px);
 		align-items: center;
 	}
 
-	.guide-hero h1,
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.cost-hero h1,
+	.cost-split h2,
+	.cost-sticky-title h2,
+	.model-grid h2,
+	.finance-panel h2,
+	.analysis-cta h2,
+	.related-section h2 {
 		margin: 0;
 		color: var(--ink);
 		font-weight: 950;
@@ -354,16 +606,18 @@ const faqSchema = {
 		line-height: 0.94;
 	}
 
-	.guide-hero h1 {
-		max-width: 940px;
-		font-size: clamp(3.35rem, 6.8vw, 7.05rem);
+	.cost-hero h1 {
+		max-width: 980px;
+		font-size: clamp(3.25rem, 6.6vw, 7.05rem);
 	}
 
-	.guide-hero h1 strong,
-	.guide-split h2 strong,
-	.guide-analysis h2 strong,
-	.guide-faq h2 strong,
-	.guide-related h2 strong {
+	.cost-hero h1 strong,
+	.cost-split h2 strong,
+	.cost-sticky-title h2 strong,
+	.model-grid h2 strong,
+	.finance-panel h2 strong,
+	.analysis-cta h2 strong,
+	.related-section h2 strong {
 		background: linear-gradient(90deg, #0756d8 0%, #1268ff 38%, #4fa3ff 72%, #9ed7ff 100%);
 		-webkit-background-clip: text;
 		background-clip: text;
@@ -371,25 +625,25 @@ const faqSchema = {
 		font-weight: inherit;
 	}
 
-	.guide-lead {
-		max-width: 760px;
+	.cost-lead {
+		max-width: 780px;
 		margin: 28px 0 0;
 		color: #667085;
-		font-size: clamp(1.04rem, 1.35vw, 1.28rem);
+		font-size: clamp(1.05rem, 1.35vw, 1.28rem);
 		font-weight: 560;
 		line-height: 1.68;
 		letter-spacing: -0.012em;
 	}
 
-	.guide-actions {
+	.cost-actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 14px;
 		margin-top: 34px;
 	}
 
-	.guide-button-green,
-	.guide-button-light {
+	.cost-button-green,
+	.cost-button-light {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -403,109 +657,33 @@ const faqSchema = {
 		transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 	}
 
-	.guide-button-green {
+	.cost-button-green {
 		color: #06110a;
 		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
 		border: 1px solid rgba(114, 240, 105, 0.34);
 		box-shadow: 0 18px 44px rgba(76, 244, 89, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.56);
 	}
 
-	.guide-button-light {
+	.cost-button-light {
 		color: var(--ink);
-		background: rgba(255, 255, 255, 0.88);
+		background: rgba(255, 255, 255, 0.9);
 		border: 1px solid rgba(8, 16, 32, 0.1);
 		box-shadow: 0 12px 34px rgba(8, 16, 32, 0.06);
 	}
 
-	.guide-button-green:hover,
-	.guide-button-light:hover {
+	.cost-button-green:hover,
+	.cost-button-light:hover {
 		transform: translateY(-2px);
 	}
 
-	.guide-visual {
-		position: relative;
-		min-height: 520px;
-		padding: 28px;
-		border-radius: 46px;
-		background:
-			radial-gradient(circle at 68% 24%, rgba(18, 104, 255, 0.24), transparent 30%),
-			radial-gradient(circle at 28% 78%, rgba(114, 240, 105, 0.22), transparent 30%),
-			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
-		overflow: hidden;
-	}
-
-	.guide-visual::before {
-		content: '';
-		position: absolute;
-		inset: 42px;
-		border-radius: 34px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background:
-			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-		background-size: 48px 48px;
-		mask-image: linear-gradient(180deg, black, transparent 88%);
-	}
-
-	.guide-visual-card {
-		position: relative;
-		z-index: 1;
-		display: grid;
-		gap: 16px;
-	}
-
-	.guide-stat {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 18px;
-		min-height: 92px;
-		padding: 18px;
-		border-radius: 26px;
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.14);
-		backdrop-filter: blur(16px);
-		color: rgba(255, 255, 255, 0.86);
-	}
-
-	.guide-stat strong {
-		font-size: 0.8rem;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-	}
-
-	.guide-stat span {
-		color: #72f069;
-		font-size: 1.45rem;
-		font-weight: 950;
-		letter-spacing: -0.06em;
-	}
-
-	.guide-placeholder {
-		position: absolute;
-		left: 28px;
-		right: 28px;
-		bottom: 28px;
-		z-index: 1;
-		padding: 20px;
-		border-radius: 28px;
-		background: rgba(255, 255, 255, 0.09);
-		border: 1px dashed rgba(255, 255, 255, 0.22);
-		color: rgba(255, 255, 255, 0.76);
-		font-weight: 650;
-		line-height: 1.5;
-	}
-
-	.guide-chips {
+	.cost-chips {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
 		margin-top: 26px;
 	}
 
-	.guide-chips span {
+	.cost-chips span {
 		display: inline-flex;
 		align-items: center;
 		min-height: 38px;
@@ -519,51 +697,264 @@ const faqSchema = {
 		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045);
 	}
 
-	.guide-section {
+	.cost-hero-panel {
+		position: relative;
+		min-height: 520px;
+		padding: 32px;
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 70% 18%, rgba(18, 104, 255, 0.28), transparent 32%),
+			radial-gradient(circle at 22% 78%, rgba(114, 240, 105, 0.24), transparent 32%),
+			linear-gradient(145deg, #05070d, #121a29 58%, #05070d);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22);
+		overflow: hidden;
+		color: #fff;
+	}
+
+	.cost-hero-panel::before {
+		content: '';
+		position: absolute;
+		inset: 48px;
+		border-radius: 34px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background:
+			linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+		background-size: 48px 48px;
+		mask-image: linear-gradient(180deg, black, transparent 90%);
+	}
+
+	.cost-panel-logo,
+	.cost-hero-panel p,
+	.cost-hero-panel h2,
+	.cost-hero-panel span,
+	.cost-mini-grid {
+		position: relative;
+		z-index: 1;
+	}
+
+	.cost-panel-logo {
+		display: inline-flex;
+		padding: 9px 13px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		color: rgba(255, 255, 255, 0.82);
+		font-size: 0.82rem;
+		font-weight: 850;
+	}
+
+	.cost-hero-panel p {
+		margin: 84px 0 0;
+		color: #72f069;
+		font-size: 0.78rem;
+		font-weight: 950;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+	}
+
+	.cost-hero-panel h2 {
+		max-width: 420px;
+		margin: 16px 0 0;
+		font-size: clamp(2rem, 3vw, 3.4rem);
+		font-weight: 950;
+		letter-spacing: -0.07em;
+		line-height: 0.98;
+	}
+
+	.cost-hero-panel > span {
+		display: block;
+		max-width: 420px;
+		margin-top: 18px;
+		color: rgba(255, 255, 255, 0.74);
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.cost-mini-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 34px;
+	}
+
+	.cost-mini-grid b {
+		padding: 14px;
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.13);
+		color: rgba(255, 255, 255, 0.88);
+		font-size: 0.9rem;
+		font-weight: 850;
+		text-align: center;
+	}
+
+	.cost-section {
 		padding: clamp(72px, 7vw, 110px) 0;
 	}
 
-	.guide-split {
+	.cost-split,
+	.cost-article-grid,
+	.model-grid,
+	.finance-panel {
 		display: grid;
-		grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.48fr);
-		gap: clamp(28px, 4vw, 52px);
-		align-items: end;
-		margin-bottom: 40px;
+		grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.52fr);
+		gap: clamp(30px, 4vw, 56px);
+		align-items: start;
 	}
 
-	.guide-split h2,
-	.guide-analysis h2,
-	.guide-faq h2,
-	.guide-related h2 {
+	.cost-split {
+		align-items: end;
+		margin-bottom: 42px;
+	}
+
+	.cost-split h2,
+	.cost-sticky-title h2,
+	.model-grid h2,
+	.finance-panel h2,
+	.analysis-cta h2,
+	.related-section h2 {
 		font-size: clamp(2.55rem, 4.6vw, 5.1rem);
 	}
 
-	.guide-split p {
+	.cost-split > p,
+	.model-lead,
+	.finance-panel p,
+	.analysis-cta p {
 		margin: 0;
 		color: #667085;
-		font-size: clamp(1rem, 1.2vw, 1.14rem);
+		font-size: clamp(1rem, 1.18vw, 1.14rem);
 		font-weight: 560;
 		line-height: 1.66;
 	}
 
-	.guide-grid {
+	.cost-table-panel {
+		display: grid;
+		gap: 14px;
+		padding: clamp(20px, 3vw, 34px);
+		border-radius: 42px;
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 24px 74px rgba(8, 16, 32, 0.075);
+	}
+
+	.cost-row {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 24px;
+		align-items: center;
+		padding: 20px;
+		border-radius: 26px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.07);
+		box-shadow: 0 12px 34px rgba(8, 16, 32, 0.045);
+	}
+
+	.cost-row strong {
+		color: var(--ink);
+		font-size: clamp(1.28rem, 2vw, 2rem);
+		font-weight: 950;
+		letter-spacing: -0.055em;
+	}
+
+	.cost-row p {
+		margin: 8px 0 0;
+		color: #667085;
+		font-weight: 560;
+		line-height: 1.5;
+	}
+
+	.cost-row b {
+		color: #06110a;
+		padding: 12px 16px;
+		border-radius: 999px;
+		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
+		font-size: clamp(1rem, 1.5vw, 1.24rem);
+		font-weight: 950;
+		white-space: nowrap;
+	}
+
+	.cost-disclaimer {
+		max-width: 980px;
+		margin: 24px 0 0;
+		color: #667085;
+		font-size: 0.98rem;
+		font-weight: 560;
+		line-height: 1.62;
+	}
+
+	.cost-text-section {
+		background: #f8f9fb;
+	}
+
+	.cost-sticky-title {
+		position: sticky;
+		top: 120px;
+	}
+
+	.cost-article-copy {
+		display: grid;
+		gap: 20px;
+	}
+
+	.cost-article-copy p {
+		margin: 0;
+		color: #344054;
+		font-size: clamp(1.04rem, 1.24vw, 1.18rem);
+		font-weight: 560;
+		line-height: 1.76;
+	}
+
+	.cost-quote {
+		padding: 28px;
+		border-radius: 32px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.06);
+	}
+
+	.cost-quote strong {
+		display: block;
+		font-size: clamp(1.35rem, 2vw, 2rem);
+		font-weight: 950;
+		letter-spacing: -0.055em;
+	}
+
+	.cost-quote span {
+		display: block;
+		margin-top: 10px;
+		color: #667085;
+		font-weight: 560;
+		line-height: 1.6;
+	}
+
+	.location-card-grid,
+	.factor-grid,
+	.component-grid,
+	.related-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 20px;
 	}
 
-	.guide-card {
+	.location-context-card,
+	.factor-card,
+	.component-card,
+	.related-card {
 		position: relative;
-		min-height: 300px;
+		overflow: hidden;
+		min-height: 260px;
 		padding: 28px;
 		border-radius: 34px;
-		border: 1px solid rgba(8, 16, 32, 0.08);
 		background: linear-gradient(145deg, #ffffff, #f8f9fb);
-		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.86);
-		overflow: hidden;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07);
 	}
 
-	.guide-card::before {
+	.location-context-card::before,
+	.factor-card::before,
+	.component-card::before {
 		content: '';
 		position: absolute;
 		right: -80px;
@@ -575,72 +966,97 @@ const faqSchema = {
 		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -18px 34px rgba(8, 16, 32, 0.035), 0 22px 54px rgba(8, 16, 32, 0.055);
 	}
 
-	.guide-number {
+	.location-context-card span,
+	.factor-card span,
+	.component-card span {
 		position: relative;
 		z-index: 1;
 		display: block;
 		color: rgba(8, 16, 32, 0.12);
-		font-size: clamp(4.2rem, 5.2vw, 6.6rem);
+		font-size: clamp(4rem, 5vw, 6.4rem);
 		font-weight: 950;
 		letter-spacing: -0.09em;
 		line-height: 0.82;
 	}
 
-	.guide-card h3 {
+	.location-context-card h3,
+	.factor-card h3,
+	.component-card h3 {
 		position: relative;
 		z-index: 1;
-		margin: 44px 0 0;
+		margin: 42px 0 0;
 		color: var(--ink);
-		font-size: clamp(1.45rem, 2vw, 2rem);
+		font-size: clamp(1.42rem, 2vw, 2rem);
 		font-weight: 950;
 		letter-spacing: -0.06em;
 		line-height: 1.02;
 	}
 
-	.guide-card p {
+	.location-context-card p,
+	.factor-card p,
+	.component-card p {
 		position: relative;
 		z-index: 1;
 		margin: 14px 0 0;
 		color: #667085;
 		font-weight: 560;
-		line-height: 1.6;
+		line-height: 1.62;
 	}
 
-	.guide-carousel-shell {
-		position: relative;
+	.component-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.component-card {
+		min-height: 320px;
+	}
+
+	.cost-carousel {
 		overflow: hidden;
-		padding: clamp(28px, 4vw, 44px);
-		border-radius: 42px;
-		background: linear-gradient(145deg, #05070d, #121a29 62%, #05070d);
+		padding: clamp(30px, 4vw, 48px);
+		border-radius: 48px;
+		background:
+			radial-gradient(circle at 12% 20%, rgba(18, 104, 255, 0.22), transparent 34%),
+			radial-gradient(circle at 88% 10%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(145deg, #05070d, #121a29 60%, #05070d);
 		box-shadow: 0 34px 100px rgba(8, 16, 32, 0.2);
+		color: #fff;
 	}
 
-	.guide-carousel-head {
+	.cost-carousel-head {
 		display: flex;
 		align-items: end;
 		justify-content: space-between;
 		gap: 24px;
-		margin-bottom: 24px;
-		color: #fff;
+		margin-bottom: 28px;
 	}
 
-	.guide-carousel-head h2 {
-		max-width: 720px;
+	.cost-carousel-head h2 {
+		max-width: 860px;
 		margin: 0;
-		font-size: clamp(2.1rem, 3.8vw, 4.3rem);
+		font-size: clamp(2.3rem, 4vw, 4.6rem);
 		font-weight: 950;
 		letter-spacing: -0.075em;
 		line-height: 0.96;
 	}
 
-	.guide-carousel-nav {
+	.cost-carousel-head h2 strong,
+	.finance-panel h2 strong,
+	.analysis-cta h2 strong {
+		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.cost-carousel-nav {
 		display: flex;
 		gap: 12px;
 	}
 
-	.guide-carousel-arrow {
-		width: 52px;
-		height: 52px;
+	.cost-carousel-nav button {
+		width: 54px;
+		height: 54px;
 		border-radius: 999px;
 		border: 1px solid rgba(255, 255, 255, 0.14);
 		background: rgba(255, 255, 255, 0.1);
@@ -650,7 +1066,7 @@ const faqSchema = {
 		cursor: pointer;
 	}
 
-	.guide-carousel-track {
+	.cost-carousel-track {
 		display: grid;
 		grid-auto-flow: column;
 		grid-auto-columns: minmax(420px, 520px);
@@ -663,47 +1079,103 @@ const faqSchema = {
 		scrollbar-width: none;
 	}
 
-	.guide-carousel-track::-webkit-scrollbar {
+	.cost-carousel-track::-webkit-scrollbar {
 		display: none;
 	}
 
-	.guide-slide {
+	.cost-slide {
 		scroll-snap-align: start;
-		min-height: 280px;
-		padding: 26px;
+		min-height: 300px;
+		padding: 28px;
 		border-radius: 30px;
 		background:
 			radial-gradient(circle at 86% 12%, rgba(114, 240, 105, 0.16), transparent 32%),
 			linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
 		border: 1px solid rgba(255, 255, 255, 0.16);
-		color: #fff;
 	}
 
-	.guide-slide strong {
+	.cost-slide span {
 		display: block;
-		font-size: 0.82rem;
+		color: #72f069;
+		font-size: 0.8rem;
 		font-weight: 950;
 		letter-spacing: 0.13em;
 		text-transform: uppercase;
-		color: #72f069;
 	}
 
-	.guide-slide h3 {
-		margin: 44px 0 0;
+	.cost-slide h3 {
+		margin: 56px 0 0;
 		font-size: 2rem;
 		font-weight: 950;
 		letter-spacing: -0.065em;
 		line-height: 1.02;
 	}
 
-	.guide-slide p {
+	.cost-slide p {
 		margin: 14px 0 0;
-		color: rgba(255, 255, 255, 0.72);
+		color: rgba(255, 255, 255, 0.74);
 		font-weight: 560;
 		line-height: 1.6;
 	}
 
-	.guide-analysis {
+	.model-lead {
+		margin-top: 24px;
+	}
+
+	.model-cards {
+		display: grid;
+		gap: 18px;
+	}
+
+	.model-cards article {
+		padding: 28px;
+		border-radius: 34px;
+		background: #fff;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 20px 58px rgba(8, 16, 32, 0.06);
+	}
+
+	.model-cards h3 {
+		margin: 0;
+		font-size: 1.42rem;
+		font-weight: 950;
+		letter-spacing: -0.055em;
+		line-height: 1.04;
+	}
+
+	.model-cards ul {
+		display: grid;
+		gap: 10px;
+		margin: 18px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.model-cards li {
+		display: flex;
+		gap: 10px;
+		color: #344054;
+		font-weight: 650;
+		line-height: 1.5;
+	}
+
+	.model-cards li::before {
+		content: '';
+		width: 9px;
+		height: 9px;
+		margin-top: 8px;
+		border-radius: 999px;
+		background: #72f069;
+		box-shadow: 0 0 0 5px rgba(114, 240, 105, 0.12);
+		flex: 0 0 auto;
+	}
+
+	.finance-section {
+		padding-top: 0;
+	}
+
+	.finance-panel,
+	.analysis-cta {
 		padding: clamp(34px, 5vw, 58px);
 		border-radius: 48px;
 		background:
@@ -715,32 +1187,39 @@ const faqSchema = {
 		color: #fff;
 	}
 
-	.guide-analysis-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		gap: 30px;
-		align-items: end;
-	}
-
-	.guide-analysis h2 {
+	.finance-panel h2,
+	.analysis-cta h2 {
 		color: #fff;
 	}
 
-	.guide-analysis p {
-		max-width: 720px;
-		margin: 22px 0 0;
+	.finance-panel p,
+	.analysis-cta p {
 		color: rgba(255, 255, 255, 0.74);
-		font-weight: 560;
-		line-height: 1.68;
 	}
 
-	.guide-faq-list {
+	.finance-panel div:last-child {
+		display: grid;
+		gap: 18px;
+	}
+
+	.analysis-cta {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 32px;
+		align-items: end;
+	}
+
+	.analysis-cta p {
+		max-width: 780px;
+		margin-top: 22px;
+	}
+
+	.cost-faq-list {
 		display: grid;
 		gap: 14px;
-		margin-top: 34px;
 	}
 
-	.guide-faq-item {
+	.cost-faq-item {
 		border-radius: 24px;
 		border: 1px solid rgba(8, 16, 32, 0.08);
 		background: #fff;
@@ -748,7 +1227,7 @@ const faqSchema = {
 		overflow: hidden;
 	}
 
-	.guide-faq-item summary {
+	.cost-faq-item summary {
 		display: flex;
 		justify-content: space-between;
 		gap: 18px;
@@ -760,11 +1239,11 @@ const faqSchema = {
 		list-style: none;
 	}
 
-	.guide-faq-item summary::-webkit-details-marker {
+	.cost-faq-item summary::-webkit-details-marker {
 		display: none;
 	}
 
-	.guide-faq-item summary::after {
+	.cost-faq-item summary::after {
 		content: '+';
 		display: grid;
 		place-items: center;
@@ -772,15 +1251,16 @@ const faqSchema = {
 		height: 34px;
 		border-radius: 999px;
 		background: #f4f6f9;
+		flex: 0 0 auto;
 	}
 
-	.guide-faq-item[open] summary::after {
+	.cost-faq-item[open] summary::after {
 		content: '−';
 		background: var(--ink);
 		color: #fff;
 	}
 
-	.guide-faq-item p {
+	.cost-faq-item p {
 		margin: 0;
 		padding: 0 24px 24px;
 		color: #667085;
@@ -788,120 +1268,396 @@ const faqSchema = {
 		line-height: 1.68;
 	}
 
-	.guide-related-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 18px;
+	.related-section h2 {
+		max-width: 900px;
+	}
+
+	.related-grid {
 		margin-top: 32px;
 	}
 
-	.guide-related-card {
-		padding: 24px;
-		border-radius: 28px;
-		background: #fff;
-		border: 1px solid rgba(8, 16, 32, 0.08);
-		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.055);
+	.related-card {
+		min-height: 150px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 20px;
+		color: var(--ink);
+		font-size: 1.16rem;
 		font-weight: 900;
-		letter-spacing: -0.035em;
+		letter-spacing: -0.04em;
+		text-decoration: none;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
 	}
 
-	@media (max-width: 1120px) {
-		.guide-hero-grid,
-		.guide-split,
-		.guide-analysis-grid {
+	.related-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.1);
+	}
+
+	.related-card span {
+		display: grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 999px;
+		background: var(--ink);
+		color: #fff;
+		flex: 0 0 auto;
+	}
+
+	@media (max-width: 1180px) {
+		.cost-hero-grid,
+		.cost-split,
+		.cost-article-grid,
+		.model-grid,
+		.finance-panel,
+		.analysis-cta {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.cost-sticky-title {
+			position: static;
+		}
+
+		.component-grid,
+		.factor-grid,
+		.location-card-grid,
+		.related-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
-		.guide-visual {
+		.cost-hero-panel {
 			min-height: 420px;
 		}
 	}
 
 	@media (max-width: 760px) {
-		.guide-hero {
+		.cost-hero {
 			padding-top: 72px;
 		}
 
-		.guide-hero h1 {
-			font-size: clamp(2.45rem, 12vw, 3.5rem);
+		.cost-hero h1 {
+			font-size: clamp(2.35rem, 11.5vw, 3.45rem);
 			line-height: 0.98;
 			letter-spacing: -0.07em;
 		}
 
-		.guide-actions,
-		.guide-button-green,
-		.guide-button-light {
+		.cost-actions,
+		.cost-button-green,
+		.cost-button-light {
 			width: 100%;
 		}
 
-		.guide-visual {
-			min-height: 360px;
+		.cost-hero-panel {
+			min-height: 380px;
 			border-radius: 34px;
+			padding: 26px;
 		}
 
-		.guide-grid,
-		.guide-related-grid {
+		.cost-hero-panel p {
+			margin-top: 58px;
+		}
+
+		.cost-mini-grid,
+		.component-grid,
+		.factor-grid,
+		.location-card-grid,
+		.related-grid {
 			grid-template-columns: 1fr;
 		}
 
-		.guide-card {
+		.cost-split h2,
+		.cost-sticky-title h2,
+		.model-grid h2,
+		.finance-panel h2,
+		.analysis-cta h2,
+		.related-section h2 {
+			font-size: clamp(2.15rem, 10.5vw, 3.3rem);
+			line-height: 0.98;
+			letter-spacing: -0.07em;
+		}
+
+		.cost-row {
+			grid-template-columns: 1fr;
+			gap: 14px;
+		}
+
+		.cost-row b {
+			justify-self: start;
+			white-space: normal;
+		}
+
+		.location-context-card,
+		.factor-card,
+		.component-card {
 			min-height: auto;
 			padding: 24px;
 			border-radius: 28px;
 		}
 
-		.guide-card h3 {
-			margin-top: 28px;
+		.location-context-card h3,
+		.factor-card h3,
+		.component-card h3 {
+			margin-top: 30px;
 		}
 
-		.guide-split h2,
-		.guide-analysis h2,
-		.guide-faq h2,
-		.guide-related h2 {
-			font-size: clamp(2.2rem, 10.5vw, 3.35rem);
-			line-height: 0.98;
-			letter-spacing: -0.07em;
+		.cost-carousel {
+			padding: 24px;
+			border-radius: 34px;
 		}
 
-		.guide-carousel-head {
+		.cost-carousel-head {
 			display: grid;
 		}
 
-		.guide-carousel-nav {
+		.cost-carousel-nav {
 			justify-content: center;
 		}
 
-		.guide-carousel-track {
+		.cost-carousel-track {
 			grid-auto-columns: 86vw;
-			margin-left: -20px;
-			margin-right: -20px;
-			padding-left: 20px;
-			padding-right: 20px;
+			margin-left: -14px;
+			margin-right: -14px;
+			padding-left: 14px;
+			padding-right: 14px;
 		}
 
-		.guide-analysis-grid {
-			gap: 24px;
+		.cost-slide {
+			min-height: 280px;
+		}
+
+		.finance-panel,
+		.analysis-cta {
+			padding: 28px;
+			border-radius: 34px;
+		}
+
+		.analysis-cta .cost-button-green {
+			width: 100%;
 		}
 	}
+	/* ONLY THIS SECTION — OFFER COLLECTION TEXT CARD FIX */
+
+.cost-text-section {
+	overflow: hidden;
+}
+
+.cost-text-section .cost-article-grid {
+	align-items: start;
+}
+
+.cost-text-section .cost-sticky-title h2 {
+	max-width: 900px;
+}
+
+.cost-article-card {
+	position: relative;
+	padding: clamp(28px, 3vw, 42px);
+	border-radius: 38px;
+	background:
+		linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 253, 0.96)),
+		radial-gradient(circle at 92% 8%, rgba(18, 104, 255, 0.055), transparent 36%);
+	border: 1px solid rgba(8, 16, 32, 0.08);
+	box-shadow:
+		0 24px 74px rgba(8, 16, 32, 0.075),
+		inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+.cost-article-card::before {
+	content: '';
+	position: absolute;
+	right: -90px;
+	top: -110px;
+	width: 230px;
+	height: 230px;
+	border-radius: 54% 46% 42% 58% / 44% 58% 42% 56%;
+	background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(226, 236, 249, 0.6));
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.94),
+		inset 0 -18px 34px rgba(8, 16, 32, 0.035),
+		0 22px 54px rgba(8, 16, 32, 0.055);
+	opacity: 0.62;
+	pointer-events: none;
+}
+
+.cost-article-card > * {
+	position: relative;
+	z-index: 1;
+}
+
+/* Na laptopach 12–14 cali dalej zostaje układ premium, ale bez rozjazdu */
+@media (max-width: 1480px) and (min-width: 1181px) {
+	.cost-text-section .cost-article-grid {
+		grid-template-columns: minmax(0, 0.9fr) minmax(430px, 0.72fr);
+		gap: 42px;
+	}
+
+	.cost-text-section .cost-sticky-title h2 {
+		font-size: clamp(3.05rem, 4.7vw, 5.35rem);
+		line-height: 0.96;
+		letter-spacing: -0.074em;
+	}
+
+	.cost-article-copy p {
+		font-size: clamp(1rem, 1.08vw, 1.1rem);
+		line-height: 1.68;
+	}
+
+	.cost-article-card {
+		padding: 32px;
+		border-radius: 34px;
+	}
+}
+
+/* Tablet / mniejszy laptop — nagłówek nad kafelkiem, bez uciekania */
+@media (max-width: 1180px) {
+	.cost-text-section .cost-article-grid {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+
+	.cost-text-section .cost-sticky-title {
+		position: static;
+	}
+
+	.cost-text-section .cost-sticky-title h2 {
+		max-width: 860px;
+		font-size: clamp(2.65rem, 7vw, 4.6rem);
+		line-height: 0.98;
+	}
+
+	.cost-article-card {
+		max-width: 860px;
+		padding: 30px;
+		border-radius: 34px;
+	}
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+	.cost-text-section .cost-sticky-title h2 {
+		font-size: clamp(2.15rem, 10.5vw, 3.3rem);
+		line-height: 0.99;
+	}
+
+	.cost-article-card {
+		padding: 22px;
+		border-radius: 28px;
+	}
+
+	.cost-article-copy p {
+		font-size: 0.98rem;
+		line-height: 1.62;
+	}
+
+	.cost-quote {
+		padding: 22px;
+		border-radius: 26px;
+	}
+}
+/* MODEL SECTION — RESPONSIVE CARD FLOW ONLY */
+
+.model-section .model-grid {
+	align-items: start;
+}
+
+.model-section .model-intro {
+	min-width: 0;
+}
+
+.model-section .model-cards {
+	display: grid;
+	gap: 18px;
+	min-width: 0;
+}
+
+/* Bardzo szeroki desktop — zostaje układ premium: nagłówek po lewej, kafle po prawej */
+@media (min-width: 1701px) {
+	.model-section .model-grid {
+		grid-template-columns: minmax(0, 0.95fr) minmax(420px, 0.58fr);
+		gap: clamp(36px, 4.2vw, 64px);
+	}
+
+	.model-section .model-cards {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Laptop / 17 cali / 27 cali z mniejszym oknem — kafle pod nagłówkiem obok siebie */
+@media (max-width: 1700px) and (min-width: 921px) {
+	.model-section .model-grid {
+		grid-template-columns: 1fr !important;
+		gap: 34px !important;
+	}
+
+	.model-section .model-intro {
+		max-width: 1180px;
+	}
+
+	.model-section .model-grid h2 {
+		max-width: 1180px;
+		font-size: clamp(2.9rem, 5.2vw, 5rem);
+		line-height: 0.96;
+		letter-spacing: -0.074em;
+	}
+
+	.model-section .model-lead {
+		max-width: 920px;
+		margin-top: 22px;
+	}
+
+	.model-section .model-cards {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 20px;
+	}
+
+	.model-section .model-cards article {
+		height: 100%;
+	}
+}
+
+/* Tablet pionowy i mobile — kafle jeden pod drugim */
+@media (max-width: 920px) {
+	.model-section .model-grid {
+		grid-template-columns: 1fr !important;
+		gap: 26px !important;
+	}
+
+	.model-section .model-cards {
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+
+	.model-section .model-cards article {
+		padding: 22px;
+		border-radius: 28px;
+	}
+
+	.model-section .model-cards h3 {
+		font-size: 1.28rem;
+		line-height: 1.05;
+	}
+
+	.model-section .model-cards li {
+		font-size: 0.96rem;
+		line-height: 1.45;
+	}
+}
 </style>
 
 <script is:inline>
-	const subpageCarousels = document.querySelectorAll('[data-subpage-carousel]');
+	const costCarousels = document.querySelectorAll('[data-cost-carousel]');
 
-	subpageCarousels.forEach((carousel) => {
-		const track = carousel.querySelector('[data-subpage-track]');
-		const prev = carousel.querySelector('[data-subpage-prev]');
-		const next = carousel.querySelector('[data-subpage-next]');
+	costCarousels.forEach((carousel) => {
+		const track = carousel.querySelector('[data-cost-track]');
+		const prev = carousel.querySelector('[data-cost-prev]');
+		const next = carousel.querySelector('[data-cost-next]');
 
 		if (!track || !prev || !next) return;
 
 		const getStep = () => {
-			const firstCard = track.querySelector('.guide-slide');
+			const firstCard = track.querySelector('.cost-slide');
 			if (!firstCard) return 360;
 			const styles = window.getComputedStyle(track);
 			const gap = parseFloat(styles.columnGap || styles.gap || '18');
@@ -917,4 +1673,3 @@ const faqSchema = {
 		});
 	});
 </script>
-
