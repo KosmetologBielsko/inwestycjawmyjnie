@@ -1,4 +1,4 @@
-import formidable from 'formidable';
+﻿import formidable from 'formidable';
 import nodemailer from 'nodemailer';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -39,7 +39,7 @@ function parseForm(request) {
 	const form = formidable({
 		multiples: false,
 		keepExtensions: true,
-		allowEmptyFiles: false,
+		allowEmptyFiles: true,
 		maxFileSize: MAX_FILE_SIZE,
 		maxTotalFileSize: MAX_FILE_SIZE
 	});
@@ -59,7 +59,7 @@ function parseForm(request) {
 function buildRows(rows) {
 	return rows
 		.map(([label, value]) => {
-			const safeValue = escapeHtml(value || '—').replaceAll('\n', '<br />');
+			const safeValue = escapeHtml(value || 'â€”').replaceAll('\n', '<br />');
 
 			return `
 				<tr>
@@ -72,7 +72,7 @@ function buildRows(rows) {
 }
 
 function buildPlainText(rows) {
-	return rows.map(([label, value]) => `${label}: ${value || '—'}`).join('\n');
+	return rows.map(([label, value]) => `${label}: ${value || 'â€”'}`).join('\n');
 }
 
 export default async function handler(request, response) {
@@ -93,7 +93,7 @@ export default async function handler(request, response) {
 		if (missingEnv.length > 0) {
 			response.status(500).json({
 				ok: false,
-				message: `Brakuje konfiguracji wysyłki: ${missingEnv.join(', ')}.`
+				message: `Brakuje konfiguracji wysyĹ‚ki: ${missingEnv.join(', ')}.`
 			});
 			return;
 		}
@@ -121,21 +121,21 @@ export default async function handler(request, response) {
 		const sentAt = getFirst(fields.sent_at).trim();
 
 		const requiredFields = [
-			['Imię i nazwisko', name],
+			['ImiÄ™ i nazwisko', name],
 			['Telefon', phone],
 			['E-mail', email],
-			['Forma działalności', businessForm],
-			['Województwo', voivodeship],
+			['Forma dziaĹ‚alnoĹ›ci', businessForm],
+			['WojewĂłdztwo', voivodeship],
 			['Powiat', county],
 			['Gmina', municipality],
-			['Miasto / miejscowość', city],
+			['Miasto / miejscowoĹ›Ä‡', city],
 			['Kod pocztowy', postalCode],
-			['Status działki', plotStatus],
+			['Status dziaĹ‚ki', plotStatus],
 			['Typ myjni', washType],
 			['Liczba stanowisk', stations],
 			['Stanowisko BUS/TIR', openBay],
-			['Budżet', budget],
-			['Akceptacja kosztów', costAcceptance],
+			['BudĹĽet', budget],
+			['Akceptacja kosztĂłw', costAcceptance],
 			['Finansowanie', financing]
 		];
 
@@ -144,7 +144,7 @@ export default async function handler(request, response) {
 		if (missingFields.length > 0) {
 			response.status(400).json({
 				ok: false,
-				message: `Uzupełnij wymagane pola: ${missingFields.join(', ')}.`
+				message: `UzupeĹ‚nij wymagane pola: ${missingFields.join(', ')}.`
 			});
 			return;
 		}
@@ -162,9 +162,9 @@ export default async function handler(request, response) {
 		const media = [
 			isChecked(fields, 'media_water') ? 'Woda' : '',
 			isChecked(fields, 'media_gas') ? 'Gaz' : '',
-			isChecked(fields, 'media_power') ? 'Prąd' : '',
+			isChecked(fields, 'media_power') ? 'PrÄ…d' : '',
 			isChecked(fields, 'media_sewage') ? 'Kanalizacja' : '',
-			isChecked(fields, 'media_rainwater') ? 'Deszczówka / odwodnienie' : '',
+			isChecked(fields, 'media_rainwater') ? 'DeszczĂłwka / odwodnienie' : '',
 			isChecked(fields, 'media_none') ? 'Brak / do sprawdzenia' : ''
 		].filter(Boolean);
 
@@ -178,7 +178,7 @@ export default async function handler(request, response) {
 		if (media.length === 0) {
 			response.status(400).json({
 				ok: false,
-				message: 'Zaznacz przynajmniej jedną opcję w sekcji mediów.'
+				message: 'Zaznacz przynajmniej jednÄ… opcjÄ™ w sekcji mediĂłw.'
 			});
 			return;
 		}
@@ -186,7 +186,7 @@ export default async function handler(request, response) {
 		if (compare.length === 0) {
 			response.status(400).json({
 				ok: false,
-				message: 'Zaznacz przynajmniej jedną opcję w sekcji, co chcesz sprawdzić.'
+				message: 'Zaznacz przynajmniej jednÄ… opcjÄ™ w sekcji, co chcesz sprawdziÄ‡.'
 			});
 			return;
 		}
@@ -213,7 +213,7 @@ export default async function handler(request, response) {
 			if (!allowedFileExtensions.includes(extension)) {
 				response.status(400).json({
 					ok: false,
-					message: 'Załącznik ma niedozwolony format.'
+					message: 'ZaĹ‚Ä…cznik ma niedozwolony format.'
 				});
 				return;
 			}
@@ -221,7 +221,7 @@ export default async function handler(request, response) {
 			if (offerFile.size > MAX_FILE_SIZE) {
 				response.status(400).json({
 					ok: false,
-					message: 'Załącznik jest za duży. Maksymalny rozmiar pliku to 4 MB.'
+					message: 'ZaĹ‚Ä…cznik jest za duĹĽy. Maksymalny rozmiar pliku to 4 MB.'
 				});
 				return;
 			}
@@ -237,35 +237,35 @@ export default async function handler(request, response) {
 
 		const rows = [
 			['Typ zapytania', getFirst(fields.typ_zapytania)],
-			['Imię i nazwisko', name],
+			['ImiÄ™ i nazwisko', name],
 			['Telefon', phone],
 			['E-mail', email],
-			['Forma działalności', businessForm],
-			['Województwo', voivodeship],
+			['Forma dziaĹ‚alnoĹ›ci', businessForm],
+			['WojewĂłdztwo', voivodeship],
 			['Powiat', county],
 			['Gmina', municipality],
-			['Miasto / miejscowość', city],
+			['Miasto / miejscowoĹ›Ä‡', city],
 			['Kod pocztowy inwestycji', postalCode],
-			['Status działki', plotStatus],
+			['Status dziaĹ‚ki', plotStatus],
 			['Media', media.join(', ')],
 			['Typ myjni', washType],
 			['Liczba stanowisk', stations],
 			['Stanowisko niezadaszone BUS/TIR', openBay],
-			['Budżet orientacyjny', budget],
-			['Akceptacja przybliżonych kosztów', costAcceptance],
+			['BudĹĽet orientacyjny', budget],
+			['Akceptacja przybliĹĽonych kosztĂłw', costAcceptance],
 			['Finansowanie', financing],
-			['Co chce sprawdzić inwestor', compare.join(', ')],
-			['Opis / link / numer działki / oferta', message],
+			['Co chce sprawdziÄ‡ inwestor', compare.join(', ')],
+			['Opis / link / numer dziaĹ‚ki / oferta', message],
 			['Zgoda kontaktowa', isChecked(fields, 'contact_consent') ? 'TAK' : 'NIE'],
-			['Zgoda na przekazanie do dostawców', isChecked(fields, 'supplier_transfer_consent') ? 'TAK' : 'NIE'],
+			['Zgoda na przekazanie do dostawcĂłw', isChecked(fields, 'supplier_transfer_consent') ? 'TAK' : 'NIE'],
 			['Zgoda RODO', isChecked(fields, 'privacy_consent') ? 'TAK' : 'NIE'],
 			['Zgoda marketingowa', isChecked(fields, 'marketing_consent') ? 'TAK' : 'NIE'],
 			['Administrator danych', getFirst(fields.administrator_danych)],
 			['Cel przekazania danych', getFirst(fields.cel_przekazania_danych)],
-			['Źródło formularza', pageUrl || '/bezplatne-porownanie-ofert-myjni/'],
-			['Data wysłania', sentAt || new Date().toISOString()],
-			['IP / proxy', request.headers['x-forwarded-for'] || '—'],
-			['User-Agent', request.headers['user-agent'] || '—']
+			['ĹąrĂłdĹ‚o formularza', pageUrl || '/bezplatne-porownanie-ofert-myjni/'],
+			['Data wysĹ‚ania', sentAt || new Date().toISOString()],
+			['IP / proxy', request.headers['x-forwarded-for'] || 'â€”'],
+			['User-Agent', request.headers['user-agent'] || 'â€”']
 		];
 
 		const html = `
@@ -273,16 +273,16 @@ export default async function handler(request, response) {
 				<div style="max-width:860px;margin:0 auto;padding:28px;">
 					<div style="padding:26px;border-radius:24px;background:#ffffff;border:1px solid #e7edf5;">
 						<p style="margin:0 0 8px;color:#1268ff;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;">
-							Nowe zgłoszenie z formularza
+							Nowe zgĹ‚oszenie z formularza
 						</p>
 
 						<h1 style="margin:0;color:#07111f;font-size:28px;line-height:1.1;">
-							Bezpłatna analiza i porównanie ofert myjni
+							BezpĹ‚atna analiza i porĂłwnanie ofert myjni
 						</h1>
 
 						<p style="margin:12px 0 0;color:#667085;font-size:15px;line-height:1.6;">
-							Wiadomość została wysłana ze strony inwestycjawmyjnie.pl. Odpowiadając na tego maila,
-							odpowiesz bezpośrednio do osoby, która wypełniła formularz.
+							WiadomoĹ›Ä‡ zostaĹ‚a wysĹ‚ana ze strony inwestycjawmyjnie.pl. OdpowiadajÄ…c na tego maila,
+							odpowiesz bezpoĹ›rednio do osoby, ktĂłra wypeĹ‚niĹ‚a formularz.
 						</p>
 
 						<table style="width:100%;border-collapse:collapse;margin-top:24px;font-size:14px;">
@@ -293,7 +293,7 @@ export default async function handler(request, response) {
 			</div>
 		`;
 
-		const text = `Nowe zgłoszenie z formularza inwestycjawmyjnie.pl\n\n${buildPlainText(rows)}`;
+		const text = `Nowe zgĹ‚oszenie z formularza inwestycjawmyjnie.pl\n\n${buildPlainText(rows)}`;
 
 		const transporter = nodemailer.createTransport({
 			host: process.env.SMTP_HOST,
@@ -309,7 +309,7 @@ export default async function handler(request, response) {
 			from: `"Formularz inwestycjawmyjnie.pl" <${process.env.SMTP_USER}>`,
 			to: process.env.CONTACT_TO,
 			replyTo: `"${name}" <${email}>`,
-			subject: `Nowe zgłoszenie: ${city || voivodeship} — ${stations || 'myjnia'}`,
+			subject: `Nowe zgĹ‚oszenie: ${city || voivodeship} â€” ${stations || 'myjnia'}`,
 			text,
 			html,
 			attachments
@@ -317,21 +317,21 @@ export default async function handler(request, response) {
 
 		response.status(200).json({
 			ok: true,
-			message: 'Dziękujemy. Formularz został wysłany. Odpowiedź otrzymasz z adresu analiza@inwestycjawmyjnie.pl.'
+			message: 'DziÄ™kujemy. Formularz zostaĹ‚ wysĹ‚any. OdpowiedĹş otrzymasz z adresu analiza@inwestycjawmyjnie.pl.'
 		});
 	} catch (error) {
-		console.error('Błąd wysyłki formularza:', error);
+		console.error('BĹ‚Ä…d wysyĹ‚ki formularza:', error);
 
 		response.status(500).json({
 			ok: false,
-			message: 'Nie udało się wysłać formularza. Spróbuj ponownie albo napisz bezpośrednio na analiza@inwestycjawmyjnie.pl.'
+			message: 'Nie udaĹ‚o siÄ™ wysĹ‚aÄ‡ formularza. SprĂłbuj ponownie albo napisz bezpoĹ›rednio na analiza@inwestycjawmyjnie.pl.'
 		});
 	} finally {
 		if (uploadedFilePath) {
 			try {
 				await fs.unlink(uploadedFilePath);
 			} catch {
-				// Plik tymczasowy mógł zostać już usunięty przez środowisko.
+				// Plik tymczasowy mĂłgĹ‚ zostaÄ‡ juĹĽ usuniÄ™ty przez Ĺ›rodowisko.
 			}
 		}
 	}
