@@ -40,6 +40,7 @@ function parseForm(request) {
 		multiples: false,
 		keepExtensions: true,
 		allowEmptyFiles: true,
+	minFileSize: 0,
 		maxFileSize: MAX_FILE_SIZE,
 		maxTotalFileSize: MAX_FILE_SIZE
 	});
@@ -336,3 +337,4 @@ export default async function handler(request, response) {
 		}
 	}
 }
+
