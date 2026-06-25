@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { siteConfig } from '../config/site';
 
 const page = {
 	canonicalPath: '/bezplatne-porownanie-ofert-myjni/',
@@ -224,14 +223,20 @@ const faqSchema = {
 					<p class="required-form-note">
 						100% online. Bez zobowiązań. Wszystkie pola formularza są wymagane poza polem
 						opisu oraz opcjonalnym załącznikiem. Możesz dodać plik PDF, JPG, PNG, WEBP,
-						DOCX albo XLSX do 10 MB.
+						DOCX albo XLSX do 4 MB.
 					</p>
 
 					<p class="required-fields-legend">
 						<span>*</span> Pola i zgody oznaczone gwiazdką są obowiązkowe, żeby wysłać formularz.
 					</p>
 
-					<form class="smart-form" data-lead-form enctype="multipart/form-data">
+					<form
+						class="smart-form"
+						data-lead-form
+						method="post"
+						action="/api/wyslij-analize"
+						enctype="multipart/form-data"
+					>
 						<input type="hidden" name="typ_zapytania" value="Bezpłatna analiza działki i porównanie ofert myjni" />
 						<input type="hidden" name="administrator_danych" value="BPHM Sp. z o.o., ul. Norberta Barlickiego 5, 43-300 Bielsko-Biała, KRS 0001247373, NIP 5472260567, REGON 544990435" />
 						<input type="hidden" name="email_administratora" value="analiza@inwestycjawmyjnie.pl" />
@@ -442,7 +447,7 @@ const faqSchema = {
 	/>
 
 	<small>
-		Dozwolone formaty: PDF, JPG, PNG, WEBP, DOCX, XLSX. Maksymalnie 10 MB.
+		Dozwolone formaty: PDF, JPG, PNG, WEBP, DOCX, XLSX. Maksymalnie 4 MB.
 		Jeżeli plik jest większy, wklej link do Dysku Google, OneDrive albo Dropbox w polu opisu.
 	</small>
 </label>
@@ -613,36 +618,41 @@ const faqSchema = {
 		const fileInputElement = document.querySelector('[data-offer-file]');
 
 		const allowedFileExtensions = ['pdf', 'jpg', 'jpeg', 'png', 'webp', 'docx', 'xlsx'];
-		const maxFileSize = 10 * 1024 * 1024;
+		const maxFileSize = 4 * 1024 * 1024;
+
+		function setFormStatus(message, type = '') {
+			if (!(formStatusElement instanceof HTMLElement)) return;
+
+			formStatusElement.textContent = message;
+			formStatusElement.classList.remove('is-success', 'is-error');
+
+			if (type) {
+				formStatusElement.classList.add(type);
+			}
+		}
 
 		if (formElement instanceof HTMLFormElement) {
-			formElement.addEventListener('submit', (event) => {
+			formElement.addEventListener('submit', async (event) => {
+				event.preventDefault();
+
+				const submitButton = formElement.querySelector('button[type="submit"]');
 				const requiredGroups = formElement.querySelectorAll('[data-required-group]');
 				let groupValid = true;
 				let firstInvalidGroup = null;
+
 				if (fileInputElement instanceof HTMLInputElement && fileInputElement.files && fileInputElement.files.length > 0) {
 					const selectedFile = fileInputElement.files[0];
 					const fileName = selectedFile.name.toLowerCase();
 					const fileExtension = fileName.includes('.') ? fileName.split('.').pop() : '';
 
 					if (!fileExtension || !allowedFileExtensions.includes(fileExtension)) {
-						event.preventDefault();
-
-						if (formStatusElement instanceof HTMLElement) {
-							formStatusElement.textContent = 'Załącznik ma niedozwolony format. Dodaj plik PDF, JPG, PNG, WEBP, DOCX albo XLSX.';
-						}
-
+						setFormStatus('Załącznik ma niedozwolony format. Dodaj plik PDF, JPG, PNG, WEBP, DOCX albo XLSX.', 'is-error');
 						fileInputElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 						return;
 					}
 
 					if (selectedFile.size > maxFileSize) {
-						event.preventDefault();
-
-						if (formStatusElement instanceof HTMLElement) {
-							formStatusElement.textContent = 'Załącznik jest za duży. Maksymalny rozmiar pliku to 10 MB. Przy większym pliku wklej link w polu opisu.';
-						}
-
+						setFormStatus('Załącznik jest za duży. Maksymalny rozmiar pliku to 4 MB. Przy większym pliku wklej link w polu opisu.', 'is-error');
 						fileInputElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 						return;
 					}
@@ -662,11 +672,7 @@ const faqSchema = {
 				});
 
 				if (!groupValid) {
-					event.preventDefault();
-
-					if (formStatusElement instanceof HTMLElement) {
-						formStatusElement.textContent = 'Zaznacz przynajmniej jedną opcję w sekcji media oraz jedną opcję w sekcji, co chcesz sprawdzić.';
-					}
+					setFormStatus('Zaznacz przynajmniej jedną opcję w sekcji media oraz jedną opcję w sekcji, co chcesz sprawdzić.', 'is-error');
 
 					if (firstInvalidGroup instanceof HTMLElement) {
 						firstInvalidGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -674,6 +680,7 @@ const faqSchema = {
 
 					return;
 				}
+
 				const requiredConsentInputs = formElement.querySelectorAll('.form-consents input[required]');
 				const consentRequiredNote = formElement.querySelector('[data-consent-required-note]');
 				let requiredConsentsValid = true;
@@ -685,15 +692,11 @@ const faqSchema = {
 				});
 
 				if (!requiredConsentsValid) {
-					event.preventDefault();
-
 					if (consentRequiredNote instanceof HTMLElement) {
 						consentRequiredNote.classList.add('is-visible');
 					}
 
-					if (formStatusElement instanceof HTMLElement) {
-						formStatusElement.textContent = 'Aby wysłać formularz, zaznacz wszystkie wymagane zgody.';
-					}
+					setFormStatus('Aby wysłać formularz, zaznacz wszystkie wymagane zgody.', 'is-error');
 
 					const firstRequiredConsent = formElement.querySelector('.form-consents input[required]:not(:checked)');
 
@@ -708,21 +711,55 @@ const faqSchema = {
 				if (consentRequiredNote instanceof HTMLElement) {
 					consentRequiredNote.classList.remove('is-visible');
 				}
+
 				if (!formElement.checkValidity()) {
-					event.preventDefault();
 					formElement.reportValidity();
-
-					if (formStatusElement instanceof HTMLElement) {
-						formStatusElement.textContent = 'Uzupełnij wymagane pola i zaznacz wymagane zgody.';
-					}
-
+					setFormStatus('Uzupełnij wymagane pola i zaznacz wymagane zgody.', 'is-error');
 					return;
 				}
 
-				event.preventDefault();
+				const formData = new FormData(formElement);
+				formData.append('page_url', window.location.href);
+				formData.append('sent_at', new Date().toISOString());
 
-				if (formStatusElement instanceof HTMLElement) {
-					formStatusElement.textContent = 'Formularz jest poprawnie uzupełniony. Zgłoszenie będzie kierowane na analiza@inwestycjawmyjnie.pl po podłączeniu wysyłki formularza.';
+				try {
+					if (submitButton instanceof HTMLButtonElement) {
+						submitButton.disabled = true;
+						submitButton.dataset.originalText = submitButton.innerHTML;
+						submitButton.innerHTML = 'Wysyłanie formularza...';
+					}
+
+					setFormStatus('Wysyłamy formularz na analiza@inwestycjawmyjnie.pl...', '');
+
+					const response = await fetch(formElement.action || '/api/wyslij-analize', {
+						method: 'POST',
+						body: formData
+					});
+
+					const result = await response.json().catch(() => ({
+						message: 'Nie udało się odczytać odpowiedzi serwera.'
+					}));
+
+					if (!response.ok || !result.ok) {
+						throw new Error(result.message || 'Nie udało się wysłać formularza.');
+					}
+
+					formElement.reset();
+					setFormStatus(result.message || 'Dziękujemy. Formularz został wysłany.', 'is-success');
+				} catch (error) {
+					setFormStatus(
+						error instanceof Error
+							? error.message
+							: 'Nie udało się wysłać formularza. Spróbuj ponownie albo napisz na analiza@inwestycjawmyjnie.pl.',
+						'is-error'
+					);
+				} finally {
+					if (submitButton instanceof HTMLButtonElement) {
+						submitButton.disabled = false;
+						submitButton.innerHTML =
+							submitButton.dataset.originalText ||
+							'Wyślij i rozpocznij bezpłatne porównanie <span aria-hidden="true">→</span>';
+					}
 				}
 			});
 		}
@@ -1041,6 +1078,20 @@ const faqSchema = {
 		font-size: 0.86rem;
 		font-weight: 800;
 		line-height: 1.45;
+	}
+
+	.form-status.is-success {
+		color: #72f069;
+	}
+
+	.form-status.is-error {
+		color: #ffb4b4;
+	}
+
+	.form-submit:disabled {
+		cursor: wait;
+		opacity: 0.72;
+		transform: none !important;
 	}
 
 	.compare-options.is-invalid {

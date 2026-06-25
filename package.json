@@ -12,6 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.0.0"
+    "astro": "^7.0.0",
+    "formidable": "^3.5.4",
+    "nodemailer": "^9.0.1"
   }
 }
