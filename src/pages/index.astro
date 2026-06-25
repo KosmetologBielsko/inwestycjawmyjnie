@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -201,19 +201,22 @@ const knowledgeCards = [
 		label: 'Koszt budowy',
 		title: 'Budżet inwestora',
 		text: 'Co realnie składa się na koszt budowy myjni bezdotykowej?',
-		href: '/koszt-budowy-myjni-bezdotykowej/'
+		href: '/koszt-budowy-myjni-bezdotykowej/',
+		image: '/images/koszt-budowy-budzet-inwestora.webp'
 	},
 	{
 		label: 'Proces',
 		title: 'Od działki do uruchomienia',
 		text: 'Jak wygląda droga od pierwszej analizy do gotowego obiektu?',
-		href: '/budowa-myjni-bezdotykowej-krok-po-kroku/'
+		href: '/budowa-myjni-bezdotykowej-krok-po-kroku/',
+		image: '/images/proces-od-dzialki-do-uruchomienia.webp'
 	},
 	{
 		label: 'Ryzyko',
 		title: 'Błędy inwestora',
 		text: 'Najczęstsze decyzje, które mogą podnieść koszt albo obniżyć rentowność.',
-		href: '/najczestsze-bledy-przy-budowie-myjni/'
+		href: '/najczestsze-bledy-przy-budowie-myjni/',
+		image: '/images/ryzyko-bledy-inwestora.webp'
 	}
 ];
 
@@ -340,9 +343,9 @@ const faqSchema = {
 					</p>
 
 					<div class="hero-actions">
-						<a class="button button-primary" href="#kontakt">
-							Prześlij lokalizację
-							<span aria-hidden="true">→</span>
+						<a class="button button-primary" href="/bezplatne-porownanie-ofert-myjni/">
+	Bezpłatna analiza i porównanie ofert
+	<span aria-hidden="true">→</span>
 						</a>
 						<a class="button button-ghost" href="#start">
 							Zobacz od czego zacząć
@@ -508,9 +511,9 @@ const faqSchema = {
 					i realny potencjał ruchu.
 				</p>
 
-				<a class="button button-primary locx-button" href="#kontakt">
-					Prześlij lokalizację
-					<span aria-hidden="true">→</span>
+				<a class="button button-primary locx-button" href="/bezplatne-porownanie-ofert-myjni/">
+	Bezpłatna analiza i porównanie ofert
+	<span aria-hidden="true">→</span>
 				</a>
 			</div>
 		</div>
@@ -794,7 +797,7 @@ księgową lub doradcą podatkowym oraz dostawcami technologii.
 					{
 						knowledgeCards.map((card) => (
 							<a class="knowledge-card" href={card.href}>
-								<div class="knowledge-image" aria-hidden="true"></div>
+	<div class="knowledge-image" style={`background-image: url(${card.image});`} aria-hidden="true"></div>
 								<div class="knowledge-body">
 									<p>{card.label}</p>
 									<h3>{card.title}</h3>
@@ -840,74 +843,61 @@ księgową lub doradcą podatkowym oraz dostawcami technologii.
 		</section>
 
 		<section class="section contact-section" id="kontakt" aria-labelledby="contact-title">
-			<div class="container">
-				<div class="contact-panel">
-					<div class="contact-copy">
-						<p class="eyebrow light">
-							<span></span>
-							Analiza lokalizacji
-						</p>
-						<h2 id="contact-title" class="contact-title">
-	Masz działkę albo lokalizację?
-	<strong>Sprawdź potencjał inwestycji.</strong>
-</h2>
-<p class="contact-lead">
-	Prześlij miejscowość, link do mapy, numer działki albo krótki opis miejsca.
-	Na tym etapie nie chodzi o sprzedaż, tylko o spokojną ocenę, czy lokalizacja ma sens
-	pod budowę myjni bezdotykowej.
-</p>
+	<div class="container">
+		<div class="contact-panel">
+			<div class="contact-copy">
+				<p class="eyebrow light">
+					<span></span>
+					Bezpłatna analiza
+				</p>
 
-						<div class="contact-points">
-							<span><i></i>działka przy drodze</span>
-							<span><i></i>teren przy markecie</span>
-							<span><i></i>stacja paliw</span>
-							<span><i></i>lokalizacja usługowa</span>
-						</div>
-					</div>
+				<h2 id="contact-title" class="contact-title">
+					Masz działkę albo lokalizację?
+					<strong>Sprawdź potencjał inwestycji.</strong>
+				</h2>
 
-					<form class="lead-form">
-						<label>
-							Imię
-							<input type="text" name="name" placeholder="Twoje imię" />
-						</label>
+				<p class="contact-lead">
+					Prześlij miejscowość, link do mapy, numer działki albo krótki opis miejsca.
+					Na tym etapie nie chodzi o sprzedaż, tylko o spokojną ocenę, czy lokalizacja ma sens
+					pod budowę myjni bezdotykowej.
+				</p>
 
-						<label>
-							E-mail
-							<input type="email" name="email" placeholder={siteConfig.email} />
-						</label>
-
-						<label>
-							Telefon
-							<input type="tel" name="phone" placeholder="Numer telefonu" />
-						</label>
-
-						<label>
-							Lokalizacja
-							<input type="text" name="location" placeholder="Miejscowość / link do mapy" />
-						</label>
-
-						<label class="full">
-							Wiadomość
-							<textarea
-								name="message"
-								rows="4"
-								placeholder="Napisz krótko, jaką lokalizację chcesz sprawdzić..."
-							></textarea>
-						</label>
-
-						<button type="button">
-							Wyślij do analizy
-							<span aria-hidden="true">→</span>
-						</button>
-
-						<small>
-							Formularz jest przygotowany wizualnie. Wysyłkę podłączymy później pod
-							{` ${siteConfig.email}`}.
-						</small>
-					</form>
+				<div class="contact-points">
+					<span><i></i>działka i lokalizacja</span>
+					<span><i></i>media i dojazd</span>
+					<span><i></i>budżet inwestycji</span>
+					<span><i></i>porównanie ofert</span>
 				</div>
 			</div>
-		</section>
+
+			<div class="lead-form">
+				<div class="full">
+					<h3>Bezpłatna analiza i porównanie ofert</h3>
+					<p>
+						Analizę lokalizacji i porównanie ofert połączyliśmy w jeden formularz.
+						Podaj dane działki, media, budżet, liczbę stanowisk, finansowanie albo link do oferty.
+					</p>
+				</div>
+
+				<div class="contact-points full">
+					<span><i></i>sprawdzenie potencjału działki</span>
+					<span><i></i>wstępna ocena założeń inwestycji</span>
+					<span><i></i>uporządkowanie danych do oferty</span>
+					<span><i></i>porównanie zakresu producentów</span>
+				</div>
+
+				<a class="button button-primary button-neon-green full" href="/bezplatne-porownanie-ofert-myjni/">
+	Bezpłatna analiza i porównanie ofert
+	<span aria-hidden="true">→</span>
+</a>
+
+				<small class="full">
+					Formularz znajduje się na osobnej podstronie, żeby użytkownik od razu trafił do pełnego zgłoszenia.
+				</small>
+			</div>
+		</div>
+	</div>
+</section>
 	</main>
 
 	<Footer />

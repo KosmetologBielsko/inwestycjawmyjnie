@@ -7671,3 +7671,138 @@ main {
 		grid-column: auto !important;
 	}
 }
+.button-neon-green {
+	background: linear-gradient(90deg, #7cff4a 0%, #52f05d 45%, #21df73 100%) !important;
+	color: #06110a !important;
+	border: 1px solid rgba(124, 255, 74, 0.65) !important;
+	box-shadow:
+		0 0 0 1px rgba(124, 255, 74, 0.18),
+		0 18px 44px rgba(82, 240, 93, 0.34),
+		0 0 42px rgba(82, 240, 93, 0.22),
+		inset 0 1px 0 rgba(255, 255, 255, 0.62) !important;
+}
+
+.button-neon-green:hover {
+	transform: translateY(-2px);
+	box-shadow:
+		0 0 0 1px rgba(124, 255, 74, 0.28),
+		0 22px 58px rgba(82, 240, 93, 0.44),
+		0 0 58px rgba(82, 240, 93, 0.3),
+		inset 0 1px 0 rgba(255, 255, 255, 0.68) !important;
+}
+/* Globalne ustawienie strzałek sliderów pod zdjęciem */
+.hero-slider-controls,
+.audience-carousel-nav,
+.mistakes-carousel-nav,
+.process-gallery-nav {
+	position: static !important;
+	inset: auto !important;
+	transform: none !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	flex-wrap: wrap !important;
+	gap: 10px !important;
+	width: 100% !important;
+	margin: 16px auto 0 !important;
+	padding: 0 !important;
+	z-index: 2 !important;
+}
+
+/* Krótka podpowiedź obok strzałek */
+.hero-slider-controls::after,
+.audience-carousel-nav::after,
+.mistakes-carousel-nav::after,
+.process-gallery-nav::after {
+	content: "Kliknij strzałki albo przesuń palcem";
+	display: inline-flex;
+	align-items: center;
+	min-height: 34px;
+	padding: 7px 12px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.78);
+	border: 1px solid rgba(8, 16, 32, 0.1);
+	color: rgba(8, 16, 32, 0.68);
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	box-shadow: 0 10px 28px rgba(8, 16, 32, 0.08);
+	backdrop-filter: blur(14px);
+}
+
+/* Żeby strzałki były zawsze czytelne */
+.hero-arrow,
+.audience-arrow,
+.mistakes-arrow,
+.process-gallery-arrow {
+	position: static !important;
+	flex: 0 0 auto !important;
+}
+
+/* Mobile: tekst podpowiedzi pod strzałkami, nie obok */
+@media (max-width: 760px) {
+	.hero-slider-controls,
+	.audience-carousel-nav,
+	.mistakes-carousel-nav,
+	.process-gallery-nav {
+		margin-top: 12px !important;
+		gap: 8px !important;
+	}
+
+	.hero-slider-controls::after,
+	.audience-carousel-nav::after,
+	.mistakes-carousel-nav::after,
+	.process-gallery-nav::after {
+		order: 10;
+		width: 100%;
+		justify-content: center;
+		text-align: center;
+		font-size: 0.74rem;
+	}
+}
+/* Baza wiedzy — lepsze kadrowanie nowych grafik */
+.knowledge-card .knowledge-image {
+	min-height: clamp(220px, 18vw, 310px) !important;
+	aspect-ratio: 4 / 3 !important;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+	background-position: center 62% !important;
+}
+
+/* Koszt budowy — najważniejszy dół grafiki: plany, tablet, liczby */
+.knowledge-card:nth-child(1) .knowledge-image {
+	background-position: center 72% !important;
+}
+
+/* Proces — środek i dół grafiki, żeby było widać etap działka → budowa → myjnia */
+.knowledge-card:nth-child(2) .knowledge-image {
+	background-position: center 58% !important;
+}
+
+/* Ryzyko — karty porównania i analiza na planie */
+.knowledge-card:nth-child(3) .knowledge-image {
+	background-position: center 64% !important;
+}
+/* Sticky header — header zostaje widoczny podczas scrollowania */
+body > header,
+.iwm-header {
+	position: sticky !important;
+	top: 0 !important;
+	z-index: 9999 !important;
+	background: rgba(255, 255, 255, 0.82) !important;
+	backdrop-filter: blur(18px) saturate(1.25) !important;
+	-webkit-backdrop-filter: blur(18px) saturate(1.25) !important;
+	border-bottom: 1px solid rgba(8, 16, 32, 0.07) !important;
+	box-shadow: 0 10px 34px rgba(8, 16, 32, 0.06) !important;
+}
+
+/* Żeby anchor/linki po kliknięciu nie chowały się pod sticky headerem */
+html {
+	scroll-padding-top: 92px;
+}
+
+@media (max-width: 760px) {
+	html {
+		scroll-padding-top: 76px;
+	}
+}

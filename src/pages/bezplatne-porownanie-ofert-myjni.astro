@@ -6,9 +6,9 @@ import { siteConfig } from '../config/site';
 
 const page = {
 	canonicalPath: '/bezplatne-porownanie-ofert-myjni/',
-	title: 'Bezpłatne porównanie ofert myjni bezdotykowych',
+	title: 'Bezpłatna analiza działki i porównanie ofert myjni bezdotykowej',
 	description:
-		'Chcesz porównać oferty producentów myjni bezdotykowych? Sprawdź bezpłatnie zakres, technologię, cenę, serwis, dokumentację i dopasowanie do inwestycji.'
+		'Bezpłatna analiza działki i porównanie ofert myjni bezdotykowej w jednym formularzu. Sprawdź lokalizację, założenia inwestycji, zakres, technologię, cenę, serwis i dokumentację.'
 };
 
 const comparisonCards = [
@@ -35,21 +35,21 @@ const comparisonCards = [
 ];
 
 const processSteps = [
-	['01', 'Opisujesz inwestycję', 'Podajesz lokalizację, liczbę stanowisk, budżet, status działki i oczekiwany zakres.'],
-	['02', 'Porządkujemy zapytanie', 'Sprawdzamy, jakie parametry warto doprecyzować, żeby porównywać podobny zakres, a nie przypadkowe ceny.'],
-	['03', 'Dostajesz kierunek rozmowy', 'Pomagamy zrozumieć, o co pytać producentów i jakie rozwiązanie może pasować do Twojej inwestycji.']
+	['01', 'Opisujesz działkę i inwestycję', 'Podajesz lokalizację, status działki, media, liczbę stanowisk, budżet i oczekiwany zakres.'],
+	['02', 'Łączymy analizę działki z ofertą', 'Sprawdzamy, czy założenia techniczne, lokalizacja i zakres ofert tworzą spójny obraz inwestycji.'],
+	['03', 'Dostajesz kierunek rozmowy', 'Pomagamy zrozumieć, o co pytać producentów, jakie ryzyka sprawdzić i jaki wariant może pasować do działki.']
 ];
 
 const faqItems = [
 	{
-		question: 'Czy porównanie ofert jest bezpłatne?',
+		question: 'Czy analiza działki i porównanie ofert jest bezpłatne?',
 		answer:
-			'Tak. Wstępne porównanie i uporządkowanie zapytania jest bezpłatne. Chodzi o sprawdzenie, czy porównujesz podobny zakres i czy cena pokazuje pełny obraz inwestycji.'
+			'Tak. Wstępna analiza lokalizacji, uporządkowanie zapytania i porównanie zakresu ofert jest bezpłatne. Chodzi o sprawdzenie, czy działka, budżet i proponowane rozwiązanie tworzą realny kierunek inwestycji.'
 	},
 	{
-		question: 'Czy muszę mieć już ofertę od producenta?',
+		question: 'Czy muszę mieć już działkę albo ofertę od producenta?',
 		answer:
-			'Nie. Możesz mieć konkretną ofertę, kilka ofert albo dopiero plan inwestycji. W każdym przypadku warto uporządkować wymagania przed rozmową z producentami.'
+			'Nie. Możesz mieć działkę, link do mapy, numer działki, konkretną ofertę, kilka ofert albo dopiero wstępny plan inwestycji. W każdym przypadku warto uporządkować dane przed rozmową z producentami.'
 	},
 	{
 		question: 'Czy porównanie dotyczy tylko ceny?',
@@ -91,36 +91,38 @@ const faqSchema = {
 		<section class="lead-hero" aria-labelledby="page-title">
 			<div class="container lead-hero-grid">
 				<div class="lead-hero-copy">
-					<p class="eyebrow"><span></span>Bezpłatne porównanie ofert</p>
+					<p class="eyebrow"><span></span>Bezpłatna analiza i porównanie ofert</p>
 					<h1 id="page-title">
-						Porównaj oferty myjni bezdotykowych <strong>mądrzej niż po samej cenie.</strong>
+						Sprawdź działkę i porównaj oferty myjni <strong>w jednym formularzu.</strong>
 					</h1>
 					<p class="lead-main-text">
-						Uporządkuj zapytanie, sprawdź zakres, technologię, dokumentację, serwis,
-						warunki gwarancji i koszty eksploatacji. Celem nie jest najniższa cena,
-						tylko bezpieczna decyzja inwestycyjna.
+						Połącz analizę lokalizacji z porównaniem ofert. Podaj dane działki, założenia
+						inwestycji, finansowanie, media i oczekiwany zakres. Celem nie jest najniższa
+						cena, tylko bezpieczna decyzja inwestycyjna.
 					</p>
 					<div class="lead-hero-actions">
-						<a class="lead-button-green" href="#formularz">Wypełnij formularz <span aria-hidden="true">↓</span></a>
-						<a class="lead-button-light" href="/jak-porownac-oferty-myjni-bezdotykowej/">Co porównać? <span aria-hidden="true">→</span></a>
+						<a class="lead-button-green" href="#formularz">Wyślij dane do analizy <span aria-hidden="true">↓</span></a>
+						<a class="lead-button-light" href="/jak-porownac-oferty-myjni-bezdotykowej/">Jak porównywać oferty? <span aria-hidden="true">→</span></a>
 					</div>
 					<div class="lead-tags" aria-label="Najważniejsze elementy porównania">
-						<span>cena i zakres</span>
-						<span>technologia</span>
-						<span>serwis</span>
-						<span>gwarancja</span>
+						<span>działka</span>
+						<span>media</span>
+						<span>oferty</span>
+						<span>finansowanie</span>
 					</div>
 				</div>
 
-				<aside class="lead-form-card" id="formularz" aria-label="Formularz porównania ofert">
+				<aside class="lead-form-card" id="formularz" aria-label="Formularz analizy działki i porównania ofert">
 					<div class="lead-form-head">
 						<p>Formularz</p>
-						<h2>Bezpłatne porównanie ofert</h2>
-						<span>Podaj założenia inwestycji. Pomożemy uporządkować temat i wskazać, co warto sprawdzić przed decyzją.</span>
+						<h2>Bezpłatna analiza i porównanie ofert</h2>
+						<span>Podaj dane kontaktowe, lokalizację, status działki, media i założenia myjni. Link do oferty, mapy lub opis inwestycji możesz dodać opcjonalnie.</span>
 					</div>
 
+					<p class="required-form-note">Wszystkie pola formularza są wymagane poza polem: link do oferty / link do mapy / opis inwestycji.</p>
+
 					<form class="smart-form" data-lead-form>
-						<input type="hidden" name="typ_zapytania" value="Bezpłatne porównanie ofert myjni" />
+						<input type="hidden" name="typ_zapytania" value="Bezpłatna analiza działki i porównanie ofert myjni" />
 
 						<div class="form-section-title full">
 							<span>01</span>
@@ -129,22 +131,22 @@ const faqSchema = {
 
 						<label>
 							Imię i nazwisko
-							<input type="text" name="name" placeholder="Twoje imię i nazwisko" autocomplete="name" />
+							<input type="text" name="name" placeholder="Twoje imię i nazwisko" autocomplete="name" required />
 						</label>
 
 						<label>
 							Telefon
-							<input type="tel" name="phone" placeholder="Numer telefonu" autocomplete="tel" />
+							<input type="tel" name="phone" placeholder="Numer telefonu" autocomplete="tel" required />
 						</label>
 
 						<label>
 							E-mail
-							<input type="email" name="email" placeholder="Twój adres e-mail" autocomplete="email" />
+							<input type="email" name="email" placeholder="Twój adres e-mail" autocomplete="email" required />
 						</label>
 
 						<label>
 							Forma działalności
-							<select name="business_form">
+							<select name="business_form" required>
 								<option value="">Wybierz</option>
 								<option>Działalność gospodarcza</option>
 								<option>Spółka z o.o.</option>
@@ -161,7 +163,7 @@ const faqSchema = {
 
 						<label>
 							Województwo inwestycji
-							<select name="voivodeship">
+							<select name="voivodeship" required>
 								<option value="">Wybierz województwo</option>
 								<option>dolnośląskie</option>
 								<option>kujawsko-pomorskie</option>
@@ -184,27 +186,27 @@ const faqSchema = {
 
 						<label>
 							Powiat
-							<input type="text" name="county" placeholder="Np. głubczycki" />
+							<input type="text" name="county" placeholder="Np. głubczycki" required />
 						</label>
 
 						<label>
 							Gmina
-							<input type="text" name="municipality" placeholder="Np. Branice" />
+							<input type="text" name="municipality" placeholder="Np. Branice" required />
 						</label>
 
 						<label>
 							Miasto / miejscowość
-							<input type="text" name="city" placeholder="Gdzie planujesz inwestycję?" />
+							<input type="text" name="city" placeholder="Gdzie planujesz inwestycję?" required />
 						</label>
 
 						<label>
 							Kod pocztowy inwestycji
-							<input type="text" name="postal_code" placeholder="Np. 48-140" inputmode="numeric" />
+							<input type="text" name="postal_code" placeholder="Np. 48-140" inputmode="numeric" required />
 						</label>
 
 						<label>
 							Status posiadania działki
-							<select name="plot_status">
+							<select name="plot_status" required>
 								<option value="">Wybierz</option>
 								<option>Własność</option>
 								<option>Dzierżawa</option>
@@ -214,7 +216,7 @@ const faqSchema = {
 							</select>
 						</label>
 
-						<fieldset class="compare-options media-options full">
+						<fieldset class="compare-options media-options full" data-required-group="media">
 							<legend>Media na działce albo w pobliżu</legend>
 							<label><input type="checkbox" name="media_water" /> Woda</label>
 							<label><input type="checkbox" name="media_gas" /> Gaz</label>
@@ -231,7 +233,7 @@ const faqSchema = {
 
 						<label>
 							Typ myjni
-							<select name="wash_type">
+							<select name="wash_type" required>
 								<option value="">Wybierz typ</option>
 								<option>Bezdotykowa kontenerowa</option>
 								<option>Bezdotykowa modułowa</option>
@@ -243,8 +245,9 @@ const faqSchema = {
 
 						<label>
 							Liczba stanowisk
-							<select name="stations">
-								<option value="">Nie wiem / do ustalenia</option>
+							<select name="stations" required>
+								<option value="">Wybierz</option>
+								<option>Nie wiem / do ustalenia</option>
 								<option>2 stanowiska</option>
 								<option>3 stanowiska</option>
 								<option>4 stanowiska</option>
@@ -255,7 +258,7 @@ const faqSchema = {
 
 						<label>
 							Stanowisko niezadaszone BUS/TIR do 3,5 t
-							<select name="open_bay">
+							<select name="open_bay" required>
 								<option value="">Wybierz</option>
 								<option>Tak</option>
 								<option>Nie</option>
@@ -265,7 +268,7 @@ const faqSchema = {
 
 						<label>
 							Budżet orientacyjny
-							<select name="budget">
+							<select name="budget" required>
 								<option value="">Wybierz zakres</option>
 								<option>do 500 tys. zł netto</option>
 								<option>500–700 tys. zł netto</option>
@@ -278,7 +281,7 @@ const faqSchema = {
 
 						<label>
 							Akceptacja przybliżonych kosztów
-							<select name="cost_acceptance">
+							<select name="cost_acceptance" required>
 								<option value="">Wybierz</option>
 								<option>Tak — znam orientacyjne koszty inwestycji</option>
 								<option>Nie — potrzebuję wyjaśnienia kosztów</option>
@@ -288,7 +291,7 @@ const faqSchema = {
 
 						<label>
 							Finansowanie
-							<select name="financing">
+							<select name="financing" required>
 								<option value="">Wybierz</option>
 								<option>Środki własne</option>
 								<option>Leasing</option>
@@ -299,12 +302,12 @@ const faqSchema = {
 							</select>
 						</label>
 
-						<fieldset class="compare-options full">
-							<legend>Co chcesz porównać?</legend>
-							<label><input type="checkbox" name="compare_price" /> Cena i zakres</label>
-							<label><input type="checkbox" name="compare_technology" /> Technologia</label>
+						<fieldset class="compare-options full" data-required-group="compare">
+							<legend>Co chcesz sprawdzić?</legend>
+							<label><input type="checkbox" name="compare_price" /> Cena i zakres oferty</label>
+							<label><input type="checkbox" name="compare_technology" /> Technologia myjni</label>
 							<label><input type="checkbox" name="compare_service" /> Serwis i gwarancja</label>
-							<label><input type="checkbox" name="compare_contract" /> Umowa i dokumentacja</label>
+							<label><input type="checkbox" name="compare_contract" /> Dokumentacja i umowa</label>
 						</fieldset>
 
 						<label class="full">
@@ -314,19 +317,21 @@ const faqSchema = {
 
 						<div class="form-consents full">
 							<label class="checkbox-label">
-								<input type="checkbox" name="contact_consent" />
+								<input type="checkbox" name="contact_consent" required />
 								<span>Wyrażam zgodę na kontakt w sprawie porównania ofert i inwestycji.</span>
 							</label>
 							<label class="checkbox-label">
-								<input type="checkbox" name="privacy_consent" />
+								<input type="checkbox" name="privacy_consent" required />
 								<span>Akceptuję kontakt i przetwarzanie danych w celu obsługi zapytania.</span>
 							</label>
 						</div>
 
-						<button type="button" class="form-submit">Wyślij do porównania <span aria-hidden="true">→</span></button>
+						<button type="submit" class="form-submit">Wyślij do analizy <span aria-hidden="true">→</span></button>
+
+						<p class="form-status full" data-form-status aria-live="polite"></p>
 
 						<small class="form-note full">
-							Formularz jest przygotowany wizualnie. Wysyłkę podłączymy później pod {siteConfig.email}.
+							Formularz ma już walidację wymaganych pól. Wysyłkę danych podłączymy później pod {siteConfig.email}.
 						</small>
 					</form>
 				</aside>
@@ -338,11 +343,11 @@ const faqSchema = {
 				<div class="lead-split">
 					<div>
 						<p class="eyebrow"><span></span>Co porównujemy?</p>
-						<h2 id="comparison-title">Oferta to nie tylko <strong>cena końcowa</strong></h2>
+						<h2 id="comparison-title">Działka i oferta muszą tworzyć <strong>jeden obraz inwestycji</strong></h2>
 					</div>
 					<p>
-						Dwie oferty mogą wyglądać podobnie cenowo, ale oznaczać inną technologię,
-						inny zakres, inną dokumentację, inny serwis i inne koszty prowadzenia obiektu.
+						Sama oferta bez danych o działce bywa myląca. Dlatego w jednym formularzu zbieramy
+						lokalizację, media, budżet, liczbę stanowisk i oczekiwany zakres inwestycji.
 					</p>
 				</div>
 
@@ -362,7 +367,7 @@ const faqSchema = {
 			<div class="container process-panel">
 				<div>
 					<p class="eyebrow light"><span></span>Jak to działa?</p>
-					<h2 id="process-title">Najpierw porządkujemy zapytanie, potem porównujemy rozwiązania</h2>
+					<h2 id="process-title">Najpierw dane działki, potem sensowne porównanie ofert</h2>
 				</div>
 				<div class="process-steps">
 					{processSteps.map((step) => (
@@ -381,9 +386,9 @@ const faqSchema = {
 				<div class="lead-split">
 					<div>
 						<p class="eyebrow"><span></span>FAQ</p>
-						<h2 id="faq-title">Najczęstsze pytania o <strong>porównanie ofert</strong></h2>
+						<h2 id="faq-title">Najczęstsze pytania o <strong>analizę i porównanie</strong></h2>
 					</div>
-					<p>Porównanie ofert ma pomóc inwestorowi uniknąć decyzji wyłącznie po najniższej cenie.</p>
+					<p>Analiza ma pomóc inwestorowi połączyć temat działki, budżetu i ofert w jeden logiczny obraz decyzji.</p>
 				</div>
 				<div class="lead-faq-list">
 					{faqItems.map((item, index) => (
@@ -410,6 +415,7 @@ const faqSchema = {
 	</main>
 
 	<Footer />
+
 	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Layout>
 
@@ -577,6 +583,19 @@ const faqSchema = {
 		line-height: 1.55;
 	}
 
+
+	.required-form-note {
+		margin: 16px 0 0;
+		padding: 12px 14px;
+		border-radius: 18px;
+		background: rgba(114, 240, 105, 0.1);
+		border: 1px solid rgba(114, 240, 105, 0.18);
+		color: rgba(255, 255, 255, 0.78);
+		font-size: 0.84rem;
+		font-weight: 650;
+		line-height: 1.45;
+	}
+
 	.smart-form {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -701,6 +720,25 @@ const faqSchema = {
 		padding: 0;
 		border-radius: 5px;
 		flex: 0 0 auto;
+	}
+
+	.form-status {
+		min-height: 22px;
+		margin: 0;
+		color: #72f069;
+		font-size: 0.86rem;
+		font-weight: 800;
+		line-height: 1.45;
+	}
+
+	.compare-options.is-invalid {
+		border-color: rgba(255, 110, 110, 0.9);
+		box-shadow: 0 0 0 3px rgba(255, 110, 110, 0.12);
+	}
+
+	.smart-form input:required:invalid,
+	.smart-form select:required:invalid {
+		border-color: rgba(255, 255, 255, 0.14);
 	}
 
 	.form-note {
