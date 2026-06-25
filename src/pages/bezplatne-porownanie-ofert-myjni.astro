@@ -35,9 +35,9 @@ const comparisonCards = [
 ];
 
 const processSteps = [
-	['01', 'Opisujesz działkę i inwestycję', 'Podajesz lokalizację, status działki, media, liczbę stanowisk, budżet i oczekiwany zakres.'],
-	['02', 'Łączymy analizę działki z ofertą', 'Sprawdzamy, czy założenia techniczne, lokalizacja i zakres ofert tworzą spójny obraz inwestycji.'],
-	['03', 'Dostajesz kierunek rozmowy', 'Pomagamy zrozumieć, o co pytać producentów, jakie ryzyka sprawdzić i jaki wariant może pasować do działki.']
+	['01', 'Opisujesz działkę i założenia', 'Podajesz lokalizację, status działki, media, liczbę stanowisk, budżet, finansowanie i oczekiwany zakres myjni.'],
+	['02', 'Porządkujemy temat inwestycji', 'Na podstawie formularza łatwiej przygotować porównywalne zapytanie ofertowe dla polskich dostawców myjni.'],
+	['03', 'Łatwiej porównujesz odpowiedzi', 'Dzięki uporządkowanym założeniom szybciej zobaczysz różnice w cenie, zakresie, technologii, serwisie i kosztach po uruchomieniu.']
 ];
 
 const faqItems = [
@@ -57,17 +57,19 @@ const faqItems = [
 			'Nie. Sama cena jest tylko jednym z elementów. Ważny jest zakres, technologia, posadzka, dokumentacja, warunki umowy, gwarancja, serwis, części, chemia i koszty eksploatacji.'
 	},
 	{
-		question: 'Czy możecie skontaktować mnie z producentem?',
+		question: 'Czy możecie pomóc pozyskać oferty od polskich dostawców?',
 		answer:
-			'Tak, docelowo zapytanie może zostać skierowane do odpowiedniego partnera technologicznego, jeżeli inwestor będzie chciał przejść do dalszej rozmowy ofertowej.'
+			'Tak. Po wypełnieniu formularza możemy pomóc uporządkować założenia inwestycji i przygotować porównywalne zapytanie do polskich dostawców myjni. Dzięki temu inwestor nie porównuje przypadkowych cen, tylko bardziej doprecyzowany zakres.'
 	}
 ];
 
 const relatedLinks = [
-	['Jak porównać oferty?', '/jak-porownac-oferty-myjni-bezdotykowej/'],
-	['Ile kosztuje myjnia?', '/ile-kosztuje-myjnia-bezdotykowa/'],
-	['Koszt budowy myjni', '/koszt-budowy-myjni-bezdotykowej/'],
-	['Błędy inwestora', '/najczestsze-bledy-przy-budowie-myjni/']
+	['Koszt budowy myjni', '/ile-kosztuje-myjnia-bezdotykowa/'],
+	['Ile zarabia myjnia?', '/ile-zarabia-myjnia-bezdotykowa/'],
+	['Działka pod myjnię', '/dzialka-pod-myjnie-bezdotykowa/'],
+	['Budowa krok po kroku', '/budowa-myjni-bezdotykowej-krok-po-kroku/'],
+	['Błędy inwestora', '/najczestsze-bledy-przy-budowie-myjni/'],
+	['Poradnik inwestora', '/poradnik/']
 ];
 
 const faqSchema = {
@@ -95,33 +97,137 @@ const faqSchema = {
 					<h1 id="page-title">
 						Sprawdź działkę i porównaj oferty myjni <strong>w jednym formularzu.</strong>
 					</h1>
-					<p class="lead-main-text">
-						Połącz analizę lokalizacji z porównaniem ofert. Podaj dane działki, założenia
-						inwestycji, finansowanie, media i oczekiwany zakres. Celem nie jest najniższa
-						cena, tylko bezpieczna decyzja inwestycyjna.
+										<p class="lead-main-text">
+						Wypełnij formularz, a pomożemy bezpłatnie uporządkować założenia inwestycji
+						i przygotować temat do pozyskania porównywalnych ofert od polskich dostawców
+						myjni. Dzięki temu szybciej zobaczysz, co realnie jest w cenie, czego brakuje
+						w zakresie i które rozwiązanie pasuje do Twojej działki, budżetu oraz modelu inwestycji.
 					</p>
 					<div class="lead-hero-actions">
-						<a class="lead-button-green" href="#formularz">Wyślij dane do analizy <span aria-hidden="true">↓</span></a>
+											<a class="lead-button-green" href="#formularz">Wypełnij formularz i porównaj oferty <span aria-hidden="true">↓</span></a>
 						<a class="lead-button-light" href="/jak-porownac-oferty-myjni-bezdotykowej/">Jak porównywać oferty? <span aria-hidden="true">→</span></a>
 					</div>
-					<div class="lead-tags" aria-label="Najważniejsze elementy porównania">
+										<div class="lead-tags" aria-label="Najważniejsze elementy porównania">
 						<span>działka</span>
 						<span>media</span>
 						<span>oferty</span>
 						<span>finansowanie</span>
 					</div>
+
+																				<aside class="lead-side-summary" aria-label="Dlaczego warto wypełnić formularz">
+						<div class="lead-side-summary-card lead-side-summary-main">
+							<p>Porównanie ofert</p>
+							<h2>Zainwestuj w myjnię w Polsce z lepiej uporządkowanymi założeniami.</h2>
+							<span>
+								Wypełnij formularz, a pomożemy bezpłatnie uporządkować lokalizację, budżet,
+								media, liczbę stanowisk i zakres technologii. Dzięki temu łatwiej pozyskać
+								doprecyzowane, porównywalne oferty od polskich dostawców myjni.
+							</span>
+						</div>
+
+						<div class="lead-side-checklist">
+							<div>
+								<b>01</b>
+								<span>100% online — bez spotkania na start i bez zobowiązań</span>
+							</div>
+
+							<div>
+								<b>02</b>
+								<span>Porządkujemy dane działki, budżetu, mediów i liczby stanowisk</span>
+							</div>
+
+							<div>
+								<b>03</b>
+								<span>Pomagamy przygotować zapytanie, które dostawca może realnie wycenić</span>
+							</div>
+
+							<div>
+								<b>04</b>
+								<span>Ułatwiamy porównanie ofert pod kątem zakresu, technologii i serwisu</span>
+							</div>
+						</div>
+
+						<div class="lead-side-summary-card">
+							<p>Dlaczego to ważne?</p>
+							<h2>Przypadkowe oferty często nie są porównywalne.</h2>
+							<span>
+								Jeden dostawca może wycenić samą technologię, drugi technologię z kontenerem,
+								trzeci inny zakres posadzki, dokumentacji, montażu albo serwisu. Formularz
+								pomaga uporządkować dane tak, żeby porównanie było uczciwsze i bardziej czytelne.
+							</span>
+						</div>
+
+						<div class="lead-side-checklist">
+							<div>
+								<b>05</b>
+								<span>Sprawdzisz, co realnie jest w cenie, a czego może brakować</span>
+							</div>
+
+							<div>
+								<b>06</b>
+								<span>Łatwiej dopasujesz wariant myjni do działki i modelu finansowania</span>
+							</div>
+
+							<div>
+								<b>07</b>
+								<span>Zobaczysz różnice między ceną zakupu a kosztem prowadzenia obiektu</span>
+							</div>
+
+							<div>
+								<b>08</b>
+								<span>Możesz dołączyć ofertę, screen, link do pliku albo opis planowanej inwestycji</span>
+							</div>
+						</div>
+
+						<div class="lead-side-summary-card lead-side-summary-main">
+							<p>Dla inwestora</p>
+							<h2>Praktyczny poradnik i formularz porównania ofert myjni.</h2>
+							<span>
+								To miejsce dla osób, które chcą zbudować myjnię bezdotykową w Polsce i nie chcą
+								opierać decyzji wyłącznie na pierwszej cenie z PDF-a. Najpierw porządkujemy
+								założenia, potem łatwiej rozmawiać o realnych ofertach.
+							</span>
+						</div>
+
+						<div class="lead-side-links">
+							<p>Warto przeczytać</p>
+
+							<a href="/dzialka-pod-myjnie-bezdotykowa/">
+								Działka pod myjnię
+								<span aria-hidden="true">→</span>
+							</a>
+
+							<a href="/jak-porownac-oferty-myjni-bezdotykowej/">
+								Jak porównać oferty?
+								<span aria-hidden="true">→</span>
+							</a>
+
+							<a href="/koszt-budowy-myjni-bezdotykowej/">
+								Koszt budowy myjni
+								<span aria-hidden="true">→</span>
+							</a>
+						</div>
+					</aside>
 				</div>
 
 				<aside class="lead-form-card" id="formularz" aria-label="Formularz analizy działki i porównania ofert">
 					<div class="lead-form-head">
 						<p>Formularz</p>
 						<h2>Bezpłatna analiza i porównanie ofert</h2>
-						<span>Podaj dane kontaktowe, lokalizację, status działki, media i założenia myjni. Link do oferty, mapy lub opis inwestycji możesz dodać opcjonalnie.</span>
+						<span>
+							Podaj dane kontaktowe, lokalizację, status działki, media i założenia myjni.
+							Na tej podstawie pomożemy bezpłatnie uporządkować inwestycję i przygotować
+							porównywalne zapytanie do polskich dostawców myjni.
+						</span>
 					</div>
 
-					<p class="required-form-note">Wszystkie pola formularza są wymagane poza polem: link do oferty / link do mapy / opis inwestycji.</p>
+					<p class="required-form-note">
+						100% online. Bez zobowiązań. Wszystkie pola formularza są wymagane poza polem
+						opisu oraz opcjonalnym załącznikiem. Możesz dodać plik PDF, JPG, PNG, WEBP,
+						DOCX albo XLSX do 10 MB.
+					</p>
 
-					<form class="smart-form" data-lead-form>
+					<form class="smart-form" data-lead-form enctype="multipart/form-data">
 						<input type="hidden" name="typ_zapytania" value="Bezpłatna analiza działki i porównanie ofert myjni" />
 
 						<div class="form-section-title full">
@@ -311,9 +417,28 @@ const faqSchema = {
 						</fieldset>
 
 						<label class="full">
-							Link do oferty / link do mapy / opis inwestycji
-							<textarea name="message" rows="5" placeholder="Wklej link do oferty, link do mapy, numer działki, opisz planowaną myjnię albo napisz, czego oczekujesz od producenta..."></textarea>
-						</label>
+	Link do oferty / link do mapy / opis inwestycji
+	<textarea name="message" rows="5" placeholder="Wklej link do oferty, link do mapy, numer działki, opisz planowaną myjnię albo napisz, czego oczekujesz od producenta..."></textarea>
+</label>
+
+<label class="full file-upload-field">
+	<span class="file-label-row">
+		Załącz ofertę lub plik pomocniczy
+		<em>opcjonalnie</em>
+	</span>
+
+	<input
+		type="file"
+		name="offer_file"
+		accept=".pdf,.jpg,.jpeg,.png,.webp,.docx,.xlsx,application/pdf,image/jpeg,image/png,image/webp,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+		data-offer-file
+	/>
+
+	<small>
+		Dozwolone formaty: PDF, JPG, PNG, WEBP, DOCX, XLSX. Maksymalnie 10 MB.
+		Jeżeli plik jest większy, wklej link do Dysku Google, OneDrive albo Dropbox w polu opisu.
+	</small>
+</label>
 
 						<div class="form-consents full">
 							<label class="checkbox-label">
@@ -326,7 +451,7 @@ const faqSchema = {
 							</label>
 						</div>
 
-						<button type="submit" class="form-submit">Wyślij do analizy <span aria-hidden="true">→</span></button>
+						<button type="submit" class="form-submit">Wyślij i rozpocznij bezpłatne porównanie <span aria-hidden="true">→</span></button>
 
 						<p class="form-status full" data-form-status aria-live="polite"></p>
 
@@ -401,20 +526,123 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="lead-section related-section" aria-labelledby="related-title">
+			<section class="lead-section related-section" aria-labelledby="related-title">
 			<div class="container">
-				<p class="eyebrow"><span></span>Dalej w poradniku</p>
-				<h2 id="related-title">Powiązane tematy <strong>dla inwestora</strong></h2>
-				<div class="related-grid">
-					{relatedLinks.map((link) => (
-						<a class="related-card" href={link[1]}>{link[0]} <span>→</span></a>
-					))}
+				<div class="lead-related-shell">
+					<div class="lead-related-head">
+						<p class="eyebrow">
+							<span></span>
+							Sprawdź też
+						</p>
+
+						<h2 id="related-title">
+							Pozostałe tematy <strong>poradnika</strong> inwestora
+						</h2>
+					</div>
+
+					<div class="related-grid related-grid-premium">
+						{relatedLinks.map((link) => (
+							<a class="related-card related-card-premium" href={link[1]}>
+								<span class="related-card-label">{link[0]}</span>
+								<span class="related-card-arrow" aria-hidden="true">→</span>
+							</a>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>
 	</main>
 
 	<Footer />
+
+	<script>
+		const formElement = document.querySelector('[data-lead-form]');
+		const formStatusElement = document.querySelector('[data-form-status]');
+		const fileInputElement = document.querySelector('[data-offer-file]');
+
+		const allowedFileExtensions = ['pdf', 'jpg', 'jpeg', 'png', 'webp', 'docx', 'xlsx'];
+		const maxFileSize = 10 * 1024 * 1024;
+
+		if (formElement instanceof HTMLFormElement) {
+			formElement.addEventListener('submit', (event) => {
+				const requiredGroups = formElement.querySelectorAll('[data-required-group]');
+				let groupValid = true;
+				let firstInvalidGroup = null;
+
+				if (fileInputElement instanceof HTMLInputElement && fileInputElement.files && fileInputElement.files.length > 0) {
+					const selectedFile = fileInputElement.files[0];
+					const fileName = selectedFile.name.toLowerCase();
+					const fileExtension = fileName.includes('.') ? fileName.split('.').pop() : '';
+
+					if (!fileExtension || !allowedFileExtensions.includes(fileExtension)) {
+						event.preventDefault();
+
+						if (formStatusElement instanceof HTMLElement) {
+							formStatusElement.textContent = 'Załącznik ma niedozwolony format. Dodaj plik PDF, JPG, PNG, WEBP, DOCX albo XLSX.';
+						}
+
+						fileInputElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+						return;
+					}
+
+					if (selectedFile.size > maxFileSize) {
+						event.preventDefault();
+
+						if (formStatusElement instanceof HTMLElement) {
+							formStatusElement.textContent = 'Załącznik jest za duży. Maksymalny rozmiar pliku to 10 MB. Przy większym pliku wklej link w polu opisu.';
+						}
+
+						fileInputElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+						return;
+					}
+				}
+
+				requiredGroups.forEach((group) => {
+					const checked = group.querySelector('input[type="checkbox"]:checked');
+					group.classList.toggle('is-invalid', !checked);
+
+					if (!checked) {
+						groupValid = false;
+
+						if (firstInvalidGroup === null) {
+							firstInvalidGroup = group;
+						}
+					}
+				});
+
+				if (!groupValid) {
+					event.preventDefault();
+
+					if (formStatusElement instanceof HTMLElement) {
+						formStatusElement.textContent = 'Zaznacz przynajmniej jedną opcję w sekcji media oraz jedną opcję w sekcji, co chcesz sprawdzić.';
+					}
+
+					if (firstInvalidGroup instanceof HTMLElement) {
+						firstInvalidGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					}
+
+					return;
+				}
+
+				if (!formElement.checkValidity()) {
+					event.preventDefault();
+					formElement.reportValidity();
+
+					if (formStatusElement instanceof HTMLElement) {
+						formStatusElement.textContent = 'Uzupełnij wymagane pola i zaznacz wymagane zgody.';
+					}
+
+					return;
+				}
+
+				event.preventDefault();
+
+				if (formStatusElement instanceof HTMLElement) {
+					formStatusElement.textContent = 'Formularz jest poprawnie uzupełniony. Wysyłkę danych oraz obsługę załącznika podłączymy w kolejnym kroku.';
+				}
+			});
+		}
+	</script>
 
 	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Layout>
@@ -1013,6 +1241,373 @@ const faqSchema = {
 		.process-panel {
 			padding: 28px;
 			border-radius: 34px;
+		}
+	}
+		/* Lewa kolumna obok długiego formularza — tylko desktop */
+	.lead-side-summary {
+		display: none;
+	}
+
+	@media (min-width: 1181px) {
+		.lead-hero-copy {
+			align-self: stretch;
+		}
+
+		.lead-side-summary {
+			position: sticky;
+			top: 118px;
+			display: grid;
+			gap: 16px;
+			margin-top: clamp(30px, 4vw, 54px);
+			max-width: 760px;
+		}
+
+		.lead-side-summary-card,
+		.lead-side-checklist,
+		.lead-side-links {
+			position: relative;
+			overflow: hidden;
+			border: 1px solid rgba(8, 16, 32, 0.08);
+			background:
+				radial-gradient(circle at 0% 0%, rgba(18, 104, 255, 0.08), transparent 34%),
+				radial-gradient(circle at 100% 10%, rgba(114, 240, 105, 0.13), transparent 34%),
+				rgba(255, 255, 255, 0.88);
+			box-shadow: 0 18px 54px rgba(8, 16, 32, 0.065);
+			backdrop-filter: blur(16px);
+		}
+
+		.lead-side-summary-card {
+			padding: 26px;
+			border-radius: 32px;
+		}
+
+		.lead-side-summary-card p,
+		.lead-side-links p {
+			margin: 0;
+			color: #1268ff;
+			font-size: 0.75rem;
+			font-weight: 950;
+			letter-spacing: 0.16em;
+			text-transform: uppercase;
+		}
+
+		.lead-side-summary-card h2 {
+			margin: 12px 0 0;
+			max-width: 560px;
+			color: #070b14;
+			font-size: clamp(2rem, 3.1vw, 3.35rem);
+			font-weight: 950;
+			line-height: 0.96;
+			letter-spacing: -0.075em;
+		}
+
+		.lead-side-summary-card span {
+			display: block;
+			margin-top: 14px;
+			max-width: 620px;
+			color: #667085;
+			font-size: 1rem;
+			font-weight: 600;
+			line-height: 1.6;
+			letter-spacing: -0.018em;
+		}
+
+		.lead-side-checklist {
+			display: grid;
+			gap: 10px;
+			padding: 18px;
+			border-radius: 28px;
+		}
+
+		.lead-side-checklist div {
+			display: grid;
+			grid-template-columns: 44px minmax(0, 1fr);
+			gap: 12px;
+			align-items: center;
+			min-height: 58px;
+			padding: 12px;
+			border-radius: 20px;
+			background: rgba(255, 255, 255, 0.78);
+			border: 1px solid rgba(8, 16, 32, 0.06);
+		}
+
+		.lead-side-checklist b {
+			display: grid;
+			place-items: center;
+			width: 38px;
+			height: 38px;
+			border-radius: 999px;
+			background: linear-gradient(135deg, #7cff4a 0%, #52f05d 46%, #21df73 100%);
+			color: #06110a;
+			font-size: 0.78rem;
+			font-weight: 950;
+			box-shadow:
+				0 0 0 1px rgba(124, 255, 74, 0.25),
+				0 12px 28px rgba(82, 240, 93, 0.3);
+		}
+
+		.lead-side-checklist span {
+			color: #253149;
+			font-size: 0.94rem;
+			font-weight: 760;
+			line-height: 1.35;
+			letter-spacing: -0.025em;
+		}
+
+		.lead-side-links {
+			display: grid;
+			gap: 10px;
+			padding: 18px;
+			border-radius: 28px;
+		}
+
+		.lead-side-links a {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 14px;
+			min-height: 54px;
+			padding: 13px 14px 13px 16px;
+			border-radius: 18px;
+			background: rgba(255, 255, 255, 0.82);
+			border: 1px solid rgba(8, 16, 32, 0.06);
+			color: #070b14;
+			font-size: 0.94rem;
+			font-weight: 850;
+			letter-spacing: -0.03em;
+			text-decoration: none;
+			transition:
+				transform 0.2s ease,
+				box-shadow 0.2s ease,
+				border-color 0.2s ease;
+		}
+
+		.lead-side-links a:hover {
+			transform: translateY(-2px);
+			border-color: rgba(18, 104, 255, 0.16);
+			box-shadow: 0 14px 34px rgba(8, 16, 32, 0.08);
+		}
+
+		.lead-side-links a span {
+			display: grid;
+			place-items: center;
+			width: 32px;
+			height: 32px;
+			border-radius: 999px;
+			background: #070b14;
+			color: #fff;
+			flex: 0 0 auto;
+		}
+	}
+
+/* FINAL STANDARD — formularz: ciemny panel, strzałki i sekcja Sprawdź też */
+	.process-panel,
+	.process-panel h2,
+	.process-panel h3,
+	.process-panel p {
+		color: #ffffff !important;
+	}
+
+	.process-panel .eyebrow,
+	.process-panel .eyebrow.light {
+		color: rgba(255, 255, 255, 0.92) !important;
+	}
+
+	.process-panel .eyebrow span {
+		background: #72f069 !important;
+		box-shadow: 0 0 0 6px rgba(114, 240, 105, 0.12) !important;
+	}
+
+	.process-panel h2 {
+		max-width: 1180px !important;
+		color: #ffffff !important;
+		font-size: clamp(2.45rem, 5.2vw, 5.7rem) !important;
+		line-height: 0.96 !important;
+		letter-spacing: -0.078em !important;
+	}
+
+	.process-steps article {
+		background:
+			radial-gradient(circle at 90% 8%, rgba(114, 240, 105, 0.13), transparent 34%),
+			rgba(255, 255, 255, 0.1) !important;
+		border: 1px solid rgba(255, 255, 255, 0.15) !important;
+		box-shadow:
+			0 18px 46px rgba(0, 0, 0, 0.16),
+			inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+	}
+
+	.process-steps h3 {
+		color: #ffffff !important;
+	}
+
+	.process-steps p {
+		color: rgba(255, 255, 255, 0.74) !important;
+	}
+
+	/* Linki w lewym panelu — zielona strzałka zamiast czarnej */
+	.lead-side-links a span {
+		background: #5df04e !important;
+		color: #081020 !important;
+		box-shadow:
+			0 0 0 1px rgba(255, 255, 255, 0.9),
+			0 0 22px rgba(93, 240, 78, 0.38) !important;
+	}
+
+	/* Dół strony — Sprawdź też premium */
+	.related-section {
+		padding-top: clamp(48px, 6vw, 80px) !important;
+	}
+
+	.lead-related-shell {
+		padding: clamp(28px, 4vw, 40px) !important;
+		border-radius: 40px !important;
+		background: linear-gradient(90deg, rgba(232, 238, 247, 0.96), rgba(241, 247, 240, 0.96)) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.06) !important;
+	}
+
+	.lead-related-head {
+		display: grid !important;
+		grid-template-columns: 220px minmax(0, 1fr) !important;
+		align-items: end !important;
+		gap: 20px 28px !important;
+		margin-bottom: 28px !important;
+	}
+
+	.lead-related-head .eyebrow {
+		margin: 0 !important;
+	}
+
+	.related-section h2 {
+		margin: 0 !important;
+		max-width: none !important;
+		text-align: right !important;
+		font-size: clamp(2rem, 4.2vw, 4.5rem) !important;
+		line-height: 0.98 !important;
+		letter-spacing: -0.07em !important;
+	}
+
+	.related-section h2 strong {
+		color: #2d73ff !important;
+		font-weight: 950 !important;
+	}
+
+	.related-grid-premium {
+		display: grid !important;
+		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+		gap: 20px !important;
+		margin-top: 0 !important;
+	}
+
+	.related-card-premium {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+		gap: 20px !important;
+		min-height: 124px !important;
+		padding: 26px 28px !important;
+		border-radius: 28px !important;
+		background: rgba(255, 255, 255, 0.92) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		box-shadow: 0 18px 46px rgba(8, 16, 32, 0.05) !important;
+		color: var(--ink) !important;
+		text-decoration: none !important;
+	}
+
+	.related-card-premium .related-card-label {
+		display: block !important;
+		width: auto !important;
+		height: auto !important;
+		min-width: 0 !important;
+		min-height: 0 !important;
+		padding: 0 !important;
+		border-radius: 0 !important;
+		background: transparent !important;
+		color: #070b14 !important;
+		box-shadow: none !important;
+		flex: 1 1 auto !important;
+		font-size: clamp(1.28rem, 1.8vw, 1.8rem) !important;
+		font-weight: 950 !important;
+		letter-spacing: -0.05em !important;
+		line-height: 1.08 !important;
+	}
+
+	.related-card-premium .related-card-arrow {
+		display: grid !important;
+		place-items: center !important;
+		width: 58px !important;
+		height: 58px !important;
+		min-width: 58px !important;
+		min-height: 58px !important;
+		padding: 0 !important;
+		border-radius: 999px !important;
+		background: #5df04e !important;
+		color: #081020 !important;
+		font-size: 1.45rem !important;
+		font-weight: 900 !important;
+		flex: 0 0 auto !important;
+		box-shadow:
+			0 0 0 1px rgba(255, 255, 255, 0.9),
+			0 0 22px rgba(93, 240, 78, 0.38) !important;
+	}
+
+	@media (max-width: 1180px) {
+		.process-panel h2 {
+			font-size: clamp(2.15rem, 7vw, 4.2rem) !important;
+			line-height: 0.98 !important;
+		}
+
+		.lead-related-head {
+			grid-template-columns: 1fr !important;
+			gap: 14px !important;
+			align-items: start !important;
+		}
+
+		.related-section h2 {
+			text-align: left !important;
+			font-size: clamp(2.15rem, 7vw, 4.2rem) !important;
+			line-height: 0.98 !important;
+		}
+
+		.related-grid-premium {
+			grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.lead-related-shell {
+			padding: 22px !important;
+			border-radius: 30px !important;
+		}
+
+		.related-section h2 {
+			font-size: clamp(2rem, 10vw, 3.2rem) !important;
+			line-height: 0.98 !important;
+			letter-spacing: -0.07em !important;
+		}
+
+		.related-grid-premium {
+			grid-template-columns: 1fr !important;
+			gap: 12px !important;
+		}
+
+		.related-card-premium {
+			min-height: 92px !important;
+			padding: 20px !important;
+			border-radius: 22px !important;
+		}
+
+		.related-card-premium .related-card-label {
+			font-size: 1.12rem !important;
+			line-height: 1.12 !important;
+		}
+
+		.related-card-premium .related-card-arrow {
+			width: 48px !important;
+			height: 48px !important;
+			min-width: 48px !important;
+			min-height: 48px !important;
+			font-size: 1.1rem !important;
 		}
 	}
 </style>

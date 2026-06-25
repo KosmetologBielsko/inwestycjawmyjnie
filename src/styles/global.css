@@ -7840,3 +7840,286 @@ html {
 		scroll-padding-top: 82px !important;
 	}
 }
+/* Audyt lokalizacji — neonowy zielony przycisk */
+.locx-button {
+	background: linear-gradient(90deg, #7cff4a 0%, #52f05d 45%, #21df73 100%) !important;
+	color: #06110a !important;
+	border: 1px solid rgba(124, 255, 74, 0.72) !important;
+	box-shadow:
+		0 0 0 1px rgba(124, 255, 74, 0.2),
+		0 18px 44px rgba(82, 240, 93, 0.36),
+		0 0 48px rgba(82, 240, 93, 0.26),
+		inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
+}
+
+.locx-button:hover {
+	transform: translateY(-2px);
+	box-shadow:
+		0 0 0 1px rgba(124, 255, 74, 0.34),
+		0 22px 58px rgba(82, 240, 93, 0.46),
+		0 0 64px rgba(82, 240, 93, 0.34),
+		inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
+}
+
+.locx-button span {
+	color: #06110a !important;
+}
+/* Baza wiedzy — dodatkowe linkowanie do poradnika */
+.knowledge-more-links {
+	margin-top: clamp(26px, 3vw, 42px);
+	padding: clamp(22px, 3vw, 34px);
+	border: 1px solid rgba(8, 16, 32, 0.08);
+	border-radius: 34px;
+	background:
+		radial-gradient(circle at 8% 0%, rgba(18, 104, 255, 0.08), transparent 34%),
+		radial-gradient(circle at 92% 12%, rgba(114, 240, 105, 0.12), transparent 32%),
+		linear-gradient(145deg, #ffffff 0%, #f8f9fb 100%);
+	box-shadow: 0 22px 70px rgba(8, 16, 32, 0.06);
+}
+
+.knowledge-more-head {
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+	gap: 18px;
+	margin-bottom: 20px;
+}
+
+.knowledge-more-head p {
+	margin: 0;
+	color: #1268ff;
+	font-size: 0.78rem;
+	font-weight: 950;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+.knowledge-more-head h3 {
+	margin: 0;
+	max-width: 720px;
+	color: #070b14;
+	font-size: clamp(1.6rem, 2.8vw, 3rem);
+	font-weight: 950;
+	line-height: 0.96;
+	letter-spacing: -0.07em;
+}
+
+.knowledge-more-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.knowledge-more-grid a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	min-height: 76px;
+	padding: 18px 18px 18px 20px;
+	border: 1px solid rgba(8, 16, 32, 0.08);
+	border-radius: 22px;
+	background: rgba(255, 255, 255, 0.86);
+	color: #070b14;
+	text-decoration: none;
+	box-shadow: 0 12px 32px rgba(8, 16, 32, 0.045);
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.knowledge-more-grid a:hover {
+	transform: translateY(-2px);
+	border-color: rgba(18, 104, 255, 0.18);
+	box-shadow: 0 18px 46px rgba(8, 16, 32, 0.08);
+}
+
+.knowledge-more-grid span {
+	font-size: 0.98rem;
+	font-weight: 850;
+	line-height: 1.25;
+	letter-spacing: -0.035em;
+}
+
+.knowledge-more-grid b {
+	display: grid;
+	place-items: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 999px;
+	background: #070b14;
+	color: #ffffff;
+	font-size: 0.95rem;
+	flex: 0 0 auto;
+	box-shadow: 0 12px 28px rgba(8, 16, 32, 0.18);
+}
+
+@media (max-width: 980px) {
+	.knowledge-more-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 640px) {
+	.knowledge-more-links {
+		border-radius: 28px;
+	}
+
+	.knowledge-more-head {
+		display: grid;
+		align-items: start;
+	}
+
+	.knowledge-more-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.knowledge-more-grid a {
+		min-height: 68px;
+		border-radius: 20px;
+	}
+}
+/* Baza wiedzy — niebieski akcent w nagłówku */
+.knowledge-more-head h3 strong {
+	background: linear-gradient(90deg, #0756d8 0%, #1268ff 42%, #62b6ff 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	font-weight: inherit;
+}
+
+/* Baza wiedzy — neonowe kółka ze strzałką */
+.knowledge-more-grid b {
+	background: linear-gradient(135deg, #7cff4a 0%, #52f05d 46%, #21df73 100%) !important;
+	color: #06110a !important;
+	box-shadow:
+		0 0 0 1px rgba(124, 255, 74, 0.25),
+		0 12px 28px rgba(82, 240, 93, 0.34),
+		0 0 36px rgba(82, 240, 93, 0.28),
+		inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
+}
+
+/* Delikatny hover całego linku */
+.knowledge-more-grid a:hover b {
+	background: linear-gradient(135deg, #52f05d 0%, #21df73 52%, #1268ff 100%) !important;
+	box-shadow:
+		0 0 0 1px rgba(124, 255, 74, 0.34),
+		0 16px 36px rgba(82, 240, 93, 0.44),
+		0 0 46px rgba(82, 240, 93, 0.34),
+		inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+/* Intro pod hero — CTA do formularza */
+.intro-panel-with-cta {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.72fr) !important;
+	gap: clamp(24px, 4vw, 54px) !important;
+	align-items: center !important;
+}
+
+.intro-copy p:last-child {
+	max-width: 920px;
+}
+
+.intro-cta-box {
+	position: relative;
+	overflow: hidden;
+	display: grid;
+	gap: 14px;
+	padding: clamp(22px, 3vw, 34px);
+	border-radius: 34px;
+	background:
+		radial-gradient(circle at 12% 0%, rgba(124, 255, 74, 0.2), transparent 34%),
+		radial-gradient(circle at 100% 18%, rgba(18, 104, 255, 0.16), transparent 38%),
+		linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(248, 250, 255, 0.78));
+	border: 1px solid rgba(8, 16, 32, 0.08);
+	box-shadow: 0 24px 70px rgba(8, 16, 32, 0.08);
+}
+
+.intro-cta-box::before {
+	content: "";
+	position: absolute;
+	inset: auto -12% -45% 18%;
+	height: 190px;
+	background: radial-gradient(circle, rgba(82, 240, 93, 0.28), transparent 68%);
+	pointer-events: none;
+}
+
+.intro-cta-box p {
+	position: relative;
+	margin: 0;
+	color: #1268ff;
+	font-size: 0.78rem;
+	font-weight: 950;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+}
+
+.intro-cta-box h3 {
+	position: relative;
+	margin: 0;
+	color: #070b14;
+	font-size: clamp(1.5rem, 2.4vw, 2.45rem);
+	font-weight: 950;
+	line-height: 0.98;
+	letter-spacing: -0.065em;
+}
+
+.intro-cta-box span {
+	position: relative;
+	display: block;
+	color: rgba(40, 52, 75, 0.76);
+	font-size: 1rem;
+	font-weight: 650;
+	line-height: 1.55;
+	letter-spacing: -0.025em;
+}
+
+.intro-cta-button {
+	position: relative;
+	justify-content: center;
+	margin-top: 6px;
+	width: 100%;
+	background: linear-gradient(90deg, #7cff4a 0%, #52f05d 45%, #21df73 100%) !important;
+	color: #06110a !important;
+	border: 1px solid rgba(124, 255, 74, 0.72) !important;
+	box-shadow:
+		0 0 0 1px rgba(124, 255, 74, 0.2),
+		0 18px 44px rgba(82, 240, 93, 0.36),
+		0 0 48px rgba(82, 240, 93, 0.26),
+		inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
+}
+
+.intro-cta-button b {
+	color: #06110a !important;
+	font-weight: 950;
+}
+
+.intro-cta-button:hover {
+	transform: translateY(-2px);
+	box-shadow:
+		0 0 0 1px rgba(124, 255, 74, 0.34),
+		0 22px 58px rgba(82, 240, 93, 0.46),
+		0 0 64px rgba(82, 240, 93, 0.34),
+		inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
+}
+
+@media (max-width: 980px) {
+	.intro-panel-with-cta {
+		grid-template-columns: 1fr !important;
+	}
+
+	.intro-cta-box {
+		max-width: 720px;
+	}
+}
+
+@media (max-width: 640px) {
+	.intro-cta-box {
+		border-radius: 28px;
+	}
+
+	.intro-cta-button {
+		font-size: 0.92rem;
+	}
+}

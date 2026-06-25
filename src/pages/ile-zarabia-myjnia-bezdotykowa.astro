@@ -230,8 +230,8 @@ const faqSchema = {
 					</p>
 
 					<div class="profit-actions">
-						<a class="profit-button-green" href="/#kontakt">
-							Prześlij lokalizację
+												<a class="profit-button-green" href="/bezplatne-porownanie-ofert-myjni/">
+							Bezpłatna analiza i porównanie ofert
 							<span aria-hidden="true">→</span>
 						</a>
 						<a class="profit-button-light" href="#model-wyniku">
@@ -249,20 +249,23 @@ const faqSchema = {
 					</div>
 				</div>
 
-				<aside class="profit-hero-panel" aria-label="Najważniejszy wniosek">
-					<div class="profit-panel-logo">inwestycjawmyjnie.pl</div>
-					<p>Najważniejsza zasada</p>
-					<h2>Obrót nie jest jeszcze zyskiem.</h2>
-					<span>
-						Dopiero po odjęciu kosztów mediów, chemii, serwisu, finansowania, podatków
-						i rezerw widać realny wynik inwestora.
-					</span>
-					<div class="profit-mini-grid">
-						<b>przychód</b>
-						<b>koszty</b>
-						<b>cash flow</b>
-						<b>zwrot</b>
-					</div>
+								<aside class="profit-hero-panel profit-hero-graphic-panel" aria-label="Najważniejsza zasada przed oceną zysku myjni">
+					<picture>
+						<source
+							media="(max-width: 760px)"
+							srcset="/images/hero-zarabia-myjnia-wynik-pion.webp"
+						/>
+						<source
+							media="(max-width: 1180px)"
+							srcset="/images/hero-zarabia-myjnia-wynik-poziom.webp"
+						/>
+						<img
+							src="/images/hero-zarabia-myjnia-wynik-pion.webp"
+							alt="Obrót nie jest jeszcze zyskiem — realny wynik inwestora w myjnię bezdotykową"
+							loading="eager"
+							decoding="async"
+						/>
+					</picture>
 				</aside>
 			</div>
 		</section>
@@ -304,11 +307,27 @@ const faqSchema = {
 
 		<section class="profit-section profit-text-section" aria-labelledby="revenue-title">
 			<div class="container profit-article-grid">
-				<div class="profit-sticky-title">
+								<div class="profit-sticky-title">
 					<p class="eyebrow"><span></span>Przychód</p>
 					<h2 id="revenue-title">
 						Najpierw trzeba zrozumieć, <strong>skąd bierze się obrót</strong>
 					</h2>
+
+					<div class="profit-side-note" aria-label="Najważniejsze elementy przychodu myjni">
+						<p>Przed liczeniem zysku</p>
+						<h3>Najpierw oddziel obrót od realnego wyniku.</h3>
+
+						<div class="profit-side-note-list">
+							<span><b>01</b> liczba myć i średnia wartość klienta</span>
+							<span><b>02</b> wykorzystanie stanowisk w tygodniu i sezonie</span>
+							<span><b>03</b> urządzenia dodatkowe i powtarzalność wizyt</span>
+						</div>
+
+						<a href="/bezplatne-porownanie-ofert-myjni/">
+							Bezpłatna analiza i porównanie ofert
+							<span aria-hidden="true">→</span>
+						</a>
+					</div>
 				</div>
 
 				<div class="profit-article-copy profit-article-card">
@@ -404,13 +423,10 @@ const faqSchema = {
 								Dostawca wpływa nie tylko na cenę, ale też <strong>na późniejszy zysk</strong>
 							</h2>
 						</div>
-						<div class="profit-carousel-nav" aria-label="Nawigacja slajdera">
-							<button type="button" data-profit-prev aria-label="Poprzedni element">←</button>
-							<button type="button" data-profit-next aria-label="Następny element">→</button>
-						</div>
+						
 					</div>
 
-					<div class="profit-carousel-track" data-profit-track>
+										<div class="profit-carousel-track" data-profit-track>
 						{efficiencySlides.map((slide) => (
 							<article class="profit-slide">
 								<span>{slide.kicker}</span>
@@ -418,6 +434,15 @@ const faqSchema = {
 								<p>{slide.text}</p>
 							</article>
 						))}
+					</div>
+
+					<div class="profit-carousel-footer-nav" aria-label="Nawigacja slajdera">
+						<span>Przesuń palcem albo użyj strzałek</span>
+
+						<div class="profit-carousel-nav">
+							<button type="button" data-profit-prev aria-label="Poprzedni element">←</button>
+							<button type="button" data-profit-next aria-label="Następny element">→</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -459,11 +484,18 @@ const faqSchema = {
 						<h2 id="profitability-title">
 							Na wynik wpływa nie tylko obrót, ale też <strong>konfiguracja kosztów</strong>
 						</h2>
-						<p>
+											<p>
 							W praktyce model kosztów może wyglądać bardzo różnie. Własny grunt, leasing,
 							dzierżawa, odzysk wody, źródło ciepła, fotowoltaika, serwis i sposób obsługi
 							mogą całkowicie zmienić wynik inwestora.
 						</p>
+
+						<div class="profit-dark-note" aria-label="Co trzeba policzyć w rentowności myjni">
+							<span><b>01</b> przychód miesięczny</span>
+							<span><b>02</b> koszty operacyjne</span>
+							<span><b>03</b> finansowanie i podatki</span>
+							<span><b>04</b> rezerwa na serwis</span>
+						</div>
 					</div>
 
 					<div class="profit-note-grid">
@@ -492,10 +524,10 @@ const faqSchema = {
 							koszty i możliwy model zwrotu.
 						</p>
 					</div>
-					<a class="profit-button-green" href="/#kontakt">
-						Prześlij lokalizację
-						<span aria-hidden="true">→</span>
-					</a>
+											<a class="profit-button-green" href="/bezplatne-porownanie-ofert-myjni/">
+							Bezpłatna analiza i porównanie ofert
+							<span aria-hidden="true">→</span>
+						</a>
 				</div>
 			</div>
 		</section>
@@ -526,16 +558,28 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="profit-section profit-related-section" aria-labelledby="related-title">
+				<section class="profit-section profit-related-section" aria-labelledby="related-title">
 			<div class="container">
-				<p class="eyebrow"><span></span>Dalej w poradniku</p>
-				<h2 id="related-title">
-					Powiązane tematy <strong>dla inwestora</strong>
-				</h2>
-				<div class="profit-related-grid">
-					{relatedLinks.map((link) => (
-						<a class="profit-related-card" href={link[1]}>{link[0]} <span>→</span></a>
-					))}
+				<div class="profit-related-shell">
+					<div class="profit-related-head">
+						<p class="eyebrow">
+							<span></span>
+							Sprawdź też
+						</p>
+
+						<h2 id="related-title">
+							Pozostałe tematy <strong>poradnika</strong> inwestora
+						</h2>
+					</div>
+
+					<div class="profit-related-grid profit-related-grid-premium">
+						{relatedLinks.map((link) => (
+							<a class="profit-related-card profit-related-card-premium" href={link[1]}>
+								<span class="profit-related-card-label">{link[0]}</span>
+								<span class="profit-related-card-arrow" aria-hidden="true">→</span>
+							</a>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>
@@ -1403,6 +1447,512 @@ const faqSchema = {
 
 		.profit-analysis-cta .profit-button-green {
 			width: 100%;
+		}
+	}
+		/* FINAL STANDARD — hero grafika, slider, ciemne sekcje i powiązane tematy */
+	.profit-hero-graphic-panel {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		min-height: 620px !important;
+		padding: 0 !important;
+		background: transparent !important;
+		border: 0 !important;
+		box-shadow: none !important;
+		overflow: visible !important;
+	}
+
+	.profit-hero-graphic-panel::before {
+		display: none !important;
+	}
+
+	.profit-hero-graphic-panel picture {
+		display: flex !important;
+		width: 100% !important;
+		height: 100% !important;
+		align-items: center !important;
+		justify-content: center !important;
+	}
+
+	.profit-hero-graphic-panel img {
+		display: block !important;
+		width: 100% !important;
+		max-width: 640px !important;
+		height: auto !important;
+		object-fit: contain !important;
+		border-radius: 38px !important;
+		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22) !important;
+	}
+
+	.profit-carousel h2,
+	.profit-carousel-head h2,
+	.profitability-panel h2,
+	.profit-analysis-cta h2 {
+		color: #ffffff !important;
+	}
+
+	.profit-carousel h2 strong,
+	.profit-carousel-head h2 strong,
+	.profitability-panel h2 strong,
+	.profit-analysis-cta h2 strong {
+		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%) !important;
+		-webkit-background-clip: text !important;
+		background-clip: text !important;
+		color: transparent !important;
+		font-weight: inherit !important;
+	}
+
+	.profit-carousel .eyebrow,
+	.profitability-panel .eyebrow,
+	.profit-analysis-cta .eyebrow {
+		color: rgba(255, 255, 255, 0.92) !important;
+	}
+
+	.profit-carousel .eyebrow span,
+	.profitability-panel .eyebrow span,
+	.profit-analysis-cta .eyebrow span {
+		background: #72f069 !important;
+		box-shadow: 0 0 0 6px rgba(114, 240, 105, 0.12) !important;
+	}
+
+	.profitability-panel p,
+	.profit-analysis-cta p,
+	.profit-carousel p {
+		color: rgba(255, 255, 255, 0.74) !important;
+	}
+
+	.profit-carousel-head > .profit-carousel-nav {
+		display: none !important;
+	}
+
+	.profit-carousel-footer-nav {
+		display: grid !important;
+		justify-items: center !important;
+		align-items: center !important;
+		gap: 14px !important;
+		width: 100% !important;
+		margin: 24px auto 0 !important;
+		padding: 0 !important;
+		text-align: center !important;
+	}
+
+	.profit-carousel-footer-nav > span {
+		order: 1 !important;
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		width: auto !important;
+		max-width: min(92vw, 520px) !important;
+		min-height: 46px !important;
+		padding: 10px 22px !important;
+		border-radius: 999px !important;
+		background: rgba(255, 255, 255, 0.94) !important;
+		border: 1px solid rgba(255, 255, 255, 0.22) !important;
+		color: #5b6473 !important;
+		font-size: clamp(0.86rem, 1vw, 1rem) !important;
+		font-weight: 900 !important;
+		letter-spacing: -0.025em !important;
+		line-height: 1.2 !important;
+		box-shadow:
+			0 18px 44px rgba(0, 0, 0, 0.16),
+			inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+		backdrop-filter: blur(16px) !important;
+		-webkit-backdrop-filter: blur(16px) !important;
+	}
+
+	.profit-carousel-footer-nav .profit-carousel-nav {
+		order: 2 !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		gap: 12px !important;
+		width: auto !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	.profit-carousel-footer-nav .profit-carousel-nav button {
+		display: grid !important;
+		place-items: center !important;
+		width: 54px !important;
+		height: 54px !important;
+		border-radius: 999px !important;
+		border: 1px solid rgba(255, 255, 255, 0.18) !important;
+		background: rgba(255, 255, 255, 0.12) !important;
+		color: #ffffff !important;
+		font-size: 1.08rem !important;
+		font-weight: 950 !important;
+		box-shadow:
+			0 14px 34px rgba(0, 0, 0, 0.18),
+			inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+		cursor: pointer !important;
+	}
+
+	.profit-carousel-footer-nav .profit-carousel-nav button:hover {
+		transform: translateY(-2px) !important;
+		background: rgba(114, 240, 105, 0.24) !important;
+		border-color: rgba(114, 240, 105, 0.42) !important;
+		box-shadow:
+			0 18px 44px rgba(0, 0, 0, 0.22),
+			0 0 32px rgba(114, 240, 105, 0.2) !important;
+	}
+
+	.profit-related-section {
+		padding-top: clamp(48px, 6vw, 80px) !important;
+	}
+
+	.profit-related-shell {
+		padding: clamp(28px, 4vw, 40px) !important;
+		border-radius: 40px !important;
+		background: linear-gradient(90deg, rgba(232, 238, 247, 0.96), rgba(241, 247, 240, 0.96)) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.06) !important;
+	}
+
+	.profit-related-head {
+		display: grid !important;
+		grid-template-columns: 220px minmax(0, 1fr) !important;
+		align-items: end !important;
+		gap: 20px 28px !important;
+		margin-bottom: 28px !important;
+	}
+
+	.profit-related-head .eyebrow {
+		margin: 0 !important;
+	}
+
+	.profit-related-section h2 {
+		margin: 0 !important;
+		max-width: none !important;
+		text-align: right !important;
+		font-size: clamp(2rem, 4.2vw, 4.5rem) !important;
+		line-height: 0.98 !important;
+		letter-spacing: -0.07em !important;
+	}
+
+	.profit-related-section h2 strong {
+		color: #2d73ff !important;
+		font-weight: 950 !important;
+	}
+
+	.profit-related-grid-premium {
+		display: grid !important;
+		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+		gap: 20px !important;
+		margin-top: 0 !important;
+	}
+
+	.profit-related-card-premium {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+		gap: 20px !important;
+		min-height: 124px !important;
+		padding: 26px 28px !important;
+		border-radius: 28px !important;
+		background: rgba(255, 255, 255, 0.92) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		box-shadow: 0 18px 46px rgba(8, 16, 32, 0.05) !important;
+		color: var(--ink) !important;
+		text-decoration: none !important;
+	}
+
+	.profit-related-card-label {
+		display: block !important;
+		font-size: clamp(1.28rem, 1.8vw, 1.8rem) !important;
+		font-weight: 950 !important;
+		letter-spacing: -0.05em !important;
+		line-height: 1.08 !important;
+	}
+
+	.profit-related-card-arrow {
+		display: grid !important;
+		place-items: center !important;
+		width: 58px !important;
+		height: 58px !important;
+		border-radius: 999px !important;
+		background: #5df04e !important;
+		color: #081020 !important;
+		font-size: 1.45rem !important;
+		font-weight: 900 !important;
+		flex: 0 0 auto !important;
+		box-shadow:
+			0 0 0 1px rgba(255, 255, 255, 0.9),
+			0 0 22px rgba(93, 240, 78, 0.38) !important;
+	}
+
+	.profit-analysis-cta .profit-button-green {
+		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%) !important;
+		color: #06110a !important;
+	}
+
+	@media (max-width: 1180px) {
+		.profit-hero-graphic-panel {
+			min-height: auto !important;
+			margin-top: 8px !important;
+		}
+
+		.profit-hero-graphic-panel img {
+			max-width: 100% !important;
+			border-radius: 34px !important;
+		}
+
+		.profit-related-head {
+			grid-template-columns: 1fr !important;
+			gap: 14px !important;
+			align-items: start !important;
+		}
+
+		.profit-related-section h2 {
+			text-align: left !important;
+			font-size: clamp(2.15rem, 7vw, 4.2rem) !important;
+			line-height: 0.98 !important;
+		}
+
+		.profit-related-grid-premium {
+			grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.profit-hero-graphic-panel {
+			margin-top: 0 !important;
+		}
+
+		.profit-hero-graphic-panel img {
+			max-width: 100% !important;
+			border-radius: 30px !important;
+		}
+
+		.profit-carousel-footer-nav {
+			gap: 12px !important;
+			margin-top: 18px !important;
+		}
+
+		.profit-carousel-footer-nav > span {
+			width: 100% !important;
+			max-width: 100% !important;
+			font-size: 0.84rem !important;
+		}
+
+		.profit-carousel-footer-nav .profit-carousel-nav button {
+			width: 50px !important;
+			height: 50px !important;
+		}
+
+		.profit-related-shell {
+			padding: 22px !important;
+			border-radius: 30px !important;
+		}
+
+		.profit-related-section h2 {
+			font-size: clamp(2rem, 10vw, 3.2rem) !important;
+			line-height: 0.98 !important;
+			letter-spacing: -0.07em !important;
+		}
+
+		.profit-related-grid-premium {
+			grid-template-columns: 1fr !important;
+			gap: 12px !important;
+		}
+
+		.profit-related-card-premium {
+			min-height: 92px !important;
+			padding: 20px !important;
+			border-radius: 22px !important;
+		}
+
+		.profit-related-card-label {
+			font-size: 1.12rem !important;
+			line-height: 1.12 !important;
+		}
+
+		.profit-related-card-arrow {
+			width: 48px !important;
+			height: 48px !important;
+			font-size: 1.1rem !important;
+		}
+	}
+		/* FINAL FIX — sekcja Przychód: panel po lewej */
+	.profit-text-section .profit-side-note {
+		display: grid !important;
+		gap: 16px !important;
+		margin-top: clamp(26px, 3vw, 42px) !important;
+		max-width: 680px !important;
+		padding: clamp(22px, 3vw, 30px) !important;
+		border-radius: 32px !important;
+		background:
+			radial-gradient(circle at 0% 0%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 100% 12%, rgba(114, 240, 105, 0.16), transparent 34%),
+			linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 255, 0.92)) !important;
+		border: 1px solid rgba(8, 16, 32, 0.08) !important;
+		box-shadow:
+			0 24px 74px rgba(8, 16, 32, 0.075),
+			inset 0 1px 0 rgba(255, 255, 255, 0.82) !important;
+	}
+
+	.profit-text-section .profit-side-note > p {
+		margin: 0 !important;
+		color: #1268ff !important;
+		font-size: 0.74rem !important;
+		font-weight: 950 !important;
+		letter-spacing: 0.16em !important;
+		text-transform: uppercase !important;
+	}
+
+	.profit-text-section .profit-side-note h3 {
+		margin: 0 !important;
+		color: #070b14 !important;
+		font-size: clamp(1.45rem, 2vw, 2.25rem) !important;
+		font-weight: 950 !important;
+		line-height: 1 !important;
+		letter-spacing: -0.065em !important;
+	}
+
+	.profit-text-section .profit-side-note-list {
+		display: grid !important;
+		gap: 10px !important;
+		margin-top: 2px !important;
+	}
+
+	.profit-text-section .profit-side-note-list span {
+		display: grid !important;
+		grid-template-columns: 38px minmax(0, 1fr) !important;
+		gap: 12px !important;
+		align-items: center !important;
+		min-height: 56px !important;
+		padding: 11px 12px !important;
+		border-radius: 18px !important;
+		background: rgba(255, 255, 255, 0.86) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		color: #253149 !important;
+		font-size: 0.92rem !important;
+		font-weight: 760 !important;
+		line-height: 1.35 !important;
+		letter-spacing: -0.025em !important;
+		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045) !important;
+	}
+
+	.profit-text-section .profit-side-note-list b {
+		display: grid !important;
+		place-items: center !important;
+		width: 34px !important;
+		height: 34px !important;
+		border-radius: 999px !important;
+		background: linear-gradient(135deg, #7cff4a 0%, #52f05d 46%, #21df73 100%) !important;
+		color: #06110a !important;
+		font-size: 0.74rem !important;
+		font-weight: 950 !important;
+		box-shadow:
+			0 0 0 1px rgba(124, 255, 74, 0.25),
+			0 12px 28px rgba(82, 240, 93, 0.26) !important;
+	}
+
+	.profit-text-section .profit-side-note a {
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		gap: 10px !important;
+		min-height: 54px !important;
+		margin-top: 2px !important;
+		padding: 0 18px !important;
+		border-radius: 999px !important;
+		background: linear-gradient(90deg, #7cff4a 0%, #52f05d 45%, #21df73 100%) !important;
+		color: #06110a !important;
+		font-size: 0.94rem !important;
+		font-weight: 950 !important;
+		letter-spacing: -0.03em !important;
+		text-decoration: none !important;
+		box-shadow:
+			0 0 0 1px rgba(124, 255, 74, 0.2),
+			0 18px 44px rgba(82, 240, 93, 0.32),
+			inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
+	}
+
+	/* FINAL FIX — ciemna sekcja Rentowność: wypełnienie lewej strony */
+	.profit-dark-note {
+		display: grid !important;
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		gap: 12px !important;
+		margin-top: 26px !important;
+	}
+
+	.profit-dark-note span {
+		display: grid !important;
+		grid-template-columns: 38px minmax(0, 1fr) !important;
+		gap: 12px !important;
+		align-items: center !important;
+		min-height: 58px !important;
+		padding: 12px !important;
+		border-radius: 18px !important;
+		background: rgba(255, 255, 255, 0.1) !important;
+		border: 1px solid rgba(255, 255, 255, 0.13) !important;
+		color: rgba(255, 255, 255, 0.84) !important;
+		font-size: 0.9rem !important;
+		font-weight: 780 !important;
+		line-height: 1.3 !important;
+	}
+
+	.profit-dark-note b {
+		display: grid !important;
+		place-items: center !important;
+		width: 34px !important;
+		height: 34px !important;
+		border-radius: 999px !important;
+		background: linear-gradient(135deg, #7cff4a 0%, #52f05d 46%, #21df73 100%) !important;
+		color: #06110a !important;
+		font-size: 0.72rem !important;
+		font-weight: 950 !important;
+		box-shadow: 0 12px 28px rgba(82, 240, 93, 0.24) !important;
+	}
+
+	/* FINAL FIX — naprawa opisów w kafelkach Sprawdź też */
+	.profit-related-card-premium .profit-related-card-label {
+		display: block !important;
+		width: auto !important;
+		height: auto !important;
+		min-width: 0 !important;
+		min-height: 0 !important;
+		padding: 0 !important;
+		border-radius: 0 !important;
+		background: transparent !important;
+		color: #070b14 !important;
+		box-shadow: none !important;
+		flex: 1 1 auto !important;
+		font-size: clamp(1.28rem, 1.8vw, 1.8rem) !important;
+		font-weight: 950 !important;
+		letter-spacing: -0.05em !important;
+		line-height: 1.08 !important;
+	}
+
+	.profit-related-card-premium .profit-related-card-arrow {
+		display: grid !important;
+		place-items: center !important;
+		width: 58px !important;
+		height: 58px !important;
+		min-width: 58px !important;
+		min-height: 58px !important;
+		padding: 0 !important;
+		border-radius: 999px !important;
+		background: #5df04e !important;
+		color: #081020 !important;
+		font-size: 1.45rem !important;
+		font-weight: 900 !important;
+		flex: 0 0 auto !important;
+		box-shadow:
+			0 0 0 1px rgba(255, 255, 255, 0.9),
+			0 0 22px rgba(93, 240, 78, 0.38) !important;
+	}
+
+	@media (max-width: 1180px) {
+		.profit-text-section .profit-side-note {
+			display: none !important;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.profit-dark-note {
+			grid-template-columns: 1fr !important;
 		}
 	}
 </style>

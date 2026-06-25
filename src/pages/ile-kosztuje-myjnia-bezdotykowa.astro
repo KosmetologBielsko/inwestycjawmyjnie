@@ -209,40 +209,44 @@ const faqSchema = {
 						sposobu budowy i finansowania.
 					</p>
 
-					<div class="cost-actions">
-						<a class="cost-button-green" href="/#kontakt">
-							Prześlij lokalizację
-							<span aria-hidden="true">→</span>
-						</a>
-						<a class="cost-button-light" href="#orientacyjne-koszty">
-							Zobacz widełki kosztów
-							<span aria-hidden="true">↓</span>
-						</a>
-					</div>
+					                                        <div class="cost-actions">
+                                                <a class="cost-button-green" href="/bezplatne-porownanie-ofert-myjni/">
+                                                        Bezpłatna analiza i porównanie ofert
+                                                        <span aria-hidden="true">→</span>
+                                                </a>
+                                                <a class="cost-button-light" href="#orientacyjne-koszty">
+                                                        Zobacz widełki kosztów
+                                                        <span aria-hidden="true">↓</span>
+                                                </a>
+                                        </div>
 
-					<div class="cost-chips" aria-label="Najważniejsze tematy strony">
-						<span>działka</span>
-						<span>liczba stanowisk</span>
-						<span>technologia</span>
-						<span>budowa</span>
-						<span>leasing</span>
-					</div>
+                                        <div class="cost-chips" aria-label="Najważniejsze tematy strony">
+                                                <span>działka</span>
+                                                <span>liczba stanowisk</span>
+                                                <span>technologia</span>
+                                                <span>budowa</span>
+                                                <span>leasing</span>
+                                        </div>
+
 				</div>
 
-				<aside class="cost-hero-panel" aria-label="Najważniejszy wniosek">
-					<div class="cost-panel-logo">inwestycjawmyjnie.pl</div>
-					<p>Najważniejsza zasada</p>
-					<h2>Nie porównuj ceny, dopóki nie znasz zakresu.</h2>
-					<span>
-						Dwie oferty mogą mieć podobną kwotę, ale zupełnie inny zakres technologii,
-						budowy, serwisu, gwarancji i odpowiedzialności.
-					</span>
-					<div class="cost-mini-grid">
-						<b>działka</b>
-						<b>budżet</b>
-						<b>zakres</b>
-						<b>finansowanie</b>
-					</div>
+								<aside class="cost-hero-panel cost-hero-graphic-panel" aria-label="Najważniejsza zasada przed porównaniem ofert">
+					<picture>
+						<source
+							media="(max-width: 760px)"
+							srcset="/images/hero-koszt-myjni-zakres-pion.webp"
+						/>
+						<source
+							media="(max-width: 1180px)"
+							srcset="/images/hero-koszt-myjni-zakres-poziom.webp"
+						/>
+						<img
+							src="/images/hero-koszt-myjni-zakres-pion.webp"
+							alt="Nie porównuj ceny, dopóki nie znasz zakresu inwestycji w myjnię bezdotykową"
+							loading="eager"
+							decoding="async"
+						/>
+					</picture>
 				</aside>
 			</div>
 		</section>
@@ -286,11 +290,27 @@ const faqSchema = {
 
 		<section class="cost-section cost-text-section" aria-labelledby="why-title">
 	<div class="container cost-article-grid">
-		<div class="cost-sticky-title">
+				<div class="cost-sticky-title">
 			<p class="eyebrow"><span></span>Błąd na starcie</p>
 			<h2 id="why-title">
 				Dlaczego samo zbieranie ofert <strong>może wprowadzić w błąd?</strong>
 			</h2>
+
+			<div class="cost-side-note" aria-label="Najważniejsze przed porównaniem ofert">
+				<p>Przed porównaniem</p>
+				<h3>Najpierw sprawdź, czy porównujesz ten sam zakres.</h3>
+
+				<div class="cost-side-note-list">
+					<span><b>01</b> działka i możliwy układ stanowisk</span>
+					<span><b>02</b> technologia, kontener, konstrukcja i montaż</span>
+					<span><b>03</b> serwis, gwarancja i koszty po zakupie</span>
+				</div>
+
+				<a href="/bezplatne-porownanie-ofert-myjni/">
+					Bezpłatna analiza i porównanie ofert
+					<span aria-hidden="true">→</span>
+				</a>
+			</div>
 		</div>
 
 		<div class="cost-article-copy cost-article-card">
@@ -416,13 +436,10 @@ const faqSchema = {
 								Nie każda cena oznacza <strong>ten sam zakres</strong>
 							</h2>
 						</div>
-						<div class="cost-carousel-nav" aria-label="Nawigacja slajdera">
-							<button type="button" data-cost-prev aria-label="Poprzedni element">←</button>
-							<button type="button" data-cost-next aria-label="Następny element">→</button>
-						</div>
+					
 					</div>
 
-					<div class="cost-carousel-track" data-cost-track>
+										<div class="cost-carousel-track" data-cost-track>
 						{comparisonSlides.map((slide) => (
 							<article class="cost-slide">
 								<span>{slide.kicker}</span>
@@ -430,6 +447,15 @@ const faqSchema = {
 								<p>{slide.text}</p>
 							</article>
 						))}
+					</div>
+
+					<div class="cost-carousel-footer-nav" aria-label="Nawigacja slajdera">
+						<span>Przesuń palcem albo użyj strzałek</span>
+
+						<div class="cost-carousel-nav">
+							<button type="button" data-cost-prev aria-label="Poprzedni element">←</button>
+							<button type="button" data-cost-next aria-label="Następny element">→</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -548,16 +574,28 @@ const faqSchema = {
 			</div>
 		</section>
 
-		<section class="cost-section related-section" aria-labelledby="related-title">
+				<section class="cost-section related-section" aria-labelledby="related-title">
 			<div class="container">
-				<p class="eyebrow"><span></span>Dalej w poradniku</p>
-				<h2 id="related-title">
-					Powiązane tematy <strong>dla inwestora</strong>
-				</h2>
-				<div class="related-grid">
-					{relatedLinks.map((link) => (
-						<a class="related-card" href={link[1]}>{link[0]} <span>→</span></a>
-					))}
+				<div class="related-shell">
+					<div class="related-head">
+						<p class="eyebrow">
+							<span></span>
+							Sprawdź też
+						</p>
+
+						<h2 id="related-title">
+							Pozostałe tematy <strong>poradnika</strong> inwestora
+						</h2>
+					</div>
+
+					<div class="related-grid related-grid-premium">
+						{relatedLinks.map((link) => (
+							<a class="related-card related-card-premium" href={link[1]}>
+								<span class="related-card-label">{link[0]}</span>
+								<span class="related-card-arrow" aria-hidden="true">→</span>
+							</a>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>
@@ -1268,42 +1306,102 @@ const faqSchema = {
 		line-height: 1.68;
 	}
 
+		.related-section {
+		padding-top: clamp(48px, 6vw, 80px);
+	}
+
+	.related-shell {
+		padding: clamp(28px, 4vw, 40px);
+		border-radius: 40px;
+		background:
+			linear-gradient(90deg, rgba(232, 238, 247, 0.96), rgba(241, 247, 240, 0.96));
+		border: 1px solid rgba(8, 16, 32, 0.06);
+		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.06);
+	}
+
+	.related-head {
+		display: grid;
+		grid-template-columns: 220px minmax(0, 1fr);
+		align-items: end;
+		gap: 20px 28px;
+		margin-bottom: 28px;
+	}
+
+	.related-head .eyebrow {
+		margin: 0;
+	}
+
 	.related-section h2 {
-		max-width: 900px;
+		margin: 0;
+		max-width: none;
+		text-align: right;
+		font-size: clamp(2rem, 4.2vw, 4.5rem);
+		line-height: 0.98;
+		letter-spacing: -0.07em;
+	}
+
+	.related-section h2 strong {
+		color: #2d73ff;
+		font-weight: 950;
 	}
 
 	.related-grid {
-		margin-top: 32px;
+		margin-top: 0;
 	}
 
-	.related-card {
-		min-height: 150px;
+	.related-grid-premium {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 20px;
+	}
+
+	.related-card-premium {
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
 		justify-content: space-between;
 		gap: 20px;
+		min-height: 124px;
+		padding: 26px 28px;
+		border-radius: 28px;
+		background: rgba(255, 255, 255, 0.92);
+		border: 1px solid rgba(8, 16, 32, 0.06);
+		box-shadow: 0 18px 46px rgba(8, 16, 32, 0.05);
 		color: var(--ink);
-		font-size: 1.16rem;
-		font-weight: 900;
-		letter-spacing: -0.04em;
 		text-decoration: none;
-		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease,
+			border-color 0.2s ease;
 	}
 
-	.related-card:hover {
+	.related-card-premium:hover {
 		transform: translateY(-3px);
-		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.1);
+		box-shadow: 0 24px 62px rgba(8, 16, 32, 0.08);
+		border-color: rgba(101, 238, 83, 0.22);
 	}
 
-	.related-card span {
+	.related-card-label {
+		display: block;
+		font-size: clamp(1.28rem, 1.8vw, 1.8rem);
+		font-weight: 950;
+		letter-spacing: -0.05em;
+		line-height: 1.08;
+	}
+
+	.related-card-arrow {
 		display: grid;
 		place-items: center;
-		width: 42px;
-		height: 42px;
+		width: 58px;
+		height: 58px;
 		border-radius: 999px;
-		background: var(--ink);
-		color: #fff;
+		background: #5df04e;
+		color: #081020;
+		font-size: 1.45rem;
+		font-weight: 900;
 		flex: 0 0 auto;
+		box-shadow:
+			0 0 0 1px rgba(255, 255, 255, 0.9),
+			0 0 22px rgba(93, 240, 78, 0.38);
 	}
 
 	@media (max-width: 1180px) {
@@ -1644,6 +1742,595 @@ const faqSchema = {
 		line-height: 1.45;
 	}
 }
+	/* Hero kosztów — dodatkowy panel ścieżki decyzji */
+	.cost-decision-path {
+		margin-top: clamp(24px, 3vw, 38px);
+		max-width: 840px;
+		padding: clamp(22px, 3vw, 32px);
+		border-radius: 34px;
+		background:
+			radial-gradient(circle at 0% 0%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 100% 10%, rgba(114, 240, 105, 0.13), transparent 34%),
+			linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(248, 250, 255, 0.82));
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 20px 58px rgba(8, 16, 32, 0.065);
+	}
+
+	.cost-decision-path p {
+		margin: 0;
+		color: #1268ff;
+		font-size: 0.76rem;
+		font-weight: 950;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+	}
+
+	.cost-decision-path h2 {
+		margin: 12px 0 0;
+		max-width: 680px;
+		color: #070b14;
+		font-size: clamp(1.7rem, 2.8vw, 3rem);
+		font-weight: 950;
+		line-height: 0.98;
+		letter-spacing: -0.07em;
+	}
+
+	.cost-decision-list {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 22px;
+	}
+
+	.cost-decision-list div {
+		display: grid;
+		grid-template-columns: 42px minmax(0, 1fr);
+		gap: 12px;
+		align-items: center;
+		min-height: 72px;
+		padding: 14px;
+		border-radius: 22px;
+		background: rgba(255, 255, 255, 0.82);
+		border: 1px solid rgba(8, 16, 32, 0.065);
+		box-shadow: 0 12px 30px rgba(8, 16, 32, 0.045);
+	}
+
+	.cost-decision-list b {
+		display: grid;
+		place-items: center;
+		width: 38px;
+		height: 38px;
+		border-radius: 999px;
+		background: linear-gradient(135deg, #7cff4a 0%, #52f05d 46%, #21df73 100%);
+		color: #06110a;
+		font-size: 0.78rem;
+		font-weight: 950;
+		box-shadow:
+			0 0 0 1px rgba(124, 255, 74, 0.25),
+			0 12px 28px rgba(82, 240, 93, 0.3);
+	}
+
+	.cost-decision-list span {
+		color: #253149;
+		font-size: 0.92rem;
+		font-weight: 760;
+		line-height: 1.35;
+		letter-spacing: -0.025em;
+	}
+
+	@media (max-width: 760px) {
+		.cost-decision-path {
+			display: none;
+		}
+	}
+		/* Sekcja: Błąd na starcie — uzupełnienie lewej kolumny */
+	.cost-side-note {
+		display: none;
+	}
+
+	@media (min-width: 1181px) {
+		.cost-side-note {
+			display: grid;
+			gap: 16px;
+			margin-top: clamp(26px, 3vw, 42px);
+			max-width: 680px;
+			padding: clamp(22px, 3vw, 30px);
+			border-radius: 32px;
+			background:
+				radial-gradient(circle at 0% 0%, rgba(18, 104, 255, 0.09), transparent 34%),
+				radial-gradient(circle at 100% 12%, rgba(114, 240, 105, 0.14), transparent 34%),
+				linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 255, 0.9));
+			border: 1px solid rgba(8, 16, 32, 0.08);
+			box-shadow: 0 22px 64px rgba(8, 16, 32, 0.07);
+		}
+
+		.cost-side-note p {
+			margin: 0;
+			color: #1268ff;
+			font-size: 0.74rem;
+			font-weight: 950;
+			letter-spacing: 0.16em;
+			text-transform: uppercase;
+		}
+
+		.cost-side-note h3 {
+			margin: 0;
+			color: #070b14;
+			font-size: clamp(1.45rem, 2vw, 2.25rem);
+			font-weight: 950;
+			line-height: 1;
+			letter-spacing: -0.065em;
+		}
+
+		.cost-side-note-list {
+			display: grid;
+			gap: 10px;
+		}
+
+		.cost-side-note-list span {
+			display: grid;
+			grid-template-columns: 38px minmax(0, 1fr);
+			gap: 12px;
+			align-items: center;
+			min-height: 54px;
+			padding: 10px 12px;
+			border-radius: 18px;
+			background: rgba(255, 255, 255, 0.82);
+			border: 1px solid rgba(8, 16, 32, 0.06);
+			color: #253149;
+			font-size: 0.92rem;
+			font-weight: 760;
+			line-height: 1.35;
+			letter-spacing: -0.025em;
+		}
+
+		.cost-side-note-list b {
+			display: grid;
+			place-items: center;
+			width: 34px;
+			height: 34px;
+			border-radius: 999px;
+			background: linear-gradient(135deg, #7cff4a 0%, #52f05d 46%, #21df73 100%);
+			color: #06110a;
+			font-size: 0.74rem;
+			font-weight: 950;
+			box-shadow:
+				0 0 0 1px rgba(124, 255, 74, 0.25),
+				0 12px 28px rgba(82, 240, 93, 0.26);
+		}
+
+		.cost-side-note a {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			min-height: 54px;
+			padding: 0 18px;
+			border-radius: 999px;
+			background: linear-gradient(90deg, #7cff4a 0%, #52f05d 45%, #21df73 100%);
+			color: #06110a;
+			font-size: 0.94rem;
+			font-weight: 950;
+			letter-spacing: -0.03em;
+			text-decoration: none;
+			box-shadow:
+				0 0 0 1px rgba(124, 255, 74, 0.2),
+				0 18px 44px rgba(82, 240, 93, 0.32),
+				inset 0 1px 0 rgba(255, 255, 255, 0.65);
+		}
+	}
+		/* FINAL FIX — wygląd panelu w sekcji Błąd na starcie */
+	.cost-text-section .cost-side-note {
+		display: grid !important;
+		gap: 16px !important;
+		margin-top: clamp(26px, 3vw, 42px) !important;
+		max-width: 680px !important;
+		padding: clamp(22px, 3vw, 30px) !important;
+		border-radius: 32px !important;
+		background:
+			radial-gradient(circle at 0% 0%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 100% 12%, rgba(114, 240, 105, 0.16), transparent 34%),
+			linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 255, 0.92)) !important;
+		border: 1px solid rgba(8, 16, 32, 0.08) !important;
+		box-shadow:
+			0 24px 74px rgba(8, 16, 32, 0.075),
+			inset 0 1px 0 rgba(255, 255, 255, 0.82) !important;
+	}
+
+	.cost-text-section .cost-side-note > p {
+		margin: 0 !important;
+		color: #1268ff !important;
+		font-size: 0.74rem !important;
+		font-weight: 950 !important;
+		letter-spacing: 0.16em !important;
+		text-transform: uppercase !important;
+	}
+
+	.cost-text-section .cost-side-note h3 {
+		margin: 0 !important;
+		color: #070b14 !important;
+		font-size: clamp(1.45rem, 2vw, 2.25rem) !important;
+		font-weight: 950 !important;
+		line-height: 1 !important;
+		letter-spacing: -0.065em !important;
+	}
+
+	.cost-text-section .cost-side-note-list {
+		display: grid !important;
+		gap: 10px !important;
+		margin-top: 2px !important;
+	}
+
+	.cost-text-section .cost-side-note-list span {
+		display: grid !important;
+		grid-template-columns: 38px minmax(0, 1fr) !important;
+		gap: 12px !important;
+		align-items: center !important;
+		min-height: 56px !important;
+		padding: 11px 12px !important;
+		border-radius: 18px !important;
+		background: rgba(255, 255, 255, 0.86) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		color: #253149 !important;
+		font-size: 0.92rem !important;
+		font-weight: 760 !important;
+		line-height: 1.35 !important;
+		letter-spacing: -0.025em !important;
+		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045) !important;
+	}
+
+	.cost-text-section .cost-side-note-list b {
+		display: grid !important;
+		place-items: center !important;
+		width: 34px !important;
+		height: 34px !important;
+		border-radius: 999px !important;
+		background: linear-gradient(135deg, #7cff4a 0%, #52f05d 46%, #21df73 100%) !important;
+		color: #06110a !important;
+		font-size: 0.74rem !important;
+		font-weight: 950 !important;
+		box-shadow:
+			0 0 0 1px rgba(124, 255, 74, 0.25),
+			0 12px 28px rgba(82, 240, 93, 0.26) !important;
+	}
+
+	.cost-text-section .cost-side-note a {
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		gap: 10px !important;
+		min-height: 54px !important;
+		margin-top: 2px !important;
+		padding: 0 18px !important;
+		border-radius: 999px !important;
+		background: linear-gradient(90deg, #7cff4a 0%, #52f05d 45%, #21df73 100%) !important;
+		color: #06110a !important;
+		font-size: 0.94rem !important;
+		font-weight: 950 !important;
+		letter-spacing: -0.03em !important;
+		text-decoration: none !important;
+		box-shadow:
+			0 0 0 1px rgba(124, 255, 74, 0.2),
+			0 18px 44px rgba(82, 240, 93, 0.32),
+			inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
+	}
+
+	.cost-text-section .cost-side-note a:hover {
+		transform: translateY(-2px);
+		box-shadow:
+			0 0 0 1px rgba(124, 255, 74, 0.32),
+			0 22px 58px rgba(82, 240, 93, 0.42),
+			inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
+	}
+
+	@media (max-width: 1180px) {
+		.cost-text-section .cost-side-note {
+			display: none !important;
+		}
+	}
+		/* FINAL FIX — białe nagłówki w ciemnych sekcjach */
+	.cost-carousel h2,
+	.cost-carousel-head h2,
+	.finance-panel h2,
+	.analysis-cta h2 {
+		color: #ffffff !important;
+	}
+
+	.cost-carousel h2 strong,
+	.cost-carousel-head h2 strong,
+	.finance-panel h2 strong,
+	.analysis-cta h2 strong {
+		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%) !important;
+		-webkit-background-clip: text !important;
+		background-clip: text !important;
+		color: transparent !important;
+		font-weight: inherit !important;
+	}
+
+	.cost-carousel .eyebrow,
+	.finance-panel .eyebrow,
+	.analysis-cta .eyebrow {
+		color: rgba(255, 255, 255, 0.92) !important;
+	}
+
+	.cost-carousel .eyebrow span,
+	.finance-panel .eyebrow span,
+	.analysis-cta .eyebrow span {
+		background: #72f069 !important;
+		box-shadow: 0 0 0 6px rgba(114, 240, 105, 0.12) !important;
+	}
+
+	.finance-panel p,
+	.analysis-cta p,
+	.cost-carousel p {
+		color: rgba(255, 255, 255, 0.74) !important;
+	}
+		/* FINAL FIX — nawigacja slidera pod przesuwaną sekcją */
+	.cost-carousel-head {
+		margin-bottom: 28px !important;
+	}
+
+	.cost-carousel-footer-nav {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		flex-wrap: wrap !important;
+		gap: 12px !important;
+		margin-top: 20px !important;
+		padding-top: 6px !important;
+	}
+
+	.cost-carousel-footer-nav > span {
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		min-height: 38px !important;
+		padding: 8px 14px !important;
+		border-radius: 999px !important;
+		background: rgba(255, 255, 255, 0.1) !important;
+		border: 1px solid rgba(255, 255, 255, 0.14) !important;
+		color: rgba(255, 255, 255, 0.78) !important;
+		font-size: 0.78rem !important;
+		font-weight: 850 !important;
+		letter-spacing: -0.02em !important;
+		backdrop-filter: blur(14px) !important;
+	}
+
+	.cost-carousel-footer-nav .cost-carousel-nav {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		gap: 10px !important;
+	}
+
+	.cost-carousel-footer-nav .cost-carousel-nav button {
+		background: rgba(255, 255, 255, 0.12) !important;
+		border: 1px solid rgba(255, 255, 255, 0.18) !important;
+		box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16) !important;
+	}
+
+	.cost-carousel-footer-nav .cost-carousel-nav button:hover {
+		background: rgba(114, 240, 105, 0.22) !important;
+		border-color: rgba(114, 240, 105, 0.34) !important;
+	}
+
+	@media (max-width: 760px) {
+		.cost-carousel-footer-nav {
+			display: grid !important;
+			justify-items: center !important;
+			gap: 10px !important;
+			margin-top: 16px !important;
+		}
+
+		.cost-carousel-footer-nav > span {
+			width: 100% !important;
+			text-align: center !important;
+		}
+	}
+		/* FINAL FIX — slider Porównanie ofert: informacja i strzałki pod kartami */
+	.cost-carousel-head > .cost-carousel-nav {
+		display: none !important;
+	}
+
+	.cost-carousel-footer-nav {
+		display: grid !important;
+		justify-items: center !important;
+		align-items: center !important;
+		gap: 14px !important;
+		width: 100% !important;
+		margin: 24px auto 0 !important;
+		padding: 0 !important;
+		text-align: center !important;
+	}
+
+	.cost-carousel-footer-nav > span {
+		order: 1 !important;
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		width: auto !important;
+		max-width: min(92vw, 520px) !important;
+		min-height: 46px !important;
+		padding: 10px 22px !important;
+		border-radius: 999px !important;
+		background: rgba(255, 255, 255, 0.94) !important;
+		border: 1px solid rgba(255, 255, 255, 0.22) !important;
+		color: #5b6473 !important;
+		font-size: clamp(0.86rem, 1vw, 1rem) !important;
+		font-weight: 900 !important;
+		letter-spacing: -0.025em !important;
+		line-height: 1.2 !important;
+		box-shadow:
+			0 18px 44px rgba(0, 0, 0, 0.16),
+			inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+		backdrop-filter: blur(16px) !important;
+		-webkit-backdrop-filter: blur(16px) !important;
+	}
+
+	.cost-carousel-footer-nav .cost-carousel-nav {
+		order: 2 !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		gap: 12px !important;
+		width: auto !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	.cost-carousel-footer-nav .cost-carousel-nav button {
+		display: grid !important;
+		place-items: center !important;
+		width: 54px !important;
+		height: 54px !important;
+		border-radius: 999px !important;
+		border: 1px solid rgba(255, 255, 255, 0.18) !important;
+		background: rgba(255, 255, 255, 0.12) !important;
+		color: #ffffff !important;
+		font-size: 1.08rem !important;
+		font-weight: 950 !important;
+		box-shadow:
+			0 14px 34px rgba(0, 0, 0, 0.18),
+			inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+		cursor: pointer !important;
+	}
+
+	.cost-carousel-footer-nav .cost-carousel-nav button:hover {
+		transform: translateY(-2px) !important;
+		background: rgba(114, 240, 105, 0.24) !important;
+		border-color: rgba(114, 240, 105, 0.42) !important;
+		box-shadow:
+			0 18px 44px rgba(0, 0, 0, 0.22),
+			0 0 32px rgba(114, 240, 105, 0.2) !important;
+	}
+
+	@media (max-width: 760px) {
+		.cost-carousel-footer-nav {
+			gap: 12px !important;
+			margin-top: 18px !important;
+		}
+
+		.cost-carousel-footer-nav > span {
+			width: 100% !important;
+			max-width: 100% !important;
+			font-size: 0.84rem !important;
+		}
+
+		.cost-carousel-footer-nav .cost-carousel-nav button {
+			width: 50px !important;
+			height: 50px !important;
+		}
+	}
+		/* FINAL FIX — responsywność sekcji Pozostałe tematy poradnika */
+	@media (max-width: 1180px) {
+		.related-head {
+			grid-template-columns: 1fr !important;
+			gap: 14px !important;
+			align-items: start !important;
+		}
+
+		.related-section h2 {
+			text-align: left !important;
+			font-size: clamp(2.15rem, 7vw, 4.2rem) !important;
+			line-height: 0.98 !important;
+		}
+
+		.related-grid-premium {
+			grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.related-shell {
+			padding: 22px !important;
+			border-radius: 30px !important;
+		}
+
+		.related-section h2 {
+			font-size: clamp(2rem, 10vw, 3.2rem) !important;
+			line-height: 0.98 !important;
+			letter-spacing: -0.07em !important;
+		}
+
+		.related-grid-premium {
+			grid-template-columns: 1fr !important;
+			gap: 12px !important;
+		}
+
+		.related-card-premium {
+			min-height: 92px !important;
+			padding: 20px !important;
+			border-radius: 22px !important;
+		}
+
+		.related-card-label {
+			font-size: 1.12rem !important;
+			line-height: 1.12 !important;
+		}
+
+		.related-card-arrow {
+			width: 48px !important;
+			height: 48px !important;
+			font-size: 1.1rem !important;
+		}
+	}
+		/* FINAL FIX — hero kosztów jako responsywna grafika */
+	.cost-hero-graphic-panel {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		min-height: 620px !important;
+		padding: 0 !important;
+		background: transparent !important;
+		border: 0 !important;
+		box-shadow: none !important;
+		overflow: visible !important;
+	}
+
+	.cost-hero-graphic-panel::before {
+		display: none !important;
+	}
+
+	.cost-hero-graphic-panel picture {
+		display: flex !important;
+		width: 100% !important;
+		height: 100% !important;
+		align-items: center !important;
+		justify-content: center !important;
+	}
+
+	.cost-hero-graphic-panel img {
+		display: block !important;
+		width: 100% !important;
+		max-width: 640px !important;
+		height: auto !important;
+		object-fit: contain !important;
+		border-radius: 38px !important;
+		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22) !important;
+	}
+
+	@media (max-width: 1180px) {
+		.cost-hero-graphic-panel {
+			min-height: auto !important;
+			margin-top: 8px !important;
+		}
+
+		.cost-hero-graphic-panel img {
+			max-width: 100% !important;
+			border-radius: 34px !important;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.cost-hero-graphic-panel {
+			margin-top: 0 !important;
+		}
+
+		.cost-hero-graphic-panel img {
+			max-width: 100% !important;
+			border-radius: 30px !important;
+		}
+	}
 </style>
 
 <script is:inline>

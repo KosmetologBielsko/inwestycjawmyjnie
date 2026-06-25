@@ -260,8 +260,8 @@ const faqSchema = {
 					</p>
 
 					<div class="offer-actions">
-						<a class="offer-button-green" href="/#kontakt">
-							Prześlij ofertę do analizy
+						<a class="offer-button-green" href="/bezplatne-porownanie-ofert-myjni/">
+							Bezpłatna analiza i porównanie ofert
 							<span aria-hidden="true">→</span>
 						</a>
 						<a class="offer-button-light" href="#checklista">
@@ -275,20 +275,23 @@ const faqSchema = {
 					</div>
 				</div>
 
-				<aside class="offer-hero-panel" aria-label="Najważniejszy wniosek">
-					<div class="offer-panel-logo">inwestycjawmyjnie.pl</div>
-					<p>Najważniejsza zasada</p>
-					<h2>Cena jest początkiem rozmowy, nie decyzją.</h2>
-					<span>
-						Dwie oferty mogą wyglądać podobnie w PDF-ie, ale oznaczać zupełnie inną
-						technologię, inne koszty eksploatacji i inny poziom bezpieczeństwa inwestora.
-					</span>
-					<div class="offer-mini-grid">
-						<b>zakres</b>
-						<b>jakość</b>
-						<b>umowa</b>
-						<b>serwis</b>
-					</div>
+				<aside class="offer-hero-panel offer-hero-graphic-panel" aria-label="Najważniejsza zasada przy porównaniu ofert myjni">
+					<picture>
+						<source
+							media="(max-width: 760px)"
+							srcset="/images/hero-porownanie-ofert-pion.webp"
+						/>
+						<source
+							media="(max-width: 1180px)"
+							srcset="/images/hero-porownanie-ofert-poziom.webp"
+						/>
+						<img
+							src="/images/hero-porownanie-ofert-pion.webp"
+							alt="Nie porównuj ceny, dopóki nie porównasz tego samego zakresu oferty"
+							loading="eager"
+							decoding="async"
+						/>
+					</picture>
 				</aside>
 			</div>
 		</section>
@@ -328,6 +331,22 @@ const faqSchema = {
 					<h2 id="why-title">
 						Dwie oferty mogą mieć podobną cenę, ale oznaczać <strong>zupełnie inną myjnię.</strong>
 					</h2>
+
+					<div class="offer-side-note" aria-label="Co sprawdzić przed porównaniem ofert myjni">
+						<p>Przed decyzją</p>
+						<h3>Najpierw sprawdź, czy porównujesz ten sam zakres.</h3>
+
+						<div class="offer-side-note-list">
+							<span><b>01</b> zakres dostawy, montażu i dokumentacji</span>
+							<span><b>02</b> technologię, komponenty, serwis i gwarancję</span>
+							<span><b>03</b> koszty po zakupie, warunki umowy i odpowiedzialność</span>
+						</div>
+
+						<a href="/bezplatne-porownanie-ofert-myjni/">
+							Bezpłatna analiza i porównanie ofert
+							<span aria-hidden="true">→</span>
+						</a>
+					</div>
 				</div>
 
 				<div class="offer-article-copy offer-article-card">
@@ -397,10 +416,7 @@ const faqSchema = {
 								Największe różnice pojawiają się <strong>po uruchomieniu myjni</strong>
 							</h2>
 						</div>
-						<div class="offer-carousel-nav" aria-label="Nawigacja slajdera">
-							<button type="button" data-offer-prev aria-label="Poprzedni element">←</button>
-							<button type="button" data-offer-next aria-label="Następny element">→</button>
-						</div>
+
 					</div>
 
 					<div class="offer-carousel-track" data-offer-track>
@@ -411,6 +427,15 @@ const faqSchema = {
 								<p>{slide.text}</p>
 							</article>
 						))}
+					</div>
+
+					<div class="offer-carousel-footer-nav" aria-label="Nawigacja slajdera">
+						<span>Przesuń palcem albo użyj strzałek</span>
+
+						<div class="offer-carousel-nav">
+							<button type="button" data-offer-prev aria-label="Poprzedni element">←</button>
+							<button type="button" data-offer-next aria-label="Następny element">→</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -478,6 +503,22 @@ const faqSchema = {
 					<h2 id="visual-title">
 						Konstrukcja jest techniczna. Zabudowa jest wizualna. <strong>Nie myl ich roli.</strong>
 					</h2>
+
+					<div class="offer-visual-note" aria-label="Co sprawdzić poza wyglądem oferty">
+						<p>Poza wizualizacją</p>
+						<h3>Ładny projekt musi jeszcze bronić się technicznie.</h3>
+
+						<div class="offer-visual-note-list">
+							<span><b>01</b> zakres konstrukcji i montażu</span>
+							<span><b>02</b> technologia pod zabudową</span>
+							<span><b>03</b> serwis, dostęp i koszty po zakupie</span>
+						</div>
+
+						<a href="/bezplatne-porownanie-ofert-myjni/">
+							Bezpłatna analiza i porównanie ofert
+							<span aria-hidden="true">→</span>
+						</a>
+					</div>
 				</div>
 
 				<div class="visual-copy offer-article-card">
@@ -568,12 +609,26 @@ const faqSchema = {
 					<h2 id="contract-title">
 						Oferta handlowa to jedno. <strong>Warunki po podpisaniu umowy to drugie.</strong>
 					</h2>
-					<p>
-						Na etapie prezentacji wiele rzeczy brzmi podobnie. Prawdziwe różnice widać
-						dopiero w umowie, gwarancji, zasadach serwisu, szkoleniu i dostępności części.
-						Myjnia zarabia wtedy, kiedy pracuje — dlatego czas serwisu i ergonomia technologii
-						mają bezpośredni wpływ na wynik inwestora.
-					</p>
+											<p>
+							Wypełnij formularz, a pomożemy bezpłatnie uporządkować założenia inwestycji
+							i pozyskać porównywalne oferty od polskich dostawców myjni. Dzięki temu
+							szybciej zobaczysz, co realnie jest w cenie, czego brakuje w zakresie
+							i które rozwiązanie lepiej pasuje do Twojej działki, budżetu oraz modelu inwestycji.
+						</p>
+
+					<div class="offer-contract-note" aria-label="Dlaczego warto porównać ofertę przed podpisaniem umowy">
+						<span>Przed podpisaniem</span>
+						<h3>Sprawdź, czy oferta chroni inwestora po zakupie.</h3>
+						<p>
+							W formularzu możesz przesłać link, opis albo plik z ofertą. Dzięki temu łatwiej
+							porównać zakres, technologię, serwis, gwarancję i koszty po uruchomieniu.
+						</p>
+
+						<a href="/bezplatne-porownanie-ofert-myjni/">
+							Bezpłatna analiza i porównanie ofert
+							<span aria-hidden="true">→</span>
+						</a>
+					</div>
 				</div>
 
 				<div class="contract-grid">
@@ -630,8 +685,8 @@ const faqSchema = {
 							podobny zakres i czy cena pokazuje pełny obraz inwestycji.
 						</p>
 					</div>
-					<a class="offer-button-green" href="/#kontakt">
-						Prześlij ofertę do analizy
+					<a class="offer-button-green" href="/bezplatne-porownanie-ofert-myjni/">
+						Bezpłatna analiza i porównanie ofert
 						<span aria-hidden="true">→</span>
 					</a>
 				</div>
@@ -666,14 +721,26 @@ const faqSchema = {
 
 		<section class="offer-section related-section" aria-labelledby="related-title">
 			<div class="container">
-				<p class="eyebrow"><span></span>Dalej w poradniku</p>
-				<h2 id="related-title">
-					Powiązane tematy <strong>dla inwestora</strong>
-				</h2>
-				<div class="related-grid">
-					{relatedLinks.map((link) => (
-						<a class="related-card" href={link[1]}>{link[0]} <span>→</span></a>
-					))}
+				<div class="offer-related-shell">
+					<div class="offer-related-head">
+						<p class="eyebrow">
+							<span></span>
+							Sprawdź też
+						</p>
+
+						<h2 id="related-title">
+							Pozostałe tematy <strong>poradnika</strong> inwestora
+						</h2>
+					</div>
+
+					<div class="related-grid offer-related-grid-premium">
+						{relatedLinks.map((link) => (
+							<a class="related-card offer-related-card-premium" href={link[1]}>
+								<span class="offer-related-card-label">{link[0]}</span>
+								<span class="offer-related-card-arrow" aria-hidden="true">→</span>
+							</a>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>
@@ -1643,6 +1710,608 @@ const faqSchema = {
 
 		.analysis-cta .offer-button-green {
 			width: 100%;
+		}
+	}
+
+	/* =========================================================
+	   FINAL STANDARD — porównanie ofert: hero, CTA, side-note, ciemne sekcje, slider i Sprawdź też
+	   ========================================================= */
+
+	.offer-hero-graphic-panel {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		min-height: 620px !important;
+		padding: 0 !important;
+		background: transparent !important;
+		border: 0 !important;
+		box-shadow: none !important;
+		overflow: visible !important;
+	}
+
+	.offer-hero-graphic-panel::before {
+		display: none !important;
+	}
+
+	.offer-hero-graphic-panel picture {
+		display: flex !important;
+		width: 100% !important;
+		height: 100% !important;
+		align-items: center !important;
+		justify-content: center !important;
+	}
+
+	.offer-hero-graphic-panel img {
+		display: block !important;
+		width: 100% !important;
+		max-width: 660px !important;
+		height: auto !important;
+		object-fit: contain !important;
+		border-radius: 38px !important;
+		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22) !important;
+	}
+
+	.floor-panel,
+	.contract-panel,
+	.analysis-cta,
+	.offer-carousel {
+		color: #ffffff !important;
+	}
+
+	.floor-panel h2,
+	.contract-panel h2,
+	.analysis-cta h2,
+	.offer-carousel h2,
+	.offer-carousel-head h2 {
+		color: #ffffff !important;
+	}
+
+	.floor-panel h2 strong,
+	.contract-panel h2 strong,
+	.analysis-cta h2 strong,
+	.offer-carousel h2 strong,
+	.offer-carousel-head h2 strong {
+		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%) !important;
+		-webkit-background-clip: text !important;
+		background-clip: text !important;
+		color: transparent !important;
+		font-weight: inherit !important;
+	}
+
+	.floor-panel .eyebrow,
+	.contract-panel .eyebrow,
+	.analysis-cta .eyebrow,
+	.offer-carousel .eyebrow,
+	.floor-panel .eyebrow.light,
+	.contract-panel .eyebrow.light,
+	.analysis-cta .eyebrow.light,
+	.offer-carousel .eyebrow.light {
+		color: rgba(255, 255, 255, 0.92) !important;
+	}
+
+	.floor-panel .eyebrow span,
+	.contract-panel .eyebrow span,
+	.analysis-cta .eyebrow span,
+	.offer-carousel .eyebrow span {
+		background: #72f069 !important;
+		box-shadow: 0 0 0 6px rgba(114, 240, 105, 0.12) !important;
+	}
+
+	.floor-panel p,
+	.contract-panel p,
+	.analysis-cta p,
+	.offer-carousel p {
+		color: rgba(255, 255, 255, 0.74) !important;
+	}
+
+	.offer-side-note {
+		display: grid !important;
+		gap: 16px !important;
+		margin-top: clamp(26px, 3vw, 42px) !important;
+		max-width: 680px !important;
+		padding: clamp(22px, 3vw, 30px) !important;
+		border-radius: 32px !important;
+		background:
+			radial-gradient(circle at 0% 0%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 100% 12%, rgba(114, 240, 105, 0.16), transparent 34%),
+			linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 255, 0.92)) !important;
+		border: 1px solid rgba(8, 16, 32, 0.08) !important;
+		box-shadow:
+			0 24px 74px rgba(8, 16, 32, 0.075),
+			inset 0 1px 0 rgba(255, 255, 255, 0.82) !important;
+	}
+
+	.offer-side-note > p {
+		margin: 0 !important;
+		color: #1268ff !important;
+		font-size: 0.74rem !important;
+		font-weight: 950 !important;
+		letter-spacing: 0.16em !important;
+		text-transform: uppercase !important;
+	}
+
+	.offer-side-note h3 {
+		margin: 0 !important;
+		color: #070b14 !important;
+		font-size: clamp(1.45rem, 2vw, 2.25rem) !important;
+		font-weight: 950 !important;
+		line-height: 1 !important;
+		letter-spacing: -0.065em !important;
+	}
+
+	.offer-side-note-list {
+		display: grid !important;
+		gap: 10px !important;
+		margin-top: 2px !important;
+	}
+
+	.offer-side-note-list span {
+		display: grid !important;
+		grid-template-columns: 38px minmax(0, 1fr) !important;
+		gap: 12px !important;
+		align-items: center !important;
+		min-height: 56px !important;
+		padding: 11px 12px !important;
+		border-radius: 18px !important;
+		background: rgba(255, 255, 255, 0.86) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		color: #253149 !important;
+		font-size: 0.92rem !important;
+		font-weight: 760 !important;
+		line-height: 1.35 !important;
+		letter-spacing: -0.025em !important;
+		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045) !important;
+	}
+
+	.offer-side-note-list b {
+		display: grid !important;
+		place-items: center !important;
+		width: 34px !important;
+		height: 34px !important;
+		border-radius: 999px !important;
+		background: linear-gradient(135deg, #7cff4a 0%, #52f05d 46%, #21df73 100%) !important;
+		color: #06110a !important;
+		font-size: 0.74rem !important;
+		font-weight: 950 !important;
+		box-shadow:
+			0 0 0 1px rgba(124, 255, 74, 0.25),
+			0 12px 28px rgba(82, 240, 93, 0.26) !important;
+	}
+
+	.offer-side-note a {
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		gap: 10px !important;
+		min-height: 54px !important;
+		margin-top: 2px !important;
+		padding: 0 18px !important;
+		border-radius: 999px !important;
+		background: linear-gradient(90deg, #7cff4a 0%, #52f05d 45%, #21df73 100%) !important;
+		color: #06110a !important;
+		font-size: 0.94rem !important;
+		font-weight: 950 !important;
+		letter-spacing: -0.03em !important;
+		text-decoration: none !important;
+		box-shadow:
+			0 0 0 1px rgba(124, 255, 74, 0.2),
+			0 18px 44px rgba(82, 240, 93, 0.32),
+			inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
+	}
+
+	.offer-carousel-head > .offer-carousel-nav {
+		display: none !important;
+	}
+
+	.offer-carousel-footer-nav {
+		display: grid !important;
+		justify-items: center !important;
+		align-items: center !important;
+		gap: 14px !important;
+		width: 100% !important;
+		margin: 24px auto 0 !important;
+		padding: 0 !important;
+		text-align: center !important;
+	}
+
+	.offer-carousel-footer-nav > span {
+		order: 1 !important;
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		width: auto !important;
+		max-width: min(92vw, 520px) !important;
+		min-height: 46px !important;
+		padding: 10px 22px !important;
+		border-radius: 999px !important;
+		background: rgba(255, 255, 255, 0.94) !important;
+		border: 1px solid rgba(255, 255, 255, 0.22) !important;
+		color: #5b6473 !important;
+		font-size: clamp(0.86rem, 1vw, 1rem) !important;
+		font-weight: 900 !important;
+		letter-spacing: -0.025em !important;
+		line-height: 1.2 !important;
+		box-shadow:
+			0 18px 44px rgba(0, 0, 0, 0.16),
+			inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+		backdrop-filter: blur(16px) !important;
+		-webkit-backdrop-filter: blur(16px) !important;
+	}
+
+	.offer-carousel-footer-nav .offer-carousel-nav {
+		order: 2 !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		gap: 12px !important;
+		width: auto !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	.offer-carousel-footer-nav .offer-carousel-nav button {
+		display: grid !important;
+		place-items: center !important;
+		width: 54px !important;
+		height: 54px !important;
+		border-radius: 999px !important;
+		border: 1px solid rgba(255, 255, 255, 0.18) !important;
+		background: rgba(255, 255, 255, 0.12) !important;
+		color: #ffffff !important;
+		font-size: 1.08rem !important;
+		font-weight: 950 !important;
+		box-shadow:
+			0 14px 34px rgba(0, 0, 0, 0.18),
+			inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+		cursor: pointer !important;
+	}
+
+	.related-section {
+		padding-top: clamp(48px, 6vw, 80px) !important;
+	}
+
+	.offer-related-shell {
+		padding: clamp(28px, 4vw, 40px) !important;
+		border-radius: 40px !important;
+		background: linear-gradient(90deg, rgba(232, 238, 247, 0.96), rgba(241, 247, 240, 0.96)) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.06) !important;
+	}
+
+	.offer-related-head {
+		display: grid !important;
+		grid-template-columns: 220px minmax(0, 1fr) !important;
+		align-items: end !important;
+		gap: 20px 28px !important;
+		margin-bottom: 28px !important;
+	}
+
+	.offer-related-head .eyebrow {
+		margin: 0 !important;
+	}
+
+	.related-section h2 {
+		margin: 0 !important;
+		max-width: none !important;
+		text-align: right !important;
+		font-size: clamp(2rem, 4.2vw, 4.5rem) !important;
+		line-height: 0.98 !important;
+		letter-spacing: -0.07em !important;
+	}
+
+	.related-section h2 strong {
+		color: #2d73ff !important;
+		font-weight: 950 !important;
+	}
+
+	.offer-related-grid-premium {
+		display: grid !important;
+		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+		gap: 20px !important;
+		margin-top: 0 !important;
+	}
+
+	.offer-related-card-premium {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+		gap: 20px !important;
+		min-height: 124px !important;
+		padding: 26px 28px !important;
+		border-radius: 28px !important;
+		background: rgba(255, 255, 255, 0.92) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		box-shadow: 0 18px 46px rgba(8, 16, 32, 0.05) !important;
+		color: var(--ink) !important;
+		text-decoration: none !important;
+	}
+
+	.offer-related-card-premium .offer-related-card-label {
+		display: block !important;
+		width: auto !important;
+		height: auto !important;
+		min-width: 0 !important;
+		min-height: 0 !important;
+		padding: 0 !important;
+		border-radius: 0 !important;
+		background: transparent !important;
+		color: #070b14 !important;
+		box-shadow: none !important;
+		flex: 1 1 auto !important;
+		font-size: clamp(1.28rem, 1.8vw, 1.8rem) !important;
+		font-weight: 950 !important;
+		letter-spacing: -0.05em !important;
+		line-height: 1.08 !important;
+	}
+
+	.offer-related-card-premium .offer-related-card-arrow {
+		display: grid !important;
+		place-items: center !important;
+		width: 58px !important;
+		height: 58px !important;
+		min-width: 58px !important;
+		min-height: 58px !important;
+		padding: 0 !important;
+		border-radius: 999px !important;
+		background: #5df04e !important;
+		color: #081020 !important;
+		font-size: 1.45rem !important;
+		font-weight: 900 !important;
+		flex: 0 0 auto !important;
+		box-shadow:
+			0 0 0 1px rgba(255, 255, 255, 0.9),
+			0 0 22px rgba(93, 240, 78, 0.38) !important;
+	}
+
+	@media (max-width: 1180px) {
+		.offer-hero-graphic-panel {
+			min-height: auto !important;
+			margin-top: 8px !important;
+		}
+
+		.offer-hero-graphic-panel img {
+			max-width: 100% !important;
+			border-radius: 34px !important;
+		}
+
+		.offer-side-note {
+			display: none !important;
+		}
+
+		.offer-related-head {
+			grid-template-columns: 1fr !important;
+			gap: 14px !important;
+			align-items: start !important;
+		}
+
+		.related-section h2 {
+			text-align: left !important;
+			font-size: clamp(2.15rem, 7vw, 4.2rem) !important;
+			line-height: 0.98 !important;
+		}
+
+		.offer-related-grid-premium {
+			grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.offer-hero-graphic-panel {
+			margin-top: 0 !important;
+		}
+
+		.offer-hero-graphic-panel img {
+			max-width: 100% !important;
+			border-radius: 30px !important;
+		}
+
+		.offer-carousel-footer-nav {
+			gap: 12px !important;
+			margin-top: 18px !important;
+		}
+
+		.offer-carousel-footer-nav > span {
+			width: 100% !important;
+			max-width: 100% !important;
+			font-size: 0.84rem !important;
+		}
+
+		.offer-carousel-footer-nav .offer-carousel-nav button {
+			width: 50px !important;
+			height: 50px !important;
+		}
+
+		.offer-related-shell {
+			padding: 22px !important;
+			border-radius: 30px !important;
+		}
+
+		.related-section h2 {
+			font-size: clamp(2rem, 10vw, 3.2rem) !important;
+			line-height: 0.98 !important;
+			letter-spacing: -0.07em !important;
+		}
+
+		.offer-related-grid-premium {
+			grid-template-columns: 1fr !important;
+			gap: 12px !important;
+		}
+
+		.offer-related-card-premium {
+			min-height: 92px !important;
+			padding: 20px !important;
+			border-radius: 22px !important;
+		}
+
+		.offer-related-card-premium .offer-related-card-label {
+			font-size: 1.12rem !important;
+			line-height: 1.12 !important;
+		}
+
+		.offer-related-card-premium .offer-related-card-arrow {
+			width: 48px !important;
+			height: 48px !important;
+			min-width: 48px !important;
+			min-height: 48px !important;
+			font-size: 1.1rem !important;
+		}
+	}
+	/* FINAL ADD — wypełnienie pustych miejsc: porównanie ofert */
+	.offer-visual-note {
+		display: grid !important;
+		gap: 16px !important;
+		margin-top: clamp(28px, 3vw, 44px) !important;
+		max-width: 680px !important;
+		padding: clamp(22px, 3vw, 30px) !important;
+		border-radius: 32px !important;
+		background:
+			radial-gradient(circle at 0% 0%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 100% 12%, rgba(114, 240, 105, 0.16), transparent 34%),
+			linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 255, 0.92)) !important;
+		border: 1px solid rgba(8, 16, 32, 0.08) !important;
+		box-shadow:
+			0 24px 74px rgba(8, 16, 32, 0.075),
+			inset 0 1px 0 rgba(255, 255, 255, 0.82) !important;
+	}
+
+	.offer-visual-note > p {
+		margin: 0 !important;
+		color: #1268ff !important;
+		font-size: 0.74rem !important;
+		font-weight: 950 !important;
+		letter-spacing: 0.16em !important;
+		text-transform: uppercase !important;
+	}
+
+	.offer-visual-note h3 {
+		margin: 0 !important;
+		color: #070b14 !important;
+		font-size: clamp(1.45rem, 2vw, 2.25rem) !important;
+		font-weight: 950 !important;
+		line-height: 1 !important;
+		letter-spacing: -0.065em !important;
+	}
+
+	.offer-visual-note-list {
+		display: grid !important;
+		gap: 10px !important;
+		margin-top: 2px !important;
+	}
+
+	.offer-visual-note-list span {
+		display: grid !important;
+		grid-template-columns: 38px minmax(0, 1fr) !important;
+		gap: 12px !important;
+		align-items: center !important;
+		min-height: 56px !important;
+		padding: 11px 12px !important;
+		border-radius: 18px !important;
+		background: rgba(255, 255, 255, 0.86) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		color: #253149 !important;
+		font-size: 0.92rem !important;
+		font-weight: 760 !important;
+		line-height: 1.35 !important;
+		letter-spacing: -0.025em !important;
+		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045) !important;
+	}
+
+	.offer-visual-note-list b {
+		display: grid !important;
+		place-items: center !important;
+		width: 34px !important;
+		height: 34px !important;
+		border-radius: 999px !important;
+		background: linear-gradient(135deg, #7cff4a 0%, #52f05d 46%, #21df73 100%) !important;
+		color: #06110a !important;
+		font-size: 0.74rem !important;
+		font-weight: 950 !important;
+		box-shadow:
+			0 0 0 1px rgba(124, 255, 74, 0.25),
+			0 12px 28px rgba(82, 240, 93, 0.26) !important;
+	}
+
+	.offer-visual-note a,
+	.offer-contract-note a {
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		gap: 10px !important;
+		min-height: 54px !important;
+		margin-top: 2px !important;
+		padding: 0 18px !important;
+		border-radius: 999px !important;
+		background: linear-gradient(90deg, #7cff4a 0%, #52f05d 45%, #21df73 100%) !important;
+		color: #06110a !important;
+		font-size: 0.94rem !important;
+		font-weight: 950 !important;
+		letter-spacing: -0.03em !important;
+		text-decoration: none !important;
+		box-shadow:
+			0 0 0 1px rgba(124, 255, 74, 0.2),
+			0 18px 44px rgba(82, 240, 93, 0.32),
+			inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
+	}
+
+	.offer-contract-note {
+		display: grid !important;
+		gap: 14px !important;
+		margin-top: clamp(28px, 3vw, 44px) !important;
+		max-width: 720px !important;
+		padding: clamp(22px, 3vw, 32px) !important;
+		border-radius: 30px !important;
+		background:
+			radial-gradient(circle at 0% 0%, rgba(114, 240, 105, 0.16), transparent 34%),
+			radial-gradient(circle at 100% 20%, rgba(79, 163, 255, 0.16), transparent 34%),
+			rgba(255, 255, 255, 0.09) !important;
+		border: 1px solid rgba(255, 255, 255, 0.14) !important;
+		box-shadow:
+			0 22px 60px rgba(0, 0, 0, 0.18),
+			inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+	}
+
+	.offer-contract-note > span {
+		display: inline-flex !important;
+		width: fit-content !important;
+		color: #72f069 !important;
+		font-size: 0.76rem !important;
+		font-weight: 950 !important;
+		letter-spacing: 0.14em !important;
+		text-transform: uppercase !important;
+	}
+
+	.offer-contract-note h3 {
+		margin: 0 !important;
+		color: #ffffff !important;
+		font-size: clamp(1.55rem, 2.2vw, 2.35rem) !important;
+		font-weight: 950 !important;
+		line-height: 1 !important;
+		letter-spacing: -0.065em !important;
+	}
+
+	.offer-contract-note p {
+		margin: 0 !important;
+		color: rgba(255, 255, 255, 0.74) !important;
+		font-size: 1rem !important;
+		font-weight: 580 !important;
+		line-height: 1.58 !important;
+	}
+
+	@media (max-width: 1180px) {
+		.offer-visual-note {
+			display: none !important;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.offer-contract-note {
+			padding: 22px !important;
+			border-radius: 24px !important;
+		}
+
+		.offer-contract-note a {
+			width: 100% !important;
+			text-align: center !important;
 		}
 	}
 </style>
