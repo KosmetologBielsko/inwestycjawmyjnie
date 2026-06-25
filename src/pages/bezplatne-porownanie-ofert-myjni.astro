@@ -1,73 +1,73 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const page = {
 	canonicalPath: '/bezplatne-porownanie-ofert-myjni/',
-	title: 'Bezpłatna analiza działki i porównanie ofert myjni bezdotykowej',
+	title: 'BezpĹ‚atna analiza dziaĹ‚ki i porĂłwnanie ofert myjni bezdotykowej',
 	description:
-		'Bezpłatna analiza działki i porównanie ofert myjni bezdotykowej w jednym formularzu. Sprawdź lokalizację, założenia inwestycji, zakres, technologię, cenę, serwis i dokumentację.'
+		'BezpĹ‚atna analiza dziaĹ‚ki i porĂłwnanie ofert myjni bezdotykowej w jednym formularzu. SprawdĹş lokalizacjÄ™, zaĹ‚oĹĽenia inwestycji, zakres, technologiÄ™, cenÄ™, serwis i dokumentacjÄ™.'
 };
 
 const comparisonCards = [
 	{
 		number: '01',
 		title: 'Cena i zakres',
-		text: 'Porównujemy, co realnie obejmuje oferta: technologię, kontener lub moduł, posadzkę, konstrukcję, montaż, dokumentację, szkolenie i serwis.'
+		text: 'PorĂłwnujemy, co realnie obejmuje oferta: technologiÄ™, kontener lub moduĹ‚, posadzkÄ™, konstrukcjÄ™, montaĹĽ, dokumentacjÄ™, szkolenie i serwis.'
 	},
 	{
 		number: '02',
-		title: 'Technologia i jakość',
-		text: 'Patrzymy na elementy, które wpływają na pracę myjni przez lata: pompy, zawory, automatykę, dozowanie, uzdatnianie wody i zabezpieczenia zimowe.'
+		title: 'Technologia i jakoĹ›Ä‡',
+		text: 'Patrzymy na elementy, ktĂłre wpĹ‚ywajÄ… na pracÄ™ myjni przez lata: pompy, zawory, automatykÄ™, dozowanie, uzdatnianie wody i zabezpieczenia zimowe.'
 	},
 	{
 		number: '03',
 		title: 'Koszty eksploatacji',
-		text: 'Najtańsza cena zakupu nie zawsze oznacza najniższy koszt prowadzenia. Ważne są media, serwis, części, chemia i czas przestoju.'
+		text: 'NajtaĹ„sza cena zakupu nie zawsze oznacza najniĹĽszy koszt prowadzenia. WaĹĽne sÄ… media, serwis, czÄ™Ĺ›ci, chemia i czas przestoju.'
 	},
 	{
 		number: '04',
 		title: 'Dopasowanie do inwestora',
-		text: 'Inna oferta ma sens dla inwestora z własną działką, inna dla dzierżawy, finansowania leasingiem, kilku lokalizacji albo pierwszej małej inwestycji.'
+		text: 'Inna oferta ma sens dla inwestora z wĹ‚asnÄ… dziaĹ‚kÄ…, inna dla dzierĹĽawy, finansowania leasingiem, kilku lokalizacji albo pierwszej maĹ‚ej inwestycji.'
 	}
 ];
 
 const processSteps = [
-	['01', 'Opisujesz działkę i założenia', 'Podajesz lokalizację, status działki, media, liczbę stanowisk, budżet, finansowanie i oczekiwany zakres myjni.'],
-	['02', 'Porządkujemy temat inwestycji', 'Na podstawie formularza łatwiej przygotować porównywalne zapytanie ofertowe dla polskich dostawców myjni.'],
-	['03', 'Łatwiej porównujesz odpowiedzi', 'Dzięki uporządkowanym założeniom szybciej zobaczysz różnice w cenie, zakresie, technologii, serwisie i kosztach po uruchomieniu.']
+	['01', 'Opisujesz dziaĹ‚kÄ™ i zaĹ‚oĹĽenia', 'Podajesz lokalizacjÄ™, status dziaĹ‚ki, media, liczbÄ™ stanowisk, budĹĽet, finansowanie i oczekiwany zakres myjni.'],
+	['02', 'PorzÄ…dkujemy temat inwestycji', 'Na podstawie formularza Ĺ‚atwiej przygotowaÄ‡ porĂłwnywalne zapytanie ofertowe dla polskich dostawcĂłw myjni.'],
+	['03', 'Ĺatwiej porĂłwnujesz odpowiedzi', 'DziÄ™ki uporzÄ…dkowanym zaĹ‚oĹĽeniom szybciej zobaczysz rĂłĹĽnice w cenie, zakresie, technologii, serwisie i kosztach po uruchomieniu.']
 ];
 
 const faqItems = [
 	{
-		question: 'Czy analiza działki i porównanie ofert jest bezpłatne?',
+		question: 'Czy analiza dziaĹ‚ki i porĂłwnanie ofert jest bezpĹ‚atne?',
 		answer:
-			'Tak. Wstępna analiza lokalizacji, uporządkowanie zapytania i porównanie zakresu ofert jest bezpłatne. Chodzi o sprawdzenie, czy działka, budżet i proponowane rozwiązanie tworzą realny kierunek inwestycji.'
+			'Tak. WstÄ™pna analiza lokalizacji, uporzÄ…dkowanie zapytania i porĂłwnanie zakresu ofert jest bezpĹ‚atne. Chodzi o sprawdzenie, czy dziaĹ‚ka, budĹĽet i proponowane rozwiÄ…zanie tworzÄ… realny kierunek inwestycji.'
 	},
 	{
-		question: 'Czy muszę mieć już działkę albo ofertę od producenta?',
+		question: 'Czy muszÄ™ mieÄ‡ juĹĽ dziaĹ‚kÄ™ albo ofertÄ™ od producenta?',
 		answer:
-			'Nie. Możesz mieć działkę, link do mapy, numer działki, konkretną ofertę, kilka ofert albo dopiero wstępny plan inwestycji. W każdym przypadku warto uporządkować dane przed rozmową z producentami.'
+			'Nie. MoĹĽesz mieÄ‡ dziaĹ‚kÄ™, link do mapy, numer dziaĹ‚ki, konkretnÄ… ofertÄ™, kilka ofert albo dopiero wstÄ™pny plan inwestycji. W kaĹĽdym przypadku warto uporzÄ…dkowaÄ‡ dane przed rozmowÄ… z producentami.'
 	},
 	{
-		question: 'Czy porównanie dotyczy tylko ceny?',
+		question: 'Czy porĂłwnanie dotyczy tylko ceny?',
 		answer:
-			'Nie. Sama cena jest tylko jednym z elementów. Ważny jest zakres, technologia, posadzka, dokumentacja, warunki umowy, gwarancja, serwis, części, chemia i koszty eksploatacji.'
+			'Nie. Sama cena jest tylko jednym z elementĂłw. WaĹĽny jest zakres, technologia, posadzka, dokumentacja, warunki umowy, gwarancja, serwis, czÄ™Ĺ›ci, chemia i koszty eksploatacji.'
 	},
 	{
-		question: 'Czy możecie pomóc pozyskać oferty od polskich dostawców?',
+		question: 'Czy moĹĽecie pomĂłc pozyskaÄ‡ oferty od polskich dostawcĂłw?',
 		answer:
-			'Tak. Po wypełnieniu formularza możemy pomóc uporządkować założenia inwestycji i przygotować porównywalne zapytanie do polskich dostawców myjni. Dzięki temu inwestor nie porównuje przypadkowych cen, tylko bardziej doprecyzowany zakres.'
+			'Tak. Po wypeĹ‚nieniu formularza moĹĽemy pomĂłc uporzÄ…dkowaÄ‡ zaĹ‚oĹĽenia inwestycji i przygotowaÄ‡ porĂłwnywalne zapytanie do polskich dostawcĂłw myjni. DziÄ™ki temu inwestor nie porĂłwnuje przypadkowych cen, tylko bardziej doprecyzowany zakres.'
 	}
 ];
 
 const relatedLinks = [
 	['Koszt budowy myjni', '/ile-kosztuje-myjnia-bezdotykowa/'],
 	['Ile zarabia myjnia?', '/ile-zarabia-myjnia-bezdotykowa/'],
-	['Działka pod myjnię', '/dzialka-pod-myjnie-bezdotykowa/'],
+	['DziaĹ‚ka pod myjniÄ™', '/dzialka-pod-myjnie-bezdotykowa/'],
 	['Budowa krok po kroku', '/budowa-myjni-bezdotykowej-krok-po-kroku/'],
-	['Błędy inwestora', '/najczestsze-bledy-przy-budowie-myjni/'],
+	['BĹ‚Ä™dy inwestora', '/najczestsze-bledy-przy-budowie-myjni/'],
 	['Poradnik inwestora', '/poradnik/']
 ];
 
@@ -92,142 +92,142 @@ const faqSchema = {
 		<section class="lead-hero" aria-labelledby="page-title">
 			<div class="container lead-hero-grid">
 				<div class="lead-hero-copy">
-					<p class="eyebrow"><span></span>Bezpłatna analiza i porównanie ofert myjni</p>
+					<p class="eyebrow"><span></span>BezpĹ‚atna analiza i porĂłwnanie ofert myjni</p>
 					<h1 id="page-title">
-						Sprawdź działkę i porównaj oferty myjni <strong>w jednym formularzu.</strong>
+						SprawdĹş dziaĹ‚kÄ™ i porĂłwnaj oferty myjni <strong>w jednym formularzu.</strong>
 					</h1>
 										<p class="lead-main-text">
-						Wypełnij formularz, a pomożemy bezpłatnie uporządkować założenia inwestycji
-						i przygotować temat do pozyskania porównywalnych ofert od polskich dostawców
-						myjni. Dzięki temu szybciej zobaczysz, co realnie jest w cenie, czego brakuje
-						w zakresie i które rozwiązanie pasuje do Twojej działki, budżetu oraz modelu inwestycji.
+						WypeĹ‚nij formularz, a pomoĹĽemy bezpĹ‚atnie uporzÄ…dkowaÄ‡ zaĹ‚oĹĽenia inwestycji
+						i przygotowaÄ‡ temat do pozyskania porĂłwnywalnych ofert od polskich dostawcĂłw
+						myjni. DziÄ™ki temu szybciej zobaczysz, co realnie jest w cenie, czego brakuje
+						w zakresie i ktĂłre rozwiÄ…zanie pasuje do Twojej dziaĹ‚ki, budĹĽetu oraz modelu inwestycji.
 					</p>
 					<div class="lead-hero-actions">
-											<a class="lead-button-green" href="#formularz">Wypełnij formularz i porównaj oferty <span aria-hidden="true">↓</span></a>
-						<a class="lead-button-light" href="/jak-porownac-oferty-myjni-bezdotykowej/">Jak porównywać oferty? <span aria-hidden="true">→</span></a>
+											<a class="lead-button-green" href="#formularz">WypeĹ‚nij formularz i porĂłwnaj oferty <span aria-hidden="true">â†“</span></a>
+						<a class="lead-button-light" href="/jak-porownac-oferty-myjni-bezdotykowej/">Jak porĂłwnywaÄ‡ oferty? <span aria-hidden="true">â†’</span></a>
 					</div>
-										<div class="lead-tags" aria-label="Najważniejsze elementy porównania">
-						<span>działka</span>
+										<div class="lead-tags" aria-label="NajwaĹĽniejsze elementy porĂłwnania">
+						<span>dziaĹ‚ka</span>
 						<span>media</span>
 						<span>oferty</span>
 						<span>finansowanie</span>
 					</div>
 
-																				<aside class="lead-side-summary" aria-label="Dlaczego warto wypełnić formularz">
+																				<aside class="lead-side-summary" aria-label="Dlaczego warto wypeĹ‚niÄ‡ formularz">
 						<div class="lead-side-summary-card lead-side-summary-main">
-							<p>Porównanie ofert</p>
-							<h2>Zainwestuj w myjnię w Polsce z lepiej uporządkowanymi założeniami.</h2>
+							<p>PorĂłwnanie ofert</p>
+							<h2>Zainwestuj w myjniÄ™ w Polsce z lepiej uporzÄ…dkowanymi zaĹ‚oĹĽeniami.</h2>
 							<span>
-								Wypełnij formularz, a pomożemy bezpłatnie uporządkować lokalizację, budżet,
-								media, liczbę stanowisk i zakres technologii. Dzięki temu łatwiej pozyskać
-								doprecyzowane, porównywalne oferty od polskich dostawców myjni.
+								WypeĹ‚nij formularz, a pomoĹĽemy bezpĹ‚atnie uporzÄ…dkowaÄ‡ lokalizacjÄ™, budĹĽet,
+								media, liczbÄ™ stanowisk i zakres technologii. DziÄ™ki temu Ĺ‚atwiej pozyskaÄ‡
+								doprecyzowane, porĂłwnywalne oferty od polskich dostawcĂłw myjni.
 							</span>
 						</div>
 
 						<div class="lead-side-checklist">
 							<div>
 								<b>01</b>
-								<span>100% online — bez spotkania na start i bez zobowiązań</span>
+								<span>100% online â€” bez spotkania na start i bez zobowiÄ…zaĹ„</span>
 							</div>
 
 							<div>
 								<b>02</b>
-								<span>Porządkujemy dane działki, budżetu, mediów i liczby stanowisk</span>
+								<span>PorzÄ…dkujemy dane dziaĹ‚ki, budĹĽetu, mediĂłw i liczby stanowisk</span>
 							</div>
 
 							<div>
 								<b>03</b>
-								<span>Pomagamy przygotować zapytanie, które dostawca może realnie wycenić</span>
+								<span>Pomagamy przygotowaÄ‡ zapytanie, ktĂłre dostawca moĹĽe realnie wyceniÄ‡</span>
 							</div>
 
 							<div>
 								<b>04</b>
-								<span>Ułatwiamy porównanie ofert pod kątem zakresu, technologii i serwisu</span>
+								<span>UĹ‚atwiamy porĂłwnanie ofert pod kÄ…tem zakresu, technologii i serwisu</span>
 							</div>
 						</div>
 
 						<div class="lead-side-summary-card">
-							<p>Dlaczego to ważne?</p>
-							<h2>Przypadkowe oferty często nie są porównywalne.</h2>
+							<p>Dlaczego to waĹĽne?</p>
+							<h2>Przypadkowe oferty czÄ™sto nie sÄ… porĂłwnywalne.</h2>
 							<span>
-								Jeden dostawca może wycenić samą technologię, drugi technologię z kontenerem,
-								trzeci inny zakres posadzki, dokumentacji, montażu albo serwisu. Formularz
-								pomaga uporządkować dane tak, żeby porównanie było uczciwsze i bardziej czytelne.
+								Jeden dostawca moĹĽe wyceniÄ‡ samÄ… technologiÄ™, drugi technologiÄ™ z kontenerem,
+								trzeci inny zakres posadzki, dokumentacji, montaĹĽu albo serwisu. Formularz
+								pomaga uporzÄ…dkowaÄ‡ dane tak, ĹĽeby porĂłwnanie byĹ‚o uczciwsze i bardziej czytelne.
 							</span>
 						</div>
 
 						<div class="lead-side-checklist">
 							<div>
 								<b>05</b>
-								<span>Sprawdzisz, co realnie jest w cenie, a czego może brakować</span>
+								<span>Sprawdzisz, co realnie jest w cenie, a czego moĹĽe brakowaÄ‡</span>
 							</div>
 
 							<div>
 								<b>06</b>
-								<span>Łatwiej dopasujesz wariant myjni do działki i modelu finansowania</span>
+								<span>Ĺatwiej dopasujesz wariant myjni do dziaĹ‚ki i modelu finansowania</span>
 							</div>
 
 							<div>
 								<b>07</b>
-								<span>Zobaczysz różnice między ceną zakupu a kosztem prowadzenia obiektu</span>
+								<span>Zobaczysz rĂłĹĽnice miÄ™dzy cenÄ… zakupu a kosztem prowadzenia obiektu</span>
 							</div>
 
 							<div>
 								<b>08</b>
-								<span>Możesz dołączyć ofertę, screen, link do pliku albo opis planowanej inwestycji</span>
+								<span>MoĹĽesz doĹ‚Ä…czyÄ‡ ofertÄ™, screen, link do pliku albo opis planowanej inwestycji</span>
 							</div>
 						</div>
 
 						<div class="lead-side-summary-card lead-side-summary-main">
 							<p>Dla inwestora</p>
-							<h2>Praktyczny poradnik i formularz porównania ofert myjni.</h2>
+							<h2>Praktyczny poradnik i formularz porĂłwnania ofert myjni.</h2>
 							<span>
-								To miejsce dla osób, które chcą zbudować myjnię bezdotykową w Polsce i nie chcą
-								opierać decyzji wyłącznie na pierwszej cenie z PDF-a. Najpierw porządkujemy
-								założenia, potem łatwiej rozmawiać o realnych ofertach.
+								To miejsce dla osĂłb, ktĂłre chcÄ… zbudowaÄ‡ myjniÄ™ bezdotykowÄ… w Polsce i nie chcÄ…
+								opieraÄ‡ decyzji wyĹ‚Ä…cznie na pierwszej cenie z PDF-a. Najpierw porzÄ…dkujemy
+								zaĹ‚oĹĽenia, potem Ĺ‚atwiej rozmawiaÄ‡ o realnych ofertach.
 							</span>
 						</div>
 
 						<div class="lead-side-links">
-							<p>Warto przeczytać</p>
+							<p>Warto przeczytaÄ‡</p>
 
 							<a href="/dzialka-pod-myjnie-bezdotykowa/">
-								Działka pod myjnię
-								<span aria-hidden="true">→</span>
+								DziaĹ‚ka pod myjniÄ™
+								<span aria-hidden="true">â†’</span>
 							</a>
 
 							<a href="/jak-porownac-oferty-myjni-bezdotykowej/">
-								Jak porównać oferty?
-								<span aria-hidden="true">→</span>
+								Jak porĂłwnaÄ‡ oferty?
+								<span aria-hidden="true">â†’</span>
 							</a>
 
 							<a href="/koszt-budowy-myjni-bezdotykowej/">
 								Koszt budowy myjni
-								<span aria-hidden="true">→</span>
+								<span aria-hidden="true">â†’</span>
 							</a>
 						</div>
 					</aside>
 				</div>
 
-				<aside class="lead-form-card" id="formularz" aria-label="Formularz analizy działki i porównania ofert">
+				<aside class="lead-form-card" id="formularz" aria-label="Formularz analizy dziaĹ‚ki i porĂłwnania ofert">
 					<div class="lead-form-head">
 						<p>Formularz</p>
-						<h2>Bezpłatna analiza i porównanie ofert myjni</h2>
+						<h2>BezpĹ‚atna analiza i porĂłwnanie ofert myjni</h2>
 						<span>
-							Podaj dane kontaktowe, lokalizację, status działki, media i założenia myjni.
-							Na tej podstawie pomożemy bezpłatnie uporządkować inwestycję i przygotować
-							porównywalne zapytanie do polskich dostawców myjni.
+							Podaj dane kontaktowe, lokalizacjÄ™, status dziaĹ‚ki, media i zaĹ‚oĹĽenia myjni.
+							Na tej podstawie pomoĹĽemy bezpĹ‚atnie uporzÄ…dkowaÄ‡ inwestycjÄ™ i przygotowaÄ‡
+							porĂłwnywalne zapytanie do polskich dostawcĂłw myjni.
 						</span>
 					</div>
 
 					<p class="required-form-note">
-						100% online. Bez zobowiązań. Wszystkie pola formularza są wymagane poza polem
-						opisu oraz opcjonalnym załącznikiem. Możesz dodać plik PDF, JPG, PNG, WEBP,
+						100% online. Bez zobowiÄ…zaĹ„. Wszystkie pola formularza sÄ… wymagane poza polem
+						opisu oraz opcjonalnym zaĹ‚Ä…cznikiem. MoĹĽesz dodaÄ‡ plik PDF, JPG, PNG, WEBP,
 						DOCX albo XLSX do 4 MB.
 					</p>
 
 					<p class="required-fields-legend">
-						<span>*</span> Pola i zgody oznaczone gwiazdką są obowiązkowe, żeby wysłać formularz.
+						<span>*</span> Pola i zgody oznaczone gwiazdkÄ… sÄ… obowiÄ…zkowe, ĹĽeby wysĹ‚aÄ‡ formularz.
 					</p>
 
 					<form
@@ -237,10 +237,10 @@ const faqSchema = {
 						action="/api/wyslij-analize"
 						enctype="multipart/form-data"
 					>
-						<input type="hidden" name="typ_zapytania" value="Bezpłatna analiza działki i porównanie ofert myjni" />
-						<input type="hidden" name="administrator_danych" value="BPHM Sp. z o.o., ul. Norberta Barlickiego 5, 43-300 Bielsko-Biała, KRS 0001247373, NIP 5472260567, REGON 544990435" />
+						<input type="hidden" name="typ_zapytania" value="BezpĹ‚atna analiza dziaĹ‚ki i porĂłwnanie ofert myjni" />
+						<input type="hidden" name="administrator_danych" value="BPHM Sp. z o.o., ul. Norberta Barlickiego 5, 43-300 Bielsko-BiaĹ‚a, KRS 0001247373, NIP 5472260567, REGON 544990435" />
 						<input type="hidden" name="email_administratora" value="analiza@inwestycjawmyjnie.pl" />
-						<input type="hidden" name="cel_przekazania_danych" value="Bezpłatna analiza zgłoszenia, uporządkowanie założeń inwestycji i przygotowanie porównywalnego zapytania do polskich dostawców myjni" />
+						<input type="hidden" name="cel_przekazania_danych" value="BezpĹ‚atna analiza zgĹ‚oszenia, uporzÄ…dkowanie zaĹ‚oĹĽeĹ„ inwestycji i przygotowanie porĂłwnywalnego zapytania do polskich dostawcĂłw myjni" />
 
 						<div class="form-section-title full">
 							<span>01</span>
@@ -248,8 +248,8 @@ const faqSchema = {
 						</div>
 
 						<label>
-							Imię i nazwisko
-							<input type="text" name="name" placeholder="Twoje imię i nazwisko" autocomplete="name" required />
+							ImiÄ™ i nazwisko
+							<input type="text" name="name" placeholder="Twoje imiÄ™ i nazwisko" autocomplete="name" required />
 						</label>
 
 						<label>
@@ -259,17 +259,17 @@ const faqSchema = {
 
 						<label>
 							E-mail
-							<input type="email" name="email" placeholder="Twój adres e-mail" autocomplete="email" required />
+							<input type="email" name="email" placeholder="TwĂłj adres e-mail" autocomplete="email" required />
 						</label>
 
 						<label>
-							Forma działalności
+							Forma dziaĹ‚alnoĹ›ci
 							<select name="business_form" required>
 								<option value="">Wybierz</option>
-								<option>Działalność gospodarcza</option>
-								<option>Spółka z o.o.</option>
-								<option>Spółka cywilna</option>
-								<option>Osoba prywatna przed założeniem działalności</option>
+								<option>DziaĹ‚alnoĹ›Ä‡ gospodarcza</option>
+								<option>SpĂłĹ‚ka z o.o.</option>
+								<option>SpĂłĹ‚ka cywilna</option>
+								<option>Osoba prywatna przed zaĹ‚oĹĽeniem dziaĹ‚alnoĹ›ci</option>
 								<option>Inna forma</option>
 							</select>
 						</label>
@@ -280,23 +280,23 @@ const faqSchema = {
 						</div>
 
 						<label>
-							Województwo inwestycji
+							WojewĂłdztwo inwestycji
 							<select name="voivodeship" required>
-								<option value="">Wybierz województwo</option>
-								<option>dolnośląskie</option>
+								<option value="">Wybierz wojewĂłdztwo</option>
+								<option>dolnoĹ›lÄ…skie</option>
 								<option>kujawsko-pomorskie</option>
 								<option>lubelskie</option>
 								<option>lubuskie</option>
-								<option>łódzkie</option>
-								<option>małopolskie</option>
+								<option>Ĺ‚Ăłdzkie</option>
+								<option>maĹ‚opolskie</option>
 								<option>mazowieckie</option>
 								<option>opolskie</option>
 								<option>podkarpackie</option>
 								<option>podlaskie</option>
 								<option>pomorskie</option>
-								<option>śląskie</option>
-								<option>świętokrzyskie</option>
-								<option>warmińsko-mazurskie</option>
+								<option>Ĺ›lÄ…skie</option>
+								<option>Ĺ›wiÄ™tokrzyskie</option>
+								<option>warmiĹ„sko-mazurskie</option>
 								<option>wielkopolskie</option>
 								<option>zachodniopomorskie</option>
 							</select>
@@ -304,7 +304,7 @@ const faqSchema = {
 
 						<label>
 							Powiat
-							<input type="text" name="county" placeholder="Np. głubczycki" required />
+							<input type="text" name="county" placeholder="Np. gĹ‚ubczycki" required />
 						</label>
 
 						<label>
@@ -313,8 +313,8 @@ const faqSchema = {
 						</label>
 
 						<label>
-							Miasto / miejscowość
-							<input type="text" name="city" placeholder="Gdzie planujesz inwestycję?" required />
+							Miasto / miejscowoĹ›Ä‡
+							<input type="text" name="city" placeholder="Gdzie planujesz inwestycjÄ™?" required />
 						</label>
 
 						<label>
@@ -323,30 +323,30 @@ const faqSchema = {
 						</label>
 
 						<label>
-							Status posiadania działki
+							Status posiadania dziaĹ‚ki
 							<select name="plot_status" required>
 								<option value="">Wybierz</option>
-								<option>Własność</option>
-								<option>Dzierżawa</option>
-								<option>Umowa przedwstępna / w trakcie zakupu</option>
-								<option>Jeszcze szukam działki</option>
+								<option>WĹ‚asnoĹ›Ä‡</option>
+								<option>DzierĹĽawa</option>
+								<option>Umowa przedwstÄ™pna / w trakcie zakupu</option>
+								<option>Jeszcze szukam dziaĹ‚ki</option>
 								<option>Nie wiem / do ustalenia</option>
 							</select>
 						</label>
 
 						<fieldset class="compare-options media-options full" data-required-group="media">
-							<legend>Media na działce albo w pobliżu</legend>
+							<legend>Media na dziaĹ‚ce albo w pobliĹĽu</legend>
 							<label><input type="checkbox" name="media_water" /> Woda</label>
 							<label><input type="checkbox" name="media_gas" /> Gaz</label>
-							<label><input type="checkbox" name="media_power" /> Prąd</label>
+							<label><input type="checkbox" name="media_power" /> PrÄ…d</label>
 							<label><input type="checkbox" name="media_sewage" /> Kanalizacja</label>
-							<label><input type="checkbox" name="media_rainwater" /> Deszczówka / odwodnienie</label>
+							<label><input type="checkbox" name="media_rainwater" /> DeszczĂłwka / odwodnienie</label>
 							<label><input type="checkbox" name="media_none" /> Brak / do sprawdzenia</label>
 						</fieldset>
 
 						<div class="form-section-title full">
 							<span>03</span>
-							<strong>Założenia myjni i finansowanie</strong>
+							<strong>ZaĹ‚oĹĽenia myjni i finansowanie</strong>
 						</div>
 
 						<label>
@@ -354,9 +354,9 @@ const faqSchema = {
 							<select name="wash_type" required>
 								<option value="">Wybierz typ</option>
 								<option>Bezdotykowa kontenerowa</option>
-								<option>Bezdotykowa modułowa</option>
-								<option>Bezdotykowa — nie wiem, chcę porównać</option>
-								<option>Myjnia z dodatkową strefą SPA</option>
+								<option>Bezdotykowa moduĹ‚owa</option>
+								<option>Bezdotykowa â€” nie wiem, chcÄ™ porĂłwnaÄ‡</option>
+								<option>Myjnia z dodatkowÄ… strefÄ… SPA</option>
 								<option>Inny wariant / do ustalenia</option>
 							</select>
 						</label>
@@ -385,25 +385,25 @@ const faqSchema = {
 						</label>
 
 						<label>
-							Budżet orientacyjny
+							BudĹĽet orientacyjny
 							<select name="budget" required>
 								<option value="">Wybierz zakres</option>
-								<option>do 500 tys. zł netto</option>
-								<option>500–700 tys. zł netto</option>
-								<option>700 tys.–1 mln zł netto</option>
-								<option>1–1,5 mln zł netto</option>
-								<option>powyżej 1,5 mln zł netto</option>
-								<option>Nie wiem / chcę policzyć</option>
+								<option>do 500 tys. zĹ‚ netto</option>
+								<option>500â€“700 tys. zĹ‚ netto</option>
+								<option>700 tys.â€“1 mln zĹ‚ netto</option>
+								<option>1â€“1,5 mln zĹ‚ netto</option>
+								<option>powyĹĽej 1,5 mln zĹ‚ netto</option>
+								<option>Nie wiem / chcÄ™ policzyÄ‡</option>
 							</select>
 						</label>
 
 						<label>
-							Akceptacja przybliżonych kosztów
+							Akceptacja przybliĹĽonych kosztĂłw
 							<select name="cost_acceptance" required>
 								<option value="">Wybierz</option>
-								<option>Tak — znam orientacyjne koszty inwestycji</option>
-								<option>Nie — potrzebuję wyjaśnienia kosztów</option>
-								<option>Częściowo — mam wstępny budżet</option>
+								<option>Tak â€” znam orientacyjne koszty inwestycji</option>
+								<option>Nie â€” potrzebujÄ™ wyjaĹ›nienia kosztĂłw</option>
+								<option>CzÄ™Ĺ›ciowo â€” mam wstÄ™pny budĹĽet</option>
 							</select>
 						</label>
 
@@ -411,17 +411,17 @@ const faqSchema = {
 							Finansowanie
 							<select name="financing" required>
 								<option value="">Wybierz</option>
-								<option>Środki własne</option>
+								<option>Ĺšrodki wĹ‚asne</option>
 								<option>Leasing</option>
 								<option>Kredyt</option>
-								<option>Gotówka + kredyt / leasing</option>
-								<option>Około 60% gotówka + finansowanie</option>
+								<option>GotĂłwka + kredyt / leasing</option>
+								<option>OkoĹ‚o 60% gotĂłwka + finansowanie</option>
 								<option>Jeszcze nie wiem</option>
 							</select>
 						</label>
 
 						<fieldset class="compare-options full" data-required-group="compare">
-							<legend>Co chcesz sprawdzić?</legend>
+							<legend>Co chcesz sprawdziÄ‡?</legend>
 							<label><input type="checkbox" name="compare_price" /> Cena i zakres oferty</label>
 							<label><input type="checkbox" name="compare_technology" /> Technologia myjni</label>
 							<label><input type="checkbox" name="compare_service" /> Serwis i gwarancja</label>
@@ -430,12 +430,12 @@ const faqSchema = {
 
 						<label class="full">
 	Link do oferty / link do mapy / opis inwestycji
-	<textarea name="message" rows="5" placeholder="Wklej link do oferty, link do mapy, numer działki, opisz planowaną myjnię albo napisz, czego oczekujesz od producenta..."></textarea>
+	<textarea name="message" rows="5" placeholder="Wklej link do oferty, link do mapy, numer dziaĹ‚ki, opisz planowanÄ… myjniÄ™ albo napisz, czego oczekujesz od producenta..."></textarea>
 </label>
 
 <label class="full file-upload-field">
 	<span class="file-label-row">
-		Załącz ofertę lub plik  pomocniczy
+		ZaĹ‚Ä…cz ofertÄ™ lub plik  pomocniczy
 		<em>opcjonalnie</em>
 	</span>
 
@@ -448,7 +448,7 @@ const faqSchema = {
 
 	<small>
 		Dozwolone formaty: PDF, JPG, PNG, WEBP, DOCX, XLSX. Maksymalnie 4 MB.
-		Jeżeli plik jest większy, wklej link do Dysku Google, OneDrive albo Dropbox w polu opisu.
+		JeĹĽeli plik jest wiÄ™kszy, wklej link do Dysku Google, OneDrive albo Dropbox w polu opisu.
 	</small>
 </label>
 
@@ -457,9 +457,9 @@ const faqSchema = {
 								<input type="checkbox" name="contact_consent" required />
 								<span>
 									<strong>Wymagane.</strong>
-									Zlecam bezpłatną analizę zgłoszenia i wyrażam zgodę na kontakt telefoniczny
-									lub e-mailowy w sprawie inwestycji, działki, porównania ofert oraz dalszej
-									obsługi zapytania.
+									Zlecam bezpĹ‚atnÄ… analizÄ™ zgĹ‚oszenia i wyraĹĽam zgodÄ™ na kontakt telefoniczny
+									lub e-mailowy w sprawie inwestycji, dziaĹ‚ki, porĂłwnania ofert oraz dalszej
+									obsĹ‚ugi zapytania.
 								</span>
 							</label>
 
@@ -467,10 +467,10 @@ const faqSchema = {
 								<input type="checkbox" name="supplier_transfer_consent" required />
 								<span>
 									<strong>Wymagane.</strong>
-									Rozumiem i akceptuję, że moje dane kontaktowe oraz informacje podane w formularzu
-									mogą zostać przekazane wybranym dostawcom, producentom lub partnerom technologicznym
-									myjni w celu przygotowania dopasowanej oferty, kontaktu handlowego i porównania
-									rozwiązań dla mojej inwestycji.
+									Rozumiem i akceptujÄ™, ĹĽe moje dane kontaktowe oraz informacje podane w formularzu
+									mogÄ… zostaÄ‡ przekazane wybranym dostawcom, producentom lub partnerom technologicznym
+									myjni w celu przygotowania dopasowanej oferty, kontaktu handlowego i porĂłwnania
+									rozwiÄ…zaĹ„ dla mojej inwestycji.
 								</span>
 							</label>
 
@@ -478,14 +478,14 @@ const faqSchema = {
 								<input type="checkbox" name="privacy_consent" required />
 								<span>
 									<strong>Wymagane.</strong>
-									Oświadczam, że zapoznałem się z
-									<a href="/polityka-prywatnosci/" target="_blank" rel="noopener noreferrer">Polityką prywatności i RODO</a>,
-									<a href="/polityka-cookies/" target="_blank" rel="noopener noreferrer">Polityką cookies</a>
+									OĹ›wiadczam, ĹĽe zapoznaĹ‚em siÄ™ z
+									<a href="/polityka-prywatnosci/" target="_blank" rel="noopener noreferrer">PolitykÄ… prywatnoĹ›ci i RODO</a>,
+									<a href="/polityka-cookies/" target="_blank" rel="noopener noreferrer">PolitykÄ… cookies</a>
 									oraz
 									<a href="/zasady-korzystania/" target="_blank" rel="noopener noreferrer">Zasadami korzystania z formularza</a>.
-									Wiem, że administratorem danych jest BPHM Sp. z o.o. i że mogę żądać dostępu
-									do danych, sprostowania, usunięcia, ograniczenia przetwarzania oraz wycofania
-									zgody w zakresie, w jakim przetwarzanie odbywa się na podstawie zgody.
+									Wiem, ĹĽe administratorem danych jest BPHM Sp. z o.o. i ĹĽe mogÄ™ ĹĽÄ…daÄ‡ dostÄ™pu
+									do danych, sprostowania, usuniÄ™cia, ograniczenia przetwarzania oraz wycofania
+									zgody w zakresie, w jakim przetwarzanie odbywa siÄ™ na podstawie zgody.
 								</span>
 							</label>
 
@@ -493,27 +493,27 @@ const faqSchema = {
 								<input type="checkbox" name="marketing_consent" />
 								<span>
 									<strong>Opcjonalnie.</strong>
-									Chcę otrzymywać dodatkowe informacje handlowe i marketingowe dotyczące inwestycji
-									w myjnie, poradnika inwestora, porównań ofert oraz podobnych usług drogą
-									elektroniczną lub telefoniczną. Zgodę mogę wycofać w każdej chwili.
+									ChcÄ™ otrzymywaÄ‡ dodatkowe informacje handlowe i marketingowe dotyczÄ…ce inwestycji
+									w myjnie, poradnika inwestora, porĂłwnaĹ„ ofert oraz podobnych usĹ‚ug drogÄ…
+									elektronicznÄ… lub telefonicznÄ…. ZgodÄ™ mogÄ™ wycofaÄ‡ w kaĹĽdej chwili.
 								</span>
 							</label>
 						</div>
 
 						<p class="consent-required-note full" data-consent-required-note>
-							Aby wysłać formularz, zaznacz wszystkie wymagane zgody. Zgoda marketingowa jest dobrowolna.
+							Aby wysĹ‚aÄ‡ formularz, zaznacz wszystkie wymagane zgody. Zgoda marketingowa jest dobrowolna.
 						</p>
 
-						<button type="submit" class="form-submit">Wyślij i rozpocznij bezpłatne porównanie <span aria-hidden="true">→</span></button>
+						<button type="submit" class="form-submit">WyĹ›lij i rozpocznij bezpĹ‚atne porĂłwnanie <span aria-hidden="true">â†’</span></button>
 
 						<p class="form-status full" data-form-status aria-live="polite"></p>
 
 						<small class="form-note full">
 							Administratorem danych jest BPHM Sp. z o.o. Kontakt w sprawie formularza:
 							<a href="mailto:analiza@inwestycjawmyjnie.pl">analiza@inwestycjawmyjnie.pl</a>.
-							Dane z formularza mogą zostać przekazane wybranym dostawcom, producentom lub
-							partnerom technologicznym wyłącznie w celu przygotowania dopasowanej oferty,
-							kontaktu handlowego i porównania rozwiązań dla Twojej inwestycji.
+							Dane z formularza mogÄ… zostaÄ‡ przekazane wybranym dostawcom, producentom lub
+							partnerom technologicznym wyĹ‚Ä…cznie w celu przygotowania dopasowanej oferty,
+							kontaktu handlowego i porĂłwnania rozwiÄ…zaĹ„ dla Twojej inwestycji.
 						</small>
 					</form>
 				</aside>
@@ -524,12 +524,12 @@ const faqSchema = {
 			<div class="container">
 				<div class="lead-split">
 					<div>
-						<p class="eyebrow"><span></span>Co porównujemy?</p>
-						<h2 id="comparison-title">Działka i oferta muszą tworzyć <strong>jeden obraz inwestycji</strong></h2>
+						<p class="eyebrow"><span></span>Co porĂłwnujemy?</p>
+						<h2 id="comparison-title">DziaĹ‚ka i oferta muszÄ… tworzyÄ‡ <strong>jeden obraz inwestycji</strong></h2>
 					</div>
 					<p>
-						Sama oferta bez danych o działce bywa myląca. Dlatego w jednym formularzu zbieramy
-						lokalizację, media, budżet, liczbę stanowisk i oczekiwany zakres inwestycji.
+						Sama oferta bez danych o dziaĹ‚ce bywa mylÄ…ca. Dlatego w jednym formularzu zbieramy
+						lokalizacjÄ™, media, budĹĽet, liczbÄ™ stanowisk i oczekiwany zakres inwestycji.
 					</p>
 				</div>
 
@@ -548,8 +548,8 @@ const faqSchema = {
 		<section class="lead-section process-band" aria-labelledby="process-title">
 			<div class="container process-panel">
 				<div>
-					<p class="eyebrow light"><span></span>Jak to działa?</p>
-					<h2 id="process-title">Najpierw dane działki, potem sensowne porównanie ofert</h2>
+					<p class="eyebrow light"><span></span>Jak to dziaĹ‚a?</p>
+					<h2 id="process-title">Najpierw dane dziaĹ‚ki, potem sensowne porĂłwnanie ofert</h2>
 				</div>
 				<div class="process-steps">
 					{processSteps.map((step) => (
@@ -568,9 +568,9 @@ const faqSchema = {
 				<div class="lead-split">
 					<div>
 						<p class="eyebrow"><span></span>FAQ</p>
-						<h2 id="faq-title">Najczęstsze pytania o <strong>analizę i porównanie</strong></h2>
+						<h2 id="faq-title">NajczÄ™stsze pytania o <strong>analizÄ™ i porĂłwnanie</strong></h2>
 					</div>
-					<p>Analiza ma pomóc inwestorowi połączyć temat działki, budżetu i ofert w jeden logiczny obraz decyzji.</p>
+					<p>Analiza ma pomĂłc inwestorowi poĹ‚Ä…czyÄ‡ temat dziaĹ‚ki, budĹĽetu i ofert w jeden logiczny obraz decyzji.</p>
 				</div>
 				<div class="lead-faq-list">
 					{faqItems.map((item, index) => (
@@ -589,11 +589,11 @@ const faqSchema = {
 					<div class="lead-related-head">
 						<p class="eyebrow">
 							<span></span>
-							Sprawdź też
+							SprawdĹş teĹĽ
 						</p>
 
 						<h2 id="related-title">
-							Pozostałe tematy <strong>poradnika</strong> inwestora
+							PozostaĹ‚e tematy <strong>poradnika</strong> inwestora
 						</h2>
 					</div>
 
@@ -601,7 +601,7 @@ const faqSchema = {
 						{relatedLinks.map((link) => (
 							<a class="related-card related-card-premium" href={link[1]}>
 								<span class="related-card-label">{link[0]}</span>
-								<span class="related-card-arrow" aria-hidden="true">→</span>
+								<span class="related-card-arrow" aria-hidden="true">â†’</span>
 							</a>
 						))}
 					</div>
@@ -646,13 +646,13 @@ const faqSchema = {
 					const fileExtension = fileName.includes('.') ? fileName.split('.').pop() : '';
 
 					if (!fileExtension || !allowedFileExtensions.includes(fileExtension)) {
-						setFormStatus('Załącznik ma niedozwolony format. Dodaj plik PDF, JPG, PNG, WEBP, DOCX albo XLSX.', 'is-error');
+						setFormStatus('ZaĹ‚Ä…cznik ma niedozwolony format. Dodaj plik PDF, JPG, PNG, WEBP, DOCX albo XLSX.', 'is-error');
 						fileInputElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 						return;
 					}
 
 					if (selectedFile.size > maxFileSize) {
-						setFormStatus('Załącznik jest za duży. Maksymalny rozmiar pliku to 4 MB. Przy większym pliku wklej link w polu opisu.', 'is-error');
+						setFormStatus('ZaĹ‚Ä…cznik jest za duĹĽy. Maksymalny rozmiar pliku to 4 MB. Przy wiÄ™kszym pliku wklej link w polu opisu.', 'is-error');
 						fileInputElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 						return;
 					}
@@ -672,7 +672,7 @@ const faqSchema = {
 				});
 
 				if (!groupValid) {
-					setFormStatus('Zaznacz przynajmniej jedną opcję w sekcji media oraz jedną opcję w sekcji, co chcesz sprawdzić.', 'is-error');
+					setFormStatus('Zaznacz przynajmniej jednÄ… opcjÄ™ w sekcji media oraz jednÄ… opcjÄ™ w sekcji, co chcesz sprawdziÄ‡.', 'is-error');
 
 					if (firstInvalidGroup instanceof HTMLElement) {
 						firstInvalidGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -696,7 +696,7 @@ const faqSchema = {
 						consentRequiredNote.classList.add('is-visible');
 					}
 
-					setFormStatus('Aby wysłać formularz, zaznacz wszystkie wymagane zgody.', 'is-error');
+					setFormStatus('Aby wysĹ‚aÄ‡ formularz, zaznacz wszystkie wymagane zgody.', 'is-error');
 
 					const firstRequiredConsent = formElement.querySelector('.form-consents input[required]:not(:checked)');
 
@@ -714,7 +714,7 @@ const faqSchema = {
 
 				if (!formElement.checkValidity()) {
 					formElement.reportValidity();
-					setFormStatus('Uzupełnij wymagane pola i zaznacz wymagane zgody.', 'is-error');
+					setFormStatus('UzupeĹ‚nij wymagane pola i zaznacz wymagane zgody.', 'is-error');
 					return;
 				}
 
@@ -726,10 +726,10 @@ const faqSchema = {
 					if (submitButton instanceof HTMLButtonElement) {
 						submitButton.disabled = true;
 						submitButton.dataset.originalText = submitButton.innerHTML;
-						submitButton.innerHTML = 'Wysyłanie formularza...';
+						submitButton.innerHTML = 'WysyĹ‚anie formularza...';
 					}
 
-					setFormStatus('Wysyłamy formularz na analiza@inwestycjawmyjnie.pl...', '');
+					setFormStatus('WysyĹ‚amy formularz na analiza@inwestycjawmyjnie.pl...', '');
 
 					const response = await fetch(formElement.action || '/api/wyslij-analize', {
 						method: 'POST',
@@ -737,20 +737,20 @@ const faqSchema = {
 					});
 
 					const result = await response.json().catch(() => ({
-						message: 'Nie udało się odczytać odpowiedzi serwera.'
+						message: 'Nie udaĹ‚o siÄ™ odczytaÄ‡ odpowiedzi serwera.'
 					}));
 
 					if (!response.ok || !result.ok) {
-						throw new Error(result.message || 'Nie udało się wysłać formularza.');
+						throw new Error(result.message || 'Nie udaĹ‚o siÄ™ wysĹ‚aÄ‡ formularza.');
 					}
 
 					formElement.reset();
-					setFormStatus(result.message || 'Dziękujemy. Formularz został wysłany.', 'is-success');
+					setFormStatus(result.message || 'DziÄ™kujemy. Formularz zostaĹ‚ wysĹ‚any.', 'is-success');
 				} catch (error) {
 					setFormStatus(
 						error instanceof Error
 							? error.message
-							: 'Nie udało się wysłać formularza. Spróbuj ponownie albo napisz na analiza@inwestycjawmyjnie.pl.',
+							: 'Nie udaĹ‚o siÄ™ wysĹ‚aÄ‡ formularza. SprĂłbuj ponownie albo napisz na analiza@inwestycjawmyjnie.pl.',
 						'is-error'
 					);
 				} finally {
@@ -758,7 +758,7 @@ const faqSchema = {
 						submitButton.disabled = false;
 						submitButton.innerHTML =
 							submitButton.dataset.originalText ||
-							'Wyślij i rozpocznij bezpłatne porównanie <span aria-hidden="true">→</span>';
+							'WyĹ›lij i rozpocznij bezpĹ‚atne porĂłwnanie <span aria-hidden="true">â†’</span>';
 					}
 				}
 			});
@@ -1276,7 +1276,7 @@ const faqSchema = {
 	}
 
 	.lead-faq-item[open] summary::after {
-		content: '−';
+		content: 'â’';
 		background: var(--ink);
 		color: #fff;
 	}
@@ -1378,7 +1378,7 @@ const faqSchema = {
 			border-radius: 34px;
 		}
 	}
-		/* Lewa kolumna obok długiego formularza — tylko desktop */
+		/* Lewa kolumna obok dĹ‚ugiego formularza â€” tylko desktop */
 	.lead-side-summary {
 		display: none;
 	}
@@ -1535,7 +1535,7 @@ const faqSchema = {
 		}
 	}
 
-/* FINAL STANDARD — formularz: ciemny panel, strzałki i sekcja Sprawdź też */
+/* FINAL STANDARD â€” formularz: ciemny panel, strzaĹ‚ki i sekcja SprawdĹş teĹĽ */
 	.process-panel,
 	.process-panel h2,
 	.process-panel h3,
@@ -1579,7 +1579,7 @@ const faqSchema = {
 		color: rgba(255, 255, 255, 0.74) !important;
 	}
 
-	/* Linki w lewym panelu — zielona strzałka zamiast czarnej */
+	/* Linki w lewym panelu â€” zielona strzaĹ‚ka zamiast czarnej */
 	.lead-side-links a span {
 		background: #5df04e !important;
 		color: #081020 !important;
@@ -1588,7 +1588,7 @@ const faqSchema = {
 			0 0 22px rgba(93, 240, 78, 0.38) !important;
 	}
 
-	/* Dół strony — Sprawdź też premium */
+	/* DĂłĹ‚ strony â€” SprawdĹş teĹĽ premium */
 	.related-section {
 		padding-top: clamp(48px, 6vw, 80px) !important;
 	}
@@ -1746,7 +1746,7 @@ const faqSchema = {
 		}
 	}
 
-	/* FINAL RODO — zgody i linki w formularzu */
+	/* FINAL RODO â€” zgody i linki w formularzu */
 	.form-consents {
 		gap: 12px !important;
 	}
@@ -1771,7 +1771,7 @@ const faqSchema = {
 	}
 
 
-	/* FINAL RODO — czerwony komunikat wymaganych zgód */
+	/* FINAL RODO â€” czerwony komunikat wymaganych zgĂłd */
 		.consent-required-note {
 			display: none;
 			margin: -2px 0 2px;
@@ -1795,7 +1795,7 @@ const faqSchema = {
 		}
 
 
-	/* FINAL FORM — gwiazdki przy polach obowiązkowych */
+	/* FINAL FORM â€” gwiazdki przy polach obowiÄ…zkowych */
 	.required-fields-legend {
 		display: inline-flex;
 		align-items: center;
@@ -1870,3 +1870,4 @@ const faqSchema = {
 	}
 
 </style>
+
