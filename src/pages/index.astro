@@ -344,9 +344,9 @@ const faqSchema = {
 
 					<div class="hero-actions">
 						<a class="button button-primary" href="/bezplatne-porownanie-ofert-myjni/">
-	Bezpłatna analiza i porównanie ofert
+	Bezpłatna analiza i porównanie ofert myjni
 	<span aria-hidden="true">→</span>
-						</a>
+</a>
 						<a class="button button-ghost" href="#start">
 							Zobacz od czego zacząć
 							<span aria-hidden="true">↓</span>
@@ -439,7 +439,7 @@ const faqSchema = {
 
 					<div class="intro-cta-box">
 						<p>Masz działkę, lokalizację albo pierwszą ofertę?</p>
-						<h3>Prześlij dane do bezpłatnej analizy.</h3>
+						<h3>Prześlij dane do bezpłatnej analizy i porównania ofert myjni.</h3>
 						<span>
 							W jednym formularzu możesz opisać teren, budżet, liczbę stanowisk,
 							media albo wkleić informacje z otrzymanej oferty.
@@ -528,7 +528,7 @@ const faqSchema = {
 				</p>
 
 				<a class="button button-primary locx-button" href="/bezplatne-porownanie-ofert-myjni/">
-	Bezpłatna analiza i porównanie ofert
+	Bezpłatna analiza i porównanie ofert myjni
 	<span aria-hidden="true">→</span>
 				</a>
 			</div>
@@ -693,7 +693,7 @@ księgową lub doradcą podatkowym oraz dostawcami technologii.
 						<div class="dark-tags" aria-label="Sposób komunikacji">
 							<span>analiza lokalizacji</span>
 							<span>budżet inwestycji</span>
-							<span>dobór rozwiązania</span>
+							<span>porównanie ofert myjni</span>
 							<span>decyzja bez chaosu</span>
 						</div>
 					</div>
@@ -926,9 +926,9 @@ księgową lub doradcą podatkowym oraz dostawcami technologii.
 
 			<div class="lead-form">
 				<div class="full">
-					<h3>Bezpłatna analiza i porównanie ofert</h3>
+					<h3>Bezpłatna analiza i porównanie ofert myjni</h3>
 					<p>
-						Analizę lokalizacji i porównanie ofert połączyliśmy w jeden formularz.
+						Analizę lokalizacji i porównanie ofert myjni połączyliśmy w jeden formularz.
 						Podaj dane działki, media, budżet, liczbę stanowisk, finansowanie albo link do oferty.
 					</p>
 				</div>
@@ -941,7 +941,7 @@ księgową lub doradcą podatkowym oraz dostawcami technologii.
 				</div>
 
 				<a class="button button-primary button-neon-green full" href="/bezplatne-porownanie-ofert-myjni/">
-	Bezpłatna analiza i porównanie ofert
+	Bezpłatna analiza i porównanie ofert myjni
 	<span aria-hidden="true">→</span>
 </a>
 
@@ -1511,6 +1511,155 @@ księgową lub doradcą podatkowym oraz dostawcami technologii.
 
 		.locx-number {
 			font-size: 4.2rem;
+		}
+	}
+
+	/* HOME TYPOGRAPHY FINAL — spójne nagłówki, eyebrow i teksty leadowe */
+	main .eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 14px;
+		margin: 0 0 clamp(16px, 2vw, 22px);
+		color: #081020;
+		font-size: clamp(0.78rem, 0.82vw, 0.9rem);
+		font-weight: 950;
+		letter-spacing: 0.16em;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	main .eyebrow span {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		flex: 0 0 auto;
+		border-radius: 999px;
+		background: linear-gradient(135deg, #82ff55 0%, #35e66d 100%);
+		box-shadow:
+			0 0 0 7px rgba(114, 240, 105, 0.12),
+			0 0 24px rgba(114, 240, 105, 0.3);
+	}
+
+	main .dark-section .eyebrow,
+	main .contact-section .eyebrow,
+	main .eyebrow.light {
+		color: rgba(255, 255, 255, 0.92);
+	}
+
+	main .dark-section .eyebrow span,
+	main .contact-section .eyebrow span,
+	main .eyebrow.light span {
+		background: linear-gradient(135deg, #82ff55 0%, #35e66d 100%);
+		box-shadow:
+			0 0 0 7px rgba(114, 240, 105, 0.14),
+			0 0 26px rgba(114, 240, 105, 0.34);
+	}
+
+	main .intro-copy h2,
+	main .section-head h2,
+	main .split-head h2,
+	main .dark-grid h2,
+	main .contact-title {
+		font-weight: 950;
+		letter-spacing: -0.082em;
+		line-height: 0.92;
+	}
+
+	main .intro-copy h2 strong,
+	main .section-head h2 strong,
+	main .split-head h2 strong,
+	main .dark-grid h2 strong,
+	main .contact-title strong {
+		background: linear-gradient(
+			90deg,
+			#0756d8 0%,
+			#1268ff 38%,
+			#4fa3ff 72%,
+			#9ed7ff 100%
+		);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		font-weight: inherit;
+	}
+
+	main .hero-lead,
+	main .intro-copy > p:not(.eyebrow),
+	main .section-head > p,
+	main .split-head > p,
+	main .mistakes-lead,
+	main .locx-side p {
+		max-width: 760px;
+		margin-top: clamp(18px, 2vw, 24px);
+		color: #667085;
+		font-size: clamp(1.08rem, 1.22vw, 1.28rem);
+		font-weight: 560;
+		letter-spacing: -0.025em;
+		line-height: 1.66;
+	}
+
+	main .intro-copy > p:not(.eyebrow) {
+	max-width: 980px;
+	color: #667085;
+	font-size: clamp(1.08rem, 1.22vw, 1.28rem);
+	font-weight: 560;
+	letter-spacing: -0.025em;
+	line-height: 1.66;
+}
+	}
+
+	main .dark-copy p,
+	main .contact-lead {
+		max-width: 760px;
+		color: rgba(255, 255, 255, 0.78);
+		font-size: clamp(1.08rem, 1.22vw, 1.26rem);
+		font-weight: 560;
+		letter-spacing: -0.025em;
+		line-height: 1.66;
+	}
+
+	main .contact-points span,
+	main .dark-tags span {
+		font-weight: 850;
+		letter-spacing: -0.02em;
+	}
+
+	@media (max-width: 760px) {
+		main .eyebrow {
+			gap: 11px;
+			margin-bottom: 14px;
+			font-size: 0.72rem;
+			letter-spacing: 0.13em;
+		}
+
+		main .eyebrow span {
+			width: 8px;
+			height: 8px;
+			box-shadow:
+				0 0 0 5px rgba(114, 240, 105, 0.12),
+				0 0 18px rgba(114, 240, 105, 0.28);
+		}
+
+		main .intro-copy h2,
+		main .section-head h2,
+		main .split-head h2,
+		main .dark-grid h2,
+		main .contact-title {
+			letter-spacing: -0.074em;
+			line-height: 0.96;
+		}
+
+		main .hero-lead,
+		main .intro-copy > p:not(.eyebrow),
+		main .section-head > p,
+		main .split-head > p,
+		main .mistakes-lead,
+		main .locx-side p,
+		main .dark-copy p,
+		main .contact-lead {
+			font-size: 1rem;
+			line-height: 1.62;
+			letter-spacing: -0.018em;
 		}
 	}
 </style>
