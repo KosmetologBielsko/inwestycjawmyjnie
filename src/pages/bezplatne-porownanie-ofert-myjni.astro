@@ -227,8 +227,15 @@ const faqSchema = {
 						DOCX albo XLSX do 10 MB.
 					</p>
 
+					<p class="required-fields-legend">
+						<span>*</span> Pola i zgody oznaczone gwiazdką są obowiązkowe, żeby wysłać formularz.
+					</p>
+
 					<form class="smart-form" data-lead-form enctype="multipart/form-data">
 						<input type="hidden" name="typ_zapytania" value="Bezpłatna analiza działki i porównanie ofert myjni" />
+						<input type="hidden" name="administrator_danych" value="BPHM Sp. z o.o., ul. Norberta Barlickiego 5, 43-300 Bielsko-Biała, KRS 0001247373, NIP 5472260567, REGON 544990435" />
+						<input type="hidden" name="email_administratora" value="analiza@inwestycjawmyjnie.pl" />
+						<input type="hidden" name="cel_przekazania_danych" value="Bezpłatna analiza zgłoszenia, uporządkowanie założeń inwestycji i przygotowanie porównywalnego zapytania do polskich dostawców myjni" />
 
 						<div class="form-section-title full">
 							<span>01</span>
@@ -423,7 +430,7 @@ const faqSchema = {
 
 <label class="full file-upload-field">
 	<span class="file-label-row">
-		Załącz ofertę lub plik pomocniczy
+		Załącz ofertę lub plik  pomocniczy
 		<em>opcjonalnie</em>
 	</span>
 
@@ -443,20 +450,65 @@ const faqSchema = {
 						<div class="form-consents full">
 							<label class="checkbox-label">
 								<input type="checkbox" name="contact_consent" required />
-								<span>Wyrażam zgodę na kontakt w sprawie porównania ofert i inwestycji.</span>
+								<span>
+									<strong>Wymagane.</strong>
+									Zlecam bezpłatną analizę zgłoszenia i wyrażam zgodę na kontakt telefoniczny
+									lub e-mailowy w sprawie inwestycji, działki, porównania ofert oraz dalszej
+									obsługi zapytania.
+								</span>
 							</label>
+
+							<label class="checkbox-label">
+								<input type="checkbox" name="supplier_transfer_consent" required />
+								<span>
+									<strong>Wymagane.</strong>
+									Rozumiem i akceptuję, że moje dane kontaktowe oraz informacje podane w formularzu
+									mogą zostać przekazane wybranym dostawcom, producentom lub partnerom technologicznym
+									myjni w celu przygotowania dopasowanej oferty, kontaktu handlowego i porównania
+									rozwiązań dla mojej inwestycji.
+								</span>
+							</label>
+
 							<label class="checkbox-label">
 								<input type="checkbox" name="privacy_consent" required />
-								<span>Akceptuję kontakt i przetwarzanie danych w celu obsługi zapytania.</span>
+								<span>
+									<strong>Wymagane.</strong>
+									Oświadczam, że zapoznałem się z
+									<a href="/polityka-prywatnosci/" target="_blank" rel="noopener noreferrer">Polityką prywatności i RODO</a>,
+									<a href="/polityka-cookies/" target="_blank" rel="noopener noreferrer">Polityką cookies</a>
+									oraz
+									<a href="/zasady-korzystania/" target="_blank" rel="noopener noreferrer">Zasadami korzystania z formularza</a>.
+									Wiem, że administratorem danych jest BPHM Sp. z o.o. i że mogę żądać dostępu
+									do danych, sprostowania, usunięcia, ograniczenia przetwarzania oraz wycofania
+									zgody w zakresie, w jakim przetwarzanie odbywa się na podstawie zgody.
+								</span>
+							</label>
+
+							<label class="checkbox-label">
+								<input type="checkbox" name="marketing_consent" />
+								<span>
+									<strong>Opcjonalnie.</strong>
+									Chcę otrzymywać dodatkowe informacje handlowe i marketingowe dotyczące inwestycji
+									w myjnie, poradnika inwestora, porównań ofert oraz podobnych usług drogą
+									elektroniczną lub telefoniczną. Zgodę mogę wycofać w każdej chwili.
+								</span>
 							</label>
 						</div>
+
+						<p class="consent-required-note full" data-consent-required-note>
+							Aby wysłać formularz, zaznacz wszystkie wymagane zgody. Zgoda marketingowa jest dobrowolna.
+						</p>
 
 						<button type="submit" class="form-submit">Wyślij i rozpocznij bezpłatne porównanie <span aria-hidden="true">→</span></button>
 
 						<p class="form-status full" data-form-status aria-live="polite"></p>
 
 						<small class="form-note full">
-							Formularz ma już walidację wymaganych pól. Wysyłkę danych podłączymy później pod {siteConfig.email}.
+							Administratorem danych jest BPHM Sp. z o.o. Kontakt w sprawie formularza:
+							<a href="mailto:analiza@inwestycjawmyjnie.pl">analiza@inwestycjawmyjnie.pl</a>.
+							Dane z formularza mogą zostać przekazane wybranym dostawcom, producentom lub
+							partnerom technologicznym wyłącznie w celu przygotowania dopasowanej oferty,
+							kontaktu handlowego i porównania rozwiązań dla Twojej inwestycji.
 						</small>
 					</form>
 				</aside>
@@ -568,7 +620,6 @@ const faqSchema = {
 				const requiredGroups = formElement.querySelectorAll('[data-required-group]');
 				let groupValid = true;
 				let firstInvalidGroup = null;
-
 				if (fileInputElement instanceof HTMLInputElement && fileInputElement.files && fileInputElement.files.length > 0) {
 					const selectedFile = fileInputElement.files[0];
 					const fileName = selectedFile.name.toLowerCase();
@@ -623,7 +674,40 @@ const faqSchema = {
 
 					return;
 				}
+				const requiredConsentInputs = formElement.querySelectorAll('.form-consents input[required]');
+				const consentRequiredNote = formElement.querySelector('[data-consent-required-note]');
+				let requiredConsentsValid = true;
 
+				requiredConsentInputs.forEach((input) => {
+					if (input instanceof HTMLInputElement && !input.checked) {
+						requiredConsentsValid = false;
+					}
+				});
+
+				if (!requiredConsentsValid) {
+					event.preventDefault();
+
+					if (consentRequiredNote instanceof HTMLElement) {
+						consentRequiredNote.classList.add('is-visible');
+					}
+
+					if (formStatusElement instanceof HTMLElement) {
+						formStatusElement.textContent = 'Aby wysłać formularz, zaznacz wszystkie wymagane zgody.';
+					}
+
+					const firstRequiredConsent = formElement.querySelector('.form-consents input[required]:not(:checked)');
+
+					if (firstRequiredConsent instanceof HTMLElement) {
+						firstRequiredConsent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+						firstRequiredConsent.focus();
+					}
+
+					return;
+				}
+
+				if (consentRequiredNote instanceof HTMLElement) {
+					consentRequiredNote.classList.remove('is-visible');
+				}
 				if (!formElement.checkValidity()) {
 					event.preventDefault();
 					formElement.reportValidity();
@@ -638,7 +722,7 @@ const faqSchema = {
 				event.preventDefault();
 
 				if (formStatusElement instanceof HTMLElement) {
-					formStatusElement.textContent = 'Formularz jest poprawnie uzupełniony. Wysyłkę danych oraz obsługę załącznika podłączymy w kolejnym kroku.';
+					formStatusElement.textContent = 'Formularz jest poprawnie uzupełniony. Zgłoszenie będzie kierowane na analiza@inwestycjawmyjnie.pl po podłączeniu wysyłki formularza.';
 				}
 			});
 		}
@@ -1610,4 +1694,128 @@ const faqSchema = {
 			font-size: 1.1rem !important;
 		}
 	}
+
+	/* FINAL RODO — zgody i linki w formularzu */
+	.form-consents {
+		gap: 12px !important;
+	}
+
+	.form-consents a,
+	.form-note a {
+		color: #72f069 !important;
+		font-weight: 900 !important;
+		text-decoration: underline !important;
+		text-underline-offset: 3px !important;
+	}
+
+	.form-consents a:hover,
+	.form-note a:hover {
+		color: #9dff95 !important;
+	}
+
+
+	.form-consents strong {
+		color: #ffffff !important;
+		font-weight: 950 !important;
+	}
+
+
+	/* FINAL RODO — czerwony komunikat wymaganych zgód */
+		.consent-required-note {
+			display: none;
+			margin: -2px 0 2px;
+			padding: 12px 14px;
+			border-radius: 16px;
+			background: rgba(255, 83, 83, 0.12);
+			border: 1px solid rgba(255, 83, 83, 0.34);
+			color: #ffb4b4;
+			font-size: 0.84rem;
+			font-weight: 850;
+			line-height: 1.45;
+		}
+	
+		.consent-required-note.is-visible {
+			display: block;
+		}
+	
+		.form-consents input[required]:not(:checked) {
+			outline: 2px solid rgba(255, 83, 83, 0.85);
+			outline-offset: 2px;
+		}
+
+
+	/* FINAL FORM — gwiazdki przy polach obowiązkowych */
+	.required-fields-legend {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		width: fit-content;
+		margin: 12px 0 0;
+		padding: 9px 12px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 0.8rem;
+		font-weight: 800;
+		line-height: 1.25;
+	}
+
+	.required-fields-legend span {
+		color: #72f069;
+		font-size: 1rem;
+		font-weight: 950;
+		line-height: 1;
+	}
+
+	.smart-form label:has(input[required]),
+	.smart-form label:has(select[required]) {
+		position: relative;
+		text-indent: 14px;
+	}
+
+	.smart-form label:has(input[required])::before,
+	.smart-form label:has(select[required])::before {
+		content: '*';
+		position: absolute;
+		left: 0;
+		top: 0;
+		color: #72f069;
+		font-weight: 950;
+		text-indent: 0;
+	}
+
+	.smart-form label:has(input[required]) input,
+	.smart-form label:has(select[required]) select {
+		text-indent: 0;
+	}
+
+	.smart-form .compare-options[data-required-group] legend::before {
+		content: '* ';
+		color: #72f069;
+		font-weight: 950;
+	}
+
+	.smart-form .form-consents label:has(input[required]) {
+		text-indent: 0;
+	}
+
+	.smart-form .form-consents label:has(input[required])::before {
+		display: none;
+	}
+
+	.smart-form .form-consents label:has(input[required]) strong::before {
+		content: '* ';
+		color: #72f069;
+		font-weight: 950;
+	}
+
+	@media (max-width: 760px) {
+		.required-fields-legend {
+			width: 100%;
+			border-radius: 18px;
+			align-items: flex-start;
+		}
+	}
+
 </style>

@@ -1,0 +1,256 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const page = {
+	canonicalPath: '/zasady-korzystania/',
+	title: 'Zasady korzystania z formularza',
+	description:
+		'Zasady bezpłatnej analizy, porównywania ofert, przekazywania zgłoszeń partnerom i charakteru informacji dostępnych na stronie.'
+};
+---
+
+<Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
+	<Header />
+
+	<main class="legal-page">
+		<section class="legal-hero">
+			<div class="container legal-shell">
+				<p class="eyebrow"><span></span>Dokumenty prawne</p>
+				<h1>Zasady korzystania z formularza</h1>
+				<p class="legal-lead">Zasady bezpłatnej analizy, porównywania ofert, przekazywania zgłoszeń partnerom i charakteru informacji dostępnych na stronie.</p>
+			</div>
+		</section>
+
+		<section class="legal-section">
+			<div class="container legal-content">
+
+				<article class="legal-card dark">
+					<h2>Podmiot prowadzący stronę</h2>
+					<p class="legal-company">BPHM SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ
+ul. Norberta Barlickiego 5
+43-300 Bielsko-Biała
+woj. śląskie
+KRS: 0001247373
+NIP: 5472260567
+REGON: 544990435
+E-mail: analiza@inwestycjawmyjnie.pl</p>
+					<p>
+						Kontakt:
+						<a href="mailto:analiza@inwestycjawmyjnie.pl">analiza@inwestycjawmyjnie.pl</a>.
+					</p>
+				</article>
+
+				<article class="legal-card">
+					<h2>1. Charakter strony</h2>
+					<p>
+						Strona inwestycjawmyjnie.pl jest praktycznym poradnikiem oraz formularzem kontaktowym
+						dla osób zainteresowanych inwestycją w myjnię bezdotykową w Polsce. Treści mają charakter
+						informacyjny, edukacyjny i handlowy.
+					</p>
+				</article>
+
+				<article class="legal-card">
+					<h2>2. Na czym polega bezpłatna analiza?</h2>
+					<p>
+						Bezpłatna analiza polega na wstępnym uporządkowaniu informacji przekazanych przez
+						użytkownika: lokalizacji, statusu działki, mediów, budżetu, liczby stanowisk, finansowania,
+						załączników, linków i opisu planowanej inwestycji.
+					</p>
+					<p>
+						Celem jest przygotowanie bardziej porównywalnego zapytania do polskich dostawców,
+						producentów lub partnerów technologicznych myjni, a nie gwarancja uzyskania konkretnej
+						ceny, rabatu, finansowania, pozwolenia lub wyniku inwestycji.
+					</p>
+				</article>
+
+				<article class="legal-card">
+					<h2>3. Przekazywanie zgłoszeń partnerom</h2>
+					<p>
+						Wypełniając formularz, użytkownik może wyrazić zgodę na przekazanie danych kontaktowych
+						oraz informacji o inwestycji wybranym dostawcom, producentom lub partnerom technologicznym
+						w celu przygotowania oferty, kontaktu handlowego i porównania rozwiązań.
+					</p>
+				</article>
+
+				<article class="legal-card">
+					<h2>4. Brak gwarancji wyniku</h2>
+					<p>
+						Analiza, treści poradnika i kontakt z dostawcami nie stanowią gwarancji opłacalności,
+						uzyskania pozwolenia, finansowania, określonego przychodu, kosztu budowy ani zwrotu
+						z inwestycji. Każda inwestycja wymaga indywidualnej weryfikacji formalnej, technicznej,
+						finansowej, podatkowej i prawnej.
+					</p>
+				</article>
+
+				<article class="legal-card">
+					<h2>5. Odpowiedzialność inwestora</h2>
+					<p>
+						Użytkownik powinien samodzielnie zweryfikować ofertę, umowę, dokumentację, działkę,
+						status prawny nieruchomości, MPZP/WZ, media, podatki, finansowanie i zakres budowy
+						z odpowiednimi specjalistami, w tym projektantem, prawnikiem, księgową lub doradcą
+						finansowym.
+					</p>
+				</article>
+
+				<article class="legal-card">
+					<h2>6. Załączniki i materiały użytkownika</h2>
+					<p>
+						Użytkownik powinien przekazywać wyłącznie takie pliki, linki i informacje, do których
+						ma prawo. Nie należy przesyłać danych osób trzecich, tajemnic przedsiębiorstwa ani
+						dokumentów poufnych, jeżeli użytkownik nie ma prawa do ich udostępnienia w celu analizy.
+					</p>
+				</article>
+
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	.legal-page {
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
+		background: #fff;
+	}
+
+	.legal-hero {
+		padding: clamp(76px, 7vw, 118px) 0 clamp(42px, 5vw, 72px);
+		background:
+			radial-gradient(circle at 82% 12%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 18% 28%, rgba(114, 240, 105, 0.12), transparent 30%),
+			linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
+	}
+
+	.legal-shell h1 {
+		max-width: 1120px;
+		margin: 0;
+		color: var(--ink);
+		font-size: clamp(2.8rem, 5.8vw, 6.4rem);
+		font-weight: 950;
+		letter-spacing: -0.078em;
+		line-height: 0.96;
+	}
+
+	.legal-lead {
+		max-width: 880px;
+		margin: 24px 0 0;
+		color: #667085;
+		font-size: clamp(1.02rem, 1.25vw, 1.2rem);
+		font-weight: 560;
+		line-height: 1.7;
+	}
+
+	.legal-section {
+		padding: clamp(50px, 6vw, 86px) 0;
+	}
+
+	.legal-content {
+		display: grid;
+		gap: 22px;
+		max-width: 1040px;
+	}
+
+	.legal-card {
+		padding: clamp(22px, 3vw, 34px);
+		border-radius: 30px;
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.055);
+	}
+
+	.legal-card.dark {
+		background:
+			radial-gradient(circle at 12% 18%, rgba(18, 104, 255, 0.24), transparent 34%),
+			radial-gradient(circle at 88% 8%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(135deg, #05070d 0%, #101723 48%, #05070d 100%);
+		color: #fff;
+	}
+
+	.legal-card h2 {
+		margin: 0;
+		color: var(--ink);
+		font-size: clamp(1.55rem, 2.4vw, 2.45rem);
+		font-weight: 950;
+		letter-spacing: -0.06em;
+		line-height: 1.02;
+	}
+
+	.legal-card.dark h2 {
+		color: #fff;
+	}
+
+	.legal-card h3 {
+		margin: 24px 0 0;
+		color: var(--ink);
+		font-size: 1.24rem;
+		font-weight: 950;
+		letter-spacing: -0.04em;
+	}
+
+	.legal-card.dark h3 {
+		color: #fff;
+	}
+
+	.legal-card p,
+	.legal-card li {
+		color: #596579;
+		font-size: 1rem;
+		font-weight: 560;
+		line-height: 1.72;
+	}
+
+	.legal-card.dark p,
+	.legal-card.dark li {
+		color: rgba(255, 255, 255, 0.74);
+	}
+
+	.legal-card ul {
+		display: grid;
+		gap: 8px;
+		margin: 14px 0 0;
+		padding-left: 20px;
+	}
+
+	.legal-company {
+		white-space: pre-line;
+		padding: 18px;
+		border-radius: 22px;
+		background: rgba(114, 240, 105, 0.1);
+		border: 1px solid rgba(114, 240, 105, 0.18);
+		color: #111827 !important;
+		font-weight: 760 !important;
+	}
+
+	.legal-card.dark .legal-company {
+		color: #fff !important;
+		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.14);
+	}
+
+	.legal-note {
+		padding: 16px 18px;
+		border-radius: 20px;
+		background: rgba(18, 104, 255, 0.07);
+		border: 1px solid rgba(18, 104, 255, 0.1);
+	}
+
+	.legal-card a {
+		color: #1268ff;
+		font-weight: 850;
+	}
+
+	@media (max-width: 760px) {
+		.legal-shell h1 {
+			font-size: clamp(2.25rem, 10vw, 3.4rem);
+		}
+
+		.legal-card {
+			border-radius: 24px;
+		}
+	}
+</style>

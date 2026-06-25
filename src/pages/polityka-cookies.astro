@@ -1,0 +1,241 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const page = {
+	canonicalPath: '/polityka-cookies/',
+	title: 'Polityka cookies',
+	description:
+		'Informacje o plikach cookies, rodzajach cookies, zgodach i zarządzaniu ustawieniami przeglądarki.'
+};
+---
+
+<Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
+	<Header />
+
+	<main class="legal-page">
+		<section class="legal-hero">
+			<div class="container legal-shell">
+				<p class="eyebrow"><span></span>Dokumenty prawne</p>
+				<h1>Polityka cookies</h1>
+				<p class="legal-lead">Informacje o plikach cookies, rodzajach cookies, zgodach i zarządzaniu ustawieniami przeglądarki.</p>
+			</div>
+		</section>
+
+		<section class="legal-section">
+			<div class="container legal-content">
+
+				<article class="legal-card dark">
+					<h2>Administrator</h2>
+					<p class="legal-company">BPHM SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ
+ul. Norberta Barlickiego 5
+43-300 Bielsko-Biała
+woj. śląskie
+KRS: 0001247373
+NIP: 5472260567
+REGON: 544990435
+E-mail: analiza@inwestycjawmyjnie.pl</p>
+					<p>
+						Kontakt w sprawach cookies i prywatności:
+						<a href="mailto:analiza@inwestycjawmyjnie.pl">analiza@inwestycjawmyjnie.pl</a>.
+					</p>
+				</article>
+
+				<article class="legal-card">
+					<h2>1. Czym są cookies?</h2>
+					<p>
+						Cookies to małe pliki tekstowe zapisywane na urządzeniu użytkownika podczas korzystania
+						ze strony internetowej. Mogą służyć do prawidłowego działania strony, zapamiętywania
+						ustawień, pomiaru ruchu lub działań marketingowych, jeżeli takie narzędzia zostaną
+						wdrożone.
+					</p>
+				</article>
+
+				<article class="legal-card">
+					<h2>2. Jakie rodzaje cookies mogą być stosowane?</h2>
+					<ul>
+						<li><strong>Niezbędne</strong> — potrzebne do prawidłowego działania strony i formularza.</li>
+						<li><strong>Analityczne</strong> — pomagają mierzyć ruch i poprawiać stronę, jeżeli zostaną wdrożone.</li>
+						<li><strong>Marketingowe</strong> — mogą służyć do mierzenia skuteczności reklam lub remarketingu, jeżeli zostaną wdrożone.</li>
+					</ul>
+				</article>
+
+				<article class="legal-card">
+					<h2>3. Zgoda na cookies</h2>
+					<p>
+						Cookies niezbędne mogą działać bez zgody, ponieważ są potrzebne do korzystania ze strony.
+						Cookies analityczne i marketingowe powinny być uruchamiane dopiero po uzyskaniu zgody,
+						jeżeli będą stosowane na stronie.
+					</p>
+				</article>
+
+				<article class="legal-card">
+					<h2>4. Jak zmienić ustawienia cookies?</h2>
+					<p>
+						Użytkownik może zarządzać cookies w ustawieniach swojej przeglądarki. Może usuwać cookies,
+						blokować ich zapisywanie lub ustawić ostrzeżenia przed ich zapisaniem. Ograniczenie cookies
+						może wpływać na działanie niektórych funkcji strony.
+					</p>
+				</article>
+
+				<article class="legal-card">
+					<h2>5. Narzędzia zewnętrzne</h2>
+					<p>
+						Jeżeli strona korzysta lub będzie korzystać z narzędzi analitycznych, reklamowych,
+						map, formularzy, hostingu lub systemów poczty, dostawcy tych narzędzi mogą przetwarzać
+						dane zgodnie z własnymi zasadami prywatności oraz umowami powierzenia lub regulaminami.
+					</p>
+				</article>
+
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	.legal-page {
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
+		background: #fff;
+	}
+
+	.legal-hero {
+		padding: clamp(76px, 7vw, 118px) 0 clamp(42px, 5vw, 72px);
+		background:
+			radial-gradient(circle at 82% 12%, rgba(18, 104, 255, 0.09), transparent 34%),
+			radial-gradient(circle at 18% 28%, rgba(114, 240, 105, 0.12), transparent 30%),
+			linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
+	}
+
+	.legal-shell h1 {
+		max-width: 1120px;
+		margin: 0;
+		color: var(--ink);
+		font-size: clamp(2.8rem, 5.8vw, 6.4rem);
+		font-weight: 950;
+		letter-spacing: -0.078em;
+		line-height: 0.96;
+	}
+
+	.legal-lead {
+		max-width: 880px;
+		margin: 24px 0 0;
+		color: #667085;
+		font-size: clamp(1.02rem, 1.25vw, 1.2rem);
+		font-weight: 560;
+		line-height: 1.7;
+	}
+
+	.legal-section {
+		padding: clamp(50px, 6vw, 86px) 0;
+	}
+
+	.legal-content {
+		display: grid;
+		gap: 22px;
+		max-width: 1040px;
+	}
+
+	.legal-card {
+		padding: clamp(22px, 3vw, 34px);
+		border-radius: 30px;
+		background: linear-gradient(145deg, #ffffff, #f8f9fb);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 18px 52px rgba(8, 16, 32, 0.055);
+	}
+
+	.legal-card.dark {
+		background:
+			radial-gradient(circle at 12% 18%, rgba(18, 104, 255, 0.24), transparent 34%),
+			radial-gradient(circle at 88% 8%, rgba(114, 240, 105, 0.2), transparent 30%),
+			linear-gradient(135deg, #05070d 0%, #101723 48%, #05070d 100%);
+		color: #fff;
+	}
+
+	.legal-card h2 {
+		margin: 0;
+		color: var(--ink);
+		font-size: clamp(1.55rem, 2.4vw, 2.45rem);
+		font-weight: 950;
+		letter-spacing: -0.06em;
+		line-height: 1.02;
+	}
+
+	.legal-card.dark h2 {
+		color: #fff;
+	}
+
+	.legal-card h3 {
+		margin: 24px 0 0;
+		color: var(--ink);
+		font-size: 1.24rem;
+		font-weight: 950;
+		letter-spacing: -0.04em;
+	}
+
+	.legal-card.dark h3 {
+		color: #fff;
+	}
+
+	.legal-card p,
+	.legal-card li {
+		color: #596579;
+		font-size: 1rem;
+		font-weight: 560;
+		line-height: 1.72;
+	}
+
+	.legal-card.dark p,
+	.legal-card.dark li {
+		color: rgba(255, 255, 255, 0.74);
+	}
+
+	.legal-card ul {
+		display: grid;
+		gap: 8px;
+		margin: 14px 0 0;
+		padding-left: 20px;
+	}
+
+	.legal-company {
+		white-space: pre-line;
+		padding: 18px;
+		border-radius: 22px;
+		background: rgba(114, 240, 105, 0.1);
+		border: 1px solid rgba(114, 240, 105, 0.18);
+		color: #111827 !important;
+		font-weight: 760 !important;
+	}
+
+	.legal-card.dark .legal-company {
+		color: #fff !important;
+		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.14);
+	}
+
+	.legal-note {
+		padding: 16px 18px;
+		border-radius: 20px;
+		background: rgba(18, 104, 255, 0.07);
+		border: 1px solid rgba(18, 104, 255, 0.1);
+	}
+
+	.legal-card a {
+		color: #1268ff;
+		font-weight: 850;
+	}
+
+	@media (max-width: 760px) {
+		.legal-shell h1 {
+			font-size: clamp(2.25rem, 10vw, 3.4rem);
+		}
+
+		.legal-card {
+			border-radius: 24px;
+		}
+	}
+</style>

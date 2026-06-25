@@ -21,6 +21,58 @@ const menuLinks = [
 		href: '/bezplatne-porownanie-ofert-myjni/'
 	}
 ];
+
+const searchLinks = [
+	{
+		label: 'Koszt budowy',
+		href: '/ile-kosztuje-myjnia-bezdotykowa/',
+		keywords: 'koszt cena ile kosztuje budowa myjni budżet'
+	},
+	{
+		label: 'Opłacalność',
+		href: '/ile-zarabia-myjnia-bezdotykowa/',
+		keywords: 'zarobki opłacalność przychód zysk rentowność'
+	},
+	{
+		label: 'Działka',
+		href: '/dzialka-pod-myjnie-bezdotykowa/',
+		keywords: 'działka lokalizacja teren mpzp media wjazd'
+	},
+	{
+		label: 'Porównanie ofert',
+		href: '/jak-porownac-oferty-myjni-bezdotykowej/',
+		keywords: 'oferty producent dostawca porównanie zakres serwis gwarancja'
+	},
+	{
+		label: 'Budowa krok po kroku',
+		href: '/budowa-myjni-bezdotykowej-krok-po-kroku/',
+		keywords: 'budowa proces krok po kroku projekt realizacja'
+	},
+	{
+		label: 'Błędy inwestora',
+		href: '/najczestsze-bledy-przy-budowie-myjni/',
+		keywords: 'błędy ryzyko inwestor pomyłki koszty'
+	},
+	{
+		label: 'Poradnik',
+		href: '/poradnik/',
+		keywords: 'poradnik baza wiedzy inwestor tematy'
+	},
+	{
+		label: 'Bezpłatna analiza',
+		href: '/bezplatne-porownanie-ofert-myjni/',
+		keywords: 'formularz analiza lokalizacji porównanie ofert'
+	}
+];
+
+const quickWords = [
+	'koszt',
+	'działka',
+	'oferty',
+	'opłacalność',
+	'błędy',
+	'analiza'
+];
 ---
 
 <header class="iwm-header" data-iwm-header>
@@ -47,7 +99,14 @@ const menuLinks = [
 		</a>
 
 		<div class="iwm-header-actions">
-			<button class="iwm-icon-button" type="button" data-iwm-search-toggle aria-label="Szukaj">
+			<button
+				class="iwm-icon-button"
+				type="button"
+				data-iwm-search-toggle
+				aria-label="Szukaj"
+				aria-controls="iwm-search-panel"
+				aria-expanded="false"
+			>
 				<svg viewBox="0 0 24 24" aria-hidden="true">
 					<circle cx="11" cy="11" r="7"></circle>
 					<path d="M16.5 16.5L21 21"></path>
@@ -55,10 +114,18 @@ const menuLinks = [
 			</button>
 
 			<a class="iwm-analysis-button" href="/bezplatne-porownanie-ofert-myjni/">
-				Bezpłatna analiza i porównanie ofert
+				<span>Bezpłatna analiza</span>
+				<strong>i porównanie ofert</strong>
 			</a>
 
-			<button class="iwm-icon-button" type="button" data-iwm-menu-toggle aria-label="Menu">
+			<button
+				class="iwm-icon-button"
+				type="button"
+				data-iwm-menu-toggle
+				aria-label="Menu"
+				aria-controls="iwm-menu-panel"
+				aria-expanded="false"
+			>
 				<svg viewBox="0 0 24 24" aria-hidden="true">
 					<path d="M4 7h16"></path>
 					<path d="M4 12h16"></path>
@@ -68,15 +135,72 @@ const menuLinks = [
 		</div>
 	</div>
 
-	<div class="iwm-search-panel" data-iwm-search-panel hidden>
+	<div class="iwm-search-panel" id="iwm-search-panel" data-iwm-search-panel hidden>
 		<div class="iwm-panel-inner">
-			<p>Szukaj w poradniku</p>
-			<input type="search" placeholder="np. koszt budowy, działka, opłacalność..." />
-			<span>Pełne wyszukiwanie podepniemy później przy rozbudowie poradnika.</span>
+			<div class="iwm-search-box">
+				<button
+					class="iwm-search-close"
+					type="button"
+					data-iwm-search-close
+					aria-label="Zamknij wyszukiwanie"
+				>
+					×
+				</button>
+
+				<div class="iwm-search-copy">
+					<p>Szukaj w poradniku inwestora</p>
+					<h2>
+						Czego szukasz w
+						<span>poradniku?</span>
+					</h2>
+				</div>
+
+				<label class="iwm-search-field">
+					<svg viewBox="0 0 24 24" aria-hidden="true">
+						<circle cx="11" cy="11" r="7"></circle>
+						<path d="M16.5 16.5L21 21"></path>
+					</svg>
+
+					<input
+						type="search"
+						data-iwm-search-input
+						placeholder="Wpisz: koszt, działka, oferty, zysk..."
+						autocomplete="off"
+					/>
+				</label>
+
+				<div class="iwm-quick-words" aria-label="Szybkie wyszukiwania">
+					{
+						quickWords.map((word) => (
+							<button type="button" data-iwm-search-chip={word}>
+								{word}
+							</button>
+						))
+					}
+				</div>
+
+				<div class="iwm-search-results" data-iwm-search-results>
+					{
+						searchLinks.map((link) => (
+							<a
+								href={link.href}
+								data-iwm-search-item
+								data-iwm-search-keywords={link.keywords}
+							>
+								{link.label}
+							</a>
+						))
+					}
+				</div>
+
+				<p class="iwm-search-empty" data-iwm-search-empty hidden>
+					Nie widzę takiego tematu. Spróbuj wpisać: koszt, działka, oferty, zysk albo błędy.
+				</p>
+			</div>
 		</div>
 	</div>
 
-	<nav class="iwm-menu-panel" data-iwm-menu-panel hidden aria-label="Menu strony">
+	<nav class="iwm-menu-panel" id="iwm-menu-panel" data-iwm-menu-panel hidden aria-label="Menu strony">
 		<div class="iwm-panel-inner iwm-menu-links">
 			{
 				menuLinks.map((link) => (
@@ -93,24 +217,623 @@ const menuLinks = [
 <script is:inline>
 	const header = document.querySelector('[data-iwm-header]');
 	const searchToggle = header?.querySelector('[data-iwm-search-toggle]');
+	const searchClose = header?.querySelector('[data-iwm-search-close]');
 	const menuToggle = header?.querySelector('[data-iwm-menu-toggle]');
 	const searchPanel = header?.querySelector('[data-iwm-search-panel]');
 	const menuPanel = header?.querySelector('[data-iwm-menu-panel]');
+	const searchInput = header?.querySelector('[data-iwm-search-input]');
+	const searchItems = Array.from(header?.querySelectorAll('[data-iwm-search-item]') || []);
+	const searchChips = Array.from(header?.querySelectorAll('[data-iwm-search-chip]') || []);
+	const searchEmpty = header?.querySelector('[data-iwm-search-empty]');
+
+	const normalizeText = (value) =>
+		String(value || '')
+			.toLowerCase()
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '')
+			.trim();
+
+	const setButtonState = (button, isOpen) => {
+		button?.setAttribute('aria-expanded', String(isOpen));
+		button?.classList.toggle('is-active', isOpen);
+	};
+
+	const closeSearch = () => {
+		searchPanel?.setAttribute('hidden', '');
+		setButtonState(searchToggle, false);
+	};
+
+	const closeMenu = () => {
+		menuPanel?.setAttribute('hidden', '');
+		setButtonState(menuToggle, false);
+	};
+
+	const filterSearch = (rawValue) => {
+		const query = normalizeText(rawValue);
+		let visibleCount = 0;
+
+		searchItems.forEach((item) => {
+			const text = normalizeText(item.textContent);
+			const keywords = normalizeText(item.getAttribute('data-iwm-search-keywords'));
+			const isVisible = !query || text.includes(query) || keywords.includes(query);
+
+			item.toggleAttribute('hidden', !isVisible);
+
+			if (isVisible) {
+				visibleCount += 1;
+			}
+		});
+
+		searchEmpty?.toggleAttribute('hidden', visibleCount !== 0);
+	};
 
 	searchToggle?.addEventListener('click', () => {
-		const isHidden = searchPanel?.hasAttribute('hidden');
+		const shouldOpen = searchPanel?.hasAttribute('hidden');
 
-		searchPanel?.toggleAttribute('hidden', !isHidden);
-		menuPanel?.setAttribute('hidden', '');
+		if (shouldOpen) {
+			closeMenu();
+			searchPanel?.removeAttribute('hidden');
+			setButtonState(searchToggle, true);
+			window.setTimeout(() => searchInput?.focus(), 40);
+			filterSearch(searchInput?.value || '');
+			return;
+		}
 
-		const input = searchPanel?.querySelector('input');
-		if (isHidden) input?.focus();
+		closeSearch();
+	});
+
+	searchClose?.addEventListener('click', () => {
+		closeSearch();
 	});
 
 	menuToggle?.addEventListener('click', () => {
-		const isHidden = menuPanel?.hasAttribute('hidden');
+		const shouldOpen = menuPanel?.hasAttribute('hidden');
 
-		menuPanel?.toggleAttribute('hidden', !isHidden);
-		searchPanel?.setAttribute('hidden', '');
+		if (shouldOpen) {
+			closeSearch();
+			menuPanel?.removeAttribute('hidden');
+			setButtonState(menuToggle, true);
+			return;
+		}
+
+		closeMenu();
+	});
+
+	searchInput?.addEventListener('input', (event) => {
+		filterSearch(event.target.value);
+	});
+
+	searchInput?.addEventListener('keydown', (event) => {
+		if (event.key !== 'Enter') return;
+
+		const firstVisibleResult = searchItems.find((item) => !item.hasAttribute('hidden'));
+
+		if (firstVisibleResult) {
+			event.preventDefault();
+			window.location.href = firstVisibleResult.getAttribute('href');
+		}
+	});
+
+	searchChips.forEach((chip) => {
+		chip.addEventListener('click', () => {
+			const value = chip.getAttribute('data-iwm-search-chip') || '';
+
+			searchInput.value = value;
+			filterSearch(value);
+			searchInput.focus();
+		});
+	});
+
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape') {
+			closeSearch();
+			closeMenu();
+		}
+	});
+
+	document.addEventListener('click', (event) => {
+		if (!header?.contains(event.target)) {
+			closeSearch();
+			closeMenu();
+		}
 	});
 </script>
+
+<style>
+	.iwm-header {
+		position: sticky;
+		top: 0;
+		z-index: 80;
+		padding: 14px 0;
+		background: rgba(255, 255, 255, 0.86);
+		backdrop-filter: blur(22px);
+		border-bottom: 1px solid rgba(8, 16, 32, 0.07);
+	}
+
+	.iwm-header-inner,
+	.iwm-panel-inner {
+		width: min(100% - 32px, 1420px);
+		margin: 0 auto;
+	}
+
+	.iwm-header-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 18px;
+	}
+
+	.iwm-brand {
+		display: inline-flex;
+		align-items: center;
+		min-width: 0;
+		text-decoration: none;
+	}
+
+	.iwm-logo {
+		display: block;
+		height: auto;
+	}
+
+	.iwm-logo-desktop {
+		width: clamp(210px, 18vw, 340px);
+	}
+
+	.iwm-logo-mobile {
+		display: none;
+		width: 52px;
+	}
+
+	.iwm-header-actions {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 10px;
+		min-width: 0;
+	}
+
+	.iwm-icon-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 48px;
+		height: 48px;
+		padding: 0;
+		border-radius: 999px;
+		border: 1px solid rgba(8, 16, 32, 0.09);
+		background: rgba(255, 255, 255, 0.94);
+		box-shadow:
+			0 12px 28px rgba(8, 16, 32, 0.07),
+			inset 0 1px 0 rgba(255, 255, 255, 0.9);
+		color: #081020;
+		cursor: pointer;
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease,
+			border-color 0.2s ease;
+	}
+
+	.iwm-icon-button svg {
+		width: 21px;
+		height: 21px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 2.15;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.iwm-icon-button:hover,
+	.iwm-icon-button.is-active {
+		transform: translateY(-1px);
+		border-color: rgba(18, 104, 255, 0.36);
+		box-shadow:
+			0 16px 34px rgba(8, 16, 32, 0.09),
+			0 0 0 4px rgba(18, 104, 255, 0.08);
+	}
+
+	.iwm-analysis-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		min-height: 48px;
+		padding: 7px 20px 8px;
+		border-radius: 999px;
+		color: #051109;
+		text-decoration: none;
+		background: linear-gradient(90deg, #82ff55 0%, #54ef62 46%, #26d974 100%);
+		border: 1px solid rgba(86, 245, 93, 0.52);
+		box-shadow:
+			0 18px 42px rgba(86, 245, 93, 0.22),
+			inset 0 1px 0 rgba(255, 255, 255, 0.62);
+		letter-spacing: -0.03em;
+		transition:
+			transform 0.2s ease,
+			filter 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+
+	.iwm-analysis-button span {
+		font-size: 0.78rem;
+		font-weight: 820;
+		line-height: 1;
+	}
+
+	.iwm-analysis-button strong {
+		font-size: 0.94rem;
+		font-weight: 980;
+		line-height: 1.14;
+	}
+
+	.iwm-analysis-button:hover {
+		transform: translateY(-1px);
+		filter: saturate(1.06);
+		box-shadow:
+			0 22px 50px rgba(86, 245, 93, 0.27),
+			inset 0 1px 0 rgba(255, 255, 255, 0.7);
+	}
+
+	.iwm-search-panel,
+	.iwm-menu-panel {
+		padding-top: 12px;
+	}
+
+	.iwm-search-box {
+		position: relative;
+		display: grid;
+		gap: 18px;
+		padding: clamp(22px, 3.2vw, 38px);
+		border-radius: 34px;
+		background:
+			radial-gradient(circle at 88% 10%, rgba(18, 104, 255, 0.09), transparent 28%),
+			radial-gradient(circle at 10% 0%, rgba(86, 245, 93, 0.08), transparent 28%),
+			linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(247, 250, 252, 0.98));
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow:
+			0 24px 70px rgba(8, 16, 32, 0.12),
+			inset 0 1px 0 rgba(255, 255, 255, 0.94);
+	}
+
+	.iwm-search-close {
+		position: absolute;
+		top: 18px;
+		right: 18px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 42px;
+		height: 42px;
+		border: 0;
+		border-radius: 999px;
+		background: rgba(8, 16, 32, 0.06);
+		color: #081020;
+		font-size: 1.6rem;
+		font-weight: 500;
+		line-height: 1;
+		cursor: pointer;
+		transition:
+			background 0.2s ease,
+			color 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	.iwm-search-close:hover {
+		background: #1268ff;
+		color: #ffffff;
+		transform: translateY(-1px);
+	}
+
+	.iwm-search-copy {
+		max-width: 840px;
+		padding-right: 54px;
+	}
+
+	.iwm-search-copy p {
+		margin: 0 0 8px;
+		color: #667085;
+		font-size: 0.86rem;
+		font-weight: 900;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.iwm-search-copy h2 {
+		margin: 0;
+		color: #081020;
+		font-size: clamp(2.15rem, 4.4vw, 4.8rem);
+		font-weight: 980;
+		letter-spacing: -0.085em;
+		line-height: 0.92;
+	}
+
+	.iwm-search-copy h2 span {
+		display: inline-block;
+		background: linear-gradient(90deg, #1268ff 0%, #32b7ff 48%, #7ce8ff 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.iwm-search-field {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		min-height: 66px;
+		padding: 0 20px;
+		border-radius: 999px;
+		background: #ffffff;
+		border: 1px solid rgba(18, 104, 255, 0.22);
+		box-shadow:
+			0 16px 38px rgba(8, 16, 32, 0.07),
+			0 0 0 5px rgba(18, 104, 255, 0.055);
+	}
+
+	.iwm-search-field svg {
+		width: 23px;
+		height: 23px;
+		flex: 0 0 auto;
+		fill: none;
+		stroke: #1268ff;
+		stroke-width: 2.15;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.iwm-search-field input {
+		width: 100%;
+		border: 0;
+		outline: 0;
+		background: transparent;
+		color: #081020;
+		font: inherit;
+		font-size: 1.08rem;
+		font-weight: 780;
+		letter-spacing: -0.035em;
+	}
+
+	.iwm-search-field input::placeholder {
+		color: #98a2b3;
+	}
+
+	.iwm-quick-words {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.iwm-quick-words button {
+		min-height: 40px;
+		padding: 9px 15px;
+		border-radius: 999px;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		background: rgba(255, 255, 255, 0.92);
+		color: #344054;
+		font-size: 0.94rem;
+		font-weight: 840;
+		letter-spacing: -0.025em;
+		cursor: pointer;
+		box-shadow: 0 10px 22px rgba(8, 16, 32, 0.04);
+		transition:
+			transform 0.2s ease,
+			border-color 0.2s ease,
+			color 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+
+	.iwm-quick-words button:hover {
+		transform: translateY(-1px);
+		color: #1268ff;
+		border-color: rgba(18, 104, 255, 0.28);
+		box-shadow:
+			0 14px 30px rgba(8, 16, 32, 0.06),
+			0 0 0 4px rgba(18, 104, 255, 0.06);
+	}
+
+	.iwm-search-results {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 9px;
+	}
+
+	.iwm-search-results a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 38px;
+		padding: 8px 13px;
+		border-radius: 999px;
+		background: rgba(18, 104, 255, 0.07);
+		border: 1px solid rgba(18, 104, 255, 0.12);
+		color: #1268ff;
+		text-decoration: none;
+		font-size: 0.9rem;
+		font-weight: 850;
+		letter-spacing: -0.025em;
+		transition:
+			background 0.2s ease,
+			color 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	.iwm-search-results a:hover {
+		transform: translateY(-1px);
+		background: #1268ff;
+		color: #ffffff;
+	}
+
+	.iwm-search-empty {
+		margin: 0;
+		padding: 12px 14px;
+		border-radius: 16px;
+		background: rgba(255, 255, 255, 0.84);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		color: #667085;
+		font-size: 0.94rem;
+		font-weight: 700;
+		line-height: 1.5;
+	}
+
+	.iwm-menu-links {
+		display: grid;
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+		gap: 12px;
+		padding: clamp(16px, 2vw, 22px);
+		border-radius: 30px;
+		background:
+			radial-gradient(circle at 88% 12%, rgba(86, 245, 93, 0.12), transparent 26%),
+			radial-gradient(circle at 12% 18%, rgba(18, 104, 255, 0.08), transparent 28%),
+			linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(247, 250, 252, 0.96));
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow:
+			0 24px 70px rgba(8, 16, 32, 0.12),
+			inset 0 1px 0 rgba(255, 255, 255, 0.92);
+	}
+
+	.iwm-menu-links a {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		min-height: 74px;
+		padding: 16px 18px;
+		border-radius: 22px;
+		background: rgba(255, 255, 255, 0.88);
+		border: 1px solid rgba(8, 16, 32, 0.075);
+		box-shadow: 0 12px 28px rgba(8, 16, 32, 0.045);
+		color: #081020;
+		text-decoration: none;
+		font-size: 1rem;
+		font-weight: 900;
+		letter-spacing: -0.035em;
+	}
+
+	.iwm-menu-links span {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		flex: 0 0 auto;
+		border-radius: 999px;
+		background: linear-gradient(135deg, #82ff55, #2ee86c);
+		color: #061108;
+		font-weight: 980;
+	}
+
+	.iwm-menu-links a:hover {
+		transform: translateY(-1px);
+		border-color: rgba(86, 245, 93, 0.42);
+	}
+
+	@media (max-width: 1120px) {
+		.iwm-menu-links {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 820px) {
+		.iwm-header {
+			padding: 10px 0;
+		}
+
+		.iwm-header-inner,
+		.iwm-panel-inner {
+			width: min(100% - 24px, 1420px);
+		}
+
+		.iwm-logo-desktop {
+			display: none;
+		}
+
+		.iwm-logo-mobile {
+			display: block;
+		}
+
+		.iwm-header-actions {
+			gap: 8px;
+		}
+
+		.iwm-icon-button {
+			width: 46px;
+			height: 46px;
+		}
+
+		.iwm-analysis-button {
+			min-height: 46px;
+			max-width: 172px;
+			padding: 7px 13px 8px;
+		}
+
+		.iwm-analysis-button span {
+			font-size: 0.7rem;
+		}
+
+		.iwm-analysis-button strong {
+			font-size: 0.78rem;
+			text-align: center;
+		}
+
+		.iwm-search-box {
+			border-radius: 26px;
+		}
+
+		.iwm-search-copy h2 {
+			font-size: clamp(2rem, 10vw, 3.4rem);
+		}
+
+		.iwm-search-field {
+			min-height: 58px;
+			border-radius: 22px;
+		}
+
+		.iwm-menu-links {
+			grid-template-columns: 1fr;
+			border-radius: 24px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.iwm-analysis-button {
+			display: none;
+		}
+
+		.iwm-brand {
+			max-width: 64px;
+		}
+
+		.iwm-search-box {
+			padding: 20px;
+			border-radius: 24px;
+		}
+
+		.iwm-search-close {
+			top: 14px;
+			right: 14px;
+			width: 38px;
+			height: 38px;
+			font-size: 1.45rem;
+		}
+
+		.iwm-search-copy {
+			padding-right: 42px;
+		}
+
+		.iwm-search-copy p {
+			font-size: 0.74rem;
+		}
+
+		.iwm-search-copy h2 {
+			font-size: 2.25rem;
+		}
+
+		.iwm-search-field {
+			min-height: 54px;
+			padding-inline: 16px;
+		}
+
+		.iwm-search-field input {
+			font-size: 0.96rem;
+		}
+	}
+</style>

@@ -146,15 +146,6 @@ const faqItems = [
 	}
 ];
 
-const relatedLinks = [
-	['Koszt budowy myjni', '/ile-kosztuje-myjnia-bezdotykowa/'],
-	['Ile zarabia myjnia?', '/ile-zarabia-myjnia-bezdotykowa/'],
-	['Działka pod myjnię', '/dzialka-pod-myjnie-bezdotykowa/'],
-	['Porównanie ofert', '/jak-porownac-oferty-myjni-bezdotykowej/'],
-	['Budowa krok po kroku', '/budowa-myjni-bezdotykowej-krok-po-kroku/'],
-	['Błędy inwestora', '/najczestsze-bledy-przy-budowie-myjni/']
-];
-
 const itemListSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'ItemList',
@@ -194,19 +185,19 @@ const faqSchema = {
 					</p>
 
 					<h1 id="page-title">
-						Poradnik inwestora myjni bezdotykowej — koszty, działka, oferty i
-						<strong>bezpieczna decyzja.</strong>
+						Poradnik inwestora myjni bezdotykowej — od pomysłu do
+						<strong>bezpiecznej decyzji.</strong>
 					</h1>
 
 					<p class="hub-lead">
 						Zanim kupisz technologię, wydzierżawisz działkę albo podpiszesz umowę,
-						uporządkuj najważniejsze decyzje: koszt inwestycji, potencjał lokalizacji,
-						zakres ofert, technologię, finansowanie i realne ryzyka budowy.
+						sprawdź koszty, opłacalność, lokalizację, dokumentację, proces budowy
+						i najczęstsze błędy inwestorów.
 					</p>
 
 					<div class="hub-actions">
-						<a class="hub-button-green" href="/bezplatne-porownanie-ofert-myjni/">
-							Bezpłatna analiza i porównanie ofert
+						<a class="hub-button-green" href="/#kontakt">
+							Prześlij działkę lub ofertę
 							<span aria-hidden="true">→</span>
 						</a>
 						<a class="hub-button-light" href="#tematy">
@@ -225,23 +216,20 @@ const faqSchema = {
 					</div>
 				</div>
 
-				<aside class="hub-hero-panel hub-hero-graphic-panel" aria-label="Najważniejsza zasada przed porównaniem ofert myjni">
-					<picture>
-						<source
-							media="(max-width: 760px)"
-							srcset="/images/hero-poradnik-inwestora-pion.webp"
-						/>
-						<source
-							media="(max-width: 1180px)"
-							srcset="/images/hero-poradnik-inwestora-poziom.webp"
-						/>
-						<img
-							src="/images/hero-poradnik-inwestora-pion.webp"
-							alt="Nie zbieraj przypadkowych cen — najpierw uporządkuj założenia inwestycji w myjnię"
-							loading="eager"
-							decoding="async"
-						/>
-					</picture>
+				<aside class="hub-hero-panel" aria-label="Najważniejszy wniosek">
+					<div class="hub-panel-logo">inwestycjawmyjnie.pl</div>
+					<p>Najważniejsza zasada</p>
+					<h2>Nie zaczynaj inwestycji od samej ceny.</h2>
+					<span>
+						Najpierw sprawdź działkę, potencjał, formalności, budżet i technologię.
+						Cena ma sens dopiero wtedy, gdy znasz realny zakres inwestycji.
+					</span>
+					<div class="hub-mini-grid">
+						<b>działka</b>
+						<b>budżet</b>
+						<b>technologia</b>
+						<b>serwis</b>
+					</div>
 				</aside>
 			</div>
 		</section>
@@ -371,14 +359,13 @@ const faqSchema = {
 							Masz działkę, ofertę albo pomysł? <strong>Zacznij od uporządkowania danych.</strong>
 						</h2>
 						<p>
-							Wypełnij formularz, a pomożemy bezpłatnie uporządkować założenia inwestycji
-							i przygotować temat do pozyskania porównywalnych ofert od polskich dostawców
-							myjni. Dzięki temu łatwiej sprawdzisz, co realnie jest w cenie, czego brakuje
-							w zakresie i które rozwiązanie pasuje do Twojej działki oraz budżetu.
+							Prześlij miejscowość, link do mapy, numer działki, wstępną ofertę albo opis
+							pomysłu. Na początku nie chodzi o sprzedaż, tylko o ocenę, czy temat ma sens
+							formalnie, technicznie i ekonomicznie.
 						</p>
 					</div>
-					<a class="hub-button-green" href="/bezplatne-porownanie-ofert-myjni/">
-						Bezpłatna analiza i porównanie ofert
+					<a class="hub-button-green" href="/#kontakt">
+						Prześlij do analizy
 						<span aria-hidden="true">→</span>
 					</a>
 				</div>
@@ -407,32 +394,6 @@ const faqSchema = {
 							<p>{item.answer}</p>
 						</details>
 					))}
-				</div>
-			</div>
-		</section>
-
-		<section class="hub-section hub-related-section" aria-labelledby="related-title">
-			<div class="container">
-				<div class="hub-related-shell">
-					<div class="hub-related-head">
-						<p class="eyebrow">
-							<span></span>
-							Sprawdź też
-						</p>
-
-						<h2 id="related-title">
-							Pozostałe tematy <strong>poradnika</strong> inwestora
-						</h2>
-					</div>
-
-					<div class="hub-related-grid hub-related-grid-premium">
-						{relatedLinks.map((link) => (
-							<a class="hub-related-card hub-related-card-premium" href={link[1]}>
-								<span class="hub-related-card-label">{link[0]}</span>
-								<span class="hub-related-card-arrow" aria-hidden="true">→</span>
-							</a>
-						))}
-					</div>
 				</div>
 			</div>
 		</section>
@@ -1065,320 +1026,4 @@ const faqSchema = {
 			width: 100%;
 		}
 	}
-
-	/* FINAL STANDARD — poradnik: CTA, ciemne sekcje, zielone strzałki i Sprawdź też */
-	.hub-hero-panel,
-	.process-panel,
-	.analysis-cta {
-		color: #ffffff !important;
-	}
-
-	.hub-hero-panel h2,
-	.process-head h2,
-	.analysis-cta h2,
-	.process-panel h2 {
-		color: #ffffff !important;
-	}
-
-	.hub-hero-panel > span,
-	.process-head p,
-	.analysis-cta p,
-	.process-grid p {
-		color: rgba(255, 255, 255, 0.74) !important;
-	}
-
-	.hub-hero-panel p,
-	.process-panel .eyebrow,
-	.process-panel .eyebrow.light,
-	.analysis-cta .eyebrow,
-	.analysis-cta .eyebrow.light {
-		color: rgba(255, 255, 255, 0.92) !important;
-	}
-
-	.process-panel .eyebrow span,
-	.analysis-cta .eyebrow span {
-		background: #72f069 !important;
-		box-shadow: 0 0 0 6px rgba(114, 240, 105, 0.12) !important;
-	}
-
-	.process-head h2 strong,
-	.analysis-cta h2 strong {
-		background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%) !important;
-		-webkit-background-clip: text !important;
-		background-clip: text !important;
-		color: transparent !important;
-	}
-
-	.hub-hero-panel {
-		min-height: 580px !important;
-		background:
-			radial-gradient(circle at 10% 12%, rgba(18, 104, 255, 0.24), transparent 34%),
-			radial-gradient(circle at 88% 10%, rgba(114, 240, 105, 0.22), transparent 32%),
-			linear-gradient(145deg, #05070d, #101723 58%, #05070d) !important;
-	}
-
-	.hub-mini-grid b {
-		background: rgba(255, 255, 255, 0.1) !important;
-		border: 1px solid rgba(255, 255, 255, 0.14) !important;
-		color: rgba(255, 255, 255, 0.88) !important;
-	}
-
-	.guide-topic-card b,
-	.path-card a span {
-		display: grid !important;
-		place-items: center !important;
-		width: 48px !important;
-		height: 48px !important;
-		min-width: 48px !important;
-		min-height: 48px !important;
-		border-radius: 999px !important;
-		background: #5df04e !important;
-		color: #081020 !important;
-		font-size: 1.2rem !important;
-		font-weight: 900 !important;
-		box-shadow:
-			0 0 0 1px rgba(255, 255, 255, 0.9),
-			0 0 22px rgba(93, 240, 78, 0.38) !important;
-	}
-
-	.path-card a {
-		min-height: 56px !important;
-		background: rgba(255, 255, 255, 0.9) !important;
-		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.04) !important;
-	}
-
-	.process-grid article {
-		background:
-			radial-gradient(circle at 90% 8%, rgba(114, 240, 105, 0.13), transparent 34%),
-			rgba(255, 255, 255, 0.1) !important;
-		border: 1px solid rgba(255, 255, 255, 0.15) !important;
-		box-shadow:
-			0 18px 46px rgba(0, 0, 0, 0.16),
-			inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
-	}
-
-	.process-grid span {
-		background: #5df04e !important;
-		color: #081020 !important;
-		box-shadow: 0 0 22px rgba(93, 240, 78, 0.3) !important;
-	}
-
-	.analysis-cta .hub-button-green {
-		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%) !important;
-		color: #06110a !important;
-	}
-
-	.hub-related-section {
-		padding-top: clamp(48px, 6vw, 80px) !important;
-	}
-
-	.hub-related-shell {
-		padding: clamp(28px, 4vw, 40px) !important;
-		border-radius: 40px !important;
-		background: linear-gradient(90deg, rgba(232, 238, 247, 0.96), rgba(241, 247, 240, 0.96)) !important;
-		border: 1px solid rgba(8, 16, 32, 0.06) !important;
-		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.06) !important;
-	}
-
-	.hub-related-head {
-		display: grid !important;
-		grid-template-columns: 220px minmax(0, 1fr) !important;
-		align-items: end !important;
-		gap: 20px 28px !important;
-		margin-bottom: 28px !important;
-	}
-
-	.hub-related-head .eyebrow {
-		margin: 0 !important;
-	}
-
-	.hub-related-section h2 {
-		margin: 0 !important;
-		max-width: none !important;
-		text-align: right !important;
-		color: var(--ink) !important;
-		font-size: clamp(2rem, 4.2vw, 4.5rem) !important;
-		line-height: 0.98 !important;
-		letter-spacing: -0.07em !important;
-		font-weight: 950 !important;
-	}
-
-	.hub-related-section h2 strong {
-		color: #2d73ff !important;
-		font-weight: 950 !important;
-	}
-
-	.hub-related-grid-premium {
-		display: grid !important;
-		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-		gap: 20px !important;
-		margin-top: 0 !important;
-	}
-
-	.hub-related-card-premium {
-		display: flex !important;
-		align-items: center !important;
-		justify-content: space-between !important;
-		gap: 20px !important;
-		min-height: 124px !important;
-		padding: 26px 28px !important;
-		border-radius: 28px !important;
-		background: rgba(255, 255, 255, 0.92) !important;
-		border: 1px solid rgba(8, 16, 32, 0.06) !important;
-		box-shadow: 0 18px 46px rgba(8, 16, 32, 0.05) !important;
-		color: var(--ink) !important;
-		text-decoration: none !important;
-	}
-
-	.hub-related-card-label {
-		display: block !important;
-		width: auto !important;
-		height: auto !important;
-		min-width: 0 !important;
-		min-height: 0 !important;
-		padding: 0 !important;
-		border-radius: 0 !important;
-		background: transparent !important;
-		color: #070b14 !important;
-		box-shadow: none !important;
-		flex: 1 1 auto !important;
-		font-size: clamp(1.28rem, 1.8vw, 1.8rem) !important;
-		font-weight: 950 !important;
-		letter-spacing: -0.05em !important;
-		line-height: 1.08 !important;
-	}
-
-	.hub-related-card-arrow {
-		display: grid !important;
-		place-items: center !important;
-		width: 58px !important;
-		height: 58px !important;
-		min-width: 58px !important;
-		min-height: 58px !important;
-		padding: 0 !important;
-		border-radius: 999px !important;
-		background: #5df04e !important;
-		color: #081020 !important;
-		font-size: 1.45rem !important;
-		font-weight: 900 !important;
-		flex: 0 0 auto !important;
-		box-shadow:
-			0 0 0 1px rgba(255, 255, 255, 0.9),
-			0 0 22px rgba(93, 240, 78, 0.38) !important;
-	}
-
-	@media (max-width: 1180px) {
-		.hub-related-head {
-			grid-template-columns: 1fr !important;
-			gap: 14px !important;
-			align-items: start !important;
-		}
-
-		.hub-related-section h2 {
-			text-align: left !important;
-			font-size: clamp(2.15rem, 7vw, 4.2rem) !important;
-			line-height: 0.98 !important;
-		}
-
-		.hub-related-grid-premium {
-			grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-		}
-	}
-
-	@media (max-width: 760px) {
-		.hub-related-shell {
-			padding: 22px !important;
-			border-radius: 30px !important;
-		}
-
-		.hub-related-section h2 {
-			font-size: clamp(2rem, 10vw, 3.2rem) !important;
-			line-height: 0.98 !important;
-			letter-spacing: -0.07em !important;
-		}
-
-		.hub-related-grid-premium {
-			grid-template-columns: 1fr !important;
-			gap: 12px !important;
-		}
-
-		.hub-related-card-premium {
-			min-height: 92px !important;
-			padding: 20px !important;
-			border-radius: 22px !important;
-		}
-
-		.hub-related-card-label {
-			font-size: 1.12rem !important;
-			line-height: 1.12 !important;
-		}
-
-		.hub-related-card-arrow {
-			width: 48px !important;
-			height: 48px !important;
-			min-width: 48px !important;
-			min-height: 48px !important;
-			font-size: 1.1rem !important;
-		}
-	}
-
-
-	/* FINAL STANDARD — poradnik: hero grafika responsywna */
-	.hub-hero-graphic-panel {
-		display: flex !important;
-		align-items: center !important;
-		justify-content: center !important;
-		min-height: 620px !important;
-		padding: 0 !important;
-		background: transparent !important;
-		border: 0 !important;
-		box-shadow: none !important;
-		overflow: visible !important;
-	}
-
-	.hub-hero-graphic-panel::before {
-		display: none !important;
-	}
-
-	.hub-hero-graphic-panel picture {
-		display: flex !important;
-		width: 100% !important;
-		height: 100% !important;
-		align-items: center !important;
-		justify-content: center !important;
-	}
-
-	.hub-hero-graphic-panel img {
-		display: block !important;
-		width: 100% !important;
-		max-width: 660px !important;
-		height: auto !important;
-		object-fit: contain !important;
-		border-radius: 38px !important;
-		box-shadow: 0 34px 96px rgba(8, 16, 32, 0.22) !important;
-	}
-
-	@media (max-width: 1180px) {
-		.hub-hero-graphic-panel {
-			min-height: auto !important;
-			margin-top: 8px !important;
-		}
-
-		.hub-hero-graphic-panel img {
-			max-width: 100% !important;
-			border-radius: 34px !important;
-		}
-	}
-
-	@media (max-width: 760px) {
-		.hub-hero-graphic-panel {
-			margin-top: 0 !important;
-		}
-
-		.hub-hero-graphic-panel img {
-			max-width: 100% !important;
-			border-radius: 30px !important;
-		}
-	}
-
 </style>
