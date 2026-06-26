@@ -39,7 +39,16 @@ const guideLinks = [
 		aria-expanded="false"
 		data-floating-guide-toggle
 	>
-		<span class="floating-guide-icon" aria-hidden="true">?</span>
+		<span class="floating-guide-icon" aria-hidden="true">
+	<img
+		src="/images/logo-inwestycjawmyjnie-symbol.webp"
+		alt=""
+		width="512"
+		height="512"
+		loading="lazy"
+		decoding="async"
+	/>
+</span>
 		<span class="floating-guide-pulse" aria-hidden="true"></span>
 	</button>
 
@@ -169,19 +178,32 @@ const guideLinks = [
 	}
 
 	.floating-guide-icon {
-		display: grid;
-		place-items: center;
-		width: 31px;
-		height: 31px;
-		border-radius: 999px;
-		background: linear-gradient(135deg, #1268ff, #4fa3ff);
-		color: #ffffff;
-		font-size: 0.96rem;
-		font-weight: 950;
-		box-shadow:
-			0 10px 24px rgba(18, 104, 255, 0.24),
-			0 0 20px rgba(79, 163, 255, 0.26);
-	}
+	display: grid;
+	place-items: center;
+	width: 43px;
+	height: 43px;
+	border-radius: 999px;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at 72% 18%, rgba(114, 240, 105, 0.22), transparent 38%),
+		radial-gradient(circle at 18% 24%, rgba(18, 104, 255, 0.18), transparent 42%),
+		rgba(255, 255, 255, 0.88);
+	border: 1px solid rgba(18, 104, 255, 0.12);
+	box-shadow:
+		0 10px 26px rgba(18, 104, 255, 0.18),
+		0 0 22px rgba(114, 240, 105, 0.2),
+		inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+.floating-guide-icon img {
+	display: block;
+	width: 82%;
+	height: 82%;
+	object-fit: contain;
+	filter:
+		drop-shadow(0 5px 10px rgba(18, 104, 255, 0.16))
+		drop-shadow(0 0 10px rgba(114, 240, 105, 0.12));
+}
 
 	.floating-guide-pulse {
 		position: absolute;
@@ -393,10 +415,9 @@ const guideLinks = [
 		}
 
 		.floating-guide-icon {
-			width: 30px;
-			height: 30px;
-			font-size: 0.92rem;
-		}
+	width: 41px;
+	height: 41px;
+}
 
 		.floating-guide-panel {
 			position: fixed;
