@@ -138,12 +138,12 @@ const guideLinks = [
 
 <style>
 	.floating-guide {
-		position: fixed;
-		right: 20px;
-		bottom: 20px;
-		z-index: 120;
-		font-family: inherit;
-	}
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 999;
+	font-family: inherit;
+}
 
 	.floating-guide-button {
 		position: relative;
@@ -219,11 +219,11 @@ const guideLinks = [
 	}
 
 	.floating-guide-panel {
-		position: absolute;
-		right: 0;
-		bottom: 70px;
-		width: min(345px, calc(100vw - 32px));
-		max-height: min(560px, calc(100vh - 172px));
+	position: absolute;
+	right: 0;
+	bottom: 70px;
+	width: min(330px, calc(100vw - 32px));
+	max-height: min(470px, calc(100vh - 260px));
 		overflow-y: auto;
 		padding: 14px;
 		border-radius: 26px;
@@ -402,7 +402,15 @@ const guideLinks = [
 		text-align: center;
 		text-decoration: none;
 	}
+@media (max-width: 1180px) {
+	.floating-guide-panel {
+		max-height: min(430px, calc(100vh - 245px));
+	}
 
+	.floating-guide-lead {
+		display: none;
+	}
+}
 	@media (max-width: 760px) {
 		.floating-guide {
 			right: 14px;
@@ -419,17 +427,17 @@ const guideLinks = [
 	height: 41px;
 }
 
-		.floating-guide-panel {
-			position: fixed;
-			right: 12px;
-			bottom: 78px;
-			left: 12px;
-			width: auto;
-			max-height: calc(100vh - 188px);
-			padding: 13px;
-			border-radius: 24px;
-			transform-origin: center bottom;
-		}
+	.floating-guide-panel {
+	position: fixed;
+	right: 12px;
+	bottom: 78px;
+	left: 12px;
+	width: auto;
+	max-height: calc(100vh - 235px);
+	padding: 13px;
+	border-radius: 24px;
+	transform-origin: center bottom;
+}
 
 		.floating-guide-head h2 {
 			font-size: 1.08rem;
@@ -465,12 +473,12 @@ const guideLinks = [
 	}
 
 	@media (max-width: 390px) {
-		.floating-guide-panel {
-			max-height: calc(100vh - 170px);
-		}
-
-		.floating-guide-links a {
-			font-size: 0.76rem;
-		}
+	.floating-guide-panel {
+		max-height: calc(100vh - 220px);
 	}
+
+	.floating-guide-links a {
+		font-size: 0.76rem;
+	}
+}
 </style>
