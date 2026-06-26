@@ -51,6 +51,11 @@ const pages = [
 		priority: '0.9',
 		changefreq: 'weekly'
 	},
+    {
+	path: '/mapa-strony/',
+	priority: '0.4',
+	changefreq: 'monthly'
+},
 	{
 		path: '/polityka-prywatnosci/',
 		priority: '0.3',
