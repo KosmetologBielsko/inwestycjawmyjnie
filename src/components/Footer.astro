@@ -45,9 +45,14 @@ const documentLinks = [
 		href: '/polityka-prywatnosci/'
 	},
 	{
-		label: 'Polityka cookies',
-		href: '/polityka-cookies/'
-	},
+	label: 'Polityka cookies',
+	href: '/polityka-cookies/'
+},
+{
+	label: 'Ustawienia cookies',
+	href: '#ustawienia-cookies',
+	cookieSettings: true
+},
 	{
 		label: 'Zasady korzystania',
 		href: '/zasady-korzystania/'
@@ -122,10 +127,15 @@ const documentLinks = [
 
 				<ul>
 					{documentLinks.map((link) => (
-						<li>
-							<a href={link.href}>{link.label}</a>
-						</li>
-					))}
+	<li>
+		<a
+			href={link.href}
+			data-open-cookie-settings={link.cookieSettings ? true : undefined}
+		>
+			{link.label}
+		</a>
+	</li>
+))}
 				</ul>
 			</nav>
 
