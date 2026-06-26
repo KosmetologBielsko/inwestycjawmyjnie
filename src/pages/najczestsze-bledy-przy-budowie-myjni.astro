@@ -235,9 +235,55 @@ const faqSchema = {
 		}
 	}))
 };
+
+const breadcrumbs = [
+	{
+		name: 'Strona główna',
+		path: '/'
+	},
+	{
+		name: 'Poradnik inwestora',
+		path: '/poradnik/'
+	},
+	{
+		name: 'Błędy przy budowie myjni',
+		path: page.canonicalPath
+	}
+];
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: page.title,
+	description: page.description,
+	url: `https://inwestycjawmyjnie.pl${page.canonicalPath}`,
+	inLanguage: 'pl-PL',
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': `https://inwestycjawmyjnie.pl${page.canonicalPath}`
+	},
+	author: {
+		'@type': 'Organization',
+		name: 'inwestycjawmyjnie.pl',
+		url: 'https://inwestycjawmyjnie.pl'
+	},
+	publisher: {
+		'@type': 'Organization',
+		name: 'inwestycjawmyjnie.pl',
+		url: 'https://inwestycjawmyjnie.pl'
+	}
+};
+
 ---
 
-<Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
+<Layout
+	title={page.title}
+	description={page.description}
+	canonicalPath={page.canonicalPath}
+	ogType="article"
+	breadcrumbs={breadcrumbs}
+	structuredData={[faqSchema, articleSchema]}
+>
 	<Header />
 
 	<main class="mistake-page">
@@ -261,8 +307,8 @@ const faqSchema = {
 					</p>
 
 					<div class="mistake-actions">
-						<a class="mistake-button-green" href="/#kontakt">
-							Prześlij lokalizację do analizy
+						<a class="mistake-button-green" href="/bezplatne-porownanie-ofert-myjni/">
+							Bezpłatna analiza i porównanie ofert
 							<span aria-hidden="true">→</span>
 						</a>
 						<a class="mistake-button-light" href="#lista-bledow">
@@ -276,20 +322,17 @@ const faqSchema = {
 					</div>
 				</div>
 
-				<aside class="mistake-hero-panel" aria-label="Najważniejszy wniosek">
-					<div class="mistake-panel-logo">inwestycjawmyjnie.pl</div>
-					<p>Najważniejsza zasada</p>
-					<h2>Decyzja bez analizy jest najdroższym wariantem.</h2>
-					<span>
-						Myjnia jest inwestycją długofalową. Błąd na etapie działki, technologii,
-						umowy albo serwisu może wracać przez wiele lat w kosztach, przestojach i nerwach.
-					</span>
-					<div class="mistake-mini-grid">
-						<b>formalnie</b>
-						<b>technicznie</b>
-						<b>finansowo</b>
-						<b>serwisowo</b>
-					</div>
+				<aside class="mistake-hero-panel mistake-hero-graphic-panel" aria-label="Grafika hero: Błędy przy budowie myjni">
+					<picture>
+						<source media="(max-width: 760px)" srcset="/images/ryzyko-bledy-inwestora.webp" />
+						<source media="(max-width: 1180px)" srcset="/images/ryzyko-bledy-inwestora.webp" />
+						<img
+							src="/images/ryzyko-bledy-inwestora.webp"
+							alt="Najczęstsze błędy przy budowie myjni bezdotykowej: działka, cena, umowa i serwis."
+							loading="eager"
+							decoding="async"
+						/>
+					</picture>
 				</aside>
 			</div>
 		</section>
@@ -328,6 +371,22 @@ const faqSchema = {
 					<h2 id="land-title">
 						Działka bez analizy może stać się <strong>problemem, a nie aktywem</strong>
 					</h2>
+
+					<div class="mistake-side-note" aria-label="Ważne przed decyzją">
+						<p>Przed decyzją</p>
+						<h3>Najdroższe błędy zwykle powstają przed budową.</h3>
+
+						<div class="mistake-side-note-list">
+						<span><b>01</b> działka bez analizy</span>
+						<span><b>02</b> porównywanie wyłącznie ceny</span>
+						<span><b>03</b> brak rezerwy, PZT i kontroli umowy</span>
+						</div>
+
+						<a href="/bezplatne-porownanie-ofert-myjni/">
+							Bezpłatna analiza i porównanie ofert
+							<span aria-hidden="true">→</span>
+						</a>
+					</div>
 				</div>
 
 				<div class="mistake-article-copy mistake-article-card">
@@ -566,8 +625,8 @@ const faqSchema = {
 							o ocenę ryzyka: formalnego, technicznego, ekonomicznego, umownego i serwisowego.
 						</p>
 					</div>
-					<a class="mistake-button-green" href="/#kontakt">
-						Prześlij temat do analizy
+					<a class="mistake-button-green" href="/bezplatne-porownanie-ofert-myjni/">
+						Bezpłatna analiza i porównanie ofert
 						<span aria-hidden="true">→</span>
 					</a>
 				</div>
@@ -600,23 +659,35 @@ const faqSchema = {
 			</div>
 		</section>
 
+
 		<section class="mistake-section related-section" aria-labelledby="related-title">
 			<div class="container">
-				<p class="eyebrow"><span></span>Dalej w poradniku</p>
-				<h2 id="related-title">
-					Powiązane tematy <strong>dla inwestora</strong>
-				</h2>
-				<div class="related-grid">
-					{relatedLinks.map((link) => (
-						<a class="related-card" href={link[1]}>{link[0]} <span>→</span></a>
-					))}
+				<div class="related-shell">
+					<div class="related-head">
+						<p class="eyebrow">
+							<span></span>
+							Sprawdź też
+						</p>
+
+						<h2 id="related-title">
+							Pozostałe tematy <strong>poradnika</strong> inwestora
+						</h2>
+					</div>
+
+					<div class="related-grid related-grid-premium">
+						{relatedLinks.map((link) => (
+							<a class="related-card related-card-premium" href={link[1]}>
+								<span class="related-card-label">{link[0]}</span>
+								<span class="related-card-arrow" aria-hidden="true">→</span>
+							</a>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>
 	</main>
 
 	<Footer />
-	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Layout>
 
 <style>
@@ -1537,6 +1608,283 @@ const faqSchema = {
 			width: 100%;
 		}
 	}
+
+	/* FINAL ARTICLE STANDARD — hero graphic, side-note, related premium */
+	.mistake-hero-graphic-panel {
+		min-height: auto !important;
+		padding: 0 !important;
+		background: #05070d !important;
+		border-radius: 48px !important;
+		aspect-ratio: 4 / 5 !important;
+	}
+
+	.mistake-hero-graphic-panel::before {
+		display: none !important;
+	}
+
+	.mistake-hero-graphic-panel picture,
+	.mistake-hero-graphic-panel img {
+		display: block !important;
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	.mistake-hero-graphic-panel img {
+		object-fit: cover !important;
+		object-position: center center !important;
+	}
+
+	.mistake-side-note {
+		display: grid;
+		gap: 16px;
+		margin-top: clamp(28px, 3vw, 42px);
+		padding: 24px;
+		border-radius: 30px;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		background:
+			radial-gradient(circle at 0% 0%, rgba(18, 104, 255, 0.08), transparent 34%),
+			radial-gradient(circle at 100% 8%, rgba(114, 240, 105, 0.14), transparent 34%),
+			rgba(255, 255, 255, 0.88);
+		box-shadow: 0 18px 54px rgba(8, 16, 32, 0.065);
+		backdrop-filter: blur(16px);
+	}
+
+	.mistake-side-note p {
+		margin: 0;
+		color: #1268ff;
+		font-size: 0.75rem;
+		font-weight: 950;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+	}
+
+	.mistake-side-note h3 {
+		margin: 0;
+		color: #070b14;
+		font-size: clamp(1.42rem, 2vw, 2.05rem);
+		font-weight: 950;
+		letter-spacing: -0.06em;
+		line-height: 1.02;
+	}
+
+	.mistake-side-note-list {
+		display: grid;
+		gap: 10px;
+	}
+
+	.mistake-side-note-list span {
+		display: grid;
+		grid-template-columns: 42px minmax(0, 1fr);
+		gap: 10px;
+		align-items: center;
+		min-height: 52px;
+		padding: 10px;
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.78);
+		border: 1px solid rgba(8, 16, 32, 0.06);
+		color: #253149;
+		font-size: 0.92rem;
+		font-weight: 760;
+		line-height: 1.35;
+		letter-spacing: -0.025em;
+	}
+
+	.mistake-side-note-list b {
+		display: grid;
+		place-items: center;
+		width: 36px;
+		height: 36px;
+		border-radius: 999px;
+		background: linear-gradient(135deg, #7cff4a 0%, #52f05d 46%, #21df73 100%);
+		color: #06110a;
+		font-size: 0.76rem;
+		font-weight: 950;
+		box-shadow: 0 12px 28px rgba(82, 240, 93, 0.28);
+	}
+
+	.mistake-side-note a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		min-height: 50px;
+		padding: 0 18px;
+		border-radius: 999px;
+		color: #06110a;
+		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
+		font-size: 0.92rem;
+		font-weight: 950;
+		letter-spacing: -0.03em;
+		text-decoration: none;
+		box-shadow: 0 16px 38px rgba(76, 244, 89, 0.18);
+	}
+
+	.related-section {
+		padding-top: clamp(48px, 6vw, 80px) !important;
+	}
+
+	.related-shell {
+		padding: clamp(28px, 4vw, 40px) !important;
+		border-radius: 40px !important;
+		background: linear-gradient(90deg, rgba(232, 238, 247, 0.96), rgba(241, 247, 240, 0.96)) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		box-shadow: 0 26px 72px rgba(8, 16, 32, 0.06) !important;
+	}
+
+	.related-head {
+		display: grid !important;
+		grid-template-columns: 220px minmax(0, 1fr) !important;
+		align-items: end !important;
+		gap: 20px 28px !important;
+		margin-bottom: 28px !important;
+	}
+
+	.related-head .eyebrow {
+		margin: 0 !important;
+	}
+
+	.related-section h2 {
+		margin: 0 !important;
+		max-width: none !important;
+		text-align: right !important;
+		font-size: clamp(2rem, 4.2vw, 4.5rem) !important;
+		line-height: 0.98 !important;
+		letter-spacing: -0.07em !important;
+	}
+
+	.related-section h2 strong {
+		color: #2d73ff !important;
+		font-weight: 950 !important;
+	}
+
+	.related-grid-premium {
+		display: grid !important;
+		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+		gap: 20px !important;
+		margin-top: 0 !important;
+	}
+
+	.related-card-premium {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+		gap: 20px !important;
+		min-height: 124px !important;
+		padding: 26px 28px !important;
+		border-radius: 28px !important;
+		background: rgba(255, 255, 255, 0.92) !important;
+		border: 1px solid rgba(8, 16, 32, 0.06) !important;
+		box-shadow: 0 18px 46px rgba(8, 16, 32, 0.05) !important;
+		color: var(--ink) !important;
+		text-decoration: none !important;
+	}
+
+	.related-card-premium .related-card-label {
+		display: block !important;
+		width: auto !important;
+		height: auto !important;
+		min-width: 0 !important;
+		min-height: 0 !important;
+		padding: 0 !important;
+		border-radius: 0 !important;
+		background: transparent !important;
+		color: #070b14 !important;
+		box-shadow: none !important;
+		flex: 1 1 auto !important;
+		font-size: clamp(1.28rem, 1.8vw, 1.8rem) !important;
+		font-weight: 950 !important;
+		letter-spacing: -0.05em !important;
+		line-height: 1.08 !important;
+	}
+
+	.related-card-premium .related-card-arrow {
+		display: grid !important;
+		place-items: center !important;
+		width: 58px !important;
+		height: 58px !important;
+		min-width: 58px !important;
+		min-height: 58px !important;
+		padding: 0 !important;
+		border-radius: 999px !important;
+		background: #5df04e !important;
+		color: #081020 !important;
+		font-size: 1.45rem !important;
+		font-weight: 900 !important;
+		flex: 0 0 auto !important;
+		box-shadow:
+			0 0 0 1px rgba(255, 255, 255, 0.9),
+			0 0 22px rgba(93, 240, 78, 0.38) !important;
+	}
+
+	@media (max-width: 1180px) {
+		.mistake-hero-graphic-panel {
+			aspect-ratio: 16 / 9 !important;
+			max-height: 520px !important;
+		}
+
+		.mistake-side-note {
+			display: none !important;
+		}
+
+		.related-head {
+			grid-template-columns: 1fr !important;
+			gap: 14px !important;
+			align-items: start !important;
+		}
+
+		.related-section h2 {
+			text-align: left !important;
+			font-size: clamp(2.15rem, 7vw, 4.2rem) !important;
+			line-height: 0.98 !important;
+		}
+
+		.related-grid-premium {
+			grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.mistake-hero-graphic-panel {
+			aspect-ratio: 4 / 5 !important;
+			border-radius: 34px !important;
+		}
+
+		.related-shell {
+			padding: 22px !important;
+			border-radius: 30px !important;
+		}
+
+		.related-section h2 {
+			font-size: clamp(2rem, 10vw, 3.2rem) !important;
+			line-height: 0.98 !important;
+			letter-spacing: -0.07em !important;
+		}
+
+		.related-grid-premium {
+			grid-template-columns: 1fr !important;
+			gap: 12px !important;
+		}
+
+		.related-card-premium {
+			min-height: 92px !important;
+			padding: 20px !important;
+			border-radius: 22px !important;
+		}
+
+		.related-card-premium .related-card-label {
+			font-size: 1.12rem !important;
+			line-height: 1.12 !important;
+		}
+
+		.related-card-premium .related-card-arrow {
+			width: 48px !important;
+			height: 48px !important;
+			min-width: 48px !important;
+			min-height: 48px !important;
+			font-size: 1.1rem !important;
+		}
+	}
+
 </style>
 
 <script is:inline>
