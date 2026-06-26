@@ -8123,3 +8123,38 @@ html {
 		font-size: 0.92rem;
 	}
 }
+/* FINAL FIX — jasny mały nagłówek na ciemnych kafelkach i panelach */
+.eyebrow.light,
+.dark-section .eyebrow,
+.analysis-cta .eyebrow,
+.finance-panel .eyebrow,
+.pzt-panel .eyebrow,
+.budget-panel .eyebrow,
+.site-panel .eyebrow,
+.station-panel .eyebrow,
+.service-panel .eyebrow,
+.cost-carousel .eyebrow,
+.build-carousel .eyebrow,
+.steps-carousel .eyebrow,
+.mistake-carousel .eyebrow {
+	color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.eyebrow.light span,
+.dark-section .eyebrow span,
+.analysis-cta .eyebrow span,
+.finance-panel .eyebrow span,
+.pzt-panel .eyebrow span,
+.budget-panel .eyebrow span,
+.site-panel .eyebrow span,
+.station-panel .eyebrow span,
+.service-panel .eyebrow span,
+.cost-carousel .eyebrow span,
+.build-carousel .eyebrow span,
+.steps-carousel .eyebrow span,
+.mistake-carousel .eyebrow span {
+	background: linear-gradient(135deg, #82ff55 0%, #35e66d 100%) !important;
+	box-shadow:
+		0 0 0 7px rgba(114, 240, 105, 0.14),
+		0 0 26px rgba(114, 240, 105, 0.34) !important;
+}
