@@ -1,0 +1,514 @@
+<div class="iwm-cookie-consent" data-cookie-consent hidden>
+	<div class="iwm-cookie-card" data-cookie-card>
+		<div class="iwm-cookie-main" data-cookie-main>
+			<div class="iwm-cookie-copy">
+				<p>Cookies i zgody</p>
+				<h2>Dbamy o prywatność i mierzenie skuteczności strony</h2>
+				<span>
+					Używamy cookies niezbędnych do działania strony. Cookies analityczne i marketingowe
+					uruchomimy dopiero po Twojej zgodzie. Możesz zaakceptować wszystkie, odrzucić
+					opcjonalne albo wybrać ustawienia.
+				</span>
+			</div>
+
+			<div class="iwm-cookie-actions">
+				<button type="button" class="iwm-cookie-primary" data-cookie-accept-all>
+					Akceptuję wszystkie
+				</button>
+
+				<button type="button" class="iwm-cookie-secondary" data-cookie-reject-optional>
+					Odrzuć opcjonalne
+				</button>
+
+				<button type="button" class="iwm-cookie-link" data-cookie-settings>
+					Ustawienia
+				</button>
+			</div>
+		</div>
+
+		<div class="iwm-cookie-settings" data-cookie-settings-panel hidden>
+			<div class="iwm-cookie-copy">
+				<p>Ustawienia cookies</p>
+				<h2>Wybierz zgody</h2>
+				<span>
+					Niezbędne cookies są wymagane do działania strony. Analityczne pomagają mierzyć ruch,
+					a marketingowe pomagają mierzyć reklamy i prowadzić działania remarketingowe.
+				</span>
+			</div>
+
+			<div class="iwm-cookie-options">
+				<label class="iwm-cookie-option is-disabled">
+					<input type="checkbox" checked disabled />
+					<span>
+						<strong>Niezbędne</strong>
+						<small>Wymagane do działania strony, formularza i podstawowych funkcji.</small>
+					</span>
+				</label>
+
+				<label class="iwm-cookie-option">
+					<input type="checkbox" data-consent-analytics />
+					<span>
+						<strong>Analityczne</strong>
+						<small>Pomagają mierzyć ruch, źródła wejść i skuteczność podstron.</small>
+					</span>
+				</label>
+
+				<label class="iwm-cookie-option">
+					<input type="checkbox" data-consent-marketing />
+					<span>
+						<strong>Marketingowe</strong>
+						<small>Pomagają mierzyć reklamy, konwersje i działania remarketingowe.</small>
+					</span>
+				</label>
+			</div>
+
+			<div class="iwm-cookie-actions iwm-cookie-actions-settings">
+				<button type="button" class="iwm-cookie-primary" data-cookie-save>
+					Zapisz wybór
+				</button>
+
+				<button type="button" class="iwm-cookie-secondary" data-cookie-back>
+					Wróć
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<button type="button" class="iwm-cookie-mini" data-cookie-mini hidden>
+	Cookies
+</button>
+
+<script is:inline>
+	(() => {
+		const STORAGE_KEY = 'iwmCookieConsentV1';
+
+		const root = document.querySelector('[data-cookie-consent]');
+		const mini = document.querySelector('[data-cookie-mini]');
+		const mainPanel = document.querySelector('[data-cookie-main]');
+		const settingsPanel = document.querySelector('[data-cookie-settings-panel]');
+
+		const acceptAllButton = document.querySelector('[data-cookie-accept-all]');
+		const rejectOptionalButton = document.querySelector('[data-cookie-reject-optional]');
+		const settingsButton = document.querySelector('[data-cookie-settings]');
+		const saveButton = document.querySelector('[data-cookie-save]');
+		const backButton = document.querySelector('[data-cookie-back]');
+
+		const analyticsInput = document.querySelector('[data-consent-analytics]');
+		const marketingInput = document.querySelector('[data-consent-marketing]');
+
+		if (!(root instanceof HTMLElement) || !(mini instanceof HTMLButtonElement)) return;
+
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			window.dataLayer.push(arguments);
+		}
+
+		window.gtag = window.gtag || gtag;
+
+		window.gtag('consent', 'default', {
+			analytics_storage: 'denied',
+			ad_storage: 'denied',
+			ad_user_data: 'denied',
+			ad_personalization: 'denied',
+			wait_for_update: 500
+		});
+
+		function readConsent() {
+			try {
+				const raw = window.localStorage.getItem(STORAGE_KEY);
+				if (!raw) return null;
+
+				const parsed = JSON.parse(raw);
+
+				return {
+					necessary: true,
+					analytics: parsed.analytics === true,
+					marketing: parsed.marketing === true,
+					updatedAt: parsed.updatedAt || new Date().toISOString()
+				};
+			} catch {
+				return null;
+			}
+		}
+
+		function saveConsent(consent) {
+			const finalConsent = {
+				necessary: true,
+				analytics: consent.analytics === true,
+				marketing: consent.marketing === true,
+				updatedAt: new Date().toISOString()
+			};
+
+			window.localStorage.setItem(STORAGE_KEY, JSON.stringify(finalConsent));
+			applyConsent(finalConsent);
+			hideBanner();
+			showMini();
+		}
+
+		function applyConsent(consent) {
+			window.iwmCookieConsent = consent;
+
+			window.gtag('consent', 'update', {
+				analytics_storage: consent.analytics ? 'granted' : 'denied',
+				ad_storage: consent.marketing ? 'granted' : 'denied',
+				ad_user_data: consent.marketing ? 'granted' : 'denied',
+				ad_personalization: consent.marketing ? 'granted' : 'denied'
+			});
+
+			window.dispatchEvent(
+				new CustomEvent('iwm:cookie-consent', {
+					detail: consent
+				})
+			);
+
+			if (consent.analytics) {
+				loadAnalyticsTools();
+			}
+
+			if (consent.marketing) {
+				loadMarketingTools();
+			}
+		}
+
+		function loadAnalyticsTools() {
+			if (window.__iwmAnalyticsLoaded) return;
+			window.__iwmAnalyticsLoaded = true;
+
+			/*
+				Tutaj później wkleimy GA4 / Google Tag Manager.
+				Na razie celowo nic nie ładujemy przed podaniem ID narzędzi.
+			*/
+		}
+
+		function loadMarketingTools() {
+			if (window.__iwmMarketingLoaded) return;
+			window.__iwmMarketingLoaded = true;
+
+			/*
+				Tutaj później wkleimy Google Ads, remarketing, Meta Pixel itd.
+				Na razie celowo nic nie ładujemy przed podaniem ID narzędzi.
+			*/
+		}
+
+		function showBanner() {
+			root.hidden = false;
+			mini.hidden = true;
+
+			if (mainPanel instanceof HTMLElement) {
+				mainPanel.hidden = false;
+			}
+
+			if (settingsPanel instanceof HTMLElement) {
+				settingsPanel.hidden = true;
+			}
+		}
+
+		function hideBanner() {
+			root.hidden = true;
+		}
+
+		function showMini() {
+			mini.hidden = false;
+		}
+
+		function showSettings() {
+			const currentConsent = readConsent();
+
+			if (analyticsInput instanceof HTMLInputElement) {
+				analyticsInput.checked = currentConsent?.analytics === true;
+			}
+
+			if (marketingInput instanceof HTMLInputElement) {
+				marketingInput.checked = currentConsent?.marketing === true;
+			}
+
+			if (mainPanel instanceof HTMLElement) {
+				mainPanel.hidden = true;
+			}
+
+			if (settingsPanel instanceof HTMLElement) {
+				settingsPanel.hidden = false;
+			}
+
+			root.hidden = false;
+			mini.hidden = true;
+		}
+
+		function showMain() {
+			if (mainPanel instanceof HTMLElement) {
+				mainPanel.hidden = false;
+			}
+
+			if (settingsPanel instanceof HTMLElement) {
+				settingsPanel.hidden = true;
+			}
+		}
+
+		acceptAllButton?.addEventListener('click', () => {
+			saveConsent({
+				analytics: true,
+				marketing: true
+			});
+		});
+
+		rejectOptionalButton?.addEventListener('click', () => {
+			saveConsent({
+				analytics: false,
+				marketing: false
+			});
+		});
+
+		settingsButton?.addEventListener('click', showSettings);
+		mini.addEventListener('click', showSettings);
+		backButton?.addEventListener('click', showMain);
+
+		saveButton?.addEventListener('click', () => {
+			saveConsent({
+				analytics: analyticsInput instanceof HTMLInputElement ? analyticsInput.checked : false,
+				marketing: marketingInput instanceof HTMLInputElement ? marketingInput.checked : false
+			});
+		});
+
+		const existingConsent = readConsent();
+
+		if (existingConsent) {
+			applyConsent(existingConsent);
+			showMini();
+		} else {
+			showBanner();
+		}
+	})();
+</script>
+
+<style>
+	.iwm-cookie-consent[hidden],
+	.iwm-cookie-mini[hidden],
+	.iwm-cookie-settings[hidden],
+	.iwm-cookie-main[hidden] {
+		display: none !important;
+	}
+
+	.iwm-cookie-consent {
+		position: fixed;
+		right: 20px;
+		bottom: 20px;
+		left: 20px;
+		z-index: 1100;
+		display: flex;
+		justify-content: center;
+		pointer-events: none;
+	}
+
+	.iwm-cookie-card {
+		width: min(980px, 100%);
+		padding: 16px;
+		border-radius: 30px;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		background:
+			radial-gradient(circle at 96% 8%, rgba(114, 240, 105, 0.16), transparent 34%),
+			radial-gradient(circle at 0% 0%, rgba(18, 104, 255, 0.1), transparent 34%),
+			rgba(255, 255, 255, 0.94);
+		box-shadow:
+			0 26px 86px rgba(8, 16, 32, 0.22),
+			inset 0 1px 0 rgba(255, 255, 255, 0.96);
+		backdrop-filter: blur(18px);
+		pointer-events: auto;
+	}
+
+	.iwm-cookie-main {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 20px;
+		align-items: center;
+	}
+
+	.iwm-cookie-copy p {
+		margin: 0;
+		color: #1268ff;
+		font-size: 0.7rem;
+		font-weight: 950;
+		letter-spacing: 0.15em;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	.iwm-cookie-copy h2 {
+		margin: 8px 0 0;
+		color: #081020;
+		font-size: clamp(1.18rem, 1.8vw, 1.55rem);
+		font-weight: 950;
+		line-height: 1.02;
+		letter-spacing: -0.055em;
+	}
+
+	.iwm-cookie-copy span {
+		display: block;
+		max-width: 700px;
+		margin-top: 8px;
+		color: #667085;
+		font-size: 0.9rem;
+		font-weight: 580;
+		line-height: 1.52;
+		letter-spacing: -0.014em;
+	}
+
+	.iwm-cookie-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 9px;
+		justify-content: flex-end;
+	}
+
+	.iwm-cookie-primary,
+	.iwm-cookie-secondary,
+	.iwm-cookie-link {
+		min-height: 42px;
+		padding: 0 16px;
+		border-radius: 999px;
+		font: inherit;
+		font-size: 0.84rem;
+		font-weight: 950;
+		letter-spacing: -0.025em;
+		cursor: pointer;
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease,
+			border-color 0.2s ease;
+	}
+
+	.iwm-cookie-primary {
+		color: #06110a;
+		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
+		border: 1px solid rgba(114, 240, 105, 0.34);
+		box-shadow:
+			0 14px 34px rgba(76, 244, 89, 0.2),
+			inset 0 1px 0 rgba(255, 255, 255, 0.58);
+	}
+
+	.iwm-cookie-secondary,
+	.iwm-cookie-link {
+		color: #081020;
+		background: rgba(255, 255, 255, 0.84);
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		box-shadow: 0 10px 26px rgba(8, 16, 32, 0.045);
+	}
+
+	.iwm-cookie-primary:hover,
+	.iwm-cookie-secondary:hover,
+	.iwm-cookie-link:hover {
+		transform: translateY(-1px);
+	}
+
+	.iwm-cookie-settings {
+		display: grid;
+		gap: 16px;
+	}
+
+	.iwm-cookie-options {
+		display: grid;
+		gap: 10px;
+	}
+
+	.iwm-cookie-option {
+		display: grid;
+		grid-template-columns: 22px minmax(0, 1fr);
+		gap: 12px;
+		align-items: start;
+		padding: 13px;
+		border-radius: 18px;
+		border: 1px solid rgba(8, 16, 32, 0.065);
+		background: rgba(255, 255, 255, 0.82);
+	}
+
+	.iwm-cookie-option input {
+		width: 18px;
+		height: 18px;
+		margin-top: 2px;
+		accent-color: #51f05e;
+	}
+
+	.iwm-cookie-option strong {
+		display: block;
+		color: #081020;
+		font-size: 0.92rem;
+		font-weight: 950;
+		letter-spacing: -0.025em;
+	}
+
+	.iwm-cookie-option small {
+		display: block;
+		margin-top: 4px;
+		color: #667085;
+		font-size: 0.82rem;
+		font-weight: 580;
+		line-height: 1.45;
+	}
+
+	.iwm-cookie-option.is-disabled {
+		opacity: 0.78;
+	}
+
+	.iwm-cookie-actions-settings {
+		justify-content: flex-start;
+	}
+
+	.iwm-cookie-mini {
+		position: fixed;
+		left: 16px;
+		bottom: 16px;
+		z-index: 1090;
+		min-height: 38px;
+		padding: 0 13px;
+		border-radius: 999px;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		background:
+			radial-gradient(circle at 82% 18%, rgba(114, 240, 105, 0.18), transparent 34%),
+			rgba(255, 255, 255, 0.9);
+		color: #081020;
+		box-shadow:
+			0 14px 38px rgba(8, 16, 32, 0.12),
+			inset 0 1px 0 rgba(255, 255, 255, 0.94);
+		backdrop-filter: blur(14px);
+		font: inherit;
+		font-size: 0.78rem;
+		font-weight: 950;
+		letter-spacing: -0.02em;
+		cursor: pointer;
+	}
+
+	@media (max-width: 760px) {
+		.iwm-cookie-consent {
+			right: 12px;
+			bottom: 12px;
+			left: 12px;
+		}
+
+		.iwm-cookie-card {
+			padding: 14px;
+			border-radius: 24px;
+		}
+
+		.iwm-cookie-main {
+			grid-template-columns: 1fr;
+			gap: 14px;
+		}
+
+		.iwm-cookie-actions {
+			justify-content: stretch;
+		}
+
+		.iwm-cookie-primary,
+		.iwm-cookie-secondary,
+		.iwm-cookie-link {
+			flex: 1 1 100%;
+			width: 100%;
+		}
+
+		.iwm-cookie-mini {
+			left: 12px;
+			bottom: 12px;
+		}
+	}
+</style>
