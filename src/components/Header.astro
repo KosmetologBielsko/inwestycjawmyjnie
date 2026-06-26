@@ -1,4 +1,4 @@
-﻿---
+---
 const menuLinks = [
 	{
 		label: 'Koszt budowy',
@@ -88,14 +88,14 @@ const quickWords = [
 				decoding="async"
 			/>
 			<img
-	class="iwm-logo iwm-logo-mobile"
-	src="/images/logo-inwestycjawmyjnie-kolo.webp"
-	alt="inwestycjawmyjnie.pl"
-	width="512"
-	height="512"
-	loading="eager"
-	decoding="async"
-/>
+				class="iwm-logo iwm-logo-mobile"
+				src="/images/logo-inwestycjawmyjnie-kolo.webp"
+				alt="inwestycjawmyjnie.pl"
+				width="512"
+				height="512"
+				loading="eager"
+				decoding="async"
+			/>
 		</a>
 
 		<div class="iwm-header-actions">
@@ -114,8 +114,8 @@ const quickWords = [
 			</button>
 
 			<a class="iwm-analysis-button" href="/bezplatne-porownanie-ofert-myjni/">
-				<span class="iwm-analysis-desktop-line">Bezpłatna analiza</span>
-				<strong class="iwm-analysis-desktop-line">i porównanie ofert</strong>
+				<span class="iwm-analysis-desktop">Bezpłatna analiza</span>
+				<strong class="iwm-analysis-desktop">i porównanie ofert</strong>
 				<span class="iwm-analysis-mobile">Bezpłatne porównanie ofert</span>
 			</a>
 
@@ -382,7 +382,6 @@ const quickWords = [
 
 	.iwm-logo-mobile {
 		display: none;
-		width: 52px;
 	}
 
 	.iwm-header-actions {
@@ -843,13 +842,19 @@ const quickWords = [
 
 		.iwm-logo-mobile {
 			display: block;
-			width: 84%;
-			height: 84%;
+			width: 34px;
+			height: 34px;
 			object-fit: contain;
+			object-position: center;
 		}
 
 		.iwm-header-actions .iwm-icon-button:first-child {
 			grid-column: 3;
+			grid-row: 1;
+		}
+
+		.iwm-header-actions .iwm-icon-button:last-child {
+			grid-column: 4;
 			grid-row: 1;
 		}
 
@@ -870,16 +875,21 @@ const quickWords = [
 			white-space: nowrap;
 		}
 
-		.iwm-analysis-desktop-line {
+		.iwm-analysis-desktop {
 			display: none !important;
 		}
 
 		.iwm-analysis-mobile {
-			display: inline !important;
+			display: inline-block !important;
+			max-width: 100%;
+			overflow: hidden;
+			color: #051109;
 			font-size: 0.82rem !important;
 			font-weight: 950 !important;
 			line-height: 1.05 !important;
 			letter-spacing: -0.03em !important;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 
 		.iwm-analysis-button::after {
@@ -889,11 +899,7 @@ const quickWords = [
 			font-size: 0.95rem;
 			font-weight: 950;
 			line-height: 1;
-		}
-
-		.iwm-header-actions .iwm-icon-button:last-child {
-			grid-column: 4;
-			grid-row: 1;
+			flex: 0 0 auto;
 		}
 
 		.iwm-icon-button {
@@ -952,6 +958,11 @@ const quickWords = [
 			min-height: 40px;
 		}
 
+		.iwm-logo-mobile {
+			width: 32px;
+			height: 32px;
+		}
+
 		.iwm-icon-button {
 			width: 44px;
 			height: 44px;
@@ -982,6 +993,11 @@ const quickWords = [
 			min-height: 38px;
 		}
 
+		.iwm-logo-mobile {
+			width: 30px;
+			height: 30px;
+		}
+
 		.iwm-icon-button {
 			width: 42px;
 			height: 42px;
@@ -993,56 +1009,4 @@ const quickWords = [
 			font-size: 0.68rem !important;
 		}
 	}
-	/* FINAL FIX — mobile logo jako samo kółko z autem, bez napisu */
-@media (max-width: 640px) {
-	.iwm-brand {
-		position: relative !important;
-		display: grid !important;
-		place-items: start center !important;
-		width: 44px !important;
-		height: 44px !important;
-		min-width: 44px !important;
-		min-height: 44px !important;
-		max-width: 44px !important;
-		padding: 0 !important;
-		border-radius: 999px !important;
-		overflow: hidden !important;
-		background:
-			radial-gradient(circle at 78% 18%, rgba(114, 240, 105, 0.18), transparent 36%),
-			rgba(255, 255, 255, 0.94) !important;
-		border: 1px solid rgba(8, 16, 32, 0.08) !important;
-		box-shadow:
-			0 12px 28px rgba(8, 16, 32, 0.1),
-			inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
-	}
-
-	.iwm-logo-desktop {
-		display: none !important;
-	}
-
-	.iwm-logo-mobile {
-		display: block !important;
-		width: 66px !important;
-		max-width: none !important;
-		height: auto !important;
-		margin-top: 0 !important;
-		object-fit: contain !important;
-		object-position: center top !important;
-		transform: translateY(-1px) !important;
-	}
-}
-
-@media (max-width: 390px) {
-	.iwm-brand {
-		width: 42px !important;
-		height: 42px !important;
-		min-width: 42px !important;
-		min-height: 42px !important;
-		max-width: 42px !important;
-	}
-
-	.iwm-logo-mobile {
-		width: 63px !important;
-	}
-}
 </style>
