@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { siteConfig } from '../config/site';
+import FloatingGuide from '../components/FloatingGuide.astro';
 
 interface BreadcrumbItem {
 	name: string;
@@ -144,5 +145,6 @@ const jsonLd = [
 
 	<body>
 		<slot />
+		<FloatingGuide />
 	</body>
 </html>

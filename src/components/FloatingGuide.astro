@@ -1,0 +1,374 @@
+---
+const guideLinks = [
+	{
+		label: 'Ile kosztuje myjnia?',
+		href: '/ile-kosztuje-myjnia-bezdotykowa/'
+	},
+	{
+		label: 'Koszt budowy myjni',
+		href: '/koszt-budowy-myjni-bezdotykowej/'
+	},
+	{
+		label: 'Ile zarabia myjnia?',
+		href: '/ile-zarabia-myjnia-bezdotykowa/'
+	},
+	{
+		label: 'Działka pod myjnię',
+		href: '/dzialka-pod-myjnie-bezdotykowa/'
+	},
+	{
+		label: 'Jak porównać oferty?',
+		href: '/jak-porownac-oferty-myjni-bezdotykowej/'
+	},
+	{
+		label: 'Budowa krok po kroku',
+		href: '/budowa-myjni-bezdotykowej-krok-po-kroku/'
+	},
+	{
+		label: 'Błędy inwestora',
+		href: '/najczestsze-bledy-przy-budowie-myjni/'
+	}
+];
+---
+
+<div class="floating-guide" data-floating-guide>
+	<button
+		class="floating-guide-button"
+		type="button"
+		aria-label="Otwórz poradnik inwestora"
+		aria-expanded="false"
+		data-floating-guide-toggle
+	>
+		<span class="floating-guide-icon" aria-hidden="true">?</span>
+		<span class="floating-guide-pulse" aria-hidden="true"></span>
+	</button>
+
+	<div class="floating-guide-panel" aria-label="Poradnik inwestora" data-floating-guide-panel>
+		<div class="floating-guide-head">
+			<div>
+				<p>Start inwestora</p>
+				<h2>Poradnik myjni bezdotykowej</h2>
+			</div>
+
+			<button
+				class="floating-guide-close"
+				type="button"
+				aria-label="Zamknij poradnik inwestora"
+				data-floating-guide-close
+			>
+				×
+			</button>
+		</div>
+
+		<p class="floating-guide-lead">
+			Najważniejsze tematy przed decyzją o budowie myjni: koszt, działka, opłacalność,
+			technologia, porównanie ofert i błędy inwestora.
+		</p>
+
+		<nav class="floating-guide-links" aria-label="Szybkie linki poradnika inwestora">
+			{guideLinks.map((link) => (
+				<a href={link.href}>
+					<span>{link.label}</span>
+					<b aria-hidden="true">→</b>
+				</a>
+			))}
+		</nav>
+
+		<a class="floating-guide-cta" href="/bezplatne-porownanie-ofert-myjni/">
+			Bezpłatna analiza i porównanie ofert
+			<span aria-hidden="true">→</span>
+		</a>
+	</div>
+</div>
+
+<script is:inline>
+	const floatingGuides = document.querySelectorAll('[data-floating-guide]');
+
+	floatingGuides.forEach((guide) => {
+		const toggle = guide.querySelector('[data-floating-guide-toggle]');
+		const close = guide.querySelector('[data-floating-guide-close]');
+		const panel = guide.querySelector('[data-floating-guide-panel]');
+
+		if (!(toggle instanceof HTMLButtonElement) || !(panel instanceof HTMLElement)) return;
+
+		const openGuide = () => {
+			guide.classList.add('is-open');
+			toggle.setAttribute('aria-expanded', 'true');
+		};
+
+		const closeGuide = () => {
+			guide.classList.remove('is-open');
+			toggle.setAttribute('aria-expanded', 'false');
+		};
+
+		toggle.addEventListener('click', () => {
+			if (guide.classList.contains('is-open')) {
+				closeGuide();
+			} else {
+				openGuide();
+			}
+		});
+
+		close?.addEventListener('click', closeGuide);
+
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape') {
+				closeGuide();
+			}
+		});
+
+		document.addEventListener('click', (event) => {
+			if (!(event.target instanceof Node)) return;
+
+			if (!guide.contains(event.target)) {
+				closeGuide();
+			}
+		});
+	});
+</script>
+
+<style>
+	.floating-guide {
+		position: fixed;
+		right: 22px;
+		bottom: 22px;
+		z-index: 120;
+		font-family: inherit;
+	}
+
+	.floating-guide-button {
+		position: relative;
+		display: grid;
+		place-items: center;
+		width: 62px;
+		height: 62px;
+		border: 1px solid rgba(8, 16, 32, 0.1);
+		border-radius: 999px;
+		background:
+			radial-gradient(circle at 78% 18%, rgba(114, 240, 105, 0.3), transparent 36%),
+			linear-gradient(145deg, #ffffff, #f6f9fc);
+		box-shadow:
+			0 20px 54px rgba(8, 16, 32, 0.16),
+			0 0 38px rgba(114, 240, 105, 0.2),
+			inset 0 1px 0 rgba(255, 255, 255, 0.95);
+		color: #081020;
+		cursor: pointer;
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease,
+			border-color 0.2s ease;
+	}
+
+	.floating-guide-button:hover {
+		transform: translateY(-3px);
+		border-color: rgba(114, 240, 105, 0.38);
+		box-shadow:
+			0 24px 66px rgba(8, 16, 32, 0.2),
+			0 0 46px rgba(114, 240, 105, 0.28),
+			inset 0 1px 0 rgba(255, 255, 255, 0.95);
+	}
+
+	.floating-guide-icon {
+		display: grid;
+		place-items: center;
+		width: 34px;
+		height: 34px;
+		border-radius: 999px;
+		background: linear-gradient(135deg, #1268ff, #4fa3ff);
+		color: #ffffff;
+		font-size: 1.05rem;
+		font-weight: 950;
+		box-shadow: 0 12px 28px rgba(18, 104, 255, 0.22);
+	}
+
+	.floating-guide-pulse {
+		position: absolute;
+		right: 9px;
+		top: 9px;
+		width: 12px;
+		height: 12px;
+		border-radius: 999px;
+		background: #72f069;
+		box-shadow:
+			0 0 0 5px rgba(114, 240, 105, 0.16),
+			0 0 18px rgba(114, 240, 105, 0.42);
+	}
+
+	.floating-guide-panel {
+		position: absolute;
+		right: 0;
+		bottom: 78px;
+		width: min(390px, calc(100vw - 32px));
+		padding: 18px;
+		border-radius: 30px;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		background:
+			radial-gradient(circle at 92% 6%, rgba(114, 240, 105, 0.14), transparent 34%),
+			radial-gradient(circle at 0% 0%, rgba(18, 104, 255, 0.08), transparent 34%),
+			rgba(255, 255, 255, 0.94);
+		box-shadow:
+			0 26px 78px rgba(8, 16, 32, 0.18),
+			inset 0 1px 0 rgba(255, 255, 255, 0.96);
+		backdrop-filter: blur(18px);
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(12px) scale(0.98);
+		transform-origin: right bottom;
+		transition:
+			opacity 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	.floating-guide.is-open .floating-guide-panel {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0) scale(1);
+	}
+
+	.floating-guide-head {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 16px;
+	}
+
+	.floating-guide-head p {
+		margin: 0;
+		color: #1268ff;
+		font-size: 0.72rem;
+		font-weight: 950;
+		letter-spacing: 0.15em;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	.floating-guide-head h2 {
+		margin: 8px 0 0;
+		color: #081020;
+		font-size: 1.45rem;
+		font-weight: 950;
+		line-height: 0.98;
+		letter-spacing: -0.06em;
+	}
+
+	.floating-guide-close {
+		display: grid;
+		place-items: center;
+		width: 36px;
+		height: 36px;
+		border: 1px solid rgba(8, 16, 32, 0.08);
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.84);
+		color: #081020;
+		font-size: 1.35rem;
+		font-weight: 800;
+		line-height: 1;
+		cursor: pointer;
+	}
+
+	.floating-guide-lead {
+		margin: 14px 0 0;
+		color: #667085;
+		font-size: 0.92rem;
+		font-weight: 610;
+		line-height: 1.5;
+		letter-spacing: -0.016em;
+	}
+
+	.floating-guide-links {
+		display: grid;
+		gap: 8px;
+		margin-top: 16px;
+	}
+
+	.floating-guide-links a {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		min-height: 46px;
+		padding: 11px 12px 11px 14px;
+		border-radius: 16px;
+		border: 1px solid rgba(8, 16, 32, 0.065);
+		background: rgba(255, 255, 255, 0.82);
+		color: #243044;
+		font-size: 0.92rem;
+		font-weight: 820;
+		letter-spacing: -0.025em;
+		text-decoration: none;
+		transition:
+			transform 0.2s ease,
+			border-color 0.2s ease,
+			box-shadow 0.2s ease,
+			color 0.2s ease;
+	}
+
+	.floating-guide-links a:hover {
+		transform: translateY(-1px);
+		border-color: rgba(18, 104, 255, 0.16);
+		box-shadow: 0 10px 28px rgba(8, 16, 32, 0.065);
+		color: #1268ff;
+	}
+
+	.floating-guide-links b {
+		display: grid;
+		place-items: center;
+		width: 28px;
+		height: 28px;
+		border-radius: 999px;
+		background: #f2f6fb;
+		color: #081020;
+		font-size: 0.9rem;
+		font-weight: 950;
+		flex: 0 0 auto;
+	}
+
+	.floating-guide-cta {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		min-height: 50px;
+		margin-top: 14px;
+		padding: 0 16px;
+		border-radius: 999px;
+		color: #06110a;
+		background: linear-gradient(90deg, #7cff4a 0%, #51f05e 45%, #28dc73 100%);
+		border: 1px solid rgba(114, 240, 105, 0.34);
+		box-shadow:
+			0 16px 38px rgba(76, 244, 89, 0.22),
+			inset 0 1px 0 rgba(255, 255, 255, 0.58);
+		font-size: 0.92rem;
+		font-weight: 950;
+		letter-spacing: -0.03em;
+		text-align: center;
+		text-decoration: none;
+	}
+
+	@media (max-width: 760px) {
+		.floating-guide {
+			right: 16px;
+			bottom: 16px;
+		}
+
+		.floating-guide-button {
+			width: 58px;
+			height: 58px;
+		}
+
+		.floating-guide-panel {
+			position: fixed;
+			right: 12px;
+			bottom: 86px;
+			left: 12px;
+			width: auto;
+			max-height: calc(100vh - 120px);
+			overflow-y: auto;
+			border-radius: 28px;
+		}
+
+		.floating-guide-links a {
+			min-height: 44px;
+		}
+	}
+</style>
