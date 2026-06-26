@@ -2,20 +2,111 @@
 import '../styles/global.css';
 import { siteConfig } from '../config/site';
 
+interface BreadcrumbItem {
+	name: string;
+	path: string;
+}
+
 interface Props {
 	title?: string;
 	description?: string;
 	canonicalPath?: string;
+	ogType?: 'website' | 'article';
+	ogImage?: string;
+	noindex?: boolean;
+	breadcrumbs?: BreadcrumbItem[];
+	structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
-	title = 'Inwestycja w Myjnię — koszt budowy, opłacalność i analiza lokalizacji',
+	title = 'Inwestycja w myjnię bezdotykową — koszt budowy, opłacalność i analiza lokalizacji',
 	description = siteConfig.description,
-	canonicalPath = '/'
+	canonicalPath = '/',
+	ogType = 'website',
+	ogImage = siteConfig.defaultOgImage,
+	noindex = false,
+	breadcrumbs = [],
+	structuredData
 } = Astro.props;
 
-const canonicalUrl = new URL(canonicalPath, siteConfig.url).toString();
-const robotsContent = siteConfig.indexingEnabled ? 'index, follow' : 'noindex, nofollow';
+const siteUrl = siteConfig.url.replace(/\/$/, '');
+const normalizedCanonicalPath = canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`;
+const canonicalUrl = new URL(normalizedCanonicalPath, `${siteUrl}/`).toString();
+
+const shouldIndex = siteConfig.indexingEnabled && !noindex;
+const robotsContent = shouldIndex
+	? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+	: 'noindex, nofollow';
+
+const finalOgImage = ogImage ? new URL(ogImage, `${siteUrl}/`).toString() : '';
+
+const websiteSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: siteConfig.name,
+	alternateName: siteConfig.shortName,
+	url: siteConfig.url,
+	inLanguage: 'pl-PL',
+	description: siteConfig.description
+};
+
+const organizationSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Organization',
+	name: siteConfig.name,
+	url: siteConfig.url,
+	email: siteConfig.email,
+	description: siteConfig.description
+};
+
+const webPageSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebPage',
+	name: title,
+	description,
+	url: canonicalUrl,
+	inLanguage: 'pl-PL',
+	isPartOf: {
+		'@type': 'WebSite',
+		name: siteConfig.name,
+		url: siteConfig.url
+	},
+	about: [
+		'Inwestycja w myjnię bezdotykową',
+		'Koszt budowy myjni bezdotykowej',
+		'Opłacalność myjni bezdotykowej',
+		'Działka pod myjnię',
+		'Porównanie ofert myjni'
+	]
+};
+
+const breadcrumbSchema =
+	breadcrumbs.length > 0
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'BreadcrumbList',
+				itemListElement: breadcrumbs.map((item, index) => ({
+					'@type': 'ListItem',
+					position: index + 1,
+					name: item.name,
+					item: new URL(item.path, `${siteUrl}/`).toString()
+				}))
+			}
+		: null;
+
+const extraStructuredData = Array.isArray(structuredData)
+	? structuredData
+	: structuredData
+		? [structuredData]
+		: [];
+
+const jsonLd = [
+	websiteSchema,
+	organizationSchema,
+	webPageSchema,
+	...(breadcrumbSchema ? [breadcrumbSchema] : []),
+	...extraStructuredData
+];
 ---
 
 <!doctype html>
@@ -23,20 +114,34 @@ const robotsContent = siteConfig.indexingEnabled ? 'index, follow' : 'noindex, n
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no" />
+
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="robots" content={robotsContent} />
 		<link rel="canonical" href={canonicalUrl} />
 
-		<meta property="og:type" content="website" />
+		<meta property="og:type" content={ogType} />
 		<meta property="og:locale" content="pl_PL" />
 		<meta property="og:site_name" content={siteConfig.name} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonicalUrl} />
+		{finalOgImage && <meta property="og:image" content={finalOgImage} />}
+		{finalOgImage && <meta property="og:image:alt" content={title} />}
+
+		<meta name="twitter:card" content={finalOgImage ? 'summary_large_image' : 'summary'} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		{finalOgImage && <meta name="twitter:image" content={finalOgImage} />}
 
 		<meta name="theme-color" content="#ffffff" />
+
+		{jsonLd.map((schema) => (
+			<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+		))}
 	</head>
+
 	<body>
 		<slot />
 	</body>

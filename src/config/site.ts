@@ -1,35 +1,43 @@
 export const siteConfig = {
 	name: 'Inwestycja w Myjnię',
-	shortName: 'Inwestycja w Myjnię',
+	shortName: 'inwestycjawmyjnie.pl',
 	description:
-		'Praktyczny poradnik dla inwestora myjni bezdotykowej: koszty budowy, opłacalność, działka, formalności, technologia i wybór sprawdzonego rozwiązania.',
+		'Inwestycja w myjnię bezdotykową: koszt budowy, opłacalność, działka, formalności, technologia, porównanie ofert producentów i analiza lokalizacji.',
 	url: 'https://inwestycjawmyjnie.pl',
 	email: 'analiza@inwestycjawmyjnie.pl',
+
+	// WAŻNE:
+	// false = strona ma noindex i Google jej nie indeksuje.
+	// Po podpięciu domeny inwestycjawmyjnie.pl do Vercel zmienimy na true.
 	indexingEnabled: false,
+
+	// Możemy dodać później, gdy przygotujemy grafikę OG 1200x630.
+	defaultOgImage: '',
+
 	nav: [
 		{
 			label: 'Koszty',
-			href: '#koszty'
+			href: '/ile-kosztuje-myjnia-bezdotykowa/'
 		},
 		{
 			label: 'Opłacalność',
-			href: '#oplacalnosc'
+			href: '/ile-zarabia-myjnia-bezdotykowa/'
 		},
 		{
 			label: 'Działka',
-			href: '#dzialka'
+			href: '/dzialka-pod-myjnie-bezdotykowa/'
 		},
 		{
-			label: 'Technologia',
-			href: '#technologia'
+			label: 'Budowa',
+			href: '/budowa-myjni-bezdotykowej-krok-po-kroku/'
+		},
+		{
+			label: 'Porównanie ofert',
+			href: '/bezplatne-porownanie-ofert-myjni/'
 		},
 		{
 			label: 'Poradnik',
-			href: '#poradnik'
-		},
-		{
-			label: 'Kontakt',
-			href: '#kontakt'
+			href: '/poradnik/'
 		}
 	]
 };
