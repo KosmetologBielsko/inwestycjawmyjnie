@@ -114,8 +114,9 @@ const quickWords = [
 			</button>
 
 			<a class="iwm-analysis-button" href="/bezplatne-porownanie-ofert-myjni/">
-				<span>Bezpłatna analiza</span>
-				<strong>i porównanie ofert</strong>
+				<span class="iwm-analysis-desktop-line">Bezpłatna analiza</span>
+				<strong class="iwm-analysis-desktop-line">i porównanie ofert</strong>
+				<span class="iwm-analysis-mobile">Bezpłatne porównanie ofert</span>
 			</a>
 
 			<button
@@ -466,6 +467,10 @@ const quickWords = [
 		line-height: 1.14;
 	}
 
+	.iwm-analysis-mobile {
+		display: none;
+	}
+
 	.iwm-analysis-button:hover {
 		transform: translateY(-1px);
 		filter: saturate(1.06);
@@ -793,129 +798,199 @@ const quickWords = [
 		}
 	}
 
-	@media (max-width: 480px) {
-	.iwm-header {
-		padding: 10px 0 12px;
+	@media (max-width: 640px) {
+		.iwm-header {
+			padding: 10px 0;
+		}
+
+		.iwm-header-inner {
+			display: grid;
+			grid-template-columns: 42px minmax(0, 1fr) 46px 46px;
+			align-items: center;
+			gap: 8px;
+			width: min(100% - 20px, 1420px);
+		}
+
+		.iwm-header-actions {
+			display: contents;
+		}
+
+		.iwm-brand {
+			grid-column: 1;
+			grid-row: 1;
+			display: grid;
+			place-items: center;
+			width: 42px;
+			height: 42px;
+			min-width: 42px;
+			min-height: 42px;
+			max-width: none;
+			padding: 0;
+			border-radius: 999px;
+			background:
+				radial-gradient(circle at 80% 18%, rgba(114, 240, 105, 0.18), transparent 36%),
+				rgba(255, 255, 255, 0.92);
+			border: 1px solid rgba(8, 16, 32, 0.08);
+			box-shadow:
+				0 10px 24px rgba(8, 16, 32, 0.08),
+				inset 0 1px 0 rgba(255, 255, 255, 0.95);
+			overflow: hidden;
+		}
+
+		.iwm-logo-desktop {
+			display: none;
+		}
+
+		.iwm-logo-mobile {
+			display: block;
+			width: 84%;
+			height: 84%;
+			object-fit: contain;
+		}
+
+		.iwm-header-actions .iwm-icon-button:first-child {
+			grid-column: 3;
+			grid-row: 1;
+		}
+
+		.iwm-analysis-button {
+			grid-column: 2;
+			grid-row: 1;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			max-width: none;
+			min-height: 46px;
+			padding: 0 12px;
+			border-radius: 999px;
+			flex-direction: row;
+			gap: 6px;
+			text-align: center;
+			white-space: nowrap;
+		}
+
+		.iwm-analysis-desktop-line {
+			display: none !important;
+		}
+
+		.iwm-analysis-mobile {
+			display: inline !important;
+			font-size: 0.82rem !important;
+			font-weight: 950 !important;
+			line-height: 1.05 !important;
+			letter-spacing: -0.03em !important;
+		}
+
+		.iwm-analysis-button::after {
+			content: '→';
+			display: inline-block;
+			margin-left: 2px;
+			font-size: 0.95rem;
+			font-weight: 950;
+			line-height: 1;
+		}
+
+		.iwm-header-actions .iwm-icon-button:last-child {
+			grid-column: 4;
+			grid-row: 1;
+		}
+
+		.iwm-icon-button {
+			width: 46px;
+			height: 46px;
+			min-width: 46px;
+			min-height: 46px;
+		}
+
+		.iwm-search-box {
+			padding: 20px;
+			border-radius: 24px;
+		}
+
+		.iwm-search-close {
+			top: 14px;
+			right: 14px;
+			width: 38px;
+			height: 38px;
+			font-size: 1.45rem;
+		}
+
+		.iwm-search-copy {
+			padding-right: 42px;
+		}
+
+		.iwm-search-copy p {
+			font-size: 0.74rem;
+		}
+
+		.iwm-search-copy h2 {
+			font-size: 2.15rem;
+		}
+
+		.iwm-search-field {
+			min-height: 54px;
+			padding-inline: 16px;
+		}
+
+		.iwm-search-field input {
+			font-size: 0.96rem;
+		}
 	}
 
-	.iwm-header-inner {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) 46px 46px;
-		align-items: center;
-		gap: 10px;
-		width: min(100% - 24px, 1420px);
+	@media (max-width: 390px) {
+		.iwm-header-inner {
+			grid-template-columns: 40px minmax(0, 1fr) 44px 44px;
+			gap: 7px;
+			width: min(100% - 18px, 1420px);
+		}
+
+		.iwm-brand {
+			width: 40px;
+			height: 40px;
+			min-width: 40px;
+			min-height: 40px;
+		}
+
+		.iwm-icon-button {
+			width: 44px;
+			height: 44px;
+			min-width: 44px;
+			min-height: 44px;
+		}
+
+		.iwm-analysis-button {
+			min-height: 44px;
+			padding: 0 10px;
+		}
+
+		.iwm-analysis-mobile {
+			font-size: 0.74rem !important;
+		}
 	}
 
-	.iwm-header-actions {
-		display: contents;
-	}
+	@media (max-width: 350px) {
+		.iwm-header-inner {
+			grid-template-columns: 38px minmax(0, 1fr) 42px 42px;
+			gap: 6px;
+		}
 
-	.iwm-brand {
-		grid-column: 1;
-		grid-row: 1;
-		max-width: none;
-		width: fit-content;
-	}
+		.iwm-brand {
+			width: 38px;
+			height: 38px;
+			min-width: 38px;
+			min-height: 38px;
+		}
 
-	.iwm-logo-desktop {
-		display: block;
-		width: min(176px, 46vw);
-		height: auto;
-	}
+		.iwm-icon-button {
+			width: 42px;
+			height: 42px;
+			min-width: 42px;
+			min-height: 42px;
+		}
 
-	.iwm-logo-mobile {
-		display: none;
+		.iwm-analysis-mobile {
+			font-size: 0.68rem !important;
+		}
 	}
-
-	.iwm-header-actions .iwm-icon-button:first-child {
-		grid-column: 2;
-		grid-row: 1;
-	}
-
-	.iwm-header-actions .iwm-icon-button:last-child {
-		grid-column: 3;
-		grid-row: 1;
-	}
-
-	.iwm-icon-button {
-		width: 46px;
-		height: 46px;
-	}
-
-	.iwm-analysis-button {
-		display: flex;
-		grid-column: 1 / -1;
-		grid-row: 2;
-		width: 100%;
-		max-width: none;
-		min-height: 48px;
-		margin-top: 2px;
-		padding: 7px 18px 8px;
-		border-radius: 999px;
-		flex-direction: row;
-		gap: 6px;
-		text-align: center;
-	}
-
-	.iwm-analysis-button span,
-	.iwm-analysis-button strong {
-		display: inline;
-		font-size: 0.92rem;
-		font-weight: 950;
-		line-height: 1.05;
-		text-align: center;
-	}
-
-	.iwm-analysis-button::after {
-		content: '→';
-		margin-left: 4px;
-		font-size: 1rem;
-		font-weight: 950;
-	}
-
-	.iwm-search-box {
-		padding: 20px;
-		border-radius: 24px;
-	}
-
-	.iwm-search-close {
-		top: 14px;
-		right: 14px;
-		width: 38px;
-		height: 38px;
-		font-size: 1.45rem;
-	}
-
-	.iwm-search-copy {
-		padding-right: 42px;
-	}
-
-	.iwm-search-copy p {
-		font-size: 0.74rem;
-	}
-
-	.iwm-search-copy h2 {
-		font-size: 2.25rem;
-	}
-
-	.iwm-search-field {
-		min-height: 54px;
-		padding-inline: 16px;
-	}
-
-	.iwm-search-field input {
-		font-size: 0.96rem;
-	}
-}
-
-@media (max-width: 370px) {
-	.iwm-logo-desktop {
-		width: min(154px, 42vw);
-	}
-
-	.iwm-analysis-button span,
-	.iwm-analysis-button strong {
-		font-size: 0.84rem;
-	}
-}
 </style>
