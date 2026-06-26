@@ -65,7 +65,14 @@ const searchLinks = [
 	}
 ];
 
-const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 'analiza'];
+const quickWords = [
+	'koszt',
+	'działka',
+	'oferty',
+	'opłacalność',
+	'błędy',
+	'analiza'
+];
 ---
 
 <header class="iwm-header" data-iwm-header>
@@ -77,15 +84,6 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 				alt="inwestycjawmyjnie.pl"
 				width="1899"
 				height="422"
-				loading="eager"
-				decoding="async"
-			/>
-			<img
-				class="iwm-logo iwm-logo-mobile"
-				src="/images/logo-inwestycjawmyjnie-kolo.webp?v=10"
-				alt="inwestycjawmyjnie.pl"
-				width="512"
-				height="512"
 				loading="eager"
 				decoding="async"
 			/>
@@ -109,7 +107,7 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 			<a class="iwm-analysis-button" href="/bezplatne-porownanie-ofert-myjni/">
 				<span class="iwm-analysis-desktop">Bezpłatna analiza</span>
 				<strong class="iwm-analysis-desktop">i porównanie ofert</strong>
-				<span class="iwm-analysis-mobile">Bezpłatne porównanie ofert</span>
+				<span class="iwm-analysis-mobile">Analiza</span>
 			</a>
 
 			<button
@@ -164,23 +162,27 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 				</label>
 
 				<div class="iwm-quick-words" aria-label="Szybkie wyszukiwania">
-					{quickWords.map((word) => (
-						<button type="button" data-iwm-search-chip={word}>
-							{word}
-						</button>
-					))}
+					{
+						quickWords.map((word) => (
+							<button type="button" data-iwm-search-chip={word}>
+								{word}
+							</button>
+						))
+					}
 				</div>
 
 				<div class="iwm-search-results" data-iwm-search-results>
-					{searchLinks.map((link) => (
-						<a
-							href={link.href}
-							data-iwm-search-item
-							data-iwm-search-keywords={link.keywords}
-						>
-							{link.label}
-						</a>
-					))}
+					{
+						searchLinks.map((link) => (
+							<a
+								href={link.href}
+								data-iwm-search-item
+								data-iwm-search-keywords={link.keywords}
+							>
+								{link.label}
+							</a>
+						))
+					}
 				</div>
 
 				<p class="iwm-search-empty" data-iwm-search-empty hidden>
@@ -192,12 +194,14 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 
 	<nav class="iwm-menu-panel" id="iwm-menu-panel" data-iwm-menu-panel hidden aria-label="Menu strony">
 		<div class="iwm-panel-inner iwm-menu-links">
-			{menuLinks.map((link) => (
-				<a href={link.href}>
-					{link.label}
-					<span aria-hidden="true">→</span>
-				</a>
-			))}
+			{
+				menuLinks.map((link) => (
+					<a href={link.href}>
+						{link.label}
+						<span aria-hidden="true">→</span>
+					</a>
+				))
+			}
 		</div>
 	</nav>
 </header>
@@ -270,7 +274,9 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 		closeSearch();
 	});
 
-	searchClose?.addEventListener('click', closeSearch);
+	searchClose?.addEventListener('click', () => {
+		closeSearch();
+	});
 
 	menuToggle?.addEventListener('click', () => {
 		const shouldOpen = menuPanel?.hasAttribute('hidden');
@@ -367,9 +373,6 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 
 	.iwm-logo-mobile {
 		display: none;
-		width: 52px;
-		height: 52px;
-		object-fit: contain;
 	}
 
 	.iwm-header-actions {
@@ -735,11 +738,7 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 		}
 
 		.iwm-logo-desktop {
-			display: none;
-		}
-
-		.iwm-logo-mobile {
-			display: block;
+			width: clamp(190px, 30vw, 260px);
 		}
 
 		.iwm-header-actions {
@@ -792,10 +791,10 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 
 		.iwm-header-inner {
 			display: grid;
-			grid-template-columns: 44px minmax(0, 1fr) 46px 46px;
+			grid-template-columns: minmax(0, 1fr) 92px 46px 46px;
 			align-items: center;
-			gap: 8px;
-			width: min(100% - 20px, 1420px);
+			gap: 7px;
+			width: min(100% - 18px, 1420px);
 		}
 
 		.iwm-header-actions {
@@ -805,36 +804,71 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 		.iwm-brand {
 			grid-column: 1;
 			grid-row: 1;
-			display: grid;
-			place-items: center;
-			width: 44px;
-			height: 44px;
-			min-width: 44px;
-			min-height: 44px;
-			max-width: 44px;
-			padding: 0;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: min(178px, 100%);
+			max-width: 100%;
+			min-width: 0;
+			box-sizing: border-box;
+			padding: 7px 10px;
 			border-radius: 999px;
-			background:
-				radial-gradient(circle at 76% 16%, rgba(114, 240, 105, 0.2), transparent 36%),
-				rgba(255, 255, 255, 0.96);
+			background: rgba(255, 255, 255, 0.94);
 			border: 1px solid rgba(8, 16, 32, 0.08);
 			box-shadow:
-				0 12px 28px rgba(8, 16, 32, 0.1),
+				0 12px 30px rgba(8, 16, 32, 0.08),
 				inset 0 1px 0 rgba(255, 255, 255, 0.95);
 			overflow: hidden;
 		}
 
 		.iwm-logo-desktop {
-			display: none;
+			display: block;
+			width: 100%;
+			height: auto;
+			object-fit: contain;
 		}
 
-		.iwm-logo-mobile {
-			display: block;
-			width: 36px;
-			height: 36px;
-			max-width: 36px;
-			object-fit: contain;
-			object-position: center center;
+		.iwm-analysis-button {
+			grid-column: 2;
+			grid-row: 1;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 92px;
+			max-width: 92px;
+			min-height: 46px;
+			padding: 0 10px;
+			border-radius: 999px;
+			flex-direction: row;
+			gap: 5px;
+			white-space: nowrap;
+			text-align: center;
+		}
+
+		.iwm-analysis-desktop {
+			display: none !important;
+		}
+
+		.iwm-analysis-mobile {
+			display: inline-flex !important;
+			align-items: center;
+			justify-content: center;
+			color: #051109;
+			font-size: 0.9rem !important;
+			font-weight: 950 !important;
+			line-height: 1 !important;
+			letter-spacing: -0.035em !important;
+		}
+
+		.iwm-analysis-button::after {
+			content: '→';
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.98rem;
+			font-weight: 950;
+			line-height: 1;
+			flex: 0 0 auto;
 		}
 
 		.iwm-header-actions .iwm-icon-button:first-child {
@@ -845,50 +879,6 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 		.iwm-header-actions .iwm-icon-button:last-child {
 			grid-column: 4;
 			grid-row: 1;
-		}
-
-		.iwm-analysis-button {
-			grid-column: 2;
-			grid-row: 1;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			width: 100%;
-			max-width: none;
-			min-height: 46px;
-			padding: 0 12px;
-			border-radius: 999px;
-			flex-direction: row;
-			gap: 6px;
-			text-align: center;
-			white-space: nowrap;
-		}
-
-		.iwm-analysis-desktop {
-			display: none !important;
-		}
-
-		.iwm-analysis-mobile {
-			display: inline-block !important;
-			max-width: 100%;
-			overflow: hidden;
-			color: #051109;
-			font-size: 0.82rem !important;
-			font-weight: 950 !important;
-			line-height: 1.05 !important;
-			letter-spacing: -0.03em !important;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-		}
-
-		.iwm-analysis-button::after {
-			content: '→';
-			display: inline-block;
-			margin-left: 2px;
-			font-size: 0.95rem;
-			font-weight: 950;
-			line-height: 1;
-			flex: 0 0 auto;
 		}
 
 		.iwm-icon-button {
@@ -935,23 +925,25 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 
 	@media (max-width: 390px) {
 		.iwm-header-inner {
-			grid-template-columns: 42px minmax(0, 1fr) 44px 44px;
-			gap: 7px;
-			width: min(100% - 18px, 1420px);
+			grid-template-columns: minmax(0, 1fr) 86px 44px 44px;
+			gap: 6px;
+			width: min(100% - 16px, 1420px);
 		}
 
 		.iwm-brand {
-			width: 42px;
-			height: 42px;
-			min-width: 42px;
-			min-height: 42px;
-			max-width: 42px;
+			width: min(162px, 100%);
+			padding: 7px 9px;
 		}
 
-		.iwm-logo-mobile {
-			width: 34px;
-			height: 34px;
-			max-width: 34px;
+		.iwm-analysis-button {
+			width: 86px;
+			max-width: 86px;
+			min-height: 44px;
+			padding: 0 9px;
+		}
+
+		.iwm-analysis-mobile {
+			font-size: 0.82rem !important;
 		}
 
 		.iwm-icon-button {
@@ -960,35 +952,26 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 			min-width: 44px;
 			min-height: 44px;
 		}
-
-		.iwm-analysis-button {
-			min-height: 44px;
-			padding: 0 10px;
-		}
-
-		.iwm-analysis-mobile {
-			font-size: 0.74rem !important;
-		}
 	}
 
 	@media (max-width: 350px) {
 		.iwm-header-inner {
-			grid-template-columns: 40px minmax(0, 1fr) 42px 42px;
+			grid-template-columns: minmax(0, 1fr) 78px 42px 42px;
 			gap: 6px;
 		}
 
 		.iwm-brand {
-			width: 40px;
-			height: 40px;
-			min-width: 40px;
-			min-height: 40px;
-			max-width: 40px;
+			width: min(146px, 100%);
+			padding-inline: 8px;
 		}
 
-		.iwm-logo-mobile {
-			width: 32px;
-			height: 32px;
-			max-width: 32px;
+		.iwm-analysis-button {
+			width: 78px;
+			max-width: 78px;
+		}
+
+		.iwm-analysis-mobile {
+			font-size: 0.76rem !important;
 		}
 
 		.iwm-icon-button {
@@ -997,9 +980,6 @@ const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 
 			min-width: 42px;
 			min-height: 42px;
 		}
-
-		.iwm-analysis-mobile {
-			font-size: 0.68rem !important;
-		}
 	}
+
 </style>
