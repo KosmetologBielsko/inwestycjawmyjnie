@@ -1,4 +1,4 @@
-﻿---
+---
 const menuLinks = [
 	{
 		label: 'Koszt budowy',
@@ -65,14 +65,7 @@ const searchLinks = [
 	}
 ];
 
-const quickWords = [
-	'koszt',
-	'działka',
-	'oferty',
-	'opłacalność',
-	'błędy',
-	'analiza'
-];
+const quickWords = ['koszt', 'działka', 'oferty', 'opłacalność', 'błędy', 'analiza'];
 ---
 
 <header class="iwm-header" data-iwm-header>
@@ -88,14 +81,14 @@ const quickWords = [
 				decoding="async"
 			/>
 			<img
-	class="iwm-logo iwm-logo-mobile"
-	src="/images/logo-inwestycjawmyjnie-symbol.webp"
-	alt="inwestycjawmyjnie.pl"
-	width="1017"
-	height="819"
-	loading="eager"
-	decoding="async"
-/>
+				class="iwm-logo iwm-logo-mobile"
+				src="/images/logo-inwestycjawmyjnie-kolo.webp?v=10"
+				alt="inwestycjawmyjnie.pl"
+				width="512"
+				height="512"
+				loading="eager"
+				decoding="async"
+			/>
 		</a>
 
 		<div class="iwm-header-actions">
@@ -171,27 +164,23 @@ const quickWords = [
 				</label>
 
 				<div class="iwm-quick-words" aria-label="Szybkie wyszukiwania">
-					{
-						quickWords.map((word) => (
-							<button type="button" data-iwm-search-chip={word}>
-								{word}
-							</button>
-						))
-					}
+					{quickWords.map((word) => (
+						<button type="button" data-iwm-search-chip={word}>
+							{word}
+						</button>
+					))}
 				</div>
 
 				<div class="iwm-search-results" data-iwm-search-results>
-					{
-						searchLinks.map((link) => (
-							<a
-								href={link.href}
-								data-iwm-search-item
-								data-iwm-search-keywords={link.keywords}
-							>
-								{link.label}
-							</a>
-						))
-					}
+					{searchLinks.map((link) => (
+						<a
+							href={link.href}
+							data-iwm-search-item
+							data-iwm-search-keywords={link.keywords}
+						>
+							{link.label}
+						</a>
+					))}
 				</div>
 
 				<p class="iwm-search-empty" data-iwm-search-empty hidden>
@@ -203,14 +192,12 @@ const quickWords = [
 
 	<nav class="iwm-menu-panel" id="iwm-menu-panel" data-iwm-menu-panel hidden aria-label="Menu strony">
 		<div class="iwm-panel-inner iwm-menu-links">
-			{
-				menuLinks.map((link) => (
-					<a href={link.href}>
-						{link.label}
-						<span aria-hidden="true">→</span>
-					</a>
-				))
-			}
+			{menuLinks.map((link) => (
+				<a href={link.href}>
+					{link.label}
+					<span aria-hidden="true">→</span>
+				</a>
+			))}
 		</div>
 	</nav>
 </header>
@@ -283,9 +270,7 @@ const quickWords = [
 		closeSearch();
 	});
 
-	searchClose?.addEventListener('click', () => {
-		closeSearch();
-	});
+	searchClose?.addEventListener('click', closeSearch);
 
 	menuToggle?.addEventListener('click', () => {
 		const shouldOpen = menuPanel?.hasAttribute('hidden');
@@ -382,6 +367,9 @@ const quickWords = [
 
 	.iwm-logo-mobile {
 		display: none;
+		width: 52px;
+		height: 52px;
+		object-fit: contain;
 	}
 
 	.iwm-header-actions {
@@ -804,7 +792,7 @@ const quickWords = [
 
 		.iwm-header-inner {
 			display: grid;
-			grid-template-columns: 42px minmax(0, 1fr) 46px 46px;
+			grid-template-columns: 44px minmax(0, 1fr) 46px 46px;
 			align-items: center;
 			gap: 8px;
 			width: min(100% - 20px, 1420px);
@@ -819,19 +807,19 @@ const quickWords = [
 			grid-row: 1;
 			display: grid;
 			place-items: center;
-			width: 42px;
-			height: 42px;
-			min-width: 42px;
-			min-height: 42px;
-			max-width: none;
+			width: 44px;
+			height: 44px;
+			min-width: 44px;
+			min-height: 44px;
+			max-width: 44px;
 			padding: 0;
 			border-radius: 999px;
 			background:
-				radial-gradient(circle at 80% 18%, rgba(114, 240, 105, 0.18), transparent 36%),
-				rgba(255, 255, 255, 0.92);
+				radial-gradient(circle at 76% 16%, rgba(114, 240, 105, 0.2), transparent 36%),
+				rgba(255, 255, 255, 0.96);
 			border: 1px solid rgba(8, 16, 32, 0.08);
 			box-shadow:
-				0 10px 24px rgba(8, 16, 32, 0.08),
+				0 12px 28px rgba(8, 16, 32, 0.1),
 				inset 0 1px 0 rgba(255, 255, 255, 0.95);
 			overflow: hidden;
 		}
@@ -842,10 +830,11 @@ const quickWords = [
 
 		.iwm-logo-mobile {
 			display: block;
-			width: 34px;
-			height: 34px;
+			width: 36px;
+			height: 36px;
+			max-width: 36px;
 			object-fit: contain;
-			object-position: center;
+			object-position: center center;
 		}
 
 		.iwm-header-actions .iwm-icon-button:first-child {
@@ -946,21 +935,23 @@ const quickWords = [
 
 	@media (max-width: 390px) {
 		.iwm-header-inner {
-			grid-template-columns: 40px minmax(0, 1fr) 44px 44px;
+			grid-template-columns: 42px minmax(0, 1fr) 44px 44px;
 			gap: 7px;
 			width: min(100% - 18px, 1420px);
 		}
 
 		.iwm-brand {
-			width: 40px;
-			height: 40px;
-			min-width: 40px;
-			min-height: 40px;
+			width: 42px;
+			height: 42px;
+			min-width: 42px;
+			min-height: 42px;
+			max-width: 42px;
 		}
 
 		.iwm-logo-mobile {
-			width: 32px;
-			height: 32px;
+			width: 34px;
+			height: 34px;
+			max-width: 34px;
 		}
 
 		.iwm-icon-button {
@@ -982,20 +973,22 @@ const quickWords = [
 
 	@media (max-width: 350px) {
 		.iwm-header-inner {
-			grid-template-columns: 38px minmax(0, 1fr) 42px 42px;
+			grid-template-columns: 40px minmax(0, 1fr) 42px 42px;
 			gap: 6px;
 		}
 
 		.iwm-brand {
-			width: 38px;
-			height: 38px;
-			min-width: 38px;
-			min-height: 38px;
+			width: 40px;
+			height: 40px;
+			min-width: 40px;
+			min-height: 40px;
+			max-width: 40px;
 		}
 
 		.iwm-logo-mobile {
-			width: 30px;
-			height: 30px;
+			width: 32px;
+			height: 32px;
+			max-width: 32px;
 		}
 
 		.iwm-icon-button {
@@ -1009,56 +1002,4 @@ const quickWords = [
 			font-size: 0.68rem !important;
 		}
 	}
-	/* FINAL FIX — mobile header logo: sam symbol auta centralnie w kółku */
-@media (max-width: 640px) {
-	.iwm-brand {
-		display: grid !important;
-		place-items: center !important;
-		width: 44px !important;
-		height: 44px !important;
-		min-width: 44px !important;
-		min-height: 44px !important;
-		max-width: 44px !important;
-		padding: 0 !important;
-		border-radius: 999px !important;
-		overflow: hidden !important;
-		background:
-			radial-gradient(circle at 76% 16%, rgba(114, 240, 105, 0.2), transparent 36%),
-			rgba(255, 255, 255, 0.96) !important;
-		border: 1px solid rgba(8, 16, 32, 0.08) !important;
-		box-shadow:
-			0 12px 28px rgba(8, 16, 32, 0.1),
-			inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
-	}
-
-	.iwm-logo-desktop {
-		display: none !important;
-	}
-
-	.iwm-logo-mobile {
-		display: block !important;
-		width: 34px !important;
-		height: 34px !important;
-		max-width: 34px !important;
-		object-fit: contain !important;
-		object-position: center center !important;
-		transform: none !important;
-	}
-}
-
-@media (max-width: 390px) {
-	.iwm-brand {
-		width: 42px !important;
-		height: 42px !important;
-		min-width: 42px !important;
-		min-height: 42px !important;
-		max-width: 42px !important;
-	}
-
-	.iwm-logo-mobile {
-		width: 32px !important;
-		height: 32px !important;
-		max-width: 32px !important;
-	}
-}
 </style>
