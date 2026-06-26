@@ -1,13 +1,13 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const page = {
 	canonicalPath: '/bezplatne-porownanie-ofert-myjni/',
-	title: 'Bezpłatna analiza działki i porównanie ofert myjni bezdotykowej',
+	title: 'Porównaj oferty myjni bezdotykowej — bezpłatna analiza działki i inwestycji',
 	description:
-		'Bezpłatna analiza działki i porównanie ofert myjni bezdotykowej w jednym formularzu. Sprawdź lokalizację, założenia inwestycji, zakres, technologię, cenę, serwis i dokumentację.'
+		'Porównaj oferty myjni bezdotykowej i sprawdź działkę, budżet, technologię, zakres, serwis, dokumentację oraz koszty inwestycji. Bezpłatna analiza dla inwestora myjni.'
 };
 
 const comparisonCards = [
@@ -83,9 +83,65 @@ const faqSchema = {
 		}
 	}))
 };
+const breadcrumbs = [
+	{
+		name: 'Strona główna',
+		path: '/'
+	},
+	{
+		name: 'Poradnik inwestora',
+		path: '/poradnik/'
+	},
+	{
+		name: 'Porównanie ofert myjni',
+		path: page.canonicalPath
+	}
+];
+
+const serviceSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Service',
+	name: 'Bezpłatna analiza działki i porównanie ofert myjni bezdotykowej',
+	serviceType: [
+		'Porównanie ofert myjni bezdotykowej',
+		'Analiza działki pod myjnię',
+		'Analiza inwestycji w myjnię bezdotykową',
+		'Przygotowanie zapytania do dostawców myjni'
+	],
+	description:
+		'Usługa polega na bezpłatnym uporządkowaniu założeń inwestycji w myjnię bezdotykową, analizie działki, budżetu, mediów, liczby stanowisk oraz przygotowaniu porównywalnego zapytania do polskich dostawców myjni.',
+	provider: {
+		'@type': 'Organization',
+		name: 'inwestycjawmyjnie.pl',
+		url: 'https://inwestycjawmyjnie.pl',
+		email: 'analiza@inwestycjawmyjnie.pl'
+	},
+	areaServed: {
+		'@type': 'Country',
+		name: 'Polska'
+	},
+	audience: {
+		'@type': 'Audience',
+		audienceType: 'Inwestorzy planujący budowę myjni bezdotykowej'
+	},
+	offers: {
+		'@type': 'Offer',
+		price: '0',
+		priceCurrency: 'PLN',
+		availability: 'https://schema.org/InStock',
+		url: 'https://inwestycjawmyjnie.pl/bezplatne-porownanie-ofert-myjni/'
+	}
+};
 ---
 
-<Layout title={page.title} description={page.description} canonicalPath={page.canonicalPath}>
+<Layout
+	title={page.title}
+	description={page.description}
+	canonicalPath={page.canonicalPath}
+	ogType="website"
+	breadcrumbs={breadcrumbs}
+	structuredData={[faqSchema, serviceSchema]}
+>
 	<Header />
 
 	<main class="lead-page lead-compare-page">
@@ -764,8 +820,6 @@ const faqSchema = {
 			});
 		}
 	</script>
-
-	<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Layout>
 
 <style>
