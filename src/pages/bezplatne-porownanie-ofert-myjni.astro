@@ -34,9 +34,59 @@ const comparisonCards = [
 ];
 
 const processSteps = [
-	['01', 'Opisujesz działkę i założenia', 'Podajesz lokalizację, status działki, media, liczbę stanowisk, budżet, finansowanie i oczekiwany zakres myjni.'],
-	['02', 'Porządkujemy temat inwestycji', 'Na podstawie formularza łatwiej przygotować porównywalne zapytanie ofertowe dla polskich dostawców myjni.'],
-	['03', 'Łatwiej porównujesz odpowiedzi', 'Dzięki uporządkowanym założeniom szybciej zobaczysz różnice w cenie, zakresie, technologii, serwisie i kosztach po uruchomieniu.']
+	[
+		'01',
+		'Wysyłasz dane inwestycji',
+		'Podajesz lokalizację, status działki, media, liczbę stanowisk, budżet, finansowanie, oczekiwany zakres oraz ewentualną ofertę lub link do mapy.'
+	],
+	[
+		'02',
+		'Porządkujemy zapytanie',
+		'Na podstawie formularza porządkujemy informacje tak, żeby temat był czytelny dla inwestora oraz możliwy do omówienia z wybranymi dostawcami.'
+	],
+	[
+		'03',
+		'Przekazujemy temat dalej',
+		'Jeżeli zgłoszenie jest gotowe do rozmowy, może zostać przekazane do wybranych, sprawdzonych producentów lub dostawców technologii myjni w Polsce.'
+	],
+	[
+		'04',
+		'Dostawca kontaktuje się z Tobą',
+		'Wybrany dostawca może skontaktować się bezpośrednio z inwestorem, znając już podstawowe dane o działce, budżecie, liczbie stanowisk i oczekiwanym zakresie.'
+	]
+];
+
+const supplierBenefits = [
+	{
+		number: '01',
+		title: 'Wstępna ocena potencjału',
+		text: 'Dostawca może odnieść się do lokalizacji, układu działki, liczby stanowisk, mediów, budżetu i realności dalszej rozmowy inwestycyjnej.'
+	},
+	{
+		number: '02',
+		title: 'Oferta lub konsultacja',
+		text: 'Po uporządkowaniu danych łatwiej przygotować ofertę, rozmowę techniczną albo listę elementów, które trzeba uzupełnić przed dokładniejszą wyceną.'
+	},
+	{
+		number: '03',
+		title: 'Lepsze porównanie zakresu',
+		text: 'Inwestor może porównać nie tylko cenę, ale też technologię, serwis, dokumentację, montaż, wyposażenie, koszty eksploatacji i odpowiedzialność dostawcy.'
+	}
+];
+
+const afterSubmitCards = [
+	{
+		title: 'Nie sprzedajemy przypadkowej listy kontaktów',
+		text: 'Celem formularza jest uporządkowanie zapytania inwestora i przekazanie go do takich dostawców, którzy mogą realnie odnieść się do przesłanych danych.'
+	},
+	{
+		title: 'Dostawca zna kontekst przed rozmową',
+		text: 'Producent lub dostawca otrzymuje podstawowe informacje o lokalizacji, budżecie, mediach, liczbie stanowisk i oczekiwanym zakresie inwestycji.'
+	},
+	{
+		title: 'Inwestor oszczędza czas',
+		text: 'Zamiast tłumaczyć każdemu producentowi temat od początku, inwestor może rozpocząć rozmowę od bardziej uporządkowanego punktu wyjścia.'
+	}
 ];
 
 const faqItems = [
@@ -56,10 +106,10 @@ const faqItems = [
 			'Nie. Sama cena jest tylko jednym z elementów. Ważny jest zakres, technologia, posadzka, dokumentacja, warunki umowy, gwarancja, serwis, części, chemia i koszty eksploatacji.'
 	},
 	{
-		question: 'Czy możecie pomóc pozyskać oferty od polskich dostawców?',
-		answer:
-			'Tak. Po wypełnieniu formularza możemy pomóc uporządkować założenia inwestycji i przygotować porównywalne zapytanie do polskich dostawców myjni. Dzięki temu inwestor nie porównuje przypadkowych cen, tylko bardziej doprecyzowany zakres.'
-	}
+	question: 'Czy po formularzu mogą skontaktować się ze mną producenci lub dostawcy myjni?',
+	answer:
+		'Tak. Jeżeli wyrazisz wymagane zgody i zgłoszenie będzie gotowe do dalszej rozmowy, dane oraz informacje z formularza mogą zostać przekazane wybranym, sprawdzonym producentom lub dostawcom technologii myjni działającym w Polsce. Dzięki temu dostawca kontaktuje się z inwestorem już z podstawową wiedzą o działce, budżecie i oczekiwanym zakresie.'
+}
 ];
 
 const relatedLinks = [
@@ -575,7 +625,67 @@ const serviceSchema = {
 				</aside>
 			</div>
 		</section>
+		<section class="lead-section supplier-flow-section" aria-labelledby="supplier-flow-title">
+			<div class="container">
+				<div class="supplier-flow-shell">
+					<div class="supplier-flow-head">
+						<p class="eyebrow">
+							<span></span>
+							Po wysłaniu formularza
+						</p>
 
+						<h2 id="supplier-flow-title">
+							Co dzieje się z Twoim zgłoszeniem <strong>po analizie?</strong>
+						</h2>
+
+						<p>
+							inwestycjawmyjnie.pl działa jako poradnik i punkt wsparcia inwestora. Pomagamy
+							uporządkować dane, a następnie — za Twoją zgodą — temat może trafić do wybranych,
+							sprawdzonych producentów lub dostawców technologii myjni w Polsce.
+						</p>
+					</div>
+
+					<div class="supplier-flow-grid">
+						{afterSubmitCards.map((card, index) => (
+							<article class="supplier-flow-card">
+								<span>{String(index + 1).padStart(2, '0')}</span>
+								<h3>{card.title}</h3>
+								<p>{card.text}</p>
+							</article>
+						))}
+					</div>
+
+					<div class="supplier-benefits-panel">
+						<div>
+							<p class="eyebrow light">
+								<span></span>
+								Co możesz otrzymać?
+							</p>
+
+							<h2>
+								Kontakt od dostawcy ma być <strong>lepiej przygotowany</strong>
+							</h2>
+
+							<p>
+								Celem nie jest samo zebranie numeru telefonu. Celem jest przekazanie dostawcy
+								takich informacji, żeby rozmowa z inwestorem szybciej dotyczyła konkretów:
+								działki, budżetu, technologii, zakresu i realnego wariantu budowy myjni.
+							</p>
+						</div>
+
+						<div class="supplier-benefits-grid">
+							{supplierBenefits.map((card) => (
+								<article>
+									<span>{card.number}</span>
+									<h3>{card.title}</h3>
+									<p>{card.text}</p>
+								</article>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section class="lead-section" aria-labelledby="comparison-title">
 			<div class="container">
 				<div class="lead-split">
@@ -1256,11 +1366,11 @@ const serviceSchema = {
 	}
 
 	.process-steps {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 16px;
-		margin-top: 34px;
-	}
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 16px;
+	margin-top: 34px;
+}
 
 	.process-steps article {
 		padding: 24px;
@@ -1922,5 +2032,244 @@ const serviceSchema = {
 			align-items: flex-start;
 		}
 	}
+/* FINAL LEAD FLOW — co dzieje się po wysłaniu formularza */
+.supplier-flow-section {
+	padding-top: clamp(56px, 6vw, 88px);
+	background: #ffffff;
+}
 
+.supplier-flow-shell {
+	padding: clamp(28px, 4vw, 44px);
+	border-radius: 44px;
+	background:
+		radial-gradient(circle at 8% 10%, rgba(18, 104, 255, 0.075), transparent 34%),
+		radial-gradient(circle at 94% 6%, rgba(114, 240, 105, 0.11), transparent 32%),
+		linear-gradient(145deg, #ffffff, #f8fafc);
+	border: 1px solid rgba(8, 16, 32, 0.07);
+	box-shadow: 0 26px 78px rgba(8, 16, 32, 0.07);
+}
+
+.supplier-flow-head {
+	display: grid;
+	grid-template-columns: 230px minmax(0, 1fr) minmax(280px, 0.58fr);
+	gap: 22px 30px;
+	align-items: end;
+}
+
+.supplier-flow-head .eyebrow {
+	margin: 0;
+}
+
+.supplier-flow-head h2,
+.supplier-benefits-panel h2 {
+	margin: 0;
+	color: var(--ink);
+	font-size: clamp(2.35rem, 4.8vw, 5.25rem);
+	font-weight: 950;
+	line-height: 0.96;
+	letter-spacing: -0.078em;
+}
+
+.supplier-flow-head h2 strong,
+.supplier-benefits-panel h2 strong {
+	background: linear-gradient(90deg, #0756d8 0%, #1268ff 38%, #4fa3ff 72%, #9ed7ff 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	font-weight: inherit;
+}
+
+.supplier-flow-head > p {
+	margin: 0;
+	color: #667085;
+	font-size: clamp(0.98rem, 1.05vw, 1.08rem);
+	font-weight: 590;
+	line-height: 1.62;
+	letter-spacing: -0.014em;
+}
+
+.supplier-flow-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 18px;
+	margin-top: 32px;
+}
+
+.supplier-flow-card {
+	position: relative;
+	overflow: hidden;
+	min-height: 250px;
+	padding: 26px;
+	border-radius: 30px;
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid rgba(8, 16, 32, 0.065);
+	box-shadow: 0 18px 52px rgba(8, 16, 32, 0.055);
+}
+
+.supplier-flow-card::before {
+	content: '';
+	position: absolute;
+	right: -82px;
+	top: -94px;
+	width: 210px;
+	height: 230px;
+	border-radius: 54% 46% 42% 58% / 44% 58% 42% 56%;
+	background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(226, 236, 249, 0.58));
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.94),
+		inset 0 -18px 34px rgba(8, 16, 32, 0.035),
+		0 22px 54px rgba(8, 16, 32, 0.055);
+}
+
+.supplier-flow-card span {
+	position: relative;
+	z-index: 1;
+	display: block;
+	color: rgba(8, 16, 32, 0.12);
+	font-size: clamp(3.8rem, 4.7vw, 5.8rem);
+	font-weight: 950;
+	letter-spacing: -0.09em;
+	line-height: 0.82;
+}
+
+.supplier-flow-card h3 {
+	position: relative;
+	z-index: 1;
+	margin: 38px 0 0;
+	color: var(--ink);
+	font-size: clamp(1.28rem, 1.7vw, 1.8rem);
+	font-weight: 950;
+	line-height: 1.03;
+	letter-spacing: -0.055em;
+}
+
+.supplier-flow-card p {
+	position: relative;
+	z-index: 1;
+	margin: 14px 0 0;
+	color: #667085;
+	font-weight: 570;
+	line-height: 1.62;
+}
+
+.supplier-benefits-panel {
+	display: grid;
+	grid-template-columns: minmax(0, 0.72fr) minmax(380px, 1fr);
+	gap: clamp(24px, 4vw, 44px);
+	align-items: start;
+	margin-top: 20px;
+	padding: clamp(30px, 4vw, 48px);
+	border-radius: 38px;
+	background:
+		radial-gradient(circle at 12% 18%, rgba(18, 104, 255, 0.24), transparent 34%),
+		radial-gradient(circle at 88% 8%, rgba(114, 240, 105, 0.2), transparent 30%),
+		linear-gradient(135deg, #05070d 0%, #101723 48%, #05070d 100%);
+	color: #ffffff;
+	box-shadow: 0 28px 84px rgba(8, 16, 32, 0.24);
+}
+
+.supplier-benefits-panel h2 {
+	color: #ffffff;
+}
+
+.supplier-benefits-panel h2 strong {
+	background: linear-gradient(90deg, #72f069 0%, #43f2a2 28%, #4fa3ff 68%, #9ed7ff 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.supplier-benefits-panel > div > p:not(.eyebrow) {
+	margin: 20px 0 0;
+	color: rgba(255, 255, 255, 0.74);
+	font-size: clamp(0.98rem, 1.05vw, 1.08rem);
+	font-weight: 560;
+	line-height: 1.66;
+}
+
+.supplier-benefits-grid {
+	display: grid;
+	gap: 14px;
+}
+
+.supplier-benefits-grid article {
+	padding: 22px;
+	border-radius: 24px;
+	background:
+		radial-gradient(circle at 92% 6%, rgba(114, 240, 105, 0.13), transparent 34%),
+		rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.supplier-benefits-grid span {
+	color: #72f069;
+	font-size: 0.8rem;
+	font-weight: 950;
+	letter-spacing: 0.12em;
+}
+
+.supplier-benefits-grid h3 {
+	margin: 18px 0 0;
+	color: #ffffff;
+	font-size: clamp(1.22rem, 1.5vw, 1.55rem);
+	font-weight: 950;
+	line-height: 1.05;
+	letter-spacing: -0.055em;
+}
+
+.supplier-benefits-grid p {
+	margin: 10px 0 0;
+	color: rgba(255, 255, 255, 0.72);
+	font-weight: 560;
+	line-height: 1.58;
+}
+
+@media (max-width: 1180px) {
+	.supplier-flow-head,
+	.supplier-benefits-panel {
+		grid-template-columns: 1fr;
+	}
+
+	.supplier-flow-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.process-steps {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 760px) {
+	.supplier-flow-shell {
+		padding: 22px;
+		border-radius: 30px;
+	}
+
+	.supplier-flow-head h2,
+	.supplier-benefits-panel h2 {
+		font-size: clamp(2rem, 10vw, 3.2rem);
+		line-height: 0.98;
+		letter-spacing: -0.07em;
+	}
+
+	.supplier-flow-card {
+		min-height: auto;
+		padding: 22px;
+		border-radius: 24px;
+	}
+
+	.supplier-flow-card h3 {
+		margin-top: 30px;
+	}
+
+	.supplier-benefits-panel {
+		padding: 24px;
+		border-radius: 30px;
+	}
+
+	.process-steps {
+		grid-template-columns: 1fr;
+	}
+}
 </style>
