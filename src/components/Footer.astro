@@ -341,42 +341,54 @@ const documentLinks = [
 	}
 
 	.iwm-footer-docs {
-		display: grid;
-		grid-template-columns: 180px minmax(0, 1fr);
-		align-items: center;
-		gap: 18px;
-		margin-top: 16px;
-		padding: 18px 22px;
-		border-radius: 26px;
-	}
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	margin-top: 16px;
+	padding: 18px 22px;
+	border-radius: 26px;
+}
 
-	.iwm-footer-docs ul {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-end;
-		gap: 10px;
-	}
+.iwm-footer-docs h2 {
+	flex: 0 0 auto;
+	margin: 0;
+	white-space: nowrap;
+}
 
-	.iwm-footer-docs li {
-		display: flex;
-		align-items: center;
-	}
+.iwm-footer-docs ul {
+	display: flex;
+	flex: 1 1 auto;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0;
+	min-width: 0;
+}
 
-	.iwm-footer-docs li:not(:last-child)::after {
-		content: '';
-		display: block;
-		width: 5px;
-		height: 5px;
-		margin-left: 10px;
-		border-radius: 999px;
-		background: rgba(18, 104, 255, 0.32);
-	}
+.iwm-footer-docs li {
+	display: inline-flex;
+	align-items: center;
+	white-space: nowrap;
+}
 
-	.iwm-footer-docs a {
-		display: inline-flex;
-		font-size: clamp(0.9rem, 0.92vw, 1rem);
-		white-space: nowrap;
-	}
+.iwm-footer-docs li:not(:last-child)::after {
+	content: '';
+	display: inline-block;
+	width: 5px;
+	height: 5px;
+	margin-left: 16px;
+	margin-right: 16px;
+	border-radius: 999px;
+	background: rgba(18, 104, 255, 0.32);
+	flex: 0 0 auto;
+}
+
+.iwm-footer-docs a {
+	display: inline-flex;
+	font-size: clamp(0.84rem, 0.88vw, 0.96rem);
+	font-weight: 820;
+	white-space: nowrap;
+}
 
 	.iwm-footer-bottom {
 		display: flex;
@@ -424,13 +436,15 @@ const documentLinks = [
 		}
 
 		.iwm-footer-docs {
-			grid-template-columns: 1fr;
-			align-items: start;
-		}
+	display: grid;
+	gap: 14px;
+}
 
-		.iwm-footer-docs ul {
-			justify-content: flex-start;
-		}
+.iwm-footer-docs ul {
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 10px 0;
+}
 
 		.iwm-footer-bottom {
 			align-items: flex-start;
@@ -491,22 +505,29 @@ const documentLinks = [
 		}
 
 		.iwm-footer-docs {
-			margin-top: 12px;
-			padding: 20px;
-		}
+	display: grid;
+	margin-top: 12px;
+	padding: 20px;
+	gap: 12px;
+}
 
-		.iwm-footer-docs ul {
-			display: grid;
-			gap: 12px;
-		}
+.iwm-footer-docs ul {
+	display: grid;
+	gap: 12px;
+}
 
-		.iwm-footer-docs li:not(:last-child)::after {
-			display: none;
-		}
+.iwm-footer-docs li {
+	display: flex;
+	white-space: normal;
+}
 
-		.iwm-footer-docs a {
-			white-space: normal;
-		}
+.iwm-footer-docs li:not(:last-child)::after {
+	display: none;
+}
+
+.iwm-footer-docs a {
+	white-space: normal;
+}
 
 		.iwm-footer-bottom {
 			gap: 10px;
