@@ -8158,3 +8158,287 @@ html {
 		0 0 0 7px rgba(114, 240, 105, 0.14),
 		0 0 26px rgba(114, 240, 105, 0.34) !important;
 }
+/* FINAL GLOBAL UX — usuń niebieski prostokąt po kliknięciu, zostaw estetyczny focus */
+html {
+	-webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+summary,
+label,
+input,
+textarea,
+select,
+[role='button'] {
+	-webkit-tap-highlight-color: transparent;
+}
+
+a:focus,
+button:focus,
+summary:focus,
+[role='button']:focus {
+	outline: none;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+summary:focus:not(:focus-visible),
+[role='button']:focus:not(:focus-visible) {
+	outline: none;
+	box-shadow: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[role='button']:focus-visible {
+	outline: none;
+	box-shadow:
+		0 0 0 4px rgba(18, 104, 255, 0.14),
+		0 0 0 7px rgba(114, 240, 105, 0.13);
+}
+/* FINAL FLOATING GUIDE — subtelny puls poradnika */
+.floating-guide-button {
+	isolation: isolate;
+	overflow: visible;
+}
+
+.floating-guide-button::before {
+	content: '';
+	position: absolute;
+	inset: -7px;
+	z-index: -1;
+	border-radius: 999px;
+	background:
+		radial-gradient(circle, rgba(114, 240, 105, 0.32) 0%, rgba(114, 240, 105, 0.16) 34%, transparent 68%),
+		radial-gradient(circle, rgba(18, 104, 255, 0.18) 0%, transparent 62%);
+	opacity: 0.75;
+	transform: scale(0.92);
+	pointer-events: none;
+	animation: iwmGuidePulse 2.45s ease-out infinite;
+}
+
+.floating-guide-button::after {
+	content: '';
+	position: absolute;
+	inset: -13px;
+	z-index: -2;
+	border-radius: 999px;
+	border: 1px solid rgba(114, 240, 105, 0.28);
+	opacity: 0;
+	transform: scale(0.82);
+	pointer-events: none;
+	animation: iwmGuideRing 2.45s ease-out infinite;
+}
+
+.floating-guide-pulse {
+	animation: iwmGuideDot 1.75s ease-in-out infinite;
+}
+
+.floating-guide.is-open .floating-guide-button::before,
+.floating-guide.is-open .floating-guide-button::after,
+.floating-guide.is-open .floating-guide-pulse {
+	animation: none;
+}
+
+@keyframes iwmGuidePulse {
+	0% {
+		opacity: 0.68;
+		transform: scale(0.9);
+	}
+
+	55% {
+		opacity: 0.24;
+		transform: scale(1.2);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(1.36);
+	}
+}
+
+@keyframes iwmGuideRing {
+	0% {
+		opacity: 0;
+		transform: scale(0.82);
+	}
+
+	22% {
+		opacity: 0.72;
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(1.5);
+	}
+}
+
+@keyframes iwmGuideDot {
+	0%,
+	100% {
+		transform: scale(1);
+		box-shadow:
+			0 0 0 5px rgba(114, 240, 105, 0.16),
+			0 0 18px rgba(114, 240, 105, 0.42);
+	}
+
+	50% {
+		transform: scale(1.16);
+		box-shadow:
+			0 0 0 8px rgba(114, 240, 105, 0.12),
+			0 0 26px rgba(114, 240, 105, 0.55);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.floating-guide-button::before,
+	.floating-guide-button::after,
+	.floating-guide-pulse {
+		animation: none !important;
+	}
+}
+/* FINAL FLOATING GUIDE — mocniejsza niebieska poświata i delikatne bicie kółka */
+.floating-guide-button {
+	isolation: isolate !important;
+	overflow: visible !important;
+	animation: iwmGuideButtonBeat 2.6s ease-in-out infinite !important;
+	will-change: transform, box-shadow;
+	box-shadow:
+		0 18px 48px rgba(8, 16, 32, 0.16),
+		0 0 28px rgba(18, 104, 255, 0.22),
+		0 0 38px rgba(114, 240, 105, 0.18),
+		inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+
+.floating-guide-button::before {
+	content: '';
+	position: absolute;
+	inset: -10px;
+	z-index: -1;
+	border-radius: 999px;
+	background:
+		radial-gradient(circle, rgba(18, 104, 255, 0.36) 0%, rgba(18, 104, 255, 0.2) 34%, transparent 68%),
+		radial-gradient(circle, rgba(114, 240, 105, 0.22) 0%, transparent 58%);
+	opacity: 0.78;
+	transform: scale(0.92);
+	pointer-events: none;
+	animation: iwmGuideBlueGlow 2.6s ease-out infinite !important;
+}
+
+.floating-guide-button::after {
+	content: '';
+	position: absolute;
+	inset: -18px;
+	z-index: -2;
+	border-radius: 999px;
+	border: 1px solid rgba(18, 104, 255, 0.36);
+	box-shadow:
+		0 0 24px rgba(18, 104, 255, 0.2),
+		0 0 42px rgba(114, 240, 105, 0.12);
+	opacity: 0;
+	transform: scale(0.82);
+	pointer-events: none;
+	animation: iwmGuideBlueRing 2.6s ease-out infinite !important;
+}
+
+.floating-guide-icon {
+	position: relative;
+	z-index: 2;
+}
+
+.floating-guide-pulse {
+	animation: iwmGuideGreenDotStrong 1.7s ease-in-out infinite !important;
+}
+
+.floating-guide.is-open .floating-guide-button,
+.floating-guide.is-open .floating-guide-button::before,
+.floating-guide.is-open .floating-guide-button::after,
+.floating-guide.is-open .floating-guide-pulse {
+	animation: none !important;
+}
+
+@keyframes iwmGuideButtonBeat {
+	0%,
+	100% {
+		transform: scale(1);
+		box-shadow:
+			0 18px 48px rgba(8, 16, 32, 0.16),
+			0 0 28px rgba(18, 104, 255, 0.22),
+			0 0 38px rgba(114, 240, 105, 0.18),
+			inset 0 1px 0 rgba(255, 255, 255, 0.95);
+	}
+
+	50% {
+		transform: scale(1.045);
+		box-shadow:
+			0 22px 58px rgba(8, 16, 32, 0.19),
+			0 0 42px rgba(18, 104, 255, 0.34),
+			0 0 48px rgba(114, 240, 105, 0.24),
+			inset 0 1px 0 rgba(255, 255, 255, 0.95);
+	}
+}
+
+@keyframes iwmGuideBlueGlow {
+	0% {
+		opacity: 0.64;
+		transform: scale(0.88);
+	}
+
+	48% {
+		opacity: 0.36;
+		transform: scale(1.22);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(1.48);
+	}
+}
+
+@keyframes iwmGuideBlueRing {
+	0% {
+		opacity: 0;
+		transform: scale(0.82);
+	}
+
+	18% {
+		opacity: 0.8;
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(1.62);
+	}
+}
+
+@keyframes iwmGuideGreenDotStrong {
+	0%,
+	100% {
+		transform: scale(1);
+		box-shadow:
+			0 0 0 5px rgba(114, 240, 105, 0.18),
+			0 0 18px rgba(114, 240, 105, 0.46);
+	}
+
+	50% {
+		transform: scale(1.22);
+		box-shadow:
+			0 0 0 9px rgba(114, 240, 105, 0.14),
+			0 0 30px rgba(114, 240, 105, 0.62);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.floating-guide-button,
+	.floating-guide-button::before,
+	.floating-guide-button::after,
+	.floating-guide-pulse {
+		animation: none !important;
+	}
+}
+/* FINAL FLOATING GUIDE — usuń zieloną kropkę z logo poradnika */
+.floating-guide-pulse {
+	display: none !important;
+}
