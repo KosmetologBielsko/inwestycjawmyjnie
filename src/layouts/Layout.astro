@@ -1,8 +1,9 @@
----
+﻿---
 import '../styles/global.css';
 import { siteConfig } from '../config/site';
 import FloatingGuide from '../components/FloatingGuide.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import GoogleTag from '../components/GoogleTag.astro';
 
 interface BreadcrumbItem {
 	name: string;
@@ -21,7 +22,7 @@ interface Props {
 }
 
 const {
-	title = 'Inwestycja w myjnię bezdotykową — koszt budowy, opłacalność i analiza lokalizacji',
+	title = 'Inwestycja w myjniÄ™ bezdotykowÄ… â€” koszt budowy, opĹ‚acalnoĹ›Ä‡ i analiza lokalizacji',
 	description = siteConfig.description,
 	canonicalPath = '/',
 	ogType = 'website',
@@ -74,11 +75,11 @@ const webPageSchema = {
 		url: siteConfig.url
 	},
 	about: [
-		'Inwestycja w myjnię bezdotykową',
+		'Inwestycja w myjniÄ™ bezdotykowÄ…',
 		'Koszt budowy myjni bezdotykowej',
-		'Opłacalność myjni bezdotykowej',
-		'Działka pod myjnię',
-		'Porównanie ofert myjni'
+		'OpĹ‚acalnoĹ›Ä‡ myjni bezdotykowej',
+		'DziaĹ‚ka pod myjniÄ™',
+		'PorĂłwnanie ofert myjni'
 	]
 };
 
@@ -142,7 +143,8 @@ const jsonLd = [
 		{jsonLd.map((schema) => (
 			<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 		))}
-	</head>
+		<GoogleTag />
+</head>
 
 	<body>
 	<slot />
