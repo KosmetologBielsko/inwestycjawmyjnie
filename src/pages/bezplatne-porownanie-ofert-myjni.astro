@@ -558,52 +558,89 @@ const serviceSchema = {
 	</small>
 </label>
 
-						<div class="form-consents full">
-							<label class="checkbox-label">
-								<input type="checkbox" name="contact_consent" required />
-								<span>
-									<strong>Wymagane.</strong>
-									Zlecam bezpłatną analizę zgłoszenia i wyrażam zgodę na kontakt telefoniczny
-									lub e-mailowy w sprawie inwestycji, działki, porównania ofert oraz dalszej
-									obsługi zapytania.
-								</span>
-							</label>
+												<div class="form-consents full">
+							<div class="consent-item">
+								<label class="checkbox-label">
+									<input type="checkbox" name="contact_consent" required />
+									<span>
+										<strong>Wymagane.</strong>
+										Zlecam bezpłatną analizę zgłoszenia i zgadzam się na kontakt w sprawie mojej inwestycji.
+									</span>
+								</label>
 
-							<label class="checkbox-label">
-								<input type="checkbox" name="supplier_transfer_consent" required />
-								<span>
-									<strong>Wymagane.</strong>
-									Rozumiem i akceptuję, że moje dane kontaktowe oraz informacje podane w formularzu
-									mogą zostać przekazane wybranym dostawcom, producentom lub partnerom technologicznym
-									myjni w celu przygotowania dopasowanej oferty, kontaktu handlowego i porównania
-									rozwiązań dla mojej inwestycji.
-								</span>
-							</label>
+								<details class="consent-details">
+									<summary>Rozwiń szczegóły</summary>
+									<p>
+										Kontakt może odbywać się telefonicznie lub e-mailowo i dotyczyć działki,
+										lokalizacji, budżetu, porównania ofert, doprecyzowania danych oraz dalszej
+										obsługi zapytania.
+									</p>
+								</details>
+							</div>
 
-							<label class="checkbox-label">
-								<input type="checkbox" name="privacy_consent" required />
-								<span>
-									<strong>Wymagane.</strong>
-									Oświadczam, że zapoznałem się z
-									<a href="/polityka-prywatnosci/" target="_blank" rel="noopener noreferrer">Polityką prywatności i RODO</a>,
-									<a href="/polityka-cookies/" target="_blank" rel="noopener noreferrer">Polityką cookies</a>
-									oraz
-									<a href="/zasady-korzystania/" target="_blank" rel="noopener noreferrer">Zasadami korzystania z formularza</a>.
-									Wiem, że administratorem danych jest BPHM Sp. z o.o. i że mogę żądać dostępu
-									do danych, sprostowania, usunięcia, ograniczenia przetwarzania oraz wycofania
-									zgody w zakresie, w jakim przetwarzanie odbywa się na podstawie zgody.
-								</span>
-							</label>
+							<div class="consent-item">
+								<label class="checkbox-label">
+									<input type="checkbox" name="supplier_transfer_consent" required />
+									<span>
+										<strong>Wymagane.</strong>
+										Akceptuję możliwość przekazania mojego zgłoszenia wybranym partnerom branży myjni.
+									</span>
+								</label>
 
-							<label class="checkbox-label">
-								<input type="checkbox" name="marketing_consent" />
-								<span>
-									<strong>Opcjonalnie.</strong>
-									Chcę otrzymywać dodatkowe informacje handlowe i marketingowe dotyczące inwestycji
-									w myjnie, poradnika inwestora, porównań ofert oraz podobnych usług drogą
-									elektroniczną lub telefoniczną. Zgodę mogę wycofać w każdej chwili.
-								</span>
-							</label>
+								<details class="consent-details">
+									<summary>Rozwiń szczegóły</summary>
+									<p>
+										Dane kontaktowe oraz informacje z formularza mogą zostać przekazane wybranym
+										producentom, dostawcom, projektantom, partnerom technologicznym, finansowym,
+										wykonawczym lub serwisowym w celu przygotowania kontaktu, konsultacji, analizy,
+										oferty albo porównania rozwiązań dla inwestycji w myjnię.
+									</p>
+								</details>
+							</div>
+
+							<div class="consent-item">
+								<label class="checkbox-label">
+									<input type="checkbox" name="privacy_consent" required />
+									<span>
+										<strong>Wymagane.</strong>
+										Oświadczam, że zapoznałem się z dokumentami prawnymi i informacją RODO.
+									</span>
+								</label>
+
+								<details class="consent-details">
+									<summary>Rozwiń szczegóły</summary>
+									<p>
+										Zapoznałem się z
+										<a href="/polityka-prywatnosci/" target="_blank" rel="noopener noreferrer">Polityką prywatności i RODO</a>,
+										<a href="/polityka-cookies/" target="_blank" rel="noopener noreferrer">Polityką cookies</a>
+										oraz
+										<a href="/zasady-korzystania/" target="_blank" rel="noopener noreferrer">Zasadami korzystania z formularza</a>.
+										Wiem, że administratorem danych jest BPHM Sp. z o.o. oraz że mogę żądać dostępu
+										do danych, sprostowania, usunięcia, ograniczenia przetwarzania, wniesienia sprzeciwu
+										oraz wycofania zgody w zakresie, w jakim przetwarzanie odbywa się na podstawie zgody.
+									</p>
+								</details>
+							</div>
+
+							<div class="consent-item">
+								<label class="checkbox-label">
+									<input type="checkbox" name="marketing_consent" />
+									<span>
+										<strong>Opcjonalnie.</strong>
+										Chcę otrzymywać informacje handlowe i marketingowe dotyczące inwestycji w myjnie.
+									</span>
+								</label>
+
+								<details class="consent-details">
+									<summary>Rozwiń szczegóły</summary>
+									<p>
+										Zgoda obejmuje informacje od BPHM Sp. z o.o. oraz wybranych partnerów dotyczące
+										porównania ofert, technologii, finansowania, projektowania, budowy, serwisu
+										oraz podobnych usług drogą elektroniczną lub telefoniczną. Zgodę mogę wycofać
+										w każdej chwili.
+									</p>
+								</details>
+							</div>
 						</div>
 
 						<p class="consent-required-note full" data-consent-required-note>
@@ -617,9 +654,9 @@ const serviceSchema = {
 						<small class="form-note full">
 							Administratorem danych jest BPHM Sp. z o.o. Kontakt w sprawie formularza:
 							<a href="mailto:analiza@inwestycjawmyjnie.pl">analiza@inwestycjawmyjnie.pl</a>.
-							Dane z formularza mogą zostać przekazane wybranym dostawcom, producentom lub
-							partnerom technologicznym wyłącznie w celu przygotowania dopasowanej oferty,
-							kontaktu handlowego i porównania rozwiązań dla Twojej inwestycji.
+							Dane z formularza mogą zostać przekazane wybranym partnerom branży myjni wyłącznie
+							w celu przygotowania kontaktu, konsultacji, analizy, oferty albo porównania rozwiązań
+							dla Twojej inwestycji.
 						</small>
 					</form>
 				</aside>
@@ -1914,7 +1951,54 @@ const serviceSchema = {
 	.form-consents {
 		gap: 12px !important;
 	}
+	.consent-item {
+		display: grid;
+		gap: 8px;
+		padding: 12px 13px;
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.075);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+	}
 
+	.consent-details {
+		margin-left: 28px;
+		color: rgba(255, 255, 255, 0.66);
+		font-size: 0.78rem;
+		font-weight: 560;
+		line-height: 1.5;
+	}
+
+	.consent-details summary {
+		width: fit-content;
+		cursor: pointer;
+		color: #72f069;
+		font-size: 0.78rem;
+		font-weight: 900;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		list-style: none;
+	}
+
+	.consent-details summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.consent-details summary::after {
+		content: ' +';
+		font-weight: 950;
+	}
+
+	.consent-details[open] summary::after {
+		content: ' −';
+	}
+
+	.consent-details p {
+		margin: 8px 0 0;
+		color: rgba(255, 255, 255, 0.66);
+		font-size: 0.78rem;
+		font-weight: 560;
+		line-height: 1.5;
+	}
 	.form-consents a,
 	.form-note a {
 		color: #72f069 !important;
