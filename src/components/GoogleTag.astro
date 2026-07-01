@@ -2,22 +2,12 @@
 const gaMeasurementId = 'G-4743DYW2P4';
 const adsMeasurementId = 'AW-18283016547';
 
-// Na razie zostawiamy placeholder.
-// Później podmienimy po ukośniku, gdy Google pokaże etykietę konwersji.
+// Na razie zostaje placeholder.
+// Później podmienimy, gdy Google Ads pokaże etykietę konwersji po ukośniku.
 const adsConversionSendTo = 'AW-18283016547/WKLEJ_TUTAJ_ETYKIETE_KONWERSJI';
 ---
 
 <script is:inline define:vars={{ gaMeasurementId, adsMeasurementId, adsConversionSendTo }}>
-(() => {
-	const CONSENT_KEY = 'iwmCookieConsentV1';
-	const FORM_PATH = '/bezplatne-porownanie-ofert-myjni/';
-	const API_PATH = '/api/wyslij-analize';
-
-	const hasAdsConversionLabel =
-		typeof adsConversionSendTo === 'string' &&
-		adsConversionSendTo.includes('/') &&
-		!adsConversionSendTo.includes('WKLEJ_TUTAJ');
-
 	window.dataLayer = window.dataLayer || [];
 
 	function gtag() {
@@ -34,11 +24,6 @@ const adsConversionSendTo = 'AW-18283016547/WKLEJ_TUTAJ_ETYKIETE_KONWERSJI';
 		wait_for_update: 500
 	});
 
-	const script = document.createElement('script');
-	script.async = true;
-	script.src = `https://www.googletagmanager.com/gtag/js?id=${adsMeasurementId}`;
-	document.head.appendChild(script);
-
 	gtag('js', new Date());
 
 	gtag('config', gaMeasurementId, {
@@ -50,6 +35,21 @@ const adsConversionSendTo = 'AW-18283016547/WKLEJ_TUTAJ_ETYKIETE_KONWERSJI';
 	gtag('config', adsMeasurementId, {
 		send_page_view: false
 	});
+</script>
+
+<!-- Google tag (gtag.js) - Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18283016547"></script>
+
+<script is:inline define:vars={{ adsConversionSendTo }}>
+(() => {
+	const CONSENT_KEY = 'iwmCookieConsentV1';
+	const FORM_PATH = '/bezplatne-porownanie-ofert-myjni/';
+	const API_PATH = '/api/wyslij-analize';
+
+	const hasAdsConversionLabel =
+		typeof adsConversionSendTo === 'string' &&
+		adsConversionSendTo.includes('/') &&
+		!adsConversionSendTo.includes('WKLEJ_TUTAJ');
 
 	function parseConsentValue(value) {
 		if (!value) {
@@ -118,7 +118,7 @@ const adsConversionSendTo = 'AW-18283016547/WKLEJ_TUTAJ_ETYKIETE_KONWERSJI';
 	}
 
 	function updateConsent(consent) {
-		gtag('consent', 'update', {
+		window.gtag('consent', 'update', {
 			analytics_storage: consent.analytics ? 'granted' : 'denied',
 			ad_storage: consent.ads ? 'granted' : 'denied',
 			ad_user_data: consent.ads ? 'granted' : 'denied',
@@ -132,7 +132,7 @@ const adsConversionSendTo = 'AW-18283016547/WKLEJ_TUTAJ_ETYKIETE_KONWERSJI';
 	}
 
 	function trackEvent(eventName, parameters = {}) {
-		gtag('event', eventName, {
+		window.gtag('event', eventName, {
 			...parameters,
 			page_location: window.location.href,
 			page_title: document.title
@@ -142,7 +142,7 @@ const adsConversionSendTo = 'AW-18283016547/WKLEJ_TUTAJ_ETYKIETE_KONWERSJI';
 	function trackAdsConversion(parameters = {}) {
 		if (!hasAdsConversionLabel) return;
 
-		gtag('event', 'conversion', {
+		window.gtag('event', 'conversion', {
 			send_to: adsConversionSendTo,
 			...parameters
 		});
