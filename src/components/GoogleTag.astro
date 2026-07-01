@@ -1,249 +1,244 @@
 ﻿---
-const gaMeasurementId = 'G-4743DYW2P4';
-const adsMeasurementId = 'AW-18283016547';
-
-// Na razie zostaje placeholder.
-// Później podmienimy, gdy Google Ads pokaże etykietę konwersji po ukośniku.
-const adsConversionSendTo = 'AW-18283016547/WKLEJ_TUTAJ_ETYKIETE_KONWERSJI';
+const measurementId = 'G-4743DYW2P4';
 ---
 
-<script is:inline define:vars={{ gaMeasurementId, adsMeasurementId, adsConversionSendTo }}>
-	window.dataLayer = window.dataLayer || [];
-
-	function gtag() {
-		window.dataLayer.push(arguments);
-	}
-
-	window.gtag = window.gtag || gtag;
-
-	gtag('consent', 'default', {
-		analytics_storage: 'denied',
-		ad_storage: 'denied',
-		ad_user_data: 'denied',
-		ad_personalization: 'denied',
-		wait_for_update: 500
-	});
-
-	gtag('js', new Date());
-
-	gtag('config', gaMeasurementId, {
-		send_page_view: true,
-		page_title: document.title,
-		page_location: window.location.href
-	});
-
-	gtag('config', adsMeasurementId, {
-		send_page_view: false
-	});
-</script>
-
-<!-- Google tag (gtag.js) - Google Ads -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18283016547"></script>
-
-<script is:inline define:vars={{ adsConversionSendTo }}>
+<script is:inline define:vars={{ measurementId }}>
 (() => {
-	const CONSENT_KEY = 'iwmCookieConsentV1';
-	const FORM_PATH = '/bezplatne-porownanie-ofert-myjni/';
-	const API_PATH = '/api/wyslij-analize';
+const CONSENT_KEY = 'iwmCookieConsentV1';
+const FORM_PATH = '/bezplatne-porownanie-ofert-myjni/';
+const API_PATH = '/api/wyslij-analize';
 
-	const hasAdsConversionLabel =
-		typeof adsConversionSendTo === 'string' &&
-		adsConversionSendTo.includes('/') &&
-		!adsConversionSendTo.includes('WKLEJ_TUTAJ');
+let googleTagLoaded = false;
+let googleTagConfigured = false;
 
-	function parseConsentValue(value) {
-		if (!value) {
-			return {
-				analytics: false,
-				ads: false
-			};
-		}
+window.dataLayer = window.dataLayer || [];
 
-		try {
-			const parsed = JSON.parse(value);
+function gtag() {
+window.dataLayer.push(arguments);
+}
 
-			const analytics =
-				parsed.analytics === true ||
-				parsed.statistics === true ||
-				parsed.statystyki === true ||
-				parsed.analytics_storage === 'granted' ||
-				parsed.mode === 'all' ||
-				parsed.status === 'accepted' ||
-				parsed.status === 'granted' ||
-				parsed.choice === 'all' ||
-				parsed.choice === 'accepted';
+window.gtag = window.gtag || gtag;
 
-			const ads =
-				parsed.marketing === true ||
-				parsed.ads === true ||
-				parsed.ad_storage === 'granted' ||
-				parsed.ad_user_data === 'granted' ||
-				parsed.ad_personalization === 'granted' ||
-				parsed.mode === 'all' ||
-				parsed.status === 'accepted' ||
-				parsed.status === 'granted' ||
-				parsed.choice === 'all' ||
-				parsed.choice === 'accepted';
+gtag('consent', 'default', {
+analytics_storage: 'denied',
+ad_storage: 'denied',
+ad_user_data: 'denied',
+ad_personalization: 'denied',
+wait_for_update: 500
+});
 
-			return {
-				analytics,
-				ads
-			};
-		} catch {
-			const raw = String(value).toLowerCase();
+function parseConsentValue(value) {
+if (!value) {
+return {
+analytics: false,
+ads: false
+};
+}
 
-			const rejected =
-				raw.includes('rejected') ||
-				raw.includes('reject') ||
-				raw.includes('denied') ||
-				raw.includes('deny') ||
-				raw.includes('declined');
+try {
+const parsed = JSON.parse(value);
 
-			const accepted =
-				raw === 'all' ||
-				raw === 'accepted' ||
-				raw === 'granted' ||
-				raw === 'accept-all' ||
-				raw.includes('"analytics":true') ||
-				raw.includes('"statistics":true') ||
-				raw.includes('"statystyki":true') ||
-				raw.includes('"status":"accepted"') ||
-				raw.includes('"choice":"all"');
+const analytics =
+parsed.analytics === true ||
+parsed.statistics === true ||
+parsed.statystyki === true ||
+parsed.analytics_storage === 'granted' ||
+parsed.mode === 'all' ||
+parsed.status === 'accepted' ||
+parsed.status === 'granted' ||
+parsed.choice === 'all' ||
+parsed.choice === 'accepted';
 
-			return {
-				analytics: accepted && !rejected,
-				ads: accepted && !rejected
-			};
-		}
-	}
+const ads =
+parsed.marketing === true ||
+parsed.ads === true ||
+parsed.ad_storage === 'granted' ||
+parsed.ad_user_data === 'granted' ||
+parsed.ad_personalization === 'granted' ||
+parsed.mode === 'all' ||
+parsed.status === 'accepted' ||
+parsed.status === 'granted' ||
+parsed.choice === 'all' ||
+parsed.choice === 'accepted';
 
-	function updateConsent(consent) {
-		window.gtag('consent', 'update', {
-			analytics_storage: consent.analytics ? 'granted' : 'denied',
-			ad_storage: consent.ads ? 'granted' : 'denied',
-			ad_user_data: consent.ads ? 'granted' : 'denied',
-			ad_personalization: consent.ads ? 'granted' : 'denied'
-		});
-	}
+return {
+analytics,
+ads
+};
+} catch {
+const raw = String(value).toLowerCase();
 
-	function readConsent() {
-		const storedConsent = window.localStorage.getItem(CONSENT_KEY);
-		updateConsent(parseConsentValue(storedConsent));
-	}
+const rejected =
+raw.includes('rejected') ||
+raw.includes('reject') ||
+raw.includes('denied') ||
+raw.includes('deny') ||
+raw.includes('declined') ||
+raw.includes('"analytics":false') ||
+raw.includes('"statistics":false') ||
+raw.includes('"statystyki":false');
 
-	function trackEvent(eventName, parameters = {}) {
-		window.gtag('event', eventName, {
-			...parameters,
-			page_location: window.location.href,
-			page_title: document.title
-		});
-	}
+const accepted =
+raw === 'all' ||
+raw === 'accepted' ||
+raw === 'granted' ||
+raw === 'accept-all' ||
+raw.includes('"analytics":true') ||
+raw.includes('"statistics":true') ||
+raw.includes('"statystyki":true') ||
+raw.includes('"analytics_storage":"granted"') ||
+raw.includes('"status":"accepted"') ||
+raw.includes('"choice":"all"');
 
-	function trackAdsConversion(parameters = {}) {
-		if (!hasAdsConversionLabel) return;
+return {
+analytics: accepted && !rejected,
+ads: accepted && !rejected
+};
+}
+}
 
-		window.gtag('event', 'conversion', {
-			send_to: adsConversionSendTo,
-			...parameters
-		});
-	}
+function loadGoogleTag() {
+if (googleTagLoaded) return;
 
-	window.iwmTrackEvent = trackEvent;
-	window.iwmTrackAdsConversion = trackAdsConversion;
+googleTagLoaded = true;
 
-	const originalSetItem = window.localStorage.setItem;
+const script = document.createElement('script');
+script.async = true;
+script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+document.head.appendChild(script);
+}
 
-	window.localStorage.setItem = function patchedSetItem(key, value) {
-		originalSetItem.apply(this, arguments);
+function configureGoogleTag() {
+if (googleTagConfigured) return;
 
-		if (key === CONSENT_KEY) {
-			updateConsent(parseConsentValue(value));
-		}
-	};
+googleTagConfigured = true;
 
-	document.addEventListener('click', (event) => {
-		const button = event.target.closest('button, a');
+gtag('js', new Date());
 
-		if (!button) return;
+gtag('config', measurementId, {
+send_page_view: true,
+page_title: document.title,
+page_location: window.location.href
+});
+}
 
-		const label = (button.textContent || '').trim().toLowerCase();
+function updateConsent(consent) {
+gtag('consent', 'update', {
+analytics_storage: consent.analytics ? 'granted' : 'denied',
+ad_storage: consent.ads ? 'granted' : 'denied',
+ad_user_data: consent.ads ? 'granted' : 'denied',
+ad_personalization: consent.ads ? 'granted' : 'denied'
+});
 
-		if (
-			label.includes('akceptuję wszystkie') ||
-			label.includes('akceptuje wszystkie') ||
-			label.includes('zaakceptuj wszystkie')
-		) {
-			updateConsent({
-				analytics: true,
-				ads: true
-			});
-		}
+if (consent.analytics) {
+loadGoogleTag();
+configureGoogleTag();
+}
+}
 
-		if (
-			label.includes('odrzuć') ||
-			label.includes('odrzuc') ||
-			label.includes('odmów') ||
-			label.includes('odmow')
-		) {
-			updateConsent({
-				analytics: false,
-				ads: false
-			});
-		}
+function readConsent() {
+const storedConsent = window.localStorage.getItem(CONSENT_KEY);
+updateConsent(parseConsentValue(storedConsent));
+}
 
-		const link = event.target.closest('a[href]');
+function trackEvent(eventName, parameters = {}) {
+if (!googleTagConfigured) return;
 
-		if (!link) return;
+gtag('event', eventName, {
+...parameters,
+page_location: window.location.href,
+page_title: document.title
+});
+}
 
-		const href = link.getAttribute('href') || '';
+window.iwmTrackEvent = trackEvent;
 
-		if (href.includes(FORM_PATH)) {
-			trackEvent('cta_bezplatna_analiza_click', {
-				link_url: link.href,
-				link_text: (link.textContent || '').trim().slice(0, 120)
-			});
-		}
-	});
+const originalSetItem = window.localStorage.setItem;
 
-	const originalFetch = window.fetch;
+window.localStorage.setItem = function patchedSetItem(key, value) {
+originalSetItem.apply(this, arguments);
 
-	window.fetch = async function patchedFetch(...args) {
-		const response = await originalFetch.apply(this, args);
+if (key === CONSENT_KEY) {
+updateConsent(parseConsentValue(value));
+}
+};
 
-		try {
-			const request = args[0];
+document.addEventListener('click', (event) => {
+const button = event.target.closest('button, a');
 
-			const requestUrl =
-				typeof request === 'string'
-					? request
-					: request && request.url
-						? request.url
-						: '';
+if (!button) return;
 
-			const pathname = new URL(requestUrl, window.location.href).pathname;
+const label = (button.textContent || '').trim().toLowerCase();
 
-			if (pathname.includes(API_PATH) && response.ok) {
-				const formName = 'bezplatna_analiza_i_porownanie_ofert_myjni';
+if (
+label.includes('akceptuję wszystkie') ||
+label.includes('akceptuje wszystkie') ||
+label.includes('zaakceptuj wszystkie')
+) {
+updateConsent({
+analytics: true,
+ads: true
+});
+}
 
-				trackEvent('generate_lead', {
-					form_name: formName
-				});
+if (
+label.includes('odrzuć') ||
+label.includes('odrzuc') ||
+label.includes('odmów') ||
+label.includes('odmow')
+) {
+updateConsent({
+analytics: false,
+ads: false
+});
+}
 
-				trackEvent('formularz_analizy_wyslany', {
-					form_name: formName
-				});
+const link = event.target.closest('a[href]');
 
-				trackAdsConversion({
-					form_name: formName
-				});
-			}
-		} catch {
-			// celowo puste
-		}
+if (!link) return;
 
-		return response;
-	};
+const href = link.getAttribute('href') || '';
 
-	readConsent();
+if (href.includes(FORM_PATH)) {
+trackEvent('cta_bezplatna_analiza_click', {
+link_url: link.href,
+link_text: (link.textContent || '').trim().slice(0, 120)
+});
+}
+});
+
+const originalFetch = window.fetch;
+
+window.fetch = async function patchedFetch(...args) {
+const response = await originalFetch.apply(this, args);
+
+try {
+const request = args[0];
+const requestUrl =
+typeof request === 'string'
+? request
+: request && request.url
+? request.url
+: '';
+
+const pathname = new URL(requestUrl, window.location.href).pathname;
+
+if (pathname.includes(API_PATH) && response.ok) {
+trackEvent('generate_lead', {
+form_name: 'bezplatna_analiza_i_porownanie_ofert_myjni'
+});
+
+trackEvent('formularz_analizy_wyslany', {
+form_name: 'bezplatna_analiza_i_porownanie_ofert_myjni'
+});
+}
+} catch {
+// celowo puste
+}
+
+return response;
+};
+
+readConsent();
 })();
 </script>
